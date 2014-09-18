@@ -4,7 +4,6 @@ using namespace std;
 
 std::shared_ptr<Application> Application::m_app = nullptr;
 
-
 shared_ptr<Application> Application::getSingleton()
 {
 	if(!m_app)
