@@ -5,5 +5,5 @@ cache: apt
 before-install:
         - sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ trusty main universe"
 script:
-        - sudo apt-get install -f -y g++ glfw
+        - sudo apt-get install -f -y g++ libglfw-dev libglfw2
         - mkdir build && cd build && cmake .. && make -j2
