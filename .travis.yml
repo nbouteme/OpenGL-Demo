@@ -1,5 +1,8 @@
 language: cpp
 compiler:
   - gcc
+cache: apt
 
-script: mkdir build && cd build && cmake .. && make -j2
+script:
+        - sudo apt-get install -f -y g++
+        - mkdir build && cd build && cmake .. && make -j2
