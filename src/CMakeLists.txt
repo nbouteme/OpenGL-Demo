@@ -5,6 +5,8 @@ LINK_DIRECTORIES (
 INCLUDE_DIRECTORIES (${PROJECT_BINARY_DIR})
 
 ADD_EXECUTABLE ( ${PROJECT_NAME}
+	GLWindow.cpp
+	Application.cpp
 	main.cpp
 	)
 
