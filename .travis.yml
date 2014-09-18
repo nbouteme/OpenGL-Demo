@@ -2,8 +2,11 @@ language: cpp
 compiler:
   - gcc
 cache: apt
-before-install: - sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ 
-trusty main universe"
+before_install:
+        - lsb_release -sc
+        - sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ trusty main universe"
+        - sudo apt-get clean
+        - sudo apt-get update
 script:
-        - sudo apt-get install -f -y g++ glfw
+        - sudo apt-get install -f -y g++ libglfw-dev libglfw2
         - mkdir build && cd build && cmake .. && make -j2
