@@ -2,7 +2,8 @@ language: cpp
 compiler:
   - gcc
 cache: apt
-
+before-install: - sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ 
+trusty main universe"
 script:
-        - sudo apt-get install -f -y g++
+        - sudo apt-get install -f -y g++ glfw
         - mkdir build && cd build && cmake .. && make -j2
