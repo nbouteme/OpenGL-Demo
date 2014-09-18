@@ -11,28 +11,25 @@ PROJECT (opengl-demo)
 
 ############################################################
 
-# Options
-
 # Set compiler flags
-SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -Wall")
+SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -Wall -Wextra -pedantic -fno-exceptions")
 
-# Fuck libboost for not providing boost.pc or fucking something
-# Find libraries the proper way
 INCLUDE (FindPkgConfig)
+
+PKG_SEARCH_MODULE(GLFW REQUIRED glfw3)
+PKG_SEARCH_MODULE(GL REQUIRED gl)
+
 
 # Compiler options
 LINK_DIRECTORIES (
-#	${_LIBRARY_DIRS}
 	${CMAKE_SOURCE_DIRECTORY}
 	)
 
-#ADD_DEFINITIONS (
-#	${CFLAGS}
-#	)
 
-#INCLUDE_DIRECTORIES (
-#	${_INCLUDE_DIRS}
-#	${LIBTORRENT_INCLUDE_DIRS}
-#	)
+INCLUDE_DIRECTORIES (
+	${GLFW_INCLUDE_DIRS}
+	${GL_INCLUDE_DIRS}
+	)
+
 
 ADD_SUBDIRECTORY (src)
