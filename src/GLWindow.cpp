@@ -1,8 +1,8 @@
 #define GLEW_STATIC
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "GLWindow.hpp"
-#include <iostream>
+
+#include <GLWindow.hpp>
 
 int GLWindow::run(int argc, char **argv)
 {
@@ -22,19 +22,18 @@ int GLWindow::run(int argc, char **argv)
 	glfwMakeContextCurrent(m_win);
 	glewInit();
 
-	GLuint vertexBuffer = 0;
-	glGenBuffers(1, &vertexBuffer);
-	printf("%u\n", vertexBuffer);
-
-
 	while(!glfwWindowShouldClose(m_win))
 	{
 		glfwSwapBuffers(m_win);
 		glfwPollEvents();
 		if (glfwGetKey(m_win, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 			glfwSetWindowShouldClose(m_win, GL_TRUE);
+
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
+
+		
+
 	}
 
 	glfwTerminate();

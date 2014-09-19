@@ -8,14 +8,14 @@ endif (COMMAND cmake_policy)
 
 PROJECT (opengl-demo)
 
-
 ############################################################
 
-# Set compiler flags
-SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -Wall -Wextra -pedantic -fno-exceptions")
+SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -Wall -Wextra -pedantic -fno-exceptions -DGLM_FORCE_RADIANS")
+
+FIND_PACKAGE(OpenGL REQUIRED)
+FIND_PACKAGE(GLM REQUIRED)
 
 INCLUDE (FindPkgConfig)
-
 PKG_SEARCH_MODULE(GLFW REQUIRED glfw3)
 PKG_SEARCH_MODULE(GL REQUIRED gl)
 PKG_SEARCH_MODULE(GLEW REQUIRED glew)
@@ -28,6 +28,7 @@ LINK_DIRECTORIES (
 
 
 INCLUDE_DIRECTORIES (
+	${PROJECT_SOURCE_DIR}/include
 	${GLFW_INCLUDE_DIRS}
 	${GL_INCLUDE_DIRS}
 	${GLEW_INCLUDE_DIRS}
@@ -35,3 +36,4 @@ INCLUDE_DIRECTORIES (
 
 
 ADD_SUBDIRECTORY (src)
+ADD_SUBDIRECTORY (assets)

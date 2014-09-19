@@ -26,3 +26,11 @@
 *.exe
 *.out
 *.app
+
+# Fichier Temporaires d'emacs
+*~
+*\~
+#*#
+
+# Dossier de build
+build
