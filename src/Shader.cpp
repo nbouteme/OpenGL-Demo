@@ -6,12 +6,14 @@
 #include <cassert>
 #include <cstdlib>
 #include <cstdio>
+#include <cstring>
+#include <iostream>
+
 
 Shader::Shader(const char *vs, const char *ps, const char *gs)
 {
 	assert(vs);
 	assert(ps);
-
 	int status;
 
 	m_vertexId = glCreateShader(GL_VERTEX_SHADER);
@@ -48,6 +50,10 @@ Shader::Shader(const char *vs, const char *ps, const char *gs)
 
 	glBindFragDataLocation(m_shaderId, 0, "outColor");
 	glLinkProgram(m_shaderId);
+
+	glGetProgramiv(m_shaderId, GL_LINK_STATUS, &status);
+	if(!status)
+		assert(false);
 }
 
 void Shader::dumpShaderErrorLog(int shaderId)

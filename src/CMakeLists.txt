@@ -14,7 +14,9 @@ ADD_EXECUTABLE ( ${PROJECT_NAME}
 	Application.cpp
 	Model.cpp
 	Scene.cpp
+	Camera.cpp
 	Shader.cpp
+	Mesh.cpp
 	main.cpp
 	)
 

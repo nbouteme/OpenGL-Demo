@@ -2,5 +2,6 @@
 
 void Scene::render(const Camera &cam)
 {
-	(void)cam;
+	for(auto model : m_models)
+		model->draw(cam.getView());
 }

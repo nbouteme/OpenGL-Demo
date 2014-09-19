@@ -1,20 +1,26 @@
 #pragma once
 
+#include <memory>
 #include <vector>
 #include <string>
 
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+
 #include <DrawableComponent.hpp>
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
 
 class Model : DrawableComponent
 {
-	unsigned m_vao = 0, m_vbo = 0, m_ebo = -1;
 public:
 	glm::mat4 m_modelMatrix;
-	virtual ~Model() {};
-	virtual void draw() = 0;
+/*	Model(const Model &) = default;
+	Model(Model &&) = default;
+	Model() = default;
+//	virtual ~Model() {};
+*/	virtual void draw(glm::mat4 view) = 0;
 protected:
+	unsigned m_vao = 0, m_vbo = 0, m_ebo = -1;
+
 	Model(const std::string &OBJFilename);
 	Model(const float *vData, unsigned vsize, const unsigned *elements = nullptr, unsigned esize = 0);
 	Model(const std::vector<float> &vData);
