@@ -9,7 +9,8 @@ Model::Model(const string &OBJFilename)
 	abort();
 }
 
-Model::Model(const float *vData, unsigned vsize, const unsigned *elements, unsigned esize)
+Model::Model(const float *vData, unsigned vsize, 
+			 const unsigned *elements, unsigned esize)
 {
 	glGenVertexArrays(1, &m_vao);
 	glGenBuffers     (1, &m_vbo);
@@ -31,6 +32,16 @@ Model::Model(const float *vData, unsigned vsize, const unsigned *elements, unsig
 Model::Model(const vector<float> &vData) : Model(vData.data(), vData.size())
 {}
 
-Model::Model(const vector<float> &vData, const vector<unsigned> &elements) : Model(vData.data(), vData.size(), elements.data(), elements.size())
+Model::Model(const vector<float> &vData, const vector<unsigned> &elements) :
+	Model(vData.data(), vData.size(), elements.data(), elements.size())
 {}
 
+Model::~Model()
+{
+	glDeleteBuffers(1, &m_vao);
+
+	if(m_ebo != -1U)
+		glDeleteBuffers(1, &m_ebo);
+
+	glDeleteVertexArrays(1, &m_vao);
+}

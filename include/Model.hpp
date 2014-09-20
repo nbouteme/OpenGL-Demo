@@ -12,14 +12,14 @@
 class Model : DrawableComponent
 {
 public:
-	glm::mat4 m_modelMatrix;
-/*	Model(const Model &) = default;
-	Model(Model &&) = default;
-	Model() = default;
-//	virtual ~Model() {};
-*/	virtual void draw(glm::mat4 view) = 0;
+	Model()              = default;
+	Model(Model &&)      = default;
+	Model(const Model &) = default;
+	virtual ~Model();
+	virtual void draw(glm::mat4 view) = 0;
 protected:
 	unsigned m_vao = 0, m_vbo = 0, m_ebo = -1;
+	glm::mat4 m_modelMatrix;
 
 	Model(const std::string &OBJFilename);
 	Model(const float *vData, unsigned vsize, const unsigned *elements = nullptr, unsigned esize = 0);

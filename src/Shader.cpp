@@ -12,8 +12,6 @@
 
 Shader::Shader(const char *vs, const char *ps, const char *gs)
 {
-	assert(vs);
-	assert(ps);
 	int status;
 
 	m_vertexId = glCreateShader(GL_VERTEX_SHADER);
@@ -63,7 +61,24 @@ void Shader::dumpShaderErrorLog(int shaderId)
 	do
 	{
 		glGetShaderInfoLog(shaderId, 512, &lastSize, buff);
-		printf("%s\n", buff);
+		printf("%s", buff); // Pas vraiment sur si le decoupage est correcte, 
+		                    //j'ai jamais eu d'erreur de plus de 512 caracteres.
 	} while(lastSize == 511);
+	puts("");
+
 	abort();
+}
+
+Shader::~Shader()
+{
+	glDeleteShader(m_vertexId);
+	glDeleteShader(m_pixelId);
+
+	if(m_geometryId != -1U)
+		glDeleteShader(m_geometryId);
+
+	glDeleteShader(m_vertexId);
+	glDeleteShader(m_pixelId);
+
+	glDeleteProgram(m_shaderId);
 }
