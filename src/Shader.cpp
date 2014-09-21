@@ -20,6 +20,10 @@ Shader::Shader(const char *vs, const char *ps, const char *gs)
 	glShaderSource(m_vertexId, 1, &vs, nullptr);
 	glShaderSource(m_pixelId , 1, &ps, nullptr);
 
+	/*
+	 * Le pilote libre d'intel a l'air de leaker 5 octets a
+	 * chaque appel de glCompileShader...
+	 */
 	glCompileShader(m_vertexId);
 	glGetShaderiv(m_vertexId, GL_COMPILE_STATUS, &status);
 	if(!status)

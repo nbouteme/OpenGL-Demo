@@ -45,3 +45,10 @@ Model::~Model()
 
 	glDeleteVertexArrays(1, &m_vao);
 }
+
+void Model::rotateX      (float angle) { m_modelMatrix = glm::rotate(   m_modelMatrix, angle, glm::vec3(1.0f,         0.0f,     0.0f));}
+void Model::rotateY      (float angle) { m_modelMatrix = glm::rotate(   m_modelMatrix, angle, glm::vec3(0.0f,         1.0f,     0.0f));}
+void Model::rotateZ      (float angle) { m_modelMatrix = glm::rotate(   m_modelMatrix, angle, glm::vec3(0.0f,         0.0f,     1.0f));}
+void Model::translateX(float distance) { m_modelMatrix = glm::translate(m_modelMatrix,        glm::vec3(distance,     0.0f,     0.0f));}
+void Model::translateY(float distance) { m_modelMatrix = glm::translate(m_modelMatrix,        glm::vec3(    0.0f, distance,     0.0f));}
+void Model::translateZ(float distance) { m_modelMatrix = glm::translate(m_modelMatrix,        glm::vec3(    0.0f,     0.0f, distance));}

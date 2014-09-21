@@ -28,9 +28,17 @@ int GLWindow::run(int argc, char **argv)
 	glewInit();
 
 	auto triangle = std::make_shared<Mesh>();
+	auto triangle2 = std::make_shared<Mesh>();
+	auto triangle3 = std::make_shared<Mesh>();
 	Camera cam;
 	Scene sc;
 	sc.addModel(triangle);
+	sc.addModel(triangle2);
+	sc.addModel(triangle3);
+
+	triangle2->translateX(1.0f);
+	triangle3->translateX(0.5f);
+	triangle3->translateY(0.866025f);
 
 	while(!glfwWindowShouldClose(m_win))
 	{

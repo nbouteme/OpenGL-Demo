@@ -10,11 +10,13 @@ extern char baseVS_glsl[];
 extern unsigned int baseFS_glsl_len; // leurs tailles
 extern unsigned int baseVS_glsl_len;
 
+
+// 0.8660254 = sin(60) pour avoir un triangle quilaterial
 const float tri[] = 
 {
-	 0.0,  0.5, 0.0,
-	 0.5,  -0.5, 0.0,
-	-0.5, -0.5, 0.0
+	-0.5f, -0.866025f/2, 0.0f,
+	 0.5f, -0.866025f/2, 0.0f,
+	 0.0f,  0.866025f/2, 0.0f
 };
 
 using namespace std;

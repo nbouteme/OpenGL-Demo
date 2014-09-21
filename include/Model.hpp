@@ -17,6 +17,15 @@ public:
 	Model(const Model &) = default;
 	virtual ~Model();
 	virtual void draw(glm::mat4 view) = 0;
+
+	// Utiliser seulement pour positionner sur la scene
+	void rotateX(float angle = 0.1f);
+	void rotateY(float angle = 0.1f);
+	void rotateZ(float angle = 0.1f);
+	void translateX(float distance = 0.1f);
+	void translateY(float distance = 0.1f);
+	void translateZ(float distance = 0.1f);
+
 protected:
 	unsigned m_vao = 0, m_vbo = 0, m_ebo = -1;
 	glm::mat4 m_modelMatrix;
