@@ -6,10 +6,11 @@
 class Mesh : public Model
 {
 	std::shared_ptr<Shader> m_shader;
+	int m_uniModel, m_uniView, m_uniProj;
 public:
-	// FIXME: Ce constructeur n'est la que pour demonstration
+	// FIXME: Cette classe n'est la que pour demonstration
 	Mesh();
 	Mesh(const Mesh &) = default;
 	Mesh(Mesh &&) = default;
-	virtual void draw(glm::mat4 view);
+	virtual void draw(const Camera &);
 };

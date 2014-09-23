@@ -1,12 +1,39 @@
 #include <Model.hpp>
+#include <OBJData.hpp>
 
+#include <unistd.h>
+#include <sys/fcntl.h>
+#include <iostream>
 using namespace std;
 
-Model::Model(const string &OBJFilename)
+Model::Model(const string &OBJSource)
 {
-	(void)OBJFilename;
-	// TODO: Implementer un parser pour le format OBJ
-	abort();
+
+	/* Restrictions:
+	 * -Un seul objet par fichier.
+	 * -Seulement des sommets, faces et normales (Ces dernieres seront 
+	    eventuellement utilisee pour le SSAO).
+	 * -Les faces sont des triangles
+	 * -Les coordonees de textures sont permises
+	 */
+
+	auto objd = make_shared<OBJData>(OBJSource);
+
+	vector<float>  data = objd->getData();
+
+	vertNum = data.size();
+
+	glGenVertexArrays(1, &m_vao);
+	glGenBuffers     (1, &m_vbo);
+
+	glBindVertexArray(m_vao);
+	glBindBuffer     (GL_ARRAY_BUFFER, m_vbo);
+
+	glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(float), &data[0], GL_STATIC_DRAW);
+
+	glVertexAttribPointer(0, 3, GL_FLOAT, false, 0, nullptr);
+    glEnableVertexAttribArray(0);
+	glBindVertexArray(0);
 }
 
 Model::Model(const float *vData, unsigned vsize, 
@@ -24,9 +51,14 @@ Model::Model(const float *vData, unsigned vsize,
 	if(elements)
 	{
 		glGenBuffers     (1, &m_ebo);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, esize, elements, GL_STATIC_DRAW);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ebo);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, esize * sizeof(int), elements, GL_STATIC_DRAW);
 	}
+
+	glVertexAttribPointer(0, 3, GL_FLOAT, false, 0, nullptr);
+    glEnableVertexAttribArray(0);
+	glBindVertexArray(0);
+
 }
 
 Model::Model(const vector<float> &vData) : Model(vData.data(), vData.size())

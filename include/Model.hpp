@@ -16,7 +16,7 @@ public:
 	Model(Model &&)      = default;
 	Model(const Model &) = default;
 	virtual ~Model();
-	virtual void draw(glm::mat4 view) = 0;
+	virtual void draw(const Camera &cam) = 0;
 
 	// Utiliser seulement pour positionner sur la scene
 	void rotateX(float angle = 0.1f);
@@ -29,6 +29,7 @@ public:
 protected:
 	unsigned m_vao = 0, m_vbo = 0, m_ebo = -1;
 	glm::mat4 m_modelMatrix;
+	int vertNum, faceNum;
 
 	Model(const std::string &OBJFilename);
 	Model(const float *vData, unsigned vsize, const unsigned *elements = nullptr, unsigned esize = 0);

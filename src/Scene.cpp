@@ -1,7 +1,8 @@
 #include <Scene.hpp>
 
-void Scene::render(const Camera &cam)
+void Scene::render(Camera &cam)
 {
+	cam.update();
 	for(auto model : m_models)
-		model->draw(cam.getView());
+		model->draw(cam);
 }

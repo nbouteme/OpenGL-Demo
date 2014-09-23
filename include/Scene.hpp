@@ -12,7 +12,7 @@ class Scene
 	std::set<std::shared_ptr<Model>> m_models;
 public:
 
-	void render(const Camera &cam);
+	void render(Camera &cam);
 	std::set<std::shared_ptr<Model>> getModels() { return m_models; }
 
 	void addModel(const std::shared_ptr<Model> &model)

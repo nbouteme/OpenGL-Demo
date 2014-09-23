@@ -6,51 +6,49 @@
 
 extern char baseFS_glsl[]; // Code source des shader
 extern char baseVS_glsl[];
+extern char cube_obj[];
 
 extern unsigned int baseFS_glsl_len; // leurs tailles
 extern unsigned int baseVS_glsl_len;
+extern unsigned int cube_obj_len;
 
-
-// 0.8660254 = sin(60) pour avoir un triangle quilaterial
 const float tri[] = 
 {
-	-0.5f, -0.866025f/2, 0.0f,
-	 0.5f, -0.866025f/2, 0.0f,
-	 0.0f,  0.866025f/2, 0.0f
+	-0.5f, -0.866025f / 2, 0.0f,
+	 0.5f, -0.866025f / 2, 0.0f,
+	 0.0f,  0.866025f / 2, 0.0f
 };
 
 using namespace std;
 using namespace glm;
 
-Mesh::Mesh() : 
-	Model(tri, 9),
+Mesh::Mesh() :
+	Model(string(cube_obj, cube_obj_len)),
+//	Model(tri, 9),
 	m_shader(make_shared<Shader>(string(baseVS_glsl, baseVS_glsl_len).c_str(), 
 								 string(baseFS_glsl, baseFS_glsl_len).c_str()))
 {
-	glVertexAttribPointer(0, 3, GL_FLOAT, false, 0, nullptr);
-    glEnableVertexAttribArray(0);
-	glBindVertexArray(0);
+	m_uniModel = glGetUniformLocation(m_shader->getProgramid(),      "model");
+	m_uniView  = glGetUniformLocation(m_shader->getProgramid(),       "view");
+	m_uniProj  = glGetUniformLocation(m_shader->getProgramid(), "projection");
+
 }
 
-void Mesh::draw(mat4 view)
+void Mesh::draw(const Camera &cam)
 {
 	glBindVertexArray(m_vao);
 	glUseProgram(m_shader->getProgramid());
 
-	// TODO: Separer la mise a jour des uniforms du dessin
-	int uModel = glGetUniformLocation(m_shader->getProgramid(), "model");
-	glUniformMatrix4fv(uModel, 1, GL_FALSE, value_ptr(m_modelMatrix));
+	glUniformMatrix4fv(m_uniModel, 1, GL_FALSE, value_ptr(m_modelMatrix));
+	glUniformMatrix4fv(m_uniView,  1, GL_FALSE, value_ptr(cam.getView()));
+	glUniformMatrix4fv(m_uniProj,  1, GL_FALSE, value_ptr(cam.getProjection()));
 
-	int uView = glGetUniformLocation(m_shader->getProgramid(), "view");
-	glUniformMatrix4fv(uView, 1, GL_FALSE, value_ptr(view));
-
-	int uProj = glGetUniformLocation(m_shader->getProgramid(), "projection");
-	glUniformMatrix4fv(uProj, 1, GL_FALSE, value_ptr(Camera::m_projection));
+//	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 	if(m_ebo != -1U)
-		glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_TRIANGLES, 18, GL_UNSIGNED_INT, 0);
 	else
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+		glDrawArrays(GL_TRIANGLES, 0, vertNum);
 
 	glBindVertexArray(0);
 }

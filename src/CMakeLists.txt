@@ -17,6 +17,7 @@ ADD_EXECUTABLE ( ${PROJECT_NAME}
 	Camera.cpp
 	Shader.cpp
 	Mesh.cpp
+	utils/OBJData.cpp
 	main.cpp
 	)
 
