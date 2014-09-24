@@ -37,8 +37,8 @@ Normal parseNormal(vector<string>::iterator &it)
 VGroup parseVGroup(vector<string>::iterator &it)
 {
 	int vertIdx = -1, texIdx = -1, normIdx = -1;
-
 	vertIdx = stoi(*it++);
+
 	if(*it == "/") // on a des uv ou des normals
 	{
 		++it;
@@ -50,6 +50,7 @@ VGroup parseVGroup(vector<string>::iterator &it)
 			if(*it == "/")
 				normIdx = stoi(*++it);
 		}
+		++it;
 	}
 
 	return { vertIdx, texIdx, normIdx };
@@ -95,10 +96,10 @@ OBJData::OBJData(const string &objFile)
 			m_faces.push_back(parseFace(it));
 			break;
 		case 'v':
-			switch(it[0][0])
+			switch(it[1][0])
 			{
 			case 'n':
-				m_normals.push_back(parseNormal(it));
+				m_normals.push_back(parseNormal(++it));
 				break;
 			case 't':
 				m_text.push_back(parseTexUV(it));
@@ -129,12 +130,18 @@ vector<float> OBJData::getData()
 
 			// TODO: Ya un truc quelque part qui foire avec 
 			// les normales et les coordonnees de textures
-			data.push_back(!m_text   .empty() ? m_text   [vgroup[1] - 1].u : 0.0f);
-			data.push_back(!m_text   .empty() ? m_text   [vgroup[1] - 1].v : 0.0f);
-			data.push_back(!m_normals.empty() ? m_normals[vgroup[2] - 1].x : 0.0f);
-			data.push_back(!m_normals.empty() ? m_normals[vgroup[2] - 1].y : 0.0f);
-			data.push_back(!m_normals.empty() ? m_normals[vgroup[2] - 1].z : 0.0f);
+			data.push_back(!m_text   .empty() && vgroup[1] != -1 ? m_text   [vgroup[1] - 1].u : 0.0f);
+			data.push_back(!m_text   .empty() && vgroup[1] != -1 ? m_text   [vgroup[1] - 1].v : 0.0f);
+			data.push_back(!m_normals.empty() && vgroup[2] != -1 ? m_normals[vgroup[2] - 1].x : 0.0f);
+			data.push_back(!m_normals.empty() && vgroup[2] != -1 ? m_normals[vgroup[2] - 1].y : 0.0f);
+			data.push_back(!m_normals.empty() && vgroup[2] != -1 ? m_normals[vgroup[2] - 1].z : 0.0f);
 		}
+
+	int i = 0;
+	for(i = 0; i < data.size() ; i += 8)
+	{
+		std::cout << data[i] << ' ' << data[i + 1] << ' ' << data[i + 2] << std::endl;
+	}
 
 	return data;
 }
