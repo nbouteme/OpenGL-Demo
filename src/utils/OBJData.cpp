@@ -129,12 +129,12 @@ vector<float> OBJData::getData()
 
 			// TODO: Ya un truc quelque part qui foire avec 
 			// les normales et les coordonnees de textures
-/*			data.push_back(!m_text   .empty() ? m_text   [vgroup[1] - 1].u : 0.0f);
+			data.push_back(!m_text   .empty() ? m_text   [vgroup[1] - 1].u : 0.0f);
 			data.push_back(!m_text   .empty() ? m_text   [vgroup[1] - 1].v : 0.0f);
 			data.push_back(!m_normals.empty() ? m_normals[vgroup[2] - 1].x : 0.0f);
 			data.push_back(!m_normals.empty() ? m_normals[vgroup[2] - 1].y : 0.0f);
 			data.push_back(!m_normals.empty() ? m_normals[vgroup[2] - 1].z : 0.0f);
-*/		}
+		}
 
 	return data;
 }

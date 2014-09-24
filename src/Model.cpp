@@ -31,8 +31,15 @@ Model::Model(const string &OBJSource)
 
 	glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(float), &data[0], GL_STATIC_DRAW);
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, false, 0, nullptr);
+	glVertexAttribPointer(0, 3, GL_FLOAT, false, 32, nullptr);
     glEnableVertexAttribArray(0);
+
+	glVertexAttribPointer(1, 2, GL_FLOAT, false, 32, (void *)12);
+    glEnableVertexAttribArray(0);
+
+	glVertexAttribPointer(2, 3, GL_FLOAT, false, 32, (void *)20);
+    glEnableVertexAttribArray(0);
+
 	glBindVertexArray(0);
 }
 
