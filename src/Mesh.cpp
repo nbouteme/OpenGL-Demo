@@ -31,7 +31,7 @@ Mesh::Mesh() :
 	m_uniModel = glGetUniformLocation(m_shader->getProgramid(),      "model");
 	m_uniView  = glGetUniformLocation(m_shader->getProgramid(),       "view");
 	m_uniProj  = glGetUniformLocation(m_shader->getProgramid(), "projection");
-
+	m_univPos  = glGetUniformLocation(m_shader->getProgramid(),    "viewPos");
 }
 
 void Mesh::draw(const Camera &cam)
@@ -42,6 +42,7 @@ void Mesh::draw(const Camera &cam)
 	glUniformMatrix4fv(m_uniModel, 1, GL_FALSE, value_ptr(m_modelMatrix));
 	glUniformMatrix4fv(m_uniView,  1, GL_FALSE, value_ptr(cam.getView()));
 	glUniformMatrix4fv(m_uniProj,  1, GL_FALSE, value_ptr(cam.getProjection()));
+	glUniform3f(m_univPos, cam.getPosition().x, cam.getPosition().y, cam.getPosition().z);
 
 //	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 

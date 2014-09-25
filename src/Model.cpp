@@ -8,15 +8,6 @@ using namespace std;
 
 Model::Model(const string &OBJSource)
 {
-
-	/* Restrictions:
-	 * -Un seul objet par fichier.
-	 * -Seulement des sommets, faces et normales (Ces dernieres seront 
-	    eventuellement utilisee pour le SSAO).
-	 * -Les faces sont des triangles
-	 * -Les coordonees de textures sont permises
-	 */
-
 	auto objd = make_shared<OBJData>(OBJSource);
 
 	vector<float>  data = objd->getData();
@@ -35,10 +26,10 @@ Model::Model(const string &OBJSource)
     glEnableVertexAttribArray(0);
 
 	glVertexAttribPointer(1, 2, GL_FLOAT, false, 32, (void *)12);
-    glEnableVertexAttribArray(0);
+    glEnableVertexAttribArray(1);
 
 	glVertexAttribPointer(2, 3, GL_FLOAT, false, 32, (void *)20);
-    glEnableVertexAttribArray(0);
+    glEnableVertexAttribArray(2);
 
 	glBindVertexArray(0);
 }
@@ -84,10 +75,13 @@ Model::~Model()
 
 	glDeleteVertexArrays(1, &m_vao);
 }
-
-void Model::rotateX      (float angle) { m_modelMatrix = glm::rotate(   m_modelMatrix, angle, glm::vec3(1.0f,         0.0f,     0.0f));}
-void Model::rotateY      (float angle) { m_modelMatrix = glm::rotate(   m_modelMatrix, angle, glm::vec3(0.0f,         1.0f,     0.0f));}
-void Model::rotateZ      (float angle) { m_modelMatrix = glm::rotate(   m_modelMatrix, angle, glm::vec3(0.0f,         0.0f,     1.0f));}
+ 
+void Model::scaleX       (float scale) { m_modelMatrix = glm::scale(    m_modelMatrix,        glm::vec3(   scale,     1.0f,     1.0f));}
+void Model::scaleY       (float scale) { m_modelMatrix = glm::scale(    m_modelMatrix,        glm::vec3(    1.0f,    scale,     1.0f));}
+void Model::scaleZ       (float scale) { m_modelMatrix = glm::scale(    m_modelMatrix,        glm::vec3(    1.0f,     1.0f,    scale));}
+void Model::rotateX      (float angle) { m_modelMatrix = glm::rotate(   m_modelMatrix, angle, glm::vec3(    1.0f,     0.0f,     0.0f));}
+void Model::rotateY      (float angle) { m_modelMatrix = glm::rotate(   m_modelMatrix, angle, glm::vec3(    0.0f,     1.0f,     0.0f));}
+void Model::rotateZ      (float angle) { m_modelMatrix = glm::rotate(   m_modelMatrix, angle, glm::vec3(    0.0f,     0.0f,     1.0f));}
 void Model::translateX(float distance) { m_modelMatrix = glm::translate(m_modelMatrix,        glm::vec3(distance,     0.0f,     0.0f));}
 void Model::translateY(float distance) { m_modelMatrix = glm::translate(m_modelMatrix,        glm::vec3(    0.0f, distance,     0.0f));}
 void Model::translateZ(float distance) { m_modelMatrix = glm::translate(m_modelMatrix,        glm::vec3(    0.0f,     0.0f, distance));}

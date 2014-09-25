@@ -34,12 +34,23 @@ int GLWindow::run(int argc, char **argv)
 	glewInit();
 
 	auto triangle  = make_shared<Mesh>();
+	auto li  = make_shared<Mesh>();
+
+	li->translateX(2.0f);
+	li->translateY(3.0f);
+	li->translateZ(1.0f);
+
+	li->scaleX(0.1f);
+	li->scaleY(0.1f);
+	li->scaleZ(0.1f);
+
 	Camera cam(this);
 	Scene sc;
 	sc.addModel(triangle);
+	sc.addModel(li);
 
-	// TODO: regler le bug d'import OBJ
-	// TODO: Deplacer la gestion des entree en dehors de la boucle principale
+
+	glEnable(GL_DEPTH_TEST);
 	// TODO: activer le depth test
 	// TODO: lumieres
 	// TODO: Rendre scene derivable, pour deplacer la creation des mesh dedans
@@ -50,8 +61,8 @@ int GLWindow::run(int argc, char **argv)
 		glfwPollEvents();
 		if (glfwGetKey(m_win, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 			glfwSetWindowShouldClose(m_win, GL_TRUE);
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		sc.render(cam);
 
@@ -59,5 +70,5 @@ int GLWindow::run(int argc, char **argv)
 	}
 
 	glfwTerminate();
-	return 0;	
+	return 0;
 }

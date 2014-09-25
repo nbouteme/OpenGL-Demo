@@ -36,5 +36,4 @@ class OBJData
 public:
 	OBJData(const std::string &);
 	std::vector<float> getData();
-	std::vector<int> getElements();
 };

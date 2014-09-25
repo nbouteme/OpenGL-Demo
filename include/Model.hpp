@@ -19,9 +19,13 @@ public:
 	virtual void draw(const Camera &cam) = 0;
 
 	// Utiliser seulement pour positionner sur la scene
-	void rotateX(float angle = 0.1f);
-	void rotateY(float angle = 0.1f);
-	void rotateZ(float angle = 0.1f);
+
+	void scaleX    (float scale = 0.2f);
+	void scaleY    (float scale = 0.2f);
+	void scaleZ    (float scale = 0.2f);
+	void rotateX   (float angle = 0.1f);
+	void rotateY   (float angle = 0.1f);
+	void rotateZ   (float angle = 0.1f);
 	void translateX(float distance = 0.1f);
 	void translateY(float distance = 0.1f);
 	void translateZ(float distance = 0.1f);

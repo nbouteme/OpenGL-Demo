@@ -27,6 +27,6 @@ void Camera::update()
 	m_position += delta;
 
 	m_view = glm::lookAt(m_position,
-					   m_center,
-					   glm::vec3(0.0f, 0.0f, 1.0f));
+						 m_center,
+						 glm::vec3(0.0f, 0.0f, 1.0f));
 }

@@ -140,21 +140,12 @@ vector<float> OBJData::getData()
 	int i = 0;
 	for(i = 0; i < data.size() ; i += 8)
 	{
-		std::cout << data[i] << ' ' << data[i + 1] << ' ' << data[i + 2] << std::endl;
+		std::cout << "-----------------------\n" <<
+			data[i]     << ' ' << data[i + 1] << ' '   << data[i + 2] << " | " <<
+			data[i + 3] << ' ' << data[i + 4] << " | " << data[i + 5] << ' '   <<
+			data[i + 6] << ' ' << data[i + 7]
+				  << "\n-----------------------" << std::endl;
 	}
 
-	return data;
-}
-
-vector<int> OBJData::getElements()
-{
-	/* [x:y:z:u:v:xn:yn:zn] */
-	vector<int> data;
-	for(auto face : m_faces)
-	{
-		data.push_back(get<0>(get<0>(face)));
-		data.push_back(get<0>(get<1>(face)));
-		data.push_back(get<0>(get<2>(face)));
-	}
 	return data;
 }
