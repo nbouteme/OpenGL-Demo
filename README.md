@@ -17,18 +17,18 @@ Faire une fois:
 
 Puis à chaque modification du code:
 `` make -j`nproc` ``
-
+dans le repertoire "build"
 
 ## À faire
 
-* Implementer un parser de fichiers .obj (Sans support des textures et materiaux)
-* Implementer les contrôles au clavier de manière plus souple.
-* Dessiner les cristaux
-* Ecrire les shaders pour un éclairage basique.
+- [x] Implementer un parser de fichiers .obj (Sans support des textures et materiaux)
+- [ ] Implementer les contrôles au clavier de manière plus souple.
+- [ ] Dessiner les cristaux
+- [x] Ecrire les shaders pour un éclairage basique.
 
 ### Et si on a le temps.
 
-* Implementer une shadow map
-* Shaders
-  * Translucidité
-  * Reflets
+- [ ] Implementer une shadow map
+- [ ] Shaders
+  - [ ] Translucidité
+  - [ ] Reflets
