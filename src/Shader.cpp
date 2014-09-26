@@ -9,6 +9,13 @@
 #include <cstring>
 #include <iostream>
 
+extern char baseFS_glsl[]; // Code source des shader
+extern char baseVS_glsl[];
+
+extern unsigned int baseFS_glsl_len; // leurs tailles
+extern unsigned int baseVS_glsl_len;
+
+using namespace std;
 
 Shader::Shader(const char *vs, const char *ps, const char *gs)
 {
@@ -78,11 +85,17 @@ Shader::~Shader()
 	glDeleteShader(m_vertexId);
 	glDeleteShader(m_pixelId);
 
-	if(m_geometryId != -1U)
+	if(m_geometryId != -1)
 		glDeleteShader(m_geometryId);
 
 	glDeleteShader(m_vertexId);
 	glDeleteShader(m_pixelId);
 
 	glDeleteProgram(m_shaderId);
+}
+
+shared_ptr<Shader> Shader::BasicShader()
+{
+	return make_shared<Shader>(string(baseVS_glsl, baseVS_glsl_len).c_str(),
+							   string(baseFS_glsl, baseFS_glsl_len).c_str());
 }

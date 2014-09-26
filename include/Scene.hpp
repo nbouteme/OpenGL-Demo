@@ -10,11 +10,8 @@ class Scene
 {
 	glm::mat4 m_view;
 	std::set<std::shared_ptr<Model>> m_models;
-public:
 
-	void render(Camera &cam);
-	std::set<std::shared_ptr<Model>> getModels() { return m_models; }
-
+protected:
 	void addModel(const std::shared_ptr<Model> &model)
 		{ m_models.insert(model); }
 
@@ -24,4 +21,11 @@ public:
 		//Type safe car derived doit bien deriver de Model, pour compiler
 		addModel(std::shared_ptr<Model>(derived));
 	}
+
+public:
+
+	void render(Camera &);
+	std::set<std::shared_ptr<Model>> getModels() { return m_models; }
+
+	virtual ~Scene(){};
 };

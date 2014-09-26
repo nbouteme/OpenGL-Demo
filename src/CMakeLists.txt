@@ -17,6 +17,8 @@ ADD_EXECUTABLE ( ${PROJECT_NAME}
 	Camera.cpp
 	Shader.cpp
 	Mesh.cpp
+	BetaRoom.cpp
+	Emerald.cpp
 	utils/OBJData.cpp
 	main.cpp
 	)

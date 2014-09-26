@@ -9,9 +9,9 @@
 
 class GLWindow : public BaseWindow
 {
-	GLFWwindow* m_win = nullptr;
+	GLFWwindow* m_win;
 public:
 	operator GLFWwindow*() const { return m_win; }
-	virtual int run(int argc = 0, char **argv = 0) override;
-	static GLFWvidmode Screen;
+	virtual int run(int = 0, char ** = 0) override;
+	static GLFWwindow *getMainWindow();
 };

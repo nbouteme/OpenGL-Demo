@@ -7,5 +7,6 @@
 struct DrawableComponent
 {
 	virtual ~DrawableComponent() {};
-	virtual void draw(const Camera &cam) = 0;
+	virtual void draw(const Camera &) = 0;
+	virtual void update() {};
 };

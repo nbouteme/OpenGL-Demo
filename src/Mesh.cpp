@@ -44,8 +44,6 @@ void Mesh::draw(const Camera &cam)
 	glUniformMatrix4fv(m_uniProj,  1, GL_FALSE, value_ptr(cam.getProjection()));
 	glUniform3f(m_univPos, cam.getPosition().x, cam.getPosition().y, cam.getPosition().z);
 
-//	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-
 	if(m_ebo != -1U)
 		glDrawElements(GL_TRIANGLES, 18, GL_UNSIGNED_INT, 0);
 	else

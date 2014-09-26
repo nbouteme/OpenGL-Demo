@@ -4,12 +4,17 @@
 
 #include <GLWindow.hpp>
 
+#include <Application.hpp>
 #include <Camera.hpp>
-#include <Scene.hpp>
+#include <BetaRoom.hpp>
 #include <Mesh.hpp>
+
 #include <iostream>
 
-GLFWvidmode GLWindow::Screen;
+GLFWwindow *GLWindow::getMainWindow()
+{
+	return dynamic_cast<GLWindow*>(Application::getWindow().get())->m_win;
+}
 
 using namespace std;
 
@@ -28,7 +33,6 @@ int GLWindow::run(int argc, char **argv)
 	m_win = glfwCreateWindow(1280, 720, "Demo Math", nullptr, nullptr);
 
 	glfwMakeContextCurrent(m_win);
-	GLWindow::Screen = *glfwGetVideoMode(glfwGetPrimaryMonitor());
 
 	glewExperimental = GL_TRUE;
 	glewInit();
@@ -45,10 +49,7 @@ int GLWindow::run(int argc, char **argv)
 	li->scaleZ(0.1f);
 
 	Camera cam(this);
-	Scene sc;
-	sc.addModel(triangle);
-	sc.addModel(li);
-
+	BetaRoom sc;
 
 	glEnable(GL_DEPTH_TEST);
 	// TODO: activer le depth test

@@ -6,10 +6,12 @@ Camera::Camera(GLWindow *Parent) :
 	m_position(vec3(0.0f, -0.000001f, 2.0f)),
 	m_center  (vec3(0.0f, 0.0f, 0.0f)),
 	m_glWin(Parent),
+	View    (lookAt(m_position,
+					m_center,
+					vec3(0.0f, 0.0f, 1.0f))),
 	m_view    (lookAt(m_position,
 					  m_center,
 					  vec3(0.0f, 0.0f, 1.0f))),
-//	m_projection(perspective(45.0f, float(GLWindow::Screen.width) / GLWindow::Screen.height, 0.1f, 10.0f))
 	m_projection(perspective(45.0f, 1600.0f / 900, 0.1f, 10.0f))
 {
 }

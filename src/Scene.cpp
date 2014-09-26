@@ -4,5 +4,5 @@ void Scene::render(Camera &cam)
 {
 	cam.update();
 	for(auto model : m_models)
-		model->draw(cam);
+		model->update(), model->draw(cam);
 }

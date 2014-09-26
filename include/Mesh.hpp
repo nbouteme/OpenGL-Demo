@@ -13,4 +13,5 @@ public:
 	Mesh(const Mesh &) = default;
 	Mesh(Mesh &&) = default;
 	virtual void draw(const Camera &);
+	virtual void update() {};
 };

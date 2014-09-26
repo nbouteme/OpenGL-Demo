@@ -2,8 +2,8 @@
 
 out vec4 outColor;
 
-in  vec3 Normal;
-in  vec3 Position; // Coordonnees espace-monde
+in	vec3 Normal;
+in	vec3 Position; // Coordonnees espace-monde
 
 uniform  vec3 viewPos;  // 'Position' de la camera
 
@@ -30,4 +30,3 @@ void main()
     vec3 result = (ambientComponent + diffuseComponent + specularComponent);
     outColor = vec4(result, 1.0f);
 }
-

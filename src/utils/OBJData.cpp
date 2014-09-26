@@ -137,15 +137,5 @@ vector<float> OBJData::getData()
 			data.push_back(!m_normals.empty() && vgroup[2] != -1 ? m_normals[vgroup[2] - 1].z : 0.0f);
 		}
 
-	int i = 0;
-	for(i = 0; i < data.size() ; i += 8)
-	{
-		std::cout << "-----------------------\n" <<
-			data[i]     << ' ' << data[i + 1] << ' '   << data[i + 2] << " | " <<
-			data[i + 3] << ' ' << data[i + 4] << " | " << data[i + 5] << ' '   <<
-			data[i + 6] << ' ' << data[i + 7]
-				  << "\n-----------------------" << std::endl;
-	}
-
 	return data;
 }
