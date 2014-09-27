@@ -12,8 +12,13 @@ install:
         - wget http://optimate.dl.sourceforge.net/project/ogl-math/glm-0.9.5.4/glm-0.9.5.4.zip
         - sudo unzip glm-0.9.5.4.zip
         - pwd
-        - cd glm && sudo mkdir build && cd build && sudo cmake .. && sudo make -j2 && sudo make install
+        - cd glm && sudo mkdir build && cd build
+        - sudo cmake ..
+        - sudo make -j2
+        - sudo make install
         - cd ../..
 script:
-        - sudo apt-get install -f -y g++ libglfw3-dev libglew-dev glew-utils
-        - mkdir build && cd build && cmake .. && make -j2
+        - sudo apt-get install -f -y g++ libglfw3-dev libglew-dev glew-utils libsoil-dev
+        - mkdir build && cd build
+        - cmake ..
+        - make -j2
