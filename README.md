@@ -5,6 +5,13 @@ OpenGL-Demo
 
 Demo pour les math.
 
+## Dépendences
+
+- Bibliotheque implemantant le standard OpenGL
+- GLM
+- SOIL
+- GLFW
+
 Pour compiler:
 
 Faire une fois:
@@ -23,7 +30,7 @@ dans le repertoire "build"
 
 - [x] Implementer un parser de fichiers .obj (Sans support des textures et materiaux)
 - [ ] Implementer les contrôles au clavier de manière plus souple.
-- [ ] Dessiner les cristaux
+- [ ] Dessiner les cristaux (1/3)
 - [x] Ecrire les shaders pour un éclairage basique.
 
 ### Et si on a le temps.
@@ -32,3 +39,15 @@ dans le repertoire "build"
 - [ ] Shaders
   - [ ] Translucidité
   - [ ] Reflets
+
+
+## Support
+
+En théorie, le projet est multi-plateforme, en pratique, il a été compiler seulement sous Ubuntu et Arch Linux.
+
+### Installer les dépendences sous Ubuntu
+
+Travis éxècutant un script sur une machine virtuelle Ubuntu, vous pouvez vous réferer au fichier .travis.yml pour une liste des commandes à taper dans un terminal.
+Cela devrait suffire pour les dépendances.
+
+Les utilisateurs de distributions plus avant-gardistes (lire: non basée sur Debian) peuvent se débrouiller :^)

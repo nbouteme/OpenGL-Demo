@@ -10,10 +10,14 @@ PROJECT (opengl-demo)
 
 ############################################################
 
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
+
 SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -Wall -Wextra -pedantic -fno-exceptions -DGLM_FORCE_RADIANS")
 
-FIND_PACKAGE(OpenGL REQUIRED)
-FIND_PACKAGE(GLM)
+#FIND_PACKAGE(OpenGL REQUIRED)
+
+FIND_PACKAGE(GLM REQUIRED)
+FIND_PACKAGE(SOIL REQUIRED)
 
 INCLUDE (FindPkgConfig)
 PKG_SEARCH_MODULE(GLFW REQUIRED glfw3)
