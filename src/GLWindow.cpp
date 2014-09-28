@@ -37,25 +37,10 @@ int GLWindow::run(int argc, char **argv)
 	glewExperimental = GL_TRUE;
 	glewInit();
 
-	auto triangle  = make_shared<Mesh>();
-	auto li  = make_shared<Mesh>();
-
-	li->translateX(2.0f);
-	li->translateY(3.0f);
-	li->translateZ(1.0f);
-
-	li->scaleX(0.1f);
-	li->scaleY(0.1f);
-	li->scaleZ(0.1f);
-
 	Camera cam(this);
-	BetaRoom sc;
+	BetaRoom sc(cam);
 
 	glEnable(GL_DEPTH_TEST);
-	// TODO: activer le depth test
-	// TODO: lumieres
-	// TODO: Rendre scene derivable, pour deplacer la creation des mesh dedans
-	// TODO: desactiver le wireframe
 	// TODO: revoir les ordres d'inclusions
 	while(!glfwWindowShouldClose(m_win))
 	{
@@ -65,7 +50,7 @@ int GLWindow::run(int argc, char **argv)
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		sc.render(cam);
+		sc.render();
 
 		glfwSwapBuffers(m_win);
 	}

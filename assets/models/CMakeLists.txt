@@ -1,0 +1,17 @@
+FILE(GLOB Modeles
+	 RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+	 *.obj)
+
+ADD_CUSTOM_TARGET (models
+	COMMENT "Import des modèles."
+	COMMAND echo -ne > ${PROJECT_BINARY_DIR}/assets.cpp
+	WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+	)
+
+FOREACH ( Modele ${Modeles})
+	ADD_CUSTOM_COMMAND(TARGET models
+		COMMENT "- ${Modele}"
+		WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+		COMMAND xxd -i ${Modele} >> ${PROJECT_BINARY_DIR}/assets.cpp
+		)
+ENDFOREACH(Modele)

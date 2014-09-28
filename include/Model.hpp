@@ -21,7 +21,7 @@ public:
 	virtual void draw  (const Camera &) = 0;
 	virtual void update() = 0;
 
-	// Utiliser seulement pour positionner sur la scene
+	// Utiliser seulement pour positionner sur la scene au debut
 
 	void scaleX    (float = 0.2f);
 	void scaleY    (float = 0.2f);

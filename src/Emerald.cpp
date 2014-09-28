@@ -23,7 +23,7 @@ void Emerald::draw(const Camera &cam)
 	glUseProgram(m_shader->getProgramid());
 
 	glUniformMatrix4fv(m_uniModel, 1, GL_FALSE, value_ptr(m_modelMatrix));
-	glUniformMatrix4fv(m_uniView,  1, GL_FALSE, value_ptr(cam.m_view));//cam.View.getValue()));
+	glUniformMatrix4fv(m_uniView,  1, GL_FALSE, value_ptr(cam.m_view));
 	glUniformMatrix4fv(m_uniProj,  1, GL_FALSE, value_ptr(cam.getProjection()));
 	glUniform3f(m_univPos, cam.getPosition().x, cam.getPosition().y, cam.getPosition().z);
 
@@ -49,7 +49,7 @@ void Emerald::rotate()
 	}
 	else
 		rotation += 3.14f * 2 / 60;
-	rotateZ(3.14f * 2 / 60);
+	rotateY(3.14f * 2 / 60);
 }
 
 void Emerald::update()

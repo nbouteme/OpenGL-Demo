@@ -18,7 +18,6 @@ public:
 	glm::vec3 getPosition  () const { return m_position; };
 	glm::vec3 m_position, m_center; 
 	GLWindow *m_glWin;
-	Property<glm::mat4> View;
 	glm::mat4 m_view;
 private:
 	glm::mat4 m_projection;

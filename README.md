@@ -51,6 +51,7 @@ dans le répertoire "build"
 ## Support
 
 En théorie, le projet est multi-plateforme, en pratique, il a été compilé seulement sous Ubuntu et Arch Linux.
+Vous devriez arriver à compiler sous Windows avec un environnement type-Unix (a.k.a. MSYS2 ou Cygwin)
 
 ### Installer les dépendances sous Ubuntu ~~(a.k.a. pls halp imma noob)~~
 

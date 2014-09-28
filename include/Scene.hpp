@@ -12,6 +12,8 @@ class Scene
 	std::set<std::shared_ptr<Model>> m_models;
 
 protected:
+	Camera &m_cam;
+
 	void addModel(const std::shared_ptr<Model> &model)
 		{ m_models.insert(model); }
 
@@ -23,9 +25,8 @@ protected:
 	}
 
 public:
-
-	void render(Camera &);
+	virtual void render();
 	std::set<std::shared_ptr<Model>> getModels() { return m_models; }
-
+	Scene(Camera &);
 	virtual ~Scene(){};
 };

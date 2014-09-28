@@ -3,7 +3,7 @@
 
 #include <unistd.h>
 #include <sys/fcntl.h>
-#include <iostream>
+
 using namespace std;
 
 Model::Model(const string &OBJSource)
@@ -13,7 +13,6 @@ Model::Model(const string &OBJSource)
 	vector<float>  data = objd->getData();
 
 	vertNum = data.size();
-
 	glGenVertexArrays(1, &m_vao);
 	glGenBuffers     (1, &m_vbo);
 

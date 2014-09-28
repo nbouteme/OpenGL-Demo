@@ -1,0 +1,18 @@
+FILE(GLOB Textures
+	 RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+	 *.png)
+
+ADD_CUSTOM_TARGET (textures
+	COMMENT "Import des textures."
+	WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+	)
+
+FOREACH ( Texture ${Textures})
+	ADD_CUSTOM_COMMAND(TARGET textures
+		COMMENT "- ${Texture}"
+		WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+		COMMAND xxd -i ${Texture}  >> ${PROJECT_BINARY_DIR}/assets.cpp
+		)
+ENDFOREACH(Texture)
+
+ADD_DEPENDENCIES(textures models)

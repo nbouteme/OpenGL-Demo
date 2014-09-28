@@ -1,0 +1,18 @@
+FILE(GLOB Shaders
+	 RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+	 *.glsl)
+
+ADD_CUSTOM_TARGET (shaders ALL
+	COMMENT "Import des shaders."
+	WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+	)
+
+FOREACH (Shader ${Shaders})
+	ADD_CUSTOM_COMMAND(TARGET shaders 
+		COMMENT "- ${Shader}"
+		WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+		COMMAND xxd -i ${Shader} >> ${PROJECT_BINARY_DIR}/assets.cpp
+	)
+ENDFOREACH()
+
+ADD_DEPENDENCIES(shaders textures)
