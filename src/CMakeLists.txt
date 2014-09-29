@@ -6,10 +6,7 @@ INCLUDE_DIRECTORIES (
 	${PROJECT_BINARY_DIR}/include
 	)
 
-SET_SOURCE_FILES_PROPERTIES(${PROJECT_BINARY_DIR}/assets.cpp PROPERTIES GENERATED 1)
-
 ADD_EXECUTABLE(${PROJECT_NAME}
-	${PROJECT_BINARY_DIR}/assets.cpp
 	GLWindow.cpp
 	Application.cpp
 	Model.cpp
@@ -20,6 +17,7 @@ ADD_EXECUTABLE(${PROJECT_NAME}
 	BetaRoom.cpp
 	Emerald.cpp
 	CubeMap.cpp
+	Assets.cpp
 	utils/OBJData.cpp
 	main.cpp
 	)
@@ -29,6 +27,7 @@ TARGET_LINK_LIBRARIES(${PROJECT_NAME}
      ${GL_LIBRARIES}
      ${GLEW_LIBRARIES}
      ${SOIL_LIBRARIES}
+	 assets
 	)
 
 ADD_DEPENDENCIES(${PROJECT_NAME} assets)

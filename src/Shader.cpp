@@ -9,11 +9,7 @@
 #include <cstring>
 #include <iostream>
 
-extern char baseFS_glsl[]; // Code source des shader
-extern char baseVS_glsl[];
-
-extern unsigned int baseFS_glsl_len; // leurs tailles
-extern unsigned int baseVS_glsl_len;
+#include <Assets.hpp>
 
 using namespace std;
 

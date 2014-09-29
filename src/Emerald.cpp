@@ -1,7 +1,6 @@
 #include <Emerald.hpp>
 
-extern char         emerald_obj[];
-extern unsigned int emerald_obj_len;
+#include <Assets.hpp>
 
 using namespace std;
 using namespace glm;

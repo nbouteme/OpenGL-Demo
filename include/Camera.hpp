@@ -6,8 +6,6 @@
 #include <GLWindow.hpp>
 #include <Actor.hpp>
 
-#include <utils/Property.hpp>
-
 class Camera
 {
 public:

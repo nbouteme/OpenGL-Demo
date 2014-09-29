@@ -1,18 +1,10 @@
-FILE(GLOB Textures
-	 RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
-	 *.png)
-
 ADD_CUSTOM_TARGET (textures
-	COMMENT "Import des textures."
 	WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+	DEPENDS ${PROJECT_SOURCE_DIR}/assets/textures.o
 	)
 
-FOREACH ( Texture ${Textures})
-	ADD_CUSTOM_COMMAND(TARGET textures
-		COMMENT "- ${Texture}"
-		WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-		COMMAND xxd -i ${Texture}  >> ${PROJECT_BINARY_DIR}/assets.cpp
-		)
-ENDFOREACH(Texture)
-
-ADD_DEPENDENCIES(textures models)
+ADD_CUSTOM_COMMAND(OUTPUT ${PROJECT_SOURCE_DIR}/assets/textures.o
+	COMMENT "Regeneration des textures."
+	WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+	COMMAND ld -r -b binary *.png -o ${PROJECT_SOURCE_DIR}/assets/textures.o
+	)

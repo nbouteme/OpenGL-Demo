@@ -39,7 +39,6 @@ int GLWindow::run(int argc, char **argv)
 
 	Camera cam(this);
 	BetaRoom sc(cam);
-
 	glEnable(GL_DEPTH_TEST);
 	// TODO: revoir les ordres d'inclusions
 	while(!glfwWindowShouldClose(m_win))

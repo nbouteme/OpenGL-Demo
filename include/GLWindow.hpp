@@ -3,6 +3,8 @@
 #include "BaseWindow.hpp"
 #include <memory>
 
+#include <Assets.hpp>
+
 #define GLEW_STATIC
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>

@@ -4,13 +4,7 @@
 // Seulement pour demonstration //
 // Pour les 3 cristaux, deriver de Model et s'inspirer de cette classe
 
-extern char baseFS_glsl[]; // Code source des shader
-extern char baseVS_glsl[];
-extern char cube_obj[];
-
-extern unsigned int baseFS_glsl_len; // leurs tailles
-extern unsigned int baseVS_glsl_len;
-extern unsigned int cube_obj_len;
+#include <Assets.hpp>
 
 const float tri[] = 
 {
@@ -23,10 +17,10 @@ using namespace std;
 using namespace glm;
 
 Mesh::Mesh() :
-	Model(string(cube_obj, cube_obj_len)),
+	Model(string(cube_obj, long(&cube_obj_len))),
 //	Model(tri, 9),
-	m_shader(make_shared<Shader>(string(baseVS_glsl, baseVS_glsl_len).c_str(), 
-								 string(baseFS_glsl, baseFS_glsl_len).c_str()))
+	m_shader(make_shared<Shader>(string(baseVS_glsl, long(&baseVS_glsl_len)).c_str(), 
+								 string(baseFS_glsl, long(&baseFS_glsl_len)).c_str()))
 {
 	m_uniModel = glGetUniformLocation(m_shader->getProgramid(),      "model");
 	m_uniView  = glGetUniformLocation(m_shader->getProgramid(),       "view");

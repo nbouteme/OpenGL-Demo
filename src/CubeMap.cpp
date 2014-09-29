@@ -4,31 +4,7 @@
 #include <GLFW/glfw3.h>
 #include <SOIL/SOIL.h>
 
-extern unsigned char right_png[];
-extern unsigned int  right_png_len;
-
-extern unsigned char left_png[];
-extern unsigned int  left_png_len;
-
-extern unsigned char top_png[];
-extern unsigned int  top_png_len;
-
-extern unsigned char bot_png[];
-extern unsigned int  bot_png_len;
-
-extern unsigned char back_png[];
-extern unsigned int  back_png_len;
-
-extern unsigned char middle_png[];
-extern unsigned int  middle_png_len;
-
-extern char cube_obj[];
-extern unsigned int cube_obj_len;
-
-extern char cubemapFS_glsl[];
-extern char cubemapVS_glsl[];
-extern unsigned int cubemapFS_glsl_len;
-extern unsigned int cubemapVS_glsl_len;
+#include <Assets.hpp>
 
 using namespace std;
 using namespace glm;
@@ -48,22 +24,22 @@ CubeMap::CubeMap() :
 	// En mode -funroll-loops :^)
 	int i = 0, w, h;
 
-	texData = SOIL_load_image_from_memory(right_png, right_png_len, &w, &h, nullptr, SOIL_LOAD_RGB);
+	texData = SOIL_load_image_from_memory(right_png, long(&right_png_len), &w, &h, nullptr, SOIL_LOAD_RGB);
 	glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i++, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, texData);
 
-	texData = SOIL_load_image_from_memory(left_png, left_png_len, &w, &h, nullptr, SOIL_LOAD_RGB);
+	texData = SOIL_load_image_from_memory(left_png, long(&left_png_len), &w, &h, nullptr, SOIL_LOAD_RGB);
 	glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i++, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, texData);
 
-	texData = SOIL_load_image_from_memory(top_png, top_png_len, &w, &h, nullptr, SOIL_LOAD_RGB);
+	texData = SOIL_load_image_from_memory(top_png, long(&top_png_len), &w, &h, nullptr, SOIL_LOAD_RGB);
 	glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i++, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, texData);
 
-	texData = SOIL_load_image_from_memory(bot_png, bot_png_len, &w, &h, nullptr, SOIL_LOAD_RGB);
+	texData = SOIL_load_image_from_memory(bot_png, long(&bot_png_len), &w, &h, nullptr, SOIL_LOAD_RGB);
 	glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i++, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, texData);
 
-	texData = SOIL_load_image_from_memory(middle_png, middle_png_len, &w, &h, nullptr, SOIL_LOAD_RGB);
+	texData = SOIL_load_image_from_memory(middle_png, long(&middle_png_len), &w, &h, nullptr, SOIL_LOAD_RGB);
 	glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i++, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, texData);
 
-	texData = SOIL_load_image_from_memory(back_png, back_png_len, &w, &h, nullptr, SOIL_LOAD_RGB);
+	texData = SOIL_load_image_from_memory(back_png, long(&back_png_len), &w, &h, nullptr, SOIL_LOAD_RGB);
 	glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i++, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, texData);
 
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
