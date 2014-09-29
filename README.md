@@ -43,10 +43,15 @@ dans le répertoire "build"
 ### Et si on a le temps.
 
 - [ ] Implémenter une shadow map
-- [ ] Shaders
-  - [ ] Translucidité
-  - [ ] Reflets
+- [x] Shaders
+  - [x] Translucidité
+  - [x] Reflets
 
+### "Bugs"
+
+Pas de bug à proprement parler.
+[ ] Passer a l'illumination globale au lieu de locale, sa casse un peu les movements..
+[ ] Supprimer la classe Mesh
 
 ## Support
 

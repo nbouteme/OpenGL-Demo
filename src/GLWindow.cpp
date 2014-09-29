@@ -11,6 +11,12 @@
 
 #include <iostream>
 
+void resizeCallback(GLFWwindow *win, int width, int height)
+{
+	(void)win;
+	glViewport(0, 0, width, height);
+}
+
 GLFWwindow *GLWindow::getMainWindow()
 {
 	return dynamic_cast<GLWindow*>(Application::getWindow().get())->m_win;
@@ -31,7 +37,7 @@ int GLWindow::run(int argc, char **argv)
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, false);
 	glfwWindowHint(GLFW_RESIZABLE, true);
 	m_win = glfwCreateWindow(1280, 720, "Demo Math", nullptr, nullptr);
-
+	glfwSetWindowSizeCallback(m_win, &resizeCallback);
 	glfwMakeContextCurrent(m_win);
 
 	glewExperimental = GL_TRUE;

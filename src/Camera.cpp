@@ -3,7 +3,7 @@
 using namespace glm;
 
 Camera::Camera(GLWindow *Parent) :
-	m_position(vec3(0.0f, 2.0f, 0.0f)),
+	m_position(vec3(0.0f, 2.0f, -0.01f)),
 	m_center  (vec3(0.0f, 0.0f, 0.0f)),
 	m_glWin(Parent),
 	m_view    (lookAt(m_position,

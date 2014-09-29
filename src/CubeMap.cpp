@@ -18,8 +18,8 @@ CubeMap::CubeMap() :
 	unsigned char *texData = nullptr;
 
 	glGenTextures(1, &m_tID);
-	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, m_tID);
+	glActiveTexture(GL_TEXTURE0);
 
 	// En mode -funroll-loops :^)
 	int i = 0, w, h;
@@ -56,7 +56,7 @@ CubeMap::CubeMap() :
 
 	// Je crois que j'ai foirer un gros truc dans le repere depuis tout le debut mais je vais juste faire tourner ce foutu cube
 }
-
+#include<iostream>
 void CubeMap::draw(const Camera &cam)
 {
 	glDepthMask(false);
@@ -68,7 +68,7 @@ void CubeMap::draw(const Camera &cam)
 	glUniformMatrix4fv(m_uniView,  1, GL_FALSE, value_ptr(mat4(mat3(cam.getView())))); // pour enlever la composante de translation
 	glUniformMatrix4fv(m_uniProj,  1, GL_FALSE, value_ptr(cam.getProjection()));
 
-	glDrawArrays(GL_TRIANGLES, 0, vertNum);
+	glDrawArrays(GL_TRIANGLES, 0, vertNum / 8);
 
 	glBindVertexArray(0);
 	glDepthMask(true);
