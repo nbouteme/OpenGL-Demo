@@ -61,6 +61,7 @@ void CubeMap::draw(const Camera &cam)
 {
 	glDepthMask(false);
 	glBindVertexArray(m_vao);
+	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, m_tID);
 	glUseProgram(m_shader->getProgramid());
 
@@ -68,7 +69,7 @@ void CubeMap::draw(const Camera &cam)
 	glUniformMatrix4fv(m_uniView,  1, GL_FALSE, value_ptr(mat4(mat3(cam.getView())))); // pour enlever la composante de translation
 	glUniformMatrix4fv(m_uniProj,  1, GL_FALSE, value_ptr(cam.getProjection()));
 
-	glDrawArrays(GL_TRIANGLES, 0, vertNum / 8);
+	glDrawArrays(GL_TRIANGLES, 0, vertNum);
 
 	glBindVertexArray(0);
 	glDepthMask(true);

@@ -13,4 +13,5 @@ public:
 	CubeMap();
 	virtual void draw(const Camera &);
 	virtual void update() {};
+	unsigned getEnvTexture() { return m_tID; }
 };

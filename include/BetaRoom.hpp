@@ -3,13 +3,13 @@
 #include <Scene.hpp>
 #include <CubeMap.hpp>
 #include <Emerald.hpp>
-
-using namespace std;
+#include <Polyedre.hpp>
 
 class BetaRoom : public Scene
 {
-	shared_ptr<CubeMap> m_cubemap;
-	shared_ptr<Emerald> m_emerald;
+	std::shared_ptr<CubeMap>  m_cubemap;
+	std::shared_ptr<Emerald>  m_emerald;
+	std::shared_ptr<Polyedre> m_poly;
 public:
 	BetaRoom(Camera &);
 	virtual void render();
