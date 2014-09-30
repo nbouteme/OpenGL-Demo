@@ -34,9 +34,6 @@ void main()
 	vec3 reflection = reflect(viewDir, normalize(Normal));
 	vec3 refraction = refract(viewDir, normalize(Normal), 1.0 / 1.33); // 1.33 =  indice de refraction de l'eau
 
-	// on utilise pas de textures, donc on s'attend ici a ce que la cubemap soit toujours binder
-	// meme si ce n'est pas forcement le cas en pratique.
-
     outColor = vec4(result, 1.0);
 	outColor *= texture(cubeMap, refraction) * 0.9;
 	outColor +=	texture(cubeMap, reflection) * 0.1;

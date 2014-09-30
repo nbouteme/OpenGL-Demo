@@ -5,9 +5,6 @@
 using namespace std;
 using namespace glm;
 
-// TODO: Ajouter un membre m_envId, qui correspond a la texture d'un 
-//       cubemap a utiliser lors du rendu
-
 Emerald::Emerald() :
 	Model(string(emerald_obj, emerald_obj_len)),
 	m_shader(make_shared<Shader>(string(baseVS_glsl, baseVS_glsl_len).c_str(), 

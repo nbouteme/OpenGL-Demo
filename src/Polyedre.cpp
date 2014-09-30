@@ -5,9 +5,6 @@
 using namespace std;
 using namespace glm;
 
-// TODO: Ajouter un membre m_envId, qui correspond a la texture d'un 
-//       cubemap a utiliser lors du rendu
-
 Polyedre::Polyedre() :
 	Model(string(polyedre_obj, polyedre_obj_len)),
 	m_shader(make_shared<Shader>(string(baseVS_glsl, baseVS_glsl_len).c_str(), 

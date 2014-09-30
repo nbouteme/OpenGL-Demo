@@ -20,27 +20,25 @@ CubeMap::CubeMap() :
 	glGenTextures(1, &m_tID);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, m_tID);
 	glActiveTexture(GL_TEXTURE0);
+	struct imgData { unsigned char *data; long unsigned size; };
 
-	// En mode -funroll-loops :^)
+	vector<imgData> images =
+	{
+		{  right_png,  right_png_len },
+		{   left_png,   left_png_len },
+		{    top_png,    top_png_len },
+		{    bot_png,    bot_png_len },
+		{ middle_png, middle_png_len },
+		{   back_png,   back_png_len }
+	};
+
 	int i = 0, w, h;
-
-	texData = SOIL_load_image_from_memory(right_png, long(&right_png_len), &w, &h, nullptr, SOIL_LOAD_RGB);
-	glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i++, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, texData);
-
-	texData = SOIL_load_image_from_memory(left_png, long(&left_png_len), &w, &h, nullptr, SOIL_LOAD_RGB);
-	glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i++, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, texData);
-
-	texData = SOIL_load_image_from_memory(top_png, long(&top_png_len), &w, &h, nullptr, SOIL_LOAD_RGB);
-	glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i++, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, texData);
-
-	texData = SOIL_load_image_from_memory(bot_png, long(&bot_png_len), &w, &h, nullptr, SOIL_LOAD_RGB);
-	glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i++, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, texData);
-
-	texData = SOIL_load_image_from_memory(middle_png, long(&middle_png_len), &w, &h, nullptr, SOIL_LOAD_RGB);
-	glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i++, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, texData);
-
-	texData = SOIL_load_image_from_memory(back_png, long(&back_png_len), &w, &h, nullptr, SOIL_LOAD_RGB);
-	glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i++, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, texData);
+	for(auto image : images)
+	{
+		texData = SOIL_load_image_from_memory(image.data, image.size, &w, &h, nullptr, SOIL_LOAD_RGB);
+		glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i++, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, texData);
+		SOIL_free_image_data(texData);
+	}
 
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -48,13 +46,10 @@ CubeMap::CubeMap() :
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 
-	////////////////////////////
-	// Recup des uniform
 	m_uniModel = glGetUniformLocation(m_shader->getProgramid(),      "model");
 	m_uniView  = glGetUniformLocation(m_shader->getProgramid(),       "view");
 	m_uniProj  = glGetUniformLocation(m_shader->getProgramid(), "projection");
 
-	// Je crois que j'ai foirer un gros truc dans le repere depuis tout le debut mais je vais juste faire tourner ce foutu cube
 }
 #include<iostream>
 void CubeMap::draw(const Camera &cam)

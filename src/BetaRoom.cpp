@@ -4,9 +4,6 @@ using namespace std;
 
 BetaRoom::BetaRoom(Camera &cam) : Scene(cam)
 {
-	// TODO: Corruption sur l'affichage avec plusieurs modeles
-	// Cause probable: Fragment shader.
-
 	m_emerald = make_shared<Emerald>();
 	m_poly    = make_shared<Polyedre>();
 	m_cubemap = make_shared<CubeMap>();

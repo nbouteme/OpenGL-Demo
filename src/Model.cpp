@@ -12,7 +12,7 @@ Model::Model(const string &OBJSource)
 
 	vector<float>  data = objd->getData();
 
-	vertNum = data.size() / 8;
+	vertNum = data.size() << 3; // << 3 et / 8 donnent des resultats differents ?!
 	glGenVertexArrays(1, &m_vao);
 	glGenBuffers     (1, &m_vbo);
 
