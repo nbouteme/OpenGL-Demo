@@ -4,12 +4,16 @@ using namespace std;
 
 BetaRoom::BetaRoom(Camera &cam) : Scene(cam)
 {
-	m_emerald = make_shared<Emerald>();
+	m_gem     = make_shared<Gem>();
+    m_emerald = make_shared<Emerald>();
 	m_poly    = make_shared<Polyedre>();
 	m_cubemap = make_shared<CubeMap>();
 	addModel(m_poly);
-	m_poly->translateX(1.0f);
-	addModel(m_emerald);
+    m_poly->translateX(1.0f);
+    addModel(m_emerald);
+	m_gem->translateX(-1.0f);
+	addModel(m_gem);
+
 }
 
 void BetaRoom::render()
