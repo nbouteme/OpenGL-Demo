@@ -4,51 +4,44 @@
 // Seulement pour demonstration //
 // Pour les 3 cristaux, deriver de Model et s'inspirer de cette classe
 
-extern char baseFS_glsl[]; // Code source des shader
-extern char baseVS_glsl[];
-
-extern unsigned int baseFS_glsl_len; // leurs tailles
-extern unsigned int baseVS_glsl_len;
+#include <Assets.hpp>
 
 const float tri[] = 
 {
-	 0.0,  0.5, 0.0,
-	 0.5,  -0.5, 0.0,
-	-0.5, -0.5, 0.0
+	-0.5f, -0.866025f / 2, 0.0f,
+	 0.5f, -0.866025f / 2, 0.0f,
+	 0.0f,  0.866025f / 2, 0.0f
 };
 
-Mesh::Mesh() : 
-	Model(tri, 9),
-	m_shader(std::make_shared<Shader>(std::string(baseVS_glsl, baseVS_glsl_len).c_str(), 
-									  std::string(baseFS_glsl, baseFS_glsl_len).c_str()))
+using namespace std;
+using namespace glm;
+
+Mesh::Mesh() :
+	Model(string(cube_obj, cube_obj_len)),
+//	Model(tri, 9),
+	m_shader(make_shared<Shader>(string(baseVS_glsl, baseVS_glsl_len).c_str(), 
+								 string(baseFS_glsl, baseFS_glsl_len).c_str()))
 {
-	glVertexAttribPointer(0, 3, GL_FLOAT, false, 0, nullptr);
-    glEnableVertexAttribArray(0);
-	glBindVertexArray(0);
+	m_uniModel = glGetUniformLocation(m_shader->getProgramid(),      "model");
+	m_uniView  = glGetUniformLocation(m_shader->getProgramid(),       "view");
+	m_uniProj  = glGetUniformLocation(m_shader->getProgramid(), "projection");
+	m_univPos  = glGetUniformLocation(m_shader->getProgramid(),    "viewPos");
 }
 
-void Mesh::draw(glm::mat4 view)
+void Mesh::draw(const Camera &cam)
 {
 	glBindVertexArray(m_vao);
 	glUseProgram(m_shader->getProgramid());
 
-	// TODO: Separer la mise a jour des uniforms du dessin
-	int uModel = glGetUniformLocation(m_shader->getProgramid(), "model");
-	glUniformMatrix4fv(uModel, 1, GL_FALSE, glm::value_ptr(m_modelMatrix));
-
-	int uView = glGetUniformLocation(m_shader->getProgramid(), "view");
-	glUniformMatrix4fv(uView, 1, GL_FALSE, glm::value_ptr(view));
-
-	int uProj = glGetUniformLocation(m_shader->getProgramid(), "projection");
-	glUniformMatrix4fv(uProj, 1, GL_FALSE, glm::value_ptr(Camera::m_projection));
+	glUniformMatrix4fv(m_uniModel, 1, GL_FALSE, value_ptr(m_modelMatrix));
+	glUniformMatrix4fv(m_uniView,  1, GL_FALSE, value_ptr(cam.getView()));
+	glUniformMatrix4fv(m_uniProj,  1, GL_FALSE, value_ptr(cam.getProjection()));
+	glUniform3f(m_univPos, cam.getPosition().x, cam.getPosition().y, cam.getPosition().z);
 
 	if(m_ebo != -1U)
-	{
-		glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
-	}
+		glDrawElements(GL_TRIANGLES, 18, GL_UNSIGNED_INT, 0);
 	else
-	{
-		glDrawArrays(GL_TRIANGLES, 0, 3);
-	}
+		glDrawArrays(GL_TRIANGLES, 0, vertNum);
+
 	glBindVertexArray(0);
 }

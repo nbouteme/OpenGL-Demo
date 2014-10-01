@@ -1,18 +1,34 @@
 #include <Camera.hpp>
 
-glm::mat4 Camera::m_projection = glm::perspective(45.0f, 1280.0f / 720.0f, 0.1f, 10.0f);
+using namespace glm;
 
-Camera::Camera() : m_position(glm::vec3(0.0f, -0.000001f, 2.0f)),
-				   m_center(glm::vec3(0.0f, 0.0f, 0.0f)),
-				   m_view(glm::lookAt(m_position,
-									  m_center,
-									  glm::vec3(0.0f, 0.0f, 1.0f)))
+Camera::Camera(GLWindow *Parent) :
+	m_position(vec3(0.0f, 2.0f, -0.01f)),
+	m_center  (vec3(0.0f, 0.0f, 0.0f)),
+	m_glWin(Parent),
+	m_view    (lookAt(m_position,
+					  m_center,
+					  vec3(0.0f, 1.0f, 0.0f))),
+	m_projection(perspective(45.0f, 1600.0f / 900, 0.1f, 10.0f))
 {
 }
 
 void Camera::update()
 {
+	// oh boi here we go
+	glm::vec3 delta((glfwGetKey(*m_glWin, GLFW_KEY_LEFT)  == GLFW_PRESS) *  0.1f +
+					(glfwGetKey(*m_glWin, GLFW_KEY_RIGHT) == GLFW_PRESS) * -0.1f,
+					(glfwGetKey(*m_glWin, GLFW_KEY_Z)     == GLFW_PRESS) *  0.1f +
+					(glfwGetKey(*m_glWin, GLFW_KEY_X)     == GLFW_PRESS) * -0.1f,
+					(glfwGetKey(*m_glWin, GLFW_KEY_UP)    == GLFW_PRESS) *  0.1f +
+					(glfwGetKey(*m_glWin, GLFW_KEY_DOWN)  == GLFW_PRESS) * -0.1f);
+
+	if(glm::length(delta) > 0.1f)
+		delta = glm::normalize(delta) * 0.1f;
+
+	m_position += delta;
+
 	m_view = glm::lookAt(m_position,
-					   m_center,
-					   glm::vec3(0.0f, 0.0f, 1.0f));
+						 m_center,
+						 glm::vec3(0.0f, 1.0f, 0.0f));
 }

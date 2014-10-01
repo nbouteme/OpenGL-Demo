@@ -3,15 +3,14 @@
 #include <Shader.hpp>
 #include <Model.hpp>
 
-class Mesh : public Model
+class CubeMap : public Model
 {
+	unsigned m_tID;
 	std::shared_ptr<Shader> m_shader;
 	int m_uniModel, m_uniView, m_uniProj, m_univPos;
+
 public:
-	// FIXME: Cette classe n'est la que pour demonstration
-	Mesh();
-	Mesh(const Mesh &) = default;
-	Mesh(Mesh &&) = default;
+	CubeMap();
 	virtual void draw(const Camera &);
 	virtual void update() {};
 };

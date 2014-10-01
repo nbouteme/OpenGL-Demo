@@ -2,10 +2,10 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <Camera.hpp>
 
-class DrawableComponent
+struct DrawableComponent
 {
-public:
 	virtual ~DrawableComponent() {};
-	virtual void draw(glm::mat4 view) = 0;
+	virtual void draw(const Camera &) = 0;
 };

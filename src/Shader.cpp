@@ -9,11 +9,12 @@
 #include <cstring>
 #include <iostream>
 
+#include <Assets.hpp>
+
+using namespace std;
 
 Shader::Shader(const char *vs, const char *ps, const char *gs)
 {
-	assert(vs);
-	assert(ps);
 	int status;
 
 	m_vertexId = glCreateShader(GL_VERTEX_SHADER);
@@ -22,6 +23,10 @@ Shader::Shader(const char *vs, const char *ps, const char *gs)
 	glShaderSource(m_vertexId, 1, &vs, nullptr);
 	glShaderSource(m_pixelId , 1, &ps, nullptr);
 
+	/*
+	 * Le pilote libre d'intel a l'air de leaker 5 octets a
+	 * chaque appel de glCompileShader...
+	 */
 	glCompileShader(m_vertexId);
 	glGetShaderiv(m_vertexId, GL_COMPILE_STATUS, &status);
 	if(!status)
@@ -63,7 +68,30 @@ void Shader::dumpShaderErrorLog(int shaderId)
 	do
 	{
 		glGetShaderInfoLog(shaderId, 512, &lastSize, buff);
-		printf("%s\n", buff);
+		printf("%s", buff); // Pas vraiment sur si le decoupage est correcte, 
+		                    //j'ai jamais eu d'erreur de plus de 512 caracteres.
 	} while(lastSize == 511);
+	puts("");
+
 	abort();
+}
+
+Shader::~Shader()
+{
+	glDeleteShader(m_vertexId);
+	glDeleteShader(m_pixelId);
+
+	if(m_geometryId != -1)
+		glDeleteShader(m_geometryId);
+
+	glDeleteShader(m_vertexId);
+	glDeleteShader(m_pixelId);
+
+	glDeleteProgram(m_shaderId);
+}
+
+shared_ptr<Shader> Shader::BasicShader()
+{
+	return make_shared<Shader>(string(baseVS_glsl, baseVS_glsl_len).c_str(),
+							   string(baseFS_glsl, baseFS_glsl_len).c_str());
 }
