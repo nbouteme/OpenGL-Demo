@@ -1,24 +1,24 @@
-#include <Emerald.hpp>
+#include <Polyedre.hpp>
 
 #include <Assets.hpp>
 
 using namespace std;
 using namespace glm;
 
-Emerald::Emerald() :
-	Model(string(emerald_obj, emerald_obj_len)),
+Polyedre::Polyedre() :
+	Model(string(polyedre_obj, polyedre_obj_len)),
 	m_shader(make_shared<Shader>(string(baseVS_glsl, baseVS_glsl_len).c_str(), 
-								 string(emeraldFS_glsl, emeraldFS_glsl_len).c_str()))
+								 string(polyedreFS_glsl, polyedreFS_glsl_len).c_str()))
 
 {
-	action = &Emerald::waitInput;
+	action = &Polyedre::waitInput;
 	m_uniModel = glGetUniformLocation(m_shader->getProgramid(),      "model");
 	m_uniView  = glGetUniformLocation(m_shader->getProgramid(),       "view");
 	m_uniProj  = glGetUniformLocation(m_shader->getProgramid(), "projection");
 	m_univPos  = glGetUniformLocation(m_shader->getProgramid(),    "viewPos");
 }
 
-void Emerald::draw(const Camera &cam)
+void Polyedre::draw(const Camera &cam)
 {
 	glBindVertexArray(m_vao);
 	glUseProgram(m_shader->getProgramid());
@@ -31,21 +31,20 @@ void Emerald::draw(const Camera &cam)
 	glDrawArrays(GL_TRIANGLES, 0, vertNum);
 
 	glBindVertexArray(0);
-
 }
 
-void Emerald::waitInput()
+void Polyedre::waitInput()
 {
 	if(glfwGetKey(GLWindow::getMainWindow(), GLFW_KEY_F))
-		action = &Emerald::rotate;
+		action = &Polyedre::rotate;
 }
 
-void Emerald::rotate()
+void Polyedre::rotate()
 {
 	if(rotation >= kGoalRotation)
 	{
 		rotation = 0.0f;
-		action = &Emerald::waitInput;
+		action = &Polyedre::waitInput;
 		return;
 	}
 	else
@@ -53,7 +52,7 @@ void Emerald::rotate()
 	rotateY(3.14f * 2 / 60);
 }
 
-void Emerald::update()
+void Polyedre::update()
 {
 	(this->*action)(); // absolument degueulasse.
 }

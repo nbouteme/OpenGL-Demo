@@ -128,8 +128,6 @@ vector<float> OBJData::getData()
 			data.push_back(m_vertices[vgroup[0] - 1].y);
 			data.push_back(m_vertices[vgroup[0] - 1].z);
 
-			// TODO: Ya un truc quelque part qui foire avec 
-			// les normales et les coordonnees de textures
 			data.push_back(!m_text   .empty() && vgroup[1] != -1 ? m_text   [vgroup[1] - 1].u : 0.0f);
 			data.push_back(!m_text   .empty() && vgroup[1] != -1 ? m_text   [vgroup[1] - 1].v : 0.0f);
 			data.push_back(!m_normals.empty() && vgroup[2] != -1 ? m_normals[vgroup[2] - 1].x : 0.0f);

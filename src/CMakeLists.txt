@@ -16,6 +16,7 @@ ADD_EXECUTABLE(${PROJECT_NAME}
 	Mesh.cpp
 	BetaRoom.cpp
 	Emerald.cpp
+	Polyedre.cpp
 	CubeMap.cpp
 	Assets.cpp
 	utils/OBJData.cpp
