@@ -6,37 +6,23 @@ if (COMMAND cmake_policy)
 	cmake_policy (SET CMP0003 NEW)
 endif (COMMAND cmake_policy)
 
-PROJECT (opengl-demo)
+PROJECT (resgen)
 
 ############################################################
 
 SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
 SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -Wall -Wextra -pedantic -fno-exceptions -fno-rtti -DGLM_FORCE_RADIANS")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -Wall -Wextra -pedantic -fno-exceptions -DGLM_FORCE_RADIANS")
 
-FIND_PACKAGE(GLM REQUIRED)
-FIND_PACKAGE(SOIL REQUIRED)
-
-INCLUDE(FindPkgConfig)
-PKG_SEARCH_MODULE(GLFW REQUIRED glfw3)
-PKG_SEARCH_MODULE(GL REQUIRED gl)
-PKG_SEARCH_MODULE(GLEW REQUIRED glew)
-
-
-# Compiler options
 LINK_DIRECTORIES(
 	${CMAKE_SOURCE_DIRECTORY}
 	)
 
-
 INCLUDE_DIRECTORIES(
 	${PROJECT_SOURCE_DIR}/include
-	${GLFW_INCLUDE_DIRS}
-	${GL_INCLUDE_DIRS}
-	${GLEW_INCLUDE_DIRS}
-	${SOIL_INCLUDE_DIRS}
+	${PROJECT_SOURCE_DIR}/reslib/include
 	)
 
 ADD_SUBDIRECTORY(src)
-ADD_SUBDIRECTORY(assets)
+ADD_SUBDIRECTORY(reslib)
