@@ -8,7 +8,7 @@ using namespace glm;
 Gem::Gem() :
 	Model(string(gem_obj, gem_obj_len)),
 	m_shader(make_shared<Shader>(string(baseVS_glsl, baseVS_glsl_len).c_str(), 
-								 string(emeraldFS_glsl, emeraldFS_glsl_len).c_str()))
+								 string(gemFS_glsl, gemFS_glsl_len).c_str()))
 
 {
 	action = &Gem::waitInput;
