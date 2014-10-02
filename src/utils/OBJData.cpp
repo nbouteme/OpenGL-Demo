@@ -62,7 +62,6 @@ array<VGroup, 3> parseFace(vector<string>::iterator &it)
 	VGroup first = parseVGroup(it);
 	VGroup sec   = parseVGroup(it);
 	VGroup third = parseVGroup(it);
-
 	return { first, sec, third };
 }
 

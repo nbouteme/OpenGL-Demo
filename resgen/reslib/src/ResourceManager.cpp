@@ -14,7 +14,6 @@ vector<unsigned char> readToEnd(const string &File)
 	int fd = open(File.c_str(), O_RDONLY);
 	fstat(fd, &buf);
 	int size = buf.st_size;
-
 	vector<unsigned char> ret(size);
 	read(fd, ret.data(), size);
 	close(fd);
@@ -70,6 +69,22 @@ unsigned toLBE(unsigned in)
  * dd dd dd dd : decalage des donnees de la resource par rapport au debut de l'archive
  */
 
+void ResourceManager::addFile(const std::string &File)
+{
+	auto data = readToEnd(File);
+	if(data.size() > 8)
+	{
+		if(toLBE(*(unsigned *)data.data()) == 0x52455301) // RES\x01
+		{
+			auto rm = fromData(data);
+			for(auto res : rm->m_resources) // Un des problemes de "l'encapsulation" du C++.
+				addData(res.first, res.second);
+			return;
+		}
+	}
+	addData(File, data);
+}
+
 void ResourceManager::addData(const std::string &Handle, const Resource &data)
 {
 	m_resources[Handle] = data;
@@ -88,6 +103,15 @@ shared_ptr<ResourceManager> ResourceManager::fromData(const vector<unsigned char
 
 void ResourceManager::saveResource(const string &File)
 {
+	int fd = open(File.c_str(), O_CREAT | O_RDWR | O_TRUNC, 0644);
+	saveResource(fd);
+	close(fd);
+}
+
+#include <cassert>
+
+void ResourceManager::saveResource(int fd)
+{
     /*
 	 * les decalages des decalages par rapport au debut :^), 
 	 * pour les modifier quand on a la taille complete du header
@@ -102,20 +126,20 @@ void ResourceManager::saveResource(const string &File)
 	{
 		unsigned size = res.first.size();
 
-		header.push_back(size & 0xFF000000);
-		header.push_back(size & 0x00FF0000);
-		header.push_back(size & 0x0000FF00);
-		header.push_back(size & 0x000000FF);
+		header.push_back((size & 0xFF000000) >> 24);
+		header.push_back((size & 0x00FF0000) >> 16);
+		header.push_back((size & 0x0000FF00) >> 8);
+		header.push_back( size & 0x000000FF);
 
 		for(auto c : res.first)
 			header.push_back(c);
 
 		size = res.second.size();
 
-		header.push_back(size & 0xFF000000);
-		header.push_back(size & 0x00FF0000);
-		header.push_back(size & 0x0000FF00);
-		header.push_back(size & 0x000000FF);
+		header.push_back((size & 0xFF000000) >> 24);
+		header.push_back((size & 0x00FF0000) >> 16);
+		header.push_back((size & 0x0000FF00) >> 8);
+		header.push_back( size & 0x000000FF);
 
 		offsetsoffset.push_back(hoffset += 8 + res.first.size());
 		hoffset += 4;
@@ -123,26 +147,24 @@ void ResourceManager::saveResource(const string &File)
 		size = offset;
 		offset += res.second.size();// on y ajoutera la taille du header plus tard
 
-		header.push_back(size & 0xFF000000);
-		header.push_back(size & 0x00FF0000);
-		header.push_back(size & 0x0000FF00);
-		header.push_back(size & 0x000000FF);
+		header.push_back((size & 0xFF000000) >> 24);
+		header.push_back((size & 0x00FF0000) >> 16);
+		header.push_back((size & 0x0000FF00) >> 8);
+		header.push_back( size & 0x000000FF);
 	}
 
 	while(header.size() % 16) header.push_back(0); // padding
 
 	*(unsigned *)(header.data() + 4) = toLBE(m_resources.size());
+	assert(*(unsigned *)(header.data() + 4) == toLBE(m_resources.size()));
 
 	for(auto i : offsetsoffset) // On a autant de resources que d'entree dans le header
-		*(unsigned *)(header.data() + i) += toLBE(header.size()); // or not to BE
+		*(unsigned *)(header.data() + i) = toLBE(toLBE(*(unsigned *)(header.data() + i)) + header.size());
 
 	for(auto res : m_resources)
 		header.insert(header.end(), res.second.begin(), res.second.end());
 
-	int fd = open(File.c_str(), O_CREAT | O_RDWR | O_TRUNC, 0644);
 	write(fd, header.data(), header.size());
-	close(fd);
-	
 }
 
 string ResourceManager::getString(const string &Handle)

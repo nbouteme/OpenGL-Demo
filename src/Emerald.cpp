@@ -6,9 +6,9 @@ using namespace std;
 using namespace glm;
 
 Emerald::Emerald() :
-	Model(string(emerald_obj, emerald_obj_len)),
-	m_shader(make_shared<Shader>(string(baseVS_glsl, baseVS_glsl_len).c_str(), 
-								 string(emeraldFS_glsl, emeraldFS_glsl_len).c_str()))
+	Model(OBJRes->getString("emerald.obj")),
+	m_shader(make_shared<Shader>(ShaderRes->getString("baseVS.glsl")   .c_str(), 
+								 ShaderRes->getString("emeraldFS.glsl").c_str()))
 
 {
 	action = &Emerald::waitInput;

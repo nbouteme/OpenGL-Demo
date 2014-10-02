@@ -3,7 +3,6 @@ FILE(GLOB Modeles
 	 ${CMAKE_CURRENT_SOURCE_DIR}/*.obj)
 
 ADD_CUSTOM_TARGET (models
-	COMMAND echo -ne > ${PROJECT_BINARY_DIR}/assets.cpp
 	WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 	DEPENDS ${PROJECT_SOURCE_DIR}/assets/models.o
 	)
@@ -11,6 +10,8 @@ ADD_CUSTOM_TARGET (models
 ADD_CUSTOM_COMMAND(OUTPUT ${PROJECT_SOURCE_DIR}/assets/models.o
 	COMMENT "Regeneration des modeles"
 	WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-	COMMAND ld -r -b binary *.obj -o ${PROJECT_SOURCE_DIR}/assets/models.o
-	DEPENDS ${Modeles}
+	COMMAND pwd
+	COMMAND resgen *.obj > models.res
+	COMMAND ld -r -b binary models.res -o ${PROJECT_SOURCE_DIR}/assets/models.o
+	DEPENDS resgen ${Modeles}
 	)
