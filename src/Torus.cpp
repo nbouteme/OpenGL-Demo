@@ -1,24 +1,24 @@
-#include <Gem.hpp>
+#include <Torus.hpp>
 
 #include <Assets.hpp>
 
 using namespace std;
 using namespace glm;
 
-Gem::Gem() :
-	Model(string(gem_obj, gem_obj_len)),
+Torus::Torus() :
+	Model(string(torus_obj, torus_obj_len)),
 	m_shader(make_shared<Shader>(string(baseVS_glsl, baseVS_glsl_len).c_str(), 
-								 string(gemFS_glsl, gemFS_glsl_len).c_str()))
+								 string(torusFS_glsl, torusFS_glsl_len).c_str()))
 
 {
-	action = &Gem::waitInput;
+	action = &Torus::waitInput;
 	m_uniModel = glGetUniformLocation(m_shader->getProgramid(),      "model");
 	m_uniView  = glGetUniformLocation(m_shader->getProgramid(),       "view");
 	m_uniProj  = glGetUniformLocation(m_shader->getProgramid(), "projection");
 	m_univPos  = glGetUniformLocation(m_shader->getProgramid(),    "viewPos");
 }
 
-void Gem::draw(const Camera &cam)
+void Torus::draw(const Camera &cam)
 {
 	glBindVertexArray(m_vao);
 	glUseProgram(m_shader->getProgramid());
@@ -33,18 +33,18 @@ void Gem::draw(const Camera &cam)
 	glBindVertexArray(0);
 }
 
-void Gem::waitInput()
+void Torus::waitInput()
 {
 	if(glfwGetKey(GLWindow::getMainWindow(), GLFW_KEY_F))
-		action = &Gem::rotate;
+		action = &Torus::rotate;
 }
 
-void Gem::rotate()
+void Torus::rotate()
 {
 	if(rotation >= kGoalRotation)
 	{
 		rotation = 0.0f;
-		action = &Gem::waitInput;
+		action = &Torus::waitInput;
 		return;
 	}
 	else
@@ -52,7 +52,7 @@ void Gem::rotate()
 	rotateY(3.14f * 2 / 60);
 }
 
-void Gem::update()
+void Torus::update()
 {
 	(this->*action)(); // absolument degueulasse.
 }
