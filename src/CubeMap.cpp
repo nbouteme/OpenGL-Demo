@@ -10,9 +10,9 @@ using namespace std;
 using namespace glm;
 
 CubeMap::CubeMap() :
-	Model(string(cube_obj, cube_obj_len)),
-	m_shader(make_shared<Shader>(string(cubemapVS_glsl, cubemapVS_glsl_len).c_str(), 
-								 string(cubemapFS_glsl, cubemapFS_glsl_len).c_str()))
+	Model(OBJRes->getString("cube.obj")),
+	m_shader(make_shared<Shader>(ShaderRes->getString("cubemapVS.glsl").c_str(), 
+								 ShaderRes->getString("cubemapFS.glsl").c_str()))
 {
 	// Chargement de Texture //
 	unsigned char *texData = nullptr;
@@ -20,22 +20,22 @@ CubeMap::CubeMap() :
 	glGenTextures(1, &m_tID);
 	glBindTexture(GL_TEXTURE_CUBE_MAP, m_tID);
 	glActiveTexture(GL_TEXTURE0);
-	struct imgData { unsigned char *data; long unsigned size; };
+	struct imgData { vector<unsigned char> data; long unsigned size; };
 
 	vector<imgData> images =
 	{
-		{  right_png,  right_png_len },
-		{   left_png,   left_png_len },
-		{    top_png,    top_png_len },
-		{    bot_png,    bot_png_len },
-		{ middle_png, middle_png_len },
-		{   back_png,   back_png_len }
+		{ TexRes->getData ("right.png"), TexRes->getData ("right.png").size() },
+		{ TexRes->getData  ("left.png"), TexRes->getData  ("left.png").size() },
+		{ TexRes->getData   ("top.png"), TexRes->getData   ("top.png").size() },
+		{ TexRes->getData   ("bot.png"), TexRes->getData   ("bot.png").size() },
+		{ TexRes->getData("middle.png"), TexRes->getData("middle.png").size() },
+		{ TexRes->getData  ("back.png"), TexRes->getData  ("back.png").size() }
 	};
 
 	int i = 0, w, h;
 	for(auto image : images)
 	{
-		texData = SOIL_load_image_from_memory(image.data, image.size, &w, &h, nullptr, SOIL_LOAD_RGB);
+		texData = SOIL_load_image_from_memory(image.data.data(), image.size, &w, &h, nullptr, SOIL_LOAD_RGB);
 		glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i++, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, texData);
 		SOIL_free_image_data(texData);
 	}

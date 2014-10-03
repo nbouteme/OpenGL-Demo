@@ -10,6 +10,9 @@ ADD_CUSTOM_TARGET (shaders ALL
 ADD_CUSTOM_COMMAND(OUTPUT ${PROJECT_SOURCE_DIR}/assets/shaders.o 
 	COMMENT "Regeneration des shaders."
 	WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-	COMMAND ld -r -b binary *.glsl -o ${PROJECT_SOURCE_DIR}/assets/shaders.o
-	DEPENDS ${Shaders}
+	COMMAND pwd
+	COMMAND resgen *.glsl > shaders.res
+	COMMAND ld -r -b binary shaders.res -o ${PROJECT_SOURCE_DIR}/assets/shaders.o
+	DEPENDS resgen ${Shaders}
 )
+

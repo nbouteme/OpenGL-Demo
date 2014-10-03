@@ -17,10 +17,9 @@ using namespace std;
 using namespace glm;
 
 Mesh::Mesh() :
-	Model(string(cube_obj, cube_obj_len)),
-//	Model(tri, 9),
-	m_shader(make_shared<Shader>(string(baseVS_glsl, baseVS_glsl_len).c_str(), 
-								 string(baseFS_glsl, baseFS_glsl_len).c_str()))
+	Model(OBJRes->getString("cube.obj")),
+	m_shader(make_shared<Shader>(ShaderRes->getString("baseVS.glsl").c_str(), 
+								 ShaderRes->getString("baseFS.glsl").c_str()))
 {
 	m_uniModel = glGetUniformLocation(m_shader->getProgramid(),      "model");
 	m_uniView  = glGetUniformLocation(m_shader->getProgramid(),       "view");

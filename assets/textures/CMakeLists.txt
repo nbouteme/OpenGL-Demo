@@ -10,6 +10,7 @@ ADD_CUSTOM_TARGET (textures
 ADD_CUSTOM_COMMAND(OUTPUT ${PROJECT_SOURCE_DIR}/assets/textures.o
 	COMMENT "Regeneration des textures."
 	WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-	COMMAND ld -r -b binary *.png -o ${PROJECT_SOURCE_DIR}/assets/textures.o
-	DEPENDS ${Textures}
+	COMMAND resgen *.png > textures.res
+	COMMAND ld -r -b binary textures.res -o ${PROJECT_SOURCE_DIR}/assets/textures.o
+	DEPENDS resgen ${Textures}
 	)

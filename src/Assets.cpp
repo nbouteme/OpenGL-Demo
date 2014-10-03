@@ -1,14 +1,15 @@
 #include <Assets.hpp>
 
-// Maintenir ces fichiers est d'une souffrance.
+using namespace std;
 
-unsigned char *bot_png   (_binary_bot_png_start);
-unsigned char *top_png   (_binary_top_png_start);
-unsigned char *back_png  (_binary_back_png_start);
-unsigned char *left_png  (_binary_left_png_start);
-unsigned char *right_png (_binary_right_png_start);
-unsigned char *middle_png(_binary_middle_png_start);
+extern unsigned char _binary_models_res_end    [];
+extern unsigned char _binary_shaders_res_end   [];
+extern unsigned char _binary_textures_res_end  [];
+extern unsigned char _binary_models_res_start  [];
+extern unsigned char _binary_shaders_res_start [];
+extern unsigned char _binary_textures_res_start[];
 
+<<<<<<< HEAD
 char *cube_obj       (_binary_cube_obj_start       );
 char *emerald_obj    (_binary_emerald_obj_start    );
 char *torus_obj      (_binary_torus_obj_start      );
@@ -38,3 +39,19 @@ unsigned long torusFS_glsl_len   (_binary_torusFS_glsl_end    -    _binary_torus
 unsigned long cubemapFS_glsl_len (_binary_cubemapFS_glsl_end  -  _binary_cubemapFS_glsl_start);
 unsigned long cubemapVS_glsl_len (_binary_cubemapVS_glsl_end  -  _binary_cubemapVS_glsl_start);
 unsigned long polyedreFS_glsl_len(_binary_polyedreFS_glsl_end - _binary_polyedreFS_glsl_start);
+=======
+shared_ptr<ResourceManager> OBJRes =
+	ResourceManager::fromData(vector<unsigned char>(
+								  _binary_models_res_start,
+								  _binary_models_res_end));
+
+shared_ptr<ResourceManager> ShaderRes =
+	ResourceManager::fromData(vector<unsigned char>(
+								  _binary_shaders_res_start,
+								  _binary_shaders_res_end));
+
+shared_ptr<ResourceManager> TexRes =
+	ResourceManager::fromData(vector<unsigned char>(
+								  _binary_textures_res_start,
+								  _binary_textures_res_end));
+>>>>>>> upstream/master

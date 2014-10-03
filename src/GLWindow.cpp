@@ -19,7 +19,7 @@ void resizeCallback(GLFWwindow *win, int width, int height)
 
 GLFWwindow *GLWindow::getMainWindow()
 {
-	return dynamic_cast<GLWindow*>(Application::getWindow().get())->m_win;
+	return ((GLWindow*)Application::getWindow().get())->m_win;
 }
 
 using namespace std;

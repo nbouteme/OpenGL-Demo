@@ -6,9 +6,9 @@ using namespace std;
 using namespace glm;
 
 Polyedre::Polyedre() :
-	Model(string(polyedre_obj, polyedre_obj_len)),
-	m_shader(make_shared<Shader>(string(baseVS_glsl, baseVS_glsl_len).c_str(), 
-								 string(polyedreFS_glsl, polyedreFS_glsl_len).c_str()))
+	Model(OBJRes->getString("polyedre.obj")),
+	m_shader(make_shared<Shader>(ShaderRes->getString("baseVS.glsl")    .c_str(), 
+								 ShaderRes->getString("polyedreFS.glsl").c_str()))
 
 {
 	action = &Polyedre::waitInput;
