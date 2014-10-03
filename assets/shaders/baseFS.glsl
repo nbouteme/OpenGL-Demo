@@ -4,9 +4,10 @@ out vec4 outColor;
 
 in	vec3 Normal;
 in	vec3 Position; // Coordonnees espace-monde
+in  mat4 Model;
+in  mat4 MVP;
 
 uniform  vec3 viewPos;  // 'Position' de la camera
-
 
 void main()
 {
