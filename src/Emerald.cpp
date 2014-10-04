@@ -9,7 +9,6 @@ Emerald::Emerald() :
 	Model(OBJRes->getString("emerald.obj")),
 	m_shader(make_shared<Shader>(ShaderRes->getString("baseVS.glsl")   .c_str(), 
 								 ShaderRes->getString("emeraldFS.glsl").c_str()))
-
 {
 	action = &Emerald::waitInput;
 	m_uniModel = glGetUniformLocation(m_shader->getProgramid(),      "model");
