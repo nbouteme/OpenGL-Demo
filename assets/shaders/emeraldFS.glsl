@@ -1,9 +1,10 @@
-#version 330 core 
+#version 330 core
 
 out vec4 outColor;
 
 in	vec3 Normal;
 in	vec3 Position; // Coordonnees espace-monde
+in  mat4 Model;
 
 uniform  vec3 viewPos;
 uniform  samplerCube cubeMap;
@@ -14,10 +15,9 @@ void main()
 	vec3 diffuseComponent = vec3(0.5);
 	vec3 specularComponent = vec3(0.5);
 
-	vec3 lPos = vec3(2.0, 3.0, 1.0);// position lumiere espace local (?)
+	vec3 lPos = vec3(2.0, 3.0, 1.0);
 
 	vec3 norm       = normalize(Normal);
-
     vec3 lightDir   = normalize(lPos    - Position);// direction de la lumiere relative au point
     vec3 viewDir    = normalize(viewPos - Position);// direction de la vue relative a la camera
 

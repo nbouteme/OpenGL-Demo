@@ -6,10 +6,10 @@ using namespace std;
 using namespace glm;
 
 Torus::Torus() :
-	Model(string(torus_obj, torus_obj_len)),
-	m_shader(make_shared<Shader>(string(baseVS_glsl, baseVS_glsl_len).c_str(), 
-								 string(torusFS_glsl, torusFS_glsl_len).c_str()))
-
+	Model(OBJRes->getString("torus.obj")),
+	m_shader(make_shared<Shader>(ShaderRes->getString("baseVS.glsl")   .c_str(), 
+								 ShaderRes->getString("torusFS.glsl").c_str()))
+	
 {
 	action = &Torus::waitInput;
 	m_uniModel = glGetUniformLocation(m_shader->getProgramid(),      "model");
