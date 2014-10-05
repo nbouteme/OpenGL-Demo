@@ -1,0 +1,267 @@
+\documentclass[11pt, a4paper, titlepage]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{color}
+\usepackage{url}
+\usepackage{alltt}
+\usepackage{listings}
+\usepackage{fixltx2e}
+\usepackage[hidelinks]{hyperref}
+
+\frenchspacing
+\setlength{\parskip}{0.7em}
+\setcounter{secnumdepth}{0}
+\begin{document}
+\title{Rendu de scène sous OpenGL}
+\author{Nabil Boutemeur, Cassian Assael, Alessandro Bonnafous}
+\date{Octobre 2014}
+\maketitle
+
+\tableofcontents
+\pagebreak
+
+\section{Idée de base}
+L'idée du projet était de fournir une démonstration de principes mathématiques appliqués
+à un programme, et en même temps, montrer l'application d'objets mathématiques tels que les
+matrices et les vecteurs en vrai, car bon nombre de ces conceptes sont applicables dans la réalité.
+
+Nous voulons donc écrire qui montre les trois transformations de base possibles dans l'univers 3D:
+\begin{itemize}
+\item Translation
+\item Rotation
+\item Changement d'échelle
+\end{itemize}
+\subsection{Mise en oeuvre}
+
+Après concertation, nous nous sommes décidés à faire une scène montrant trois objets avec des formes (plus ou moins) primitives.
+Chacun de ces objets est ``activable'' à partir d'une touche de clavier, et provoquant pour chacun, l'animation d'une transformation.
+\pagebreak
+
+\subsection{Outils utilisés}
+
+Nous utilisons l'outil \textbf{git} comme logiciel de gestion de version, il permet de mieux repérer les régressions introduites au fil
+de la modification du code, et facilite le travail collaboratif, car chaque modification du code est associé a son auteur.
+
+Le dépôt est disponible en libre accès sur \href{https://github.com/nbouteme/OpenGL-Demo}{{\color{blue}Github}}, sous license LGPLv3.
+\textbf{Github} étend l'aspect collaboratif de git en fournissant un ensemble de service lié à un dépôt.
+
+Cela comprend notamment le service d'intégration continue \href{https://travis-ci.org/nbouteme/OpenGL-Demo}{{\color{blue}Travis}}, qui, lorsqu'un 
+changement se produit sur le dépôt va régénérer un environnement de développement et recompiler le projet, pour s'assurer que le 
+code sur le dépôt principal sera toujours prêt à être déployé.
+
+Il va aussi s'assurer que, lorsqu'un tiers veut contribuer du code au dépôt, la fusion du code existant et du code en attente d'intégration
+soit toujours fonctionnel.
+
+Concernant le programme lui-même, nous utilisons \textbf{cmake} comme système de build, le but du système de build étant de correctement lier entre
+elle les différentes partie du projet et s'assurer que toutes les dépendances sont satisfaites. Le programme cmake génère alors un makefile qui
+reconstruit les cibles dont au moins une dépendance aura été modifiée. La puissance de cmake réside aussi dans le fait qu'il n'est pas limité à générer
+des makefile, mais aussi des fichiers de projet pour la plupart des IDE. Cela permet aux collaborateurs d'utiliser leur outil de choix pour modifier le code.
+
+Ensuite, le programme utilise la version 3.3 du standard \textbf{OpenGL}.
+Nous avons choisi cette version en particulier car c'est la version la plus répandue à l'heure actuelle. Elle a introduit des changements majeurs
+dans l'API OpenGL ainsi que supprimée des fonctionnalités considérées comme néfaste pour un projet \footnote{\url{https://www.opengl.org/wiki/Legacy_OpenGL}}
+
+Nous utilisons la bibliothèque \textbf{GLEW}, qui permet de charger à l'exécution du programme les fonctions OpenGL supportée par le pilote graphique, ainsi 
+qu'éventuellement des extensions du standard, la bibliothèque \textbf{GLM} qui fournit une API permettant de manipuler certains types primitifs disponibles
+dans le langage de programmation de shader \textbf{GLSL}, notamment les matrices et les vecteurs. La bibliothèque \textbf{SOIL} qui est une bibliothèque C très
+légère, permettant le chargement et la décompression de format d'images. Et pour finir, la bibliothèque \textbf{GLFW}, elle aussi minimaliste, qui gère les 
+entrées et les sorties du programme --- Fenêtre, souris, clavier, manette --- en plus de la création du contexte OpenGL.
+
+\section{Conception du programme}
+
+\subsection{Squelette du programme}
+
+Cette section ne décrit que les classes du programme en surface.
+
+\subsubsection{Singleton --- Classe Application}
+
+Le but du singleton ici est de gérer un ensemble de ressources unique au programme.
+Il est identique au singleton de Meyers, si ce n'est qu'un pointeur de fonction est utilisé pour récupérer son instance, au lieu de vérifier à chaque appel
+si le singleton a déjà été instancié.
+
+\lstset{language=C++}
+
+\begin{lstlisting}
+shared_ptr<Application> Application::createSingleton()
+{
+  Appplication::_getSingleton = &Application::returnSingleton;
+  return shared_ptr<Application>(new Application());
+}
+
+shared_ptr<Application> Application::returnSingleton()
+{
+  return m_app->shared_from_this();
+}
+\end{lstlisting}
+
+La fenêtre à afficher hérite d'une classe d'interface, pour modulariser le singleton et pouvoir instancier des fenêtres utilisant une autre API qu'OpenGL.
+
+\subsubsection{Fenêtre --- Classe GLWindow}
+
+Dans son constructeur, la fenêtre se contente d'appeler des fonctions d'initialisation OpenGL et GLFW. Puis la méthode run, s'occupe de gérer la boucle
+principale, en créant une scène, et en l'affichant.
+
+\subsubsection{Scène --- Classe Scene}
+
+Une scène est un agrégat d'objet pouvant être dessinés, et pouvant être mis à jour (update) en plus d'une caméra.
+Elle peut aussi contenir un ensemble d'effets de post-processing. --- Pas implémenté pour l'instant. 
+On ne peut pas instancier une scene tel quel, la classe doit être dérivé, puis les objets qu'elle doit afficher sont instancié dans son constructeur.
+
+\subsubsection{Modèles --- Classe Model}
+
+Un modèle est un ensemble de triplé de sommet --- des faces ---, où chaque sommet a des attributs --- Normales et coordonnées de texture ---.
+Dans le projet, un modelé est donc une figure géométrique \textbf{simple}
+
+Il est intéressant de noter que j'emploie le terme \textbf{normale}, ici, avec le terme \textbf{sommet}, alors qu'une normale est un vecteur 
+dénotant une direction perpendiculaire à une \textbf{face}. C'est parce que chaque sommet faisant parti d'un modèle peut faire parti de 
+plusieurs faces, et on doit donc utiliser une normale différente pour un même dans le traitement d'une face distincte.
+
+Lorsque des normales ne sont pas utilisée, la classe Model accepte un tableau d'éléments, en plus d'un tableau de sommets. Le tableau d'éléments permettra
+alors de réutiliser des points déjà définis en utilisant leur indices, économisant ainsi de la VRAM et de la bande passante.
+
+Dans la pratique, le tableau d'élément n'est jamais utilisé, car nous avons besoin des normales pour des applications plus intéressantes, notamment dans 
+l'éclairage.
+
+Pour en finir avec la classe Model, il faut aussi noter qu'elle peut prendre en paramètre le code source d'un fichier du format \textbf{OBJ}, qui est 
+lu grâce à la classe OBJData.
+
+\pagebreak
+\subsubsection{Fichiers OBJ --- Classe OBJData}
+
+La classe OBJData fait une analyse de la syntaxe du code qui lui a été fourni, et construit alors un tableau de sommet/attribut pret a l'emploi pour une
+utilisation dans l'API OpenGL.
+
+Du fait de la définition précédente de ``Modèle'' comme étant une figure géométrique simple, OBJData a été conçu seulement pour lire des fichiers OBJ basique.
+
+Un fichier OBJ est défini par, dans l'ordre:
+\begin{itemize}
+
+\item une liste de sommets, tous séparé par un retour a la ligne:
+  \begin{alltt}
+    v \emph{x} \emph{y} \emph{z}
+  \end{alltt}
+  Où x, y et z sont des nombres à virgules flottantes.
+
+\item une liste optionnelle de coordonnées de texture, tous séparé par un retour a la ligne:
+  \begin{alltt}
+    vt \emph{u} \emph{v}
+  \end{alltt}
+  Où u et v sont des nombres à virgules flottantes.
+
+\item une liste optionnelle de normales, tous séparé par un retour a la ligne:
+  \begin{alltt}
+    vn \emph{x} \emph{y} \emph{z}
+  \end{alltt}
+  Où x, y et z sont des nombres à virgules flottantes.
+
+\item une liste de faces, tous séparé par un retour a la ligne:
+  \begin{alltt}
+    f \emph{x\textsubscript{1}}/\emph{y\textsubscript{1}}/\emph{z\textsubscript{1}} \emph{x\textsubscript{2}}/\emph{y\textsubscript{2}}/\emph{z\textsubscript{2}} \emph{x\textsubscript{3}}/\emph{y\textsubscript{3}}/\emph{z\textsubscript{3}}
+  \end{alltt}
+  Où x\textsubscript{n}, y\textsubscript{n} et z\textsubscript{n} sont les indices des déclaration des Sommet/Coordonnées de texture/Normale et n
+  le sommet constituant la face --- OpenGL, et par extension OBJData, veulent trois points par face.\\
+
+\end{itemize}
+
+Par exemple, un triangle rectangle, avec une seule normale perpendiculaire serait défini par le fichier suivant, prenant en compte trois définition
+ possible d'une face:
+\begin{alltt}
+v  0.000000 1.000000 0.000000
+v  1.000000 0.000000 0.000000
+v  1.000000 1.000000 0.000000
+vt 0.000000 1.000000
+vt 1.000000 0.000000
+vt 0.000000 0.000000
+vn 0.000000 0.000000 1.000000
+
+f 1/1/1 2/2/1 3/3/1 # si on utilise tout les attributs
+f 1/1 2/2 3/3       # si on utilise sommet et textures
+f 1//1 2//1 3//1    # si on utilise sommet et normales
+\end{alltt}
+
+\subsubsection{Caméra --- Classe Camera}
+
+La caméra est une simple classe qui se contente de garder avec elle la matrice de vue et de projection, et gérer les entrées au clavier/souris/manette.
+
+\subsubsection{Shader --- Classe Shader}
+
+Un shader est un programme exécuté à divers niveaux de la pipeline graphique du GPU.
+Ils ont l'avantage d'être très flexible, et surtout très puissant, car il bénéficient de la puissance de calcul parallèle monstrueuse du GPU.
+
+Un shader n'est pas lié à un modèle en particulier, mais ils est simplement utilisé par OpenGL lorsqu'il effectue du dessin dans un tampon.
+
+Un shader est le résultat de la compilation d'au moins 2 programmes de base, le vertex shader, qui effectue des calculs sommet par sommet,
+notamment pour effectuer des transformation, selon les parametres qu'il lui auront été passé avant le dessin, et le pixel shader, qui va
+ donner une couleur à un pixel en fonction des paramètres qu'il lui auront été donné avant le dessin, ou récupéré directement du vertex shader, qui
+s'exécute avant le pixel shader dans la pipeline.
+
+Il existe aussi des geometry shaders, qui permettent notamment de générer de manière procédurale des objets tridimensionnels, et
+ --- à partir d'OpenGL 4.0 --- les compute shaders qui sont utilisé pour des calculs plus généraux, comme par exemple des 
+simulations d'évènements physiques comme des tissus, et le couple Tesselation Control/Evaluation shader qui prend une géométrie existante, en génère des sommets
+puis applique a ces nouveau sommets des transformations supplémentaire, ils sont surtout utilisé pour augmenter le niveau de détail d'un objet.
+
+La classe Shader s'occupe donc de la vie d'un shader, de sa création à sa destruction.
+Elle combine un vertex shader et un fragment shader, et accessoirement un geometry shader, et les combine en un seul shader prêt a l'emploi. 
+
+\subsubsection{Gestion des ressources}
+
+Un des problèmes qui s'est posé pendant le développement était : comment est-ce que tout ces modèles, shader, texture, etc, allais être chargé dans le programme ?
+Est-ce que les garder dans un fichier était une solution idéale ? Le programme serait contraint de se trouver dans un répertoire à partir d'où il avait accès 
+à toutes ses ressources, avec les bonnes permissions, et un déplacement ou une copie de l'exécutable s'accompagne de tout ses fichiers.
+Une première solution avait était d'utiliser le linker ld, qui est capable de transformer n'importe quel fichier en .o, pouvant être linker statiquement dans
+ le programme, cela posait trois autre problèmes, le nom de symboles généré par ld n'était pas paramétrable, et donnait trois symboles sous la forme
+ ``\_binary\_nom\_extension\_'' suivis de start, end, et size. Ensuite le problème était que pour chaque fichier ajouté, il fallait ajouter trois symboles au code du 
+programme, et c'est vite devenu pénible à gérer, et dernièrement, le symbole cense representer la taille, ne contanait pas vraiment la taille, mais son adresse 
+elle même était la taille d'une ressource.
+
+Au final, un format de fichier RES d'archivage sans compression a été conçu pour répondre à ce besoin, ainsi qu'une classe capable de manipuler ce type
+ de fichier, situé dans une bibliothèque séparée et un exécutable genere les archives, et ld n'a plus qu'a linker ces archives avec l'exécutable final, 
+nécessitant alors seulement de modifier le code du programme non plus a chaque ajout de fichier, mais a chaque ajout de répertoire, ce qui n'arrive pas souvent.
+
+\paragraph{Anatomie d'un fichier RES}
+
+Le header d'un fichier RES défini de la manière suivante.
+
+Le header commence par les 3 caracteres ASCII ``RES'' suivi d'un octet présentant la version du format d'archive --- typiquement 1 --- suivi du nombre de
+ressource contenue dans le ficher, encodé en big endian, sur 32 bits.
+Une archive valide vide a donc une taille de 8 octets.
+
+Ensuite le header contient une table de ressource, de taille variable, car chacune de ses entrées a une taille variable.
+Une entrée dans la table est typiquement la suivante, en format hexadécimal:
+
+\begin{alltt}
+[ aa aa aa aa ] [ bb {... a fois ...} bb]
+[ cc cc cc cc ] [ dd dd dd dd ]
+\end{alltt}
+
+Où aa aa aa aa est un entier 32 bit non signé en big endian représentant la taille du nom de la ressource, bb ... bb est le nom de la ressource,
+cc cc cc cc est un entier 32 bit non signé en big endian représentant la taille de la ressource elle même, et enfin dd dd dd dd est
+un entier 32 bit non signé en big endian représentant l'adresse du premier octet de la ressource dans  l'archive.
+
+Enfin, le header est constituer d'octets à 0 jusqu'à être aligné avec le segment qui suit --- padding.
+
+\paragraph{Gestionnaire de Ressources --- Classe ResourceManager}
+
+La classe ResourceManager s'en tient au spécifications données précédemment pour permettre de lire, gérer et sauvegarder une archive. 
+
+\paragraph{Générateur de Ressources  --- Programme resgen}
+
+Le programme resgen prend une liste de fichiers en paramètre, et en créer une archive, écrite sur la sortie standard.
+Si un des fichier est une archive RES, alors elle n'est pas ajouter a l'archive en cours de création mais ses ressources le sont.
+Comme l'archive résultante est ecrite sur la sortie standard, vous sauvegarder une archive <<The Unix Way>>, avec la redirection de votre shell:
+ 
+\begin{alltt}
+\$> ./resgen file1 file2 >  ar.res
+\end{alltt}
+
+\subsection{Utilisation de la ``nouvelle'' API d'OpenGL}
+
+\subsubsection{Modèles}
+
+\subsubsection{Shaders}
+
+\subsubsection{Effets implémentés}
+
+\end{document}

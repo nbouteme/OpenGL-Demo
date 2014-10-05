@@ -20,6 +20,8 @@ ADD_EXECUTABLE(${PROJECT_NAME}
 	Polyedre.cpp
 	CubeMap.cpp
 	Assets.cpp
+	Controller.cpp
+	XBoxController.cpp
 	utils/OBJData.cpp
 	main.cpp
 	)

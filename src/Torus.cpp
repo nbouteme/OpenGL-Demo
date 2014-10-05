@@ -1,5 +1,6 @@
 #include <Torus.hpp>
 
+#include <GLWindow.hpp>
 #include <Assets.hpp>
 
 using namespace std;
@@ -35,7 +36,7 @@ void Torus::draw(const Camera &cam)
 
 void Torus::waitInput()
 {
-	if(glfwGetKey(GLWindow::getMainWindow(), GLFW_KEY_F))
+	if(glfwGetKey(*GLWindow::getMainWindow(), GLFW_KEY_F))
 		action = &Torus::rotate;
 }
 

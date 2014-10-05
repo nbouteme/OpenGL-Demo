@@ -9,18 +9,17 @@ struct Vertex
 	float x, y, z;
 };
 
-struct Normal
-{
-	float x, y, z;
-};
+typedef Vertex Normal;
 
 struct TextureCoordinate
 {
 	float u, v;
 };
 
-// seulement les indices
-// sommet/textureCoord/normal
+/*
+ * Un groupe de sommet contient des references a un ensemble de
+ * Sommet/TextureUV/Normales par leur indices de declaration + 1
+ */
 typedef	std::array<int, 3> VGroup;
 
 class OBJData
@@ -31,7 +30,6 @@ class OBJData
 	std::vector<Normal>            m_normals;
 	std::vector<TextureCoordinate> m_text;
 
-	// triangles
 	std::vector<std::array<VGroup, 3>> m_faces;
 public:
 	OBJData(const std::string &);

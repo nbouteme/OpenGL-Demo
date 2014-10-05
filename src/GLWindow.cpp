@@ -5,30 +5,22 @@
 #include <GLWindow.hpp>
 
 #include <Application.hpp>
-#include <Camera.hpp>
 #include <BetaRoom.hpp>
-#include <Mesh.hpp>
+#include <Assets.hpp>
+#include <Camera.hpp>
+#include <Controller.hpp>
 
 #include <iostream>
-
-void resizeCallback(GLFWwindow *win, int width, int height)
-{
-	(void)win;
-	glViewport(0, 0, width, height);
-}
-
-GLFWwindow *GLWindow::getMainWindow()
-{
-	return ((GLWindow*)Application::getWindow().get())->m_win;
-}
+#include <cassert>
 
 using namespace std;
 
-int GLWindow::run(int argc, char **argv)
+shared_ptr<Camera> GLWindow::m_cam;
+
+void resizeCallback(GLFWwindow *, int, int);
+
+GLWindow::GLWindow()
 {
-	// Inutilises pour l'instant
-	(void) argc;
-	(void) argv;
 	glfwInit();
 
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -37,21 +29,48 @@ int GLWindow::run(int argc, char **argv)
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, false);
 	glfwWindowHint(GLFW_RESIZABLE, true);
 	m_win = glfwCreateWindow(1280, 720, "Demo Math", nullptr, nullptr);
+
 	glfwSetWindowSizeCallback(m_win, &resizeCallback);
 	glfwMakeContextCurrent(m_win);
 
 	glewExperimental = GL_TRUE;
 	glewInit();
 
-	Camera cam(this);
-	BetaRoom sc(cam);
+	m_controller = Controller::getController();
+	m_cam = make_shared<Camera>(this);
+
+}
+
+void resizeCallback(GLFWwindow *win, int width, int height)
+{
+	(void)win;
+	glViewport(0, 0, width, height);
+
+	GLWindow::m_cam->width  = width;
+	GLWindow::m_cam->height = height;
+	GLWindow::m_cam->m_projection = glm::perspective(45.0f, float(width) / height, 0.1f, 10.0f);
+}
+
+GLWindow *GLWindow::getMainWindow()
+{
+	return dynamic_cast<GLWindow*>(Application::getSingleton()->getWindow().get());
+}
+
+int GLWindow::run(int argc, char **argv)
+{
+	(void) argc;
+	(void) argv;
+
+	BetaRoom sc(*m_cam);
+
 	glEnable(GL_DEPTH_TEST);
-	// TODO: revoir les ordres d'inclusions
+
 	while(!glfwWindowShouldClose(m_win))
 	{
 		glfwPollEvents();
 		if (glfwGetKey(m_win, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 			glfwSetWindowShouldClose(m_win, GL_TRUE);
+
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -59,7 +78,10 @@ int GLWindow::run(int argc, char **argv)
 
 		glfwSwapBuffers(m_win);
 	}
-
-	glfwTerminate();
 	return 0;
+}
+
+GLWindow::~GLWindow()
+{
+	glfwTerminate();
 }

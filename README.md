@@ -37,7 +37,9 @@ dans le répertoire "build"
 
 - [x] Implementer un parser de fichiers .obj (Sans support des textures et matériaux)
 - [ ] Implementer les contrôles au clavier de manière plus souple.
-- [ ] Dessiner les cristaux (2/3)
+- [x] Implementer les contrôles a la souris.
+- [x] Implementer les contrôles a la manette.
+- [x] Dessiner les cristaux (3/3)
 - [x] Écrire les shaders pour un éclairage basique.
 
 ### Et si on a le temps.
@@ -50,7 +52,7 @@ dans le répertoire "build"
 ### "Bugs"
 
 Pas de bug à proprement parler.
-- [ ] Passer a l'illumination globale au lieu de locale, sa casse un peu les movements..
+- [x] Passer a l'illumination globale au lieu de locale, sa casse un peu les movements..
 - [ ] Supprimer la classe Mesh
 - [x] Corruption de texture causée par un probleme de calcul ?
 

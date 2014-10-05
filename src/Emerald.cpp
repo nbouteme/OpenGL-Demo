@@ -1,5 +1,6 @@
 #include <Emerald.hpp>
 
+#include <GLWindow.hpp>
 #include <Assets.hpp>
 
 using namespace std;
@@ -11,6 +12,7 @@ Emerald::Emerald() :
 								 ShaderRes->getString("emeraldFS.glsl").c_str()))
 {
 	action = &Emerald::waitInput;
+
 	m_uniModel = glGetUniformLocation(m_shader->getProgramid(),      "model");
 	m_uniView  = glGetUniformLocation(m_shader->getProgramid(),       "view");
 	m_uniProj  = glGetUniformLocation(m_shader->getProgramid(), "projection");
@@ -25,7 +27,11 @@ void Emerald::draw(const Camera &cam)
 	glUniformMatrix4fv(m_uniModel, 1, GL_FALSE, value_ptr(m_modelMatrix));
 	glUniformMatrix4fv(m_uniView,  1, GL_FALSE, value_ptr(cam.m_view));
 	glUniformMatrix4fv(m_uniProj,  1, GL_FALSE, value_ptr(cam.getProjection()));
-	glUniform3f(m_univPos, cam.getPosition().x, cam.getPosition().y, cam.getPosition().z);
+
+	glUniform3f(m_univPos,
+				cam.getPosition().x,
+				cam.getPosition().y,
+				cam.getPosition().z);
 
 	glDrawArrays(GL_TRIANGLES, 0, vertNum);
 
@@ -34,7 +40,7 @@ void Emerald::draw(const Camera &cam)
 
 void Emerald::waitInput()
 {
-	if(glfwGetKey(GLWindow::getMainWindow(), GLFW_KEY_F))
+	if(glfwGetKey(*GLWindow::getMainWindow(), GLFW_KEY_F))                       // Un appui sur une touche modifie son comportement 
 		action = &Emerald::rotate;
 }
 

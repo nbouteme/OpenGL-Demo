@@ -1,5 +1,6 @@
 #include <Polyedre.hpp>
 
+#include <GLWindow.hpp>
 #include <Assets.hpp>
 
 using namespace std;
@@ -9,7 +10,6 @@ Polyedre::Polyedre() :
 	Model(OBJRes->getString("polyedre.obj")),
 	m_shader(make_shared<Shader>(ShaderRes->getString("baseVS.glsl")    .c_str(), 
 								 ShaderRes->getString("polyedreFS.glsl").c_str()))
-
 {
 	action = &Polyedre::waitInput;
 	m_uniModel = glGetUniformLocation(m_shader->getProgramid(),      "model");
@@ -26,7 +26,11 @@ void Polyedre::draw(const Camera &cam)
 	glUniformMatrix4fv(m_uniModel, 1, GL_FALSE, value_ptr(m_modelMatrix));
 	glUniformMatrix4fv(m_uniView,  1, GL_FALSE, value_ptr(cam.m_view));
 	glUniformMatrix4fv(m_uniProj,  1, GL_FALSE, value_ptr(cam.getProjection()));
-	glUniform3f(m_univPos, cam.getPosition().x, cam.getPosition().y, cam.getPosition().z);
+
+	glUniform3f(m_univPos,
+				cam.getPosition().x,
+				cam.getPosition().y,
+				cam.getPosition().z);
 
 	glDrawArrays(GL_TRIANGLES, 0, vertNum);
 
@@ -35,7 +39,7 @@ void Polyedre::draw(const Camera &cam)
 
 void Polyedre::waitInput()
 {
-	if(glfwGetKey(GLWindow::getMainWindow(), GLFW_KEY_F))
+	if(glfwGetKey(*GLWindow::getMainWindow(), GLFW_KEY_G))
 		action = &Polyedre::rotate;
 }
 

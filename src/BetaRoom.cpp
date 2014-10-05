@@ -8,7 +8,9 @@ BetaRoom::BetaRoom(Camera &cam) : Scene(cam)
     m_emerald = make_shared<Emerald>();
 	m_poly    = make_shared<Polyedre>();
 	m_cubemap = make_shared<CubeMap>();
+
 	addModel(m_poly);
+
     m_poly->translateX(1.0f);
     addModel(m_emerald);
 	m_torus->translateX(-1.0f);

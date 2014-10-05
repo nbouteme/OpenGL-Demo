@@ -24,9 +24,9 @@ protected:
 		addModel(std::shared_ptr<Model>(derived));
 	}
 
+	Scene(Camera &);
 public:
 	virtual void render();
 	std::set<std::shared_ptr<Model>> getModels() { return m_models; }
-	Scene(Camera &);
 	virtual ~Scene(){};
 };

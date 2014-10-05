@@ -156,7 +156,6 @@ void ResourceManager::saveResource(int fd)
 	while(header.size() % 16) header.push_back(0); // padding
 
 	*(unsigned *)(header.data() + 4) = toLBE(m_resources.size());
-	assert(*(unsigned *)(header.data() + 4) == toLBE(m_resources.size()));
 
 	for(auto i : offsetsoffset) // On a autant de resources que d'entree dans le header
 		*(unsigned *)(header.data() + i) = toLBE(toLBE(*(unsigned *)(header.data() + i)) + header.size());
