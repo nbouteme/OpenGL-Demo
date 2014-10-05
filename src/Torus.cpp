@@ -1,23 +1,24 @@
-#include <Emerald.hpp>
+#include <Torus.hpp>
 
 #include <Assets.hpp>
 
 using namespace std;
 using namespace glm;
 
-Emerald::Emerald() :
-	Model(OBJRes->getString("emerald.obj")),
+Torus::Torus() :
+	Model(OBJRes->getString("torus.obj")),
 	m_shader(make_shared<Shader>(ShaderRes->getString("baseVS.glsl")   .c_str(), 
-								 ShaderRes->getString("emeraldFS.glsl").c_str()))
+								 ShaderRes->getString("torusFS.glsl").c_str()))
+	
 {
-	action = &Emerald::waitInput;
+	action = &Torus::waitInput;
 	m_uniModel = glGetUniformLocation(m_shader->getProgramid(),      "model");
 	m_uniView  = glGetUniformLocation(m_shader->getProgramid(),       "view");
 	m_uniProj  = glGetUniformLocation(m_shader->getProgramid(), "projection");
 	m_univPos  = glGetUniformLocation(m_shader->getProgramid(),    "viewPos");
 }
 
-void Emerald::draw(const Camera &cam)
+void Torus::draw(const Camera &cam)
 {
 	glBindVertexArray(m_vao);
 	glUseProgram(m_shader->getProgramid());
@@ -32,18 +33,18 @@ void Emerald::draw(const Camera &cam)
 	glBindVertexArray(0);
 }
 
-void Emerald::waitInput()
+void Torus::waitInput()
 {
 	if(glfwGetKey(GLWindow::getMainWindow(), GLFW_KEY_F))
-		action = &Emerald::rotate;
+		action = &Torus::rotate;
 }
 
-void Emerald::rotate()
+void Torus::rotate()
 {
 	if(rotation >= kGoalRotation)
 	{
 		rotation = 0.0f;
-		action = &Emerald::waitInput;
+		action = &Torus::waitInput;
 		return;
 	}
 	else
@@ -51,7 +52,7 @@ void Emerald::rotate()
 	rotateY(3.14f * 2 / 60);
 }
 
-void Emerald::update()
+void Torus::update()
 {
 	(this->*action)(); // absolument degueulasse.
 }
