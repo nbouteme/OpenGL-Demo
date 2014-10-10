@@ -222,8 +222,8 @@ Un fichier \texttt{OBJ} est défini par, dans l'ordre:
   Où x\textsubscript{n}, y\textsubscript{n} et z\textsubscript{n} sont
   les indices des déclaration des Sommet/Coordonnées de
   texture/Normale et n
-  le sommet constituant la face --- OpenGL, et par extension OBJData, veulent trois points par face.\\
-
+  le sommet constituant la face --- OpenGL, et par extension OBJData, veulent
+trois points par face.
 \end{itemize}
 
 Par exemple, un triangle rectangle, avec une seule normale
@@ -394,7 +394,7 @@ résultante est ecrite sur la sortie standard, vous sauvegarder une
 archive <<The Unix Way>>, avec la redirection de votre shell:
  
 \begin{alltt}
-  \$> ./resgen file1 file2 > ar.res
+\$> ./resgen file1 file2 > ar.res
 \end{alltt}
 
 \section{Utilisation de la ``nouvelle'' API d'OpenGL}
@@ -905,6 +905,42 @@ La couleur finale du pixel est la somme des trois composante.
 \begin{math}
 Couleur = Ambiante + Diffuse + Speculaire
 \end{math}
+
+
+\subsection{Skybox}
+
+La skybox est un cube avec une taille d'arrêter de 1, qui est dessiner tout autour de la caméra.
+En fait, pour suivre la caméra, la partie 3x3 de la matrice de vue est utiliser, ce qui a pour effet d'éliminer la composante de translation
+tout en conservant la composante rotation qui nous intéresse.
+Ensuite le cube est dessiner en désactivant l'écriture dans le tampon de profondeur, donc n'importe quel objet
+dessiner après le cube apparaîtra à l'écran, même si il se trouve plus loin que les faces visibles du cube.
+Le résultat donne l'impression que la scène se situe dans le ciel, avec des nuages que l'on ne peut atteindre.
+
+En réutilisant la texture de la skybox comme environment map des objets de la scène, on peut simuler des
+phénomènes physique intéressants, la réfraction et la réflection.
+
+\subsubsection{Réflection}
+La réflection sur les cristaux est simulée par une texture d'environnement qui correspond à la skybox
+qui englobe la scène.
+La particularité est que le vecteur de la direction réfléchit correspond directement au texel(pixel d'une texture)
+du cube. On peut donc récupérer la couleur facilement et l'afficher sur le cristal, après
+l'avoir légèrement mixée avec le reste du fragment (10\%)
+
+La texture est accessible avec 2 coordonnées x et y.
+
+\subsubsection{Réfraction}
+La réfraction elle, est un peu plus compliquée, le même principe s'adapte, sauf qu'au lieu de
+calculer la réflexion d'un rayon, on calcul la déviation avec l'indice de réfraction d'un crystal
+La fonction refract prend en paramètre le rayon de vue, la normale d'incidence et l'indice de réfraction.
+Et le rayon réfracté est obtenu selon la formule suivante.
+
+\begin{math}
+R =
+\begin{pmatrix}
+ir * Incident - (ir * Normale \times Incident) + \sqrt{k}) * Normale
+\end{pmatrix}
+\end{math}
+
 
 
 \end{document}
