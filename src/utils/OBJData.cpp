@@ -4,11 +4,11 @@
 
 using namespace std;
 
-array<VGroup, 3>  parseFace  (vector<string>::iterator &it);
-VGroup            parseVGroup(vector<string>::iterator &it);
-Normal            parseNormal(vector<string>::iterator &it);
+Face              parseFace  (vector<string>::iterator &it);
 Vertex            parseVert  (vector<string>::iterator &it);
 TextureCoordinate parseTexUV (vector<string>::iterator &it);
+VGroup            parseVGroup(vector<string>::iterator &it);
+Normal            parseNormal(vector<string>::iterator &it);
 
 TextureCoordinate parseTexUV(vector<string>::iterator &it)                      // Une coordonnees de texture est juste 2 nombres a la suite.
 {
@@ -53,7 +53,7 @@ VGroup parseVGroup(vector<string>::iterator &it)                                
 	return { vertIdx, texIdx, normIdx };
 }
 
-array<VGroup, 3> parseFace(vector<string>::iterator &it)                        //Une face est notée par un f suivie de 3(dans le cas d'un triangle) groupes d'un certain type
+Face parseFace(vector<string>::iterator &it)                                    //Une face est notée par un f suivie de 3(dans le cas d'un triangle) groupes d'un certain type
 {
 	++it;
 	VGroup first = parseVGroup(it);

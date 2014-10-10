@@ -2,6 +2,9 @@
 
 using namespace std;
 
+/**
+ * \brief instancie la manette selon le nomero de manette
+ */
 XBoxController::XBoxController(int joyNum) : m_joyNum(joyNum)
 {
 }
@@ -18,6 +21,9 @@ XBoxController::XBoxController(int joyNum) : m_joyNum(joyNum)
  * 7: Pad directionel, vertical
  */
 
+/**
+ * \return les bouttons pressés
+ */
 glm::vec2 XBoxController::getMainStickPosition()
 {
 	int n;
@@ -30,6 +36,9 @@ glm::vec2 XBoxController::getMainStickPosition()
 	return ret;
 }
 
+/**
+ * \return la position des gachette, les 2 axes dans l'interval [-1; 1]
+ */
 glm::vec2 XBoxController::getSecondaryStickPosition()
 {
 	int n;
@@ -42,6 +51,9 @@ glm::vec2 XBoxController::getSecondaryStickPosition()
 	return ret;
 }
 
+/**
+ * \return les bouttons pressés
+ */
 glm::vec2 XBoxController::getTriggers()
 {
 	const float *data = glfwGetJoystickAxes(m_joyNum, nullptr);
@@ -65,6 +77,9 @@ glm::vec2 XBoxController::getTriggers()
  * 10: RSB
 */
 
+/**
+ * \return les bouttons pressés
+ */
 vector<bool> XBoxController::getButtons()
 {
 	int size;

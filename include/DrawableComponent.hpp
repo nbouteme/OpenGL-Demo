@@ -1,11 +1,22 @@
+/**
+ * \author N.Boutemeur
+ */
+
 #pragma once
 
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <Camera.hpp>
-
+/**
+ * \struct DrawableComponent
+ *  La classe DrawingComponent defini des objets qui peuvent etre dessinable
+ */
 struct DrawableComponent
 {
+	/**
+	 * \brief Pour la derivation
+	 */
 	virtual ~DrawableComponent() {};
+
+	/**
+	 * \brief Dessine un objet sur la cible active
+	 */
 	virtual void draw(const Camera &) = 0;
 };

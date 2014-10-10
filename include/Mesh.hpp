@@ -1,8 +1,15 @@
+/**
+ * \author N.Boutemeur
+ */
+
 #pragma once
 
 #include <Shader.hpp>
 #include <Model.hpp>
 
+/**
+ * \class Mesh Cette classe sert d'example pour deriver de Model
+ */
 class Mesh : public Model
 {
 	std::shared_ptr<Shader> m_shader;
@@ -10,8 +17,6 @@ class Mesh : public Model
 public:
 	// FIXME: Cette classe n'est la que pour demonstration
 	Mesh();
-	Mesh(const Mesh &) = default;
-	Mesh(Mesh &&) = default;
 	virtual void draw(const Camera &);
 	virtual void update() {};
 };

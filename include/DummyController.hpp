@@ -1,7 +1,15 @@
+/**
+ * \author N.Boutemeur
+ */
+
 #pragma once
 
 #include <Controller.hpp>
 
+/**
+ * \class DummyController
+ * Une manette qui ne fait jamais rien.
+ */
 class DummyController : public Controller
 {
 public:

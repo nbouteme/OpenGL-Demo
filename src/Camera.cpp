@@ -15,7 +15,7 @@ using namespace glm;
 void onHovering(GLFWwindow *win, double x, double y)
 {
 	static int oldx, oldy;
-
+	(void)win;
 	if(glfwGetMouseButton(*(GLWindow*)Application::getSingleton()->getWindow().get(), 0) == GLFW_PRESS)
 	{
 		Camera &self = *((GLWindow*)Application::getSingleton()->getWindow().get())->m_cam;
@@ -44,34 +44,18 @@ Camera::Camera(GLWindow *Parent) :
 				  m_direction * 0.1f,
 				  vec3(0.0f, 1.0f, 0.0f)))
 {
-	Camera *self = nullptr;
-	using namespace std::placeholders;
-
 	glfwSetCursorPosCallback(*Parent, &onHovering);
 }
 
-#include <iostream>
-
 void Camera::update()
 {
-/*	glm::vec3 delta((glfwGetKey(*m_glWin, GLFW_KEY_LEFT)  == GLFW_PRESS) * rotate(m_direction, 3.141529f / 2, vec3(0.0f, 1.0f, 0.0f)).y *  0.1f +
-					(glfwGetKey(*m_glWin, GLFW_KEY_RIGHT) == GLFW_PRESS) * rotate(m_direction, 3.141529f / 2, vec3(0.0f, 1.0f, 0.0f)).y * -0.1f,
-					(glfwGetKey(*m_glWin, GLFW_KEY_Z)     == GLFW_PRESS) * m_direction.z *  0.1f +
-					(glfwGetKey(*m_glWin, GLFW_KEY_X)     == GLFW_PRESS) * m_direction.z * -0.1f,
-					(glfwGetKey(*m_glWin, GLFW_KEY_UP)    == GLFW_PRESS) * m_direction.x *  0.1f +
-					(glfwGetKey(*m_glWin, GLFW_KEY_DOWN)  == GLFW_PRESS) * m_direction.x * -0.1f);
-*/
-
 	vec3 right = cross(vec3(0.0f, 1.0f, 0.0f), m_direction);
 
-	if(glfwGetKey(*m_glWin, GLFW_KEY_UP)  == GLFW_PRESS)
-		m_position += m_direction * 0.1f;
-	if(glfwGetKey(*m_glWin, GLFW_KEY_DOWN)  == GLFW_PRESS)
-		m_position -= m_direction * 0.1f;
-	if(glfwGetKey(*m_glWin, GLFW_KEY_RIGHT)  == GLFW_PRESS)
-		m_position -= right * 0.1f;
-	if(glfwGetKey(*m_glWin, GLFW_KEY_LEFT)  == GLFW_PRESS)
-		m_position += right * 0.1f;
+	// TODO: changer ca
+	if(glfwGetKey(*m_glWin, GLFW_KEY_UP)     == GLFW_PRESS) m_position += m_direction * 0.1f;
+	if(glfwGetKey(*m_glWin, GLFW_KEY_DOWN)   == GLFW_PRESS) m_position -= m_direction * 0.1f;
+	if(glfwGetKey(*m_glWin, GLFW_KEY_RIGHT)  == GLFW_PRESS) m_position -= right * 0.1f;
+	if(glfwGetKey(*m_glWin, GLFW_KEY_LEFT)   == GLFW_PRESS) m_position += right * 0.1f;
 
 	vec2 mstick;
 	if(m_controller && length(mstick = m_controller->getMainStickPosition()) > 0.25f)

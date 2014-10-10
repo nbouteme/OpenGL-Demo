@@ -1,9 +1,17 @@
+/**
+ * \author N.Boutemeur
+ */
+
 #pragma once
 
 #include <Camera.hpp>
 #include <Shader.hpp>
 #include <Model.hpp>
 
+/**
+ * \class Polyedre
+ *  La classe Polyedre defini un crystal qui est dessinable
+ */
 class Polyedre : public Model
 {
 	const float kGoalRotation = 3.14f * 2;

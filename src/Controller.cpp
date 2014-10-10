@@ -8,6 +8,9 @@
 
 using namespace std;
 
+/*
+ * \return la premiere mannete trouvee et supportee, sinon une fausse manette.
+ */
 shared_ptr<Controller> Controller::getController()
 {
 	for(int i = 0; i < 16; ++i)

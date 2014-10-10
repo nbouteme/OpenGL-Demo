@@ -13,6 +13,7 @@ Model::Model(const string &OBJSource)
 	vector<float>  data = objd->getData();
 
 	vertNum = data.size() << 3; // << 3 et / 8 donnent des resultats differents ?!
+
 	glGenVertexArrays(1, &m_vao);
 	glGenBuffers     (1, &m_vbo);
 
@@ -28,7 +29,7 @@ Model::Model(const string &OBJSource)
     glEnableVertexAttribArray(1);
 
 	glVertexAttribPointer(2, 3, GL_FLOAT, false, 32, (void *)20);
-    glEnableVertexAttribArray(2);
+	glEnableVertexAttribArray(2);
 
 	glBindVertexArray(0);
 }

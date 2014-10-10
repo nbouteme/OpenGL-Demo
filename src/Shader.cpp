@@ -21,7 +21,6 @@ Shader::Shader(const char *vs, const char *ps, const char *gs)
 	m_pixelId  = glCreateShader(GL_FRAGMENT_SHADER);
 
 	glShaderSource(m_vertexId, 1, &vs, nullptr);
-
 	glShaderSource(m_pixelId , 1, &ps, nullptr);
 
 	/*
@@ -30,18 +29,22 @@ Shader::Shader(const char *vs, const char *ps, const char *gs)
 	 */
 	glCompileShader(m_vertexId);
 	glGetShaderiv(m_vertexId, GL_COMPILE_STATUS, &status);
+
 	if(!status)
 	{
 		printf("%s\n", vs);
 		dumpShaderErrorLog(m_vertexId);
 	}
+
 	glCompileShader(m_pixelId);
 	glGetShaderiv(m_pixelId, GL_COMPILE_STATUS, &status);
+
 	if(!status)
 	{
 		printf("%s\n", ps);
 		dumpShaderErrorLog(m_pixelId);
 	}
+
 	m_shaderId = glCreateProgram();
 
 	if(gs)
@@ -72,7 +75,7 @@ void Shader::dumpShaderErrorLog(int shaderId)
 	int lastSize;
 	do
 	{
-		glGetShaderInfoLog(shaderId, 512, &lastSize, buff);
+		glGetShaderInfoLog(shaderId, 511, &lastSize, buff);
 		printf("%s", buff); // Pas vraiment sur si le decoupage est correcte, 
 		                    //j'ai jamais eu d'erreur de plus de 512 caracteres.
 	} while(lastSize == 511);
