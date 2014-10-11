@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>OpenGL-Demo:  Fichier source de /home/mirai/OpenGL-Demo/include/GLWindow.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">OpenGL-Demo
+   </div>
+   <div id="projectbrief">Demo pour les math</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.8 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_9e54e7335d4be2e13849ab5fac522ba4.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">GLWindow.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;BaseWindow.hpp&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define GLEW_STATIC</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;GL/glew.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;GLFW/glfw3.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">class </span><a class="code" href="classController.html">Controller</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">class </span><a class="code" href="classCamera.html">Camera</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classGLWindow.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classGLWindow.html">GLWindow</a> : <span class="keyword">public</span> <a class="code" href="classBaseWindow.html">BaseWindow</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    GLFWwindow* m_win;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    std::shared_ptr&lt;Controller&gt; m_controller;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="classGLWindow.html#a728e0fb2a9890114d0371c889af9f95f">GLWindow</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classGLWindow.html#a99612c0043db5f944500bdbd723e902b">~GLWindow</a>() <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classGLWindow.html#a77ed0cc5ddcfa47f55b59b123cab5190">   47</a></span>&#160;    <span class="keyword">operator</span> GLFWwindow*() <span class="keyword">const</span> { <span class="keywordflow">return</span> m_win; }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classGLWindow.html#a297b34b4bbf69b29516e279839262623">run</a>(<span class="keywordtype">int</span> = 0, <span class="keywordtype">char</span> ** = 0) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">static</span> <a class="code" href="classGLWindow.html">GLWindow</a> *<a class="code" href="classGLWindow.html#a00dbb194ab7a1395bc6f8e4af9d0b34a">getMainWindow</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classGLWindow.html#a73bff0543adb7c2d3f2be1bd86306579">   62</a></span>&#160;    std::shared_ptr&lt;Controller&gt; <a class="code" href="classGLWindow.html#a73bff0543adb7c2d3f2be1bd86306579">getController</a>() { <span class="keywordflow">return</span> m_controller; }</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classGLWindow.html#a09212b50941955d6b198e68a8cb427a8">   67</a></span>&#160;    <span class="keyword">static</span> std::shared_ptr&lt;Camera&gt; <a class="code" href="classGLWindow.html#a09212b50941955d6b198e68a8cb427a8">m_cam</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
+<div class="ttc" id="classController_html"><div class="ttname"><a href="classController.html">Controller</a></div><div class="ttdef"><b>Definition:</b> Controller.hpp:18</div></div>
+<div class="ttc" id="classGLWindow_html"><div class="ttname"><a href="classGLWindow.html">GLWindow</a></div><div class="ttdef"><b>Definition:</b> GLWindow.hpp:22</div></div>
+<div class="ttc" id="classGLWindow_html_a99612c0043db5f944500bdbd723e902b"><div class="ttname"><a href="classGLWindow.html#a99612c0043db5f944500bdbd723e902b">GLWindow::~GLWindow</a></div><div class="ttdeci">virtual ~GLWindow() final</div><div class="ttdoc">Destructeur. </div><div class="ttdef"><b>Definition:</b> GLWindow.cpp:84</div></div>
+<div class="ttc" id="classBaseWindow_html"><div class="ttname"><a href="classBaseWindow.html">BaseWindow</a></div><div class="ttdef"><b>Definition:</b> BaseWindow.hpp:7</div></div>
+<div class="ttc" id="classGLWindow_html_a73bff0543adb7c2d3f2be1bd86306579"><div class="ttname"><a href="classGLWindow.html#a73bff0543adb7c2d3f2be1bd86306579">GLWindow::getController</a></div><div class="ttdeci">std::shared_ptr&lt; Controller &gt; getController()</div><div class="ttdef"><b>Definition:</b> GLWindow.hpp:62</div></div>
+<div class="ttc" id="classGLWindow_html_a00dbb194ab7a1395bc6f8e4af9d0b34a"><div class="ttname"><a href="classGLWindow.html#a00dbb194ab7a1395bc6f8e4af9d0b34a">GLWindow::getMainWindow</a></div><div class="ttdeci">static GLWindow * getMainWindow()</div><div class="ttdef"><b>Definition:</b> GLWindow.cpp:54</div></div>
+<div class="ttc" id="classCamera_html"><div class="ttname"><a href="classCamera.html">Camera</a></div><div class="ttdef"><b>Definition:</b> Camera.hpp:18</div></div>
+<div class="ttc" id="classGLWindow_html_a09212b50941955d6b198e68a8cb427a8"><div class="ttname"><a href="classGLWindow.html#a09212b50941955d6b198e68a8cb427a8">GLWindow::m_cam</a></div><div class="ttdeci">static std::shared_ptr&lt; Camera &gt; m_cam</div><div class="ttdef"><b>Definition:</b> GLWindow.hpp:67</div></div>
+<div class="ttc" id="classGLWindow_html_a728e0fb2a9890114d0371c889af9f95f"><div class="ttname"><a href="classGLWindow.html#a728e0fb2a9890114d0371c889af9f95f">GLWindow::GLWindow</a></div><div class="ttdeci">GLWindow()</div><div class="ttdoc">Constructeur par defaut. </div><div class="ttdef"><b>Definition:</b> GLWindow.cpp:22</div></div>
+<div class="ttc" id="classGLWindow_html_a297b34b4bbf69b29516e279839262623"><div class="ttname"><a href="classGLWindow.html#a297b34b4bbf69b29516e279839262623">GLWindow::run</a></div><div class="ttdeci">virtual int run(int=0, char **=0) override</div><div class="ttdoc">execute le huehuehue </div><div class="ttdef"><b>Definition:</b> GLWindow.cpp:59</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.8-->
+<!-- start footer part -->
+</body>
+</html>
