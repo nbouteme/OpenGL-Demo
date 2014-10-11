@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['scene',['Scene',['../classScene.html',1,'']]],
-  ['shader',['Shader',['../classShader.html',1,'']]]
+  ['scene',['Scene',['../class_scene.html',1,'']]],
+  ['shader',['Shader',['../class_shader.html',1,'']]]
 ];

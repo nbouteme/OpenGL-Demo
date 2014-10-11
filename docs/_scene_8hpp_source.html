@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>OpenGL-Demo:  Fichier source de /home/mirai/OpenGL-Demo/include/Scene.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">OpenGL-Demo
+   </div>
+   <div id="projectbrief">Demopour les maths</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.8 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_9e54e7335d4be2e13849ab5fac522ba4.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Scene.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">class </span><a class="code" href="class_model.html">Model</a>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span><a class="code" href="class_camera.html">Camera</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_scene.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_scene.html">Scene</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    std::set&lt;std::shared_ptr&lt;Model&gt;&gt; m_models;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_scene.html#ac8ac592b03402f99a2890df2603ae459">   30</a></span>&#160;    <a class="code" href="class_camera.html">Camera</a> &amp;<a class="code" href="class_scene.html#ac8ac592b03402f99a2890df2603ae459">m_cam</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_scene.html#ac4808547bb8fffe4c5a141b6f5fb663d">   35</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_scene.html#ac4808547bb8fffe4c5a141b6f5fb663d">addModel</a>(<span class="keyword">const</span> std::shared_ptr&lt;Model&gt; &amp;model)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        { m_models.insert(model); }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_scene.html#a3172e9ea37b589bb8641d3d42cfdd639">   42</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_scene.html#a3172e9ea37b589bb8641d3d42cfdd639">addModel</a>(<span class="keyword">const</span> T&amp; derived)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">//Type safe car derived doit bien dériver de Model, pour compiler</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="class_scene.html#ac4808547bb8fffe4c5a141b6f5fb663d">addModel</a>(std::shared_ptr&lt;Model&gt;(derived));</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="class_scene.html#a996be1b7689e24f72e841f5068416acf">Scene</a>(<a class="code" href="class_camera.html">Camera</a> &amp;);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_scene.html#a4ddf2d16f371ee9533b3faf1dd5ddfb1">render</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_scene.html#ad45e9836644de1d4c89a7a250654a409">   60</a></span>&#160;    std::set&lt;std::shared_ptr&lt;Model&gt;&gt; <a class="code" href="class_scene.html#ad45e9836644de1d4c89a7a250654a409">getModels</a>() { <span class="keywordflow">return</span> m_models; }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_scene.html">Scene</a>(){};</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
+<div class="ttc" id="class_scene_html_ac8ac592b03402f99a2890df2603ae459"><div class="ttname"><a href="class_scene.html#ac8ac592b03402f99a2890df2603ae459">Scene::m_cam</a></div><div class="ttdeci">Camera &amp; m_cam</div><div class="ttdef"><b>Definition:</b> Scene.hpp:30</div></div>
+<div class="ttc" id="class_model_html"><div class="ttname"><a href="class_model.html">Model</a></div><div class="ttdef"><b>Definition:</b> Model.hpp:21</div></div>
+<div class="ttc" id="class_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdef"><b>Definition:</b> Camera.hpp:21</div></div>
+<div class="ttc" id="class_scene_html_a996be1b7689e24f72e841f5068416acf"><div class="ttname"><a href="class_scene.html#a996be1b7689e24f72e841f5068416acf">Scene::Scene</a></div><div class="ttdeci">Scene(Camera &amp;)</div><div class="ttdoc">Construit une scène à partir d&#39;une caméra à utiliser pour le rendu. </div><div class="ttdef"><b>Definition:</b> Scene.cpp:5</div></div>
+<div class="ttc" id="class_scene_html"><div class="ttname"><a href="class_scene.html">Scene</a></div><div class="ttdef"><b>Definition:</b> Scene.hpp:17</div></div>
+<div class="ttc" id="class_scene_html_ad45e9836644de1d4c89a7a250654a409"><div class="ttname"><a href="class_scene.html#ad45e9836644de1d4c89a7a250654a409">Scene::getModels</a></div><div class="ttdeci">std::set&lt; std::shared_ptr&lt; Model &gt; &gt; getModels()</div><div class="ttdef"><b>Definition:</b> Scene.hpp:60</div></div>
+<div class="ttc" id="class_scene_html_ac4808547bb8fffe4c5a141b6f5fb663d"><div class="ttname"><a href="class_scene.html#ac4808547bb8fffe4c5a141b6f5fb663d">Scene::addModel</a></div><div class="ttdeci">void addModel(const std::shared_ptr&lt; Model &gt; &amp;model)</div><div class="ttdoc">Ajoute un modèle pour le dessin. </div><div class="ttdef"><b>Definition:</b> Scene.hpp:35</div></div>
+<div class="ttc" id="class_scene_html_a3172e9ea37b589bb8641d3d42cfdd639"><div class="ttname"><a href="class_scene.html#a3172e9ea37b589bb8641d3d42cfdd639">Scene::addModel</a></div><div class="ttdeci">void addModel(const T &amp;derived)</div><div class="ttdoc">Ajoute un modèle derivé pour le dessin. </div><div class="ttdef"><b>Definition:</b> Scene.hpp:42</div></div>
+<div class="ttc" id="class_scene_html_a4ddf2d16f371ee9533b3faf1dd5ddfb1"><div class="ttname"><a href="class_scene.html#a4ddf2d16f371ee9533b3faf1dd5ddfb1">Scene::render</a></div><div class="ttdeci">virtual void render()</div><div class="ttdoc">Dessine la scène sur la cible active. </div><div class="ttdef"><b>Definition:</b> Scene.cpp:9</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.8-->
+<!-- start footer part -->
+</body>
+</html>

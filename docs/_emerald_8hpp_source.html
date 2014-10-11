@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>OpenGL-Demo:  Fichier source de /home/mirai/OpenGL-Demo/include/Emerald.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">OpenGL-Demo
+   </div>
+   <div id="projectbrief">Demopour les maths</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.8 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_9e54e7335d4be2e13849ab5fac522ba4.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Emerald.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;Model.hpp&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">class </span><a class="code" href="class_camera.html">Camera</a>;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">class </span><a class="code" href="class_shader.html">Shader</a>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_emerald.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_emerald.html">Emerald</a> : <span class="keyword">public</span> <a class="code" href="class_model.html">Model</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">float</span> kGoalRotation = 3.14f * 2;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">float</span> rotation = 0.0f;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    std::shared_ptr&lt;Shader&gt; m_shader;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">int</span> m_uniModel, m_uniView, m_uniProj, m_univPos;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    void (<a class="code" href="class_emerald.html">Emerald</a>::*action)();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> waitInput();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> rotate();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="class_emerald.html#a0af7339a3dfdfb13610148bb3a16c920">Emerald</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_emerald.html#ae913346e203ed9a8115d890bd662ea41">draw</a>(<span class="keyword">const</span> <a class="code" href="class_camera.html">Camera</a>&amp;);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_emerald.html#ad997fe3bf39eb0556aefab1a91836895">update</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
+<div class="ttc" id="class_model_html"><div class="ttname"><a href="class_model.html">Model</a></div><div class="ttdef"><b>Definition:</b> Model.hpp:21</div></div>
+<div class="ttc" id="class_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdef"><b>Definition:</b> Camera.hpp:21</div></div>
+<div class="ttc" id="class_emerald_html_a0af7339a3dfdfb13610148bb3a16c920"><div class="ttname"><a href="class_emerald.html#a0af7339a3dfdfb13610148bb3a16c920">Emerald::Emerald</a></div><div class="ttdeci">Emerald()</div><div class="ttdoc">Constructeur par defaut. </div><div class="ttdef"><b>Definition:</b> Emerald.cpp:11</div></div>
+<div class="ttc" id="class_shader_html"><div class="ttname"><a href="class_shader.html">Shader</a></div><div class="ttdef"><b>Definition:</b> Shader.hpp:13</div></div>
+<div class="ttc" id="class_emerald_html_ad997fe3bf39eb0556aefab1a91836895"><div class="ttname"><a href="class_emerald.html#ad997fe3bf39eb0556aefab1a91836895">Emerald::update</a></div><div class="ttdeci">virtual void update()</div><div class="ttdoc">Met a jour l&#39;etat de l&#39;emeraude. </div><div class="ttdef"><b>Definition:</b> Emerald.cpp:62</div></div>
+<div class="ttc" id="class_emerald_html_ae913346e203ed9a8115d890bd662ea41"><div class="ttname"><a href="class_emerald.html#ae913346e203ed9a8115d890bd662ea41">Emerald::draw</a></div><div class="ttdeci">virtual void draw(const Camera &amp;)</div><div class="ttdoc">Dessine une emeraude selon la camera. </div><div class="ttdef"><b>Definition:</b> Emerald.cpp:24</div></div>
+<div class="ttc" id="class_emerald_html"><div class="ttname"><a href="class_emerald.html">Emerald</a></div><div class="ttdef"><b>Definition:</b> Emerald.hpp:16</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.8-->
+<!-- start footer part -->
+</body>
+</html>

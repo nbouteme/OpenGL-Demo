@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>OpenGL-Demo:  Fichier source de /home/mirai/OpenGL-Demo/resgen/reslib/include/ResourceManager.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">OpenGL-Demo
+   </div>
+   <div id="projectbrief">Demopour les maths</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.8 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_e142e39aff60bd23354c013992c11a61.html">resgen</a></li><li class="navelem"><a class="el" href="dir_3a1b84d48fc5b5dc04fedb667447a268.html">reslib</a></li><li class="navelem"><a class="el" href="dir_f0422fad27019821f0f8b74dab912efa.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">ResourceManager.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">typedef</span> std::vector&lt;unsigned char&gt; Resource;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_resource_manager.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_resource_manager.html">ResourceManager</a> : <span class="keyword">public</span> std::enable_shared_from_this&lt;ResourceManager&gt;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_resource_manager.html">ResourceManager</a>(<span class="keyword">const</span> std::string &amp;);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_resource_manager.html">ResourceManager</a>(<span class="keyword">const</span> std::vector&lt;unsigned char&gt; &amp;);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    std::map&lt;std::string, Resource&gt; m_resources; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_resource_manager.html#aa812c98a716dfa62c2bc3f71b4e20e98">addFile</a>(<span class="keyword">const</span> std::string &amp;); <span class="comment">// Le nom sert d&#39;identifiant, si le fichier est une autre archive, alors sont contenu est ajouté, à la place</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> <a class="code" href="class_resource_manager.html#a10f59a5ddf5a7dbdd203240386630797">addData</a>(<span class="keyword">const</span> std::string &amp;, <span class="keyword">const</span> std::vector&lt;unsigned char&gt; &amp;);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_resource_manager.html#ac534a350e6fbba1ef293e86aaed47bc2">saveResource</a>(<span class="keyword">const</span> std::string &amp;File);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_resource_manager.html#ac534a350e6fbba1ef293e86aaed47bc2">saveResource</a>(<span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    std::vector&lt;unsigned char&gt; <a class="code" href="class_resource_manager.html#aba892a2f43fd3cfe0a757b8477ea7ca3">getData</a>(<span class="keyword">const</span> std::string &amp;Handle);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    std::string <a class="code" href="class_resource_manager.html#ae642fd96b5cf5e2a6ee19db107b9ae03">getString</a>(<span class="keyword">const</span> std::string &amp;Handle);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    std::map&lt;std::string, Resource&gt; <a class="code" href="class_resource_manager.html#aff0d8b5b68006034bd31d67e6aaea3fb">getRessources</a>();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">static</span> std::shared_ptr&lt;ResourceManager&gt; <a class="code" href="class_resource_manager.html#a832206535b73564824f1102b5ed5844f">fromData</a>(<span class="keyword">const</span> std::vector&lt;unsigned char&gt; &amp;data);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">static</span> std::shared_ptr&lt;ResourceManager&gt; <a class="code" href="class_resource_manager.html#a90b982650eab524ba9b45942732147d9">fromFile</a>(<span class="keyword">const</span> std::string &amp;File);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;};</div>
+<div class="ttc" id="class_resource_manager_html_aba892a2f43fd3cfe0a757b8477ea7ca3"><div class="ttname"><a href="class_resource_manager.html#aba892a2f43fd3cfe0a757b8477ea7ca3">ResourceManager::getData</a></div><div class="ttdeci">std::vector&lt; unsigned char &gt; getData(const std::string &amp;Handle)</div><div class="ttdoc">Récupère les données d&#39;une ressource de l&#39;archive. </div><div class="ttdef"><b>Definition:</b> ResourceManager.cpp:174</div></div>
+<div class="ttc" id="class_resource_manager_html_a10f59a5ddf5a7dbdd203240386630797"><div class="ttname"><a href="class_resource_manager.html#a10f59a5ddf5a7dbdd203240386630797">ResourceManager::addData</a></div><div class="ttdeci">void addData(const std::string &amp;, const std::vector&lt; unsigned char &gt; &amp;)</div><div class="ttdoc">Ajoute des données à l&#39;archive. </div><div class="ttdef"><b>Definition:</b> ResourceManager.cpp:88</div></div>
+<div class="ttc" id="class_resource_manager_html_ae642fd96b5cf5e2a6ee19db107b9ae03"><div class="ttname"><a href="class_resource_manager.html#ae642fd96b5cf5e2a6ee19db107b9ae03">ResourceManager::getString</a></div><div class="ttdeci">std::string getString(const std::string &amp;Handle)</div><div class="ttdoc">Récupère les données d&#39;une ressource sous la forme d&#39;une chaîne. </div><div class="ttdef"><b>Definition:</b> ResourceManager.cpp:169</div></div>
+<div class="ttc" id="class_resource_manager_html_aff0d8b5b68006034bd31d67e6aaea3fb"><div class="ttname"><a href="class_resource_manager.html#aff0d8b5b68006034bd31d67e6aaea3fb">ResourceManager::getRessources</a></div><div class="ttdeci">std::map&lt; std::string, Resource &gt; getRessources()</div><div class="ttdoc">Renvois toute les ressources de l&#39;archive. </div></div>
+<div class="ttc" id="class_resource_manager_html_aa812c98a716dfa62c2bc3f71b4e20e98"><div class="ttname"><a href="class_resource_manager.html#aa812c98a716dfa62c2bc3f71b4e20e98">ResourceManager::addFile</a></div><div class="ttdeci">void addFile(const std::string &amp;)</div><div class="ttdoc">Ajoute un fichier à l&#39;archive. Si le fichier est une archive, alors son contenu est ajouté ...</div><div class="ttdef"><b>Definition:</b> ResourceManager.cpp:72</div></div>
+<div class="ttc" id="class_resource_manager_html_a90b982650eab524ba9b45942732147d9"><div class="ttname"><a href="class_resource_manager.html#a90b982650eab524ba9b45942732147d9">ResourceManager::fromFile</a></div><div class="ttdeci">static std::shared_ptr&lt; ResourceManager &gt; fromFile(const std::string &amp;File)</div><div class="ttdoc">Instancie un gestionnaire à partir d&#39;un fichier. </div><div class="ttdef"><b>Definition:</b> ResourceManager.cpp:93</div></div>
+<div class="ttc" id="class_resource_manager_html_a832206535b73564824f1102b5ed5844f"><div class="ttname"><a href="class_resource_manager.html#a832206535b73564824f1102b5ed5844f">ResourceManager::fromData</a></div><div class="ttdeci">static std::shared_ptr&lt; ResourceManager &gt; fromData(const std::vector&lt; unsigned char &gt; &amp;data)</div><div class="ttdoc">Instancie un gestionnaire à partir de données. </div><div class="ttdef"><b>Definition:</b> ResourceManager.cpp:99</div></div>
+<div class="ttc" id="class_resource_manager_html_ac534a350e6fbba1ef293e86aaed47bc2"><div class="ttname"><a href="class_resource_manager.html#ac534a350e6fbba1ef293e86aaed47bc2">ResourceManager::saveResource</a></div><div class="ttdeci">void saveResource(const std::string &amp;File)</div><div class="ttdoc">Sauvegarde l&#39;archive dans un fichier. </div></div>
+<div class="ttc" id="class_resource_manager_html"><div class="ttname"><a href="class_resource_manager.html">ResourceManager</a></div><div class="ttdef"><b>Definition:</b> ResourceManager.hpp:13</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.8-->
+<!-- start footer part -->
+</body>
+</html>

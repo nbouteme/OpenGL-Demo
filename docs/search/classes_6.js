@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['mesh',['Mesh',['../classMesh.html',1,'']]],
-  ['model',['Model',['../classModel.html',1,'']]]
+  ['mesh',['Mesh',['../class_mesh.html',1,'']]],
+  ['model',['Model',['../class_model.html',1,'']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['camera',['Camera',['../classCamera.html',1,'']]],
-  ['controller',['Controller',['../classController.html',1,'']]],
-  ['cubemap',['CubeMap',['../classCubeMap.html',1,'']]]
+  ['camera',['Camera',['../class_camera.html',1,'']]],
+  ['controller',['Controller',['../class_controller.html',1,'']]],
+  ['cubemap',['CubeMap',['../class_cube_map.html',1,'']]]
 ];

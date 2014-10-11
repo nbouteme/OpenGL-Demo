@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['texturecoordinate',['TextureCoordinate',['../structTextureCoordinate.html',1,'']]],
-  ['torus',['Torus',['../classTorus.html',1,'']]]
+  ['texturecoordinate',['TextureCoordinate',['../struct_texture_coordinate.html',1,'']]],
+  ['torus',['Torus',['../class_torus.html',1,'']]]
 ];

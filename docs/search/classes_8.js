@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['polyedre',['Polyedre',['../classPolyedre.html',1,'']]]
+  ['polyedre',['Polyedre',['../class_polyedre.html',1,'']]]
 ];

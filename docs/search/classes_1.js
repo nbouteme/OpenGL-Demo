@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['basewindow',['BaseWindow',['../classBaseWindow.html',1,'']]],
-  ['betaroom',['BetaRoom',['../classBetaRoom.html',1,'']]]
+  ['basewindow',['BaseWindow',['../class_base_window.html',1,'']]],
+  ['betaroom',['BetaRoom',['../class_beta_room.html',1,'']]]
 ];

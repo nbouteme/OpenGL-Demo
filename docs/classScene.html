@@ -61,7 +61,7 @@
 Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a4ddf2d16f371ee9533b3faf1dd5ddfb1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4ddf2d16f371ee9533b3faf1dd5ddfb1"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScene.html#a4ddf2d16f371ee9533b3faf1dd5ddfb1">render</a> ()</td></tr>
-<tr class="memdesc:a4ddf2d16f371ee9533b3faf1dd5ddfb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine la scene sur la cible active. <br /></td></tr>
+<tr class="memdesc:a4ddf2d16f371ee9533b3faf1dd5ddfb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dessine la scène sur la cible active. <br /></td></tr>
 <tr class="separator:a4ddf2d16f371ee9533b3faf1dd5ddfb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad45e9836644de1d4c89a7a250654a409"><td class="memItemLeft" align="right" valign="top">std::set&lt; std::shared_ptr<br class="typebreak" />
 &lt; <a class="el" href="classModel.html">Model</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScene.html#ad45e9836644de1d4c89a7a250654a409">getModels</a> ()</td></tr>
@@ -71,16 +71,16 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 Fonctions membres protégées</h2></td></tr>
 <tr class="memitem:ac4808547bb8fffe4c5a141b6f5fb663d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac4808547bb8fffe4c5a141b6f5fb663d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScene.html#ac4808547bb8fffe4c5a141b6f5fb663d">addModel</a> (const std::shared_ptr&lt; <a class="el" href="classModel.html">Model</a> &gt; &amp;model)</td></tr>
-<tr class="memdesc:ac4808547bb8fffe4c5a141b6f5fb663d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un model pour le dessin. <br /></td></tr>
+<tr class="memdesc:ac4808547bb8fffe4c5a141b6f5fb663d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un modèle pour le dessin. <br /></td></tr>
 <tr class="separator:ac4808547bb8fffe4c5a141b6f5fb663d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3172e9ea37b589bb8641d3d42cfdd639"><td class="memTemplParams" colspan="2"><a class="anchor" id="a3172e9ea37b589bb8641d3d42cfdd639"></a>
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a3172e9ea37b589bb8641d3d42cfdd639"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classScene.html#a3172e9ea37b589bb8641d3d42cfdd639">addModel</a> (const T &amp;derived)</td></tr>
-<tr class="memdesc:a3172e9ea37b589bb8641d3d42cfdd639"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un model derivé pour le dessin. <br /></td></tr>
+<tr class="memdesc:a3172e9ea37b589bb8641d3d42cfdd639"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajoute un modèle derivé pour le dessin. <br /></td></tr>
 <tr class="separator:a3172e9ea37b589bb8641d3d42cfdd639"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a996be1b7689e24f72e841f5068416acf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a996be1b7689e24f72e841f5068416acf"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classScene.html#a996be1b7689e24f72e841f5068416acf">Scene</a> (<a class="el" href="classCamera.html">Camera</a> &amp;)</td></tr>
-<tr class="memdesc:a996be1b7689e24f72e841f5068416acf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit une scene a partir d'une camera a utiliser pour le rendu. <br /></td></tr>
+<tr class="memdesc:a996be1b7689e24f72e841f5068416acf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construit une scène à partir d'une caméra à utiliser pour le rendu. <br /></td></tr>
 <tr class="separator:a996be1b7689e24f72e841f5068416acf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -89,8 +89,7 @@ Attributs protégés</h2></td></tr>
 <tr class="separator:ac8ac592b03402f99a2890df2603ae459"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><dl class="section author"><dt>Auteur</dt><dd>N.Boutemeur</dd></dl>
-<p>Une scene est un ensemble d'objet detines a etre rendu </p>
+<div class="textblock"><p>Une scène est un ensemble d'objets destinés à être rendu, cette classe n'est pas instanciable par elle même, et doit être dérivée </p>
 </div><div class="dynheader">
 Graphe d'héritage de Scene:</div>
 <div class="dyncontent">
@@ -121,7 +120,7 @@ Graphe d'héritage de Scene:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Renvoie</dt><dd>Les modeles de la scene </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Les modèles de la scène </dd></dl>
 
 </div>
 </div>
@@ -143,7 +142,7 @@ Graphe d'héritage de Scene:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p><code><a class="el" href="classCamera.html">Camera</a></code> utilisee lors du rendu </p>
+<p><code>Caméra</code> utilisée lors du rendu </p>
 
 </div>
 </div>

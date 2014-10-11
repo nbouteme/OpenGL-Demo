@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['actor',['Actor',['../classActor.html',1,'']]],
-  ['application',['Application',['../classApplication.html',1,'']]]
+  ['actor',['Actor',['../struct_actor.html',1,'']]],
+  ['application',['Application',['../class_application.html',1,'']]]
 ];

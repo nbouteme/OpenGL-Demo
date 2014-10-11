@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>OpenGL-Demo: README</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">OpenGL-Demo
+   </div>
+   <div id="projectbrief">Demopour les maths</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.8 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li class="current"><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">README </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a href="https://travis-ci.org/nbouteme/OpenGL-Demo">![Build Status](https://travis-ci.org/nbouteme/OpenGL-Demo.svg?branch=master)</a></p>
+<h1>OpenGL-Demo </h1>
+<p>Démo pour les math.</p>
+<h2>Dépendances</h2>
+<ul>
+<li>Bibliothèque implémentant le standard OpenGL</li>
+<li>GLM</li>
+<li>SOIL</li>
+<li>GLEW</li>
+<li>GLFW</li>
+</ul>
+<h3>Matériel</h3>
+<p>Le GPU doit supporter le standard OpenGL 3.3 (Disponible sur les GPU intégrés Intel avec les derniers pilotes, depuis au moins Sandy Bridge, le pilote libre nouveau pour GPU nVidia aussi <sub><sup>même si les performances sont terribles</sup>, et les GPU intégrés sur les AMD-A4 bas de gamme)</sub></p>
+<p><sub>Bref, vous n'avez aucune excuses.</sub></p>
+<p><sub>Pour compiler:</sub></p>
+<p><sub>Faire une fois: <code>git clone <a href="https://github.com/nbouteme/OpenGL-Demo">https://github.com/nbouteme/OpenGL-Demo</a></code></sub></p>
+<p><sub><code>cd OpenGL-Demo</code> <code>mkdir build</code> <code>cd build</code> <code>cmake ..</code></sub></p>
+<p><sub>Puis à chaque modification du code: <code>make -j`nproc`</code> dans le répertoire "build"</sub></p>
+<p><sub></p><h2>À faire</h2>
+<p></sub></p>
+<p><sub></sub></p>
+<p><sub></p><ul>
+<li>[x] Implementer un parser de fichiers .obj (Sans support des textures et matériaux)</li>
+<li>[ ] Implementer les contrôles au clavier de manière plus souple.</li>
+<li>[x] Implementer les contrôles a la souris.</li>
+<li>[x] Implementer les contrôles a la manette.</li>
+<li>[x] Dessiner les cristaux (3/3)</li>
+<li>[x] Écrire les shaders pour un éclairage basique.</li>
+</ul>
+<p></sub></p>
+<p><sub></p><h3>Et si on a le temps.</h3>
+<p></sub></p>
+<p><sub></sub></p>
+<p><sub></p><ul>
+<li>[ ] Implémenter une shadow map</li>
+<li>[x] Shaders<ul>
+<li>[x] Translucidité</li>
+<li>[x] Reflets</li>
+</ul>
+</li>
+</ul>
+<p></sub></p>
+<p><sub></p><h3>"Bugs"</h3>
+<p></sub></p>
+<p><sub></sub></p>
+<p><sub>Pas de bug à proprement parler.</p><ul>
+<li>[x] Passer a l'illumination globale au lieu de locale, sa casse un peu les movements..</li>
+<li>[ ] Supprimer la classe <a class="el" href="class_mesh.html">Mesh</a></li>
+<li>[x] Corruption de texture causée par un probleme de calcul ?</li>
+</ul>
+<p></sub></p>
+<p><sub></p><h2>Support</h2>
+<p></sub></p>
+<p><sub></sub></p>
+<p><sub>En théorie, le projet est multi-plateforme, en pratique, il a été compilé seulement sous Ubuntu et Arch Linux. Vous devriez arriver à compiler sous Windows avec un environnement type-Unix (a.k.a. MSYS2 ou Cygwin)</sub></p>
+<p><sub></p><h3>Installer les dépendances sous Ubuntu ~~(a.k.a. pls halp imma noob)~~</h3>
+<p></sub></p>
+<p><sub></sub></p>
+<p><sub>Travis exécutant un script sur une machine virtuelle Ubuntu, vous pouvez vous référer au fichier .travis.yml pour une liste des commandes à taper dans un terminal. Cela devrait suffire pour les dépendances.</sub></p>
+<p><sub>Les utilisateurs de distributions plus avant-gardistes (lire: non basée sur Debian) peuvent se débrouiller :^)</sub></p>
+<p><sub></p><h1>Documentation</h1>
+<p></sub></p>
+<p><sub></sub></p>
+<p><sub>La documentation en ligne est disponible à l'adresse <a href="https://nbouteme.github.io/OpenGL-Demo/docs/">https://nbouteme.github.io/OpenGL-Demo/docs/</a> </sub></p>
+</div></div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.8-->
+<!-- start footer part -->
+</body>
+</html>

@@ -1,0 +1,9 @@
+<map id="Model" name="Model">
+<area shape="rect" id="node4" href="$class_cube_map.html" title="CubeMap" alt="" coords="5,155,88,181"/>
+<area shape="rect" id="node5" href="$class_emerald.html" title="Emerald" alt="" coords="112,155,187,181"/>
+<area shape="rect" id="node6" href="$class_mesh.html" title="Mesh" alt="" coords="211,155,267,181"/>
+<area shape="rect" id="node7" href="$class_polyedre.html" title="Polyedre" alt="" coords="291,155,370,181"/>
+<area shape="rect" id="node8" href="$class_torus.html" title="Torus" alt="" coords="395,155,451,181"/>
+<area shape="rect" id="node2" href="$struct_drawable_component.html" title="DrawableComponent" alt="" coords="94,5,253,32"/>
+<area shape="rect" id="node3" href="$struct_actor.html" title="Actor" alt="" coords="277,5,333,32"/>
+</map>

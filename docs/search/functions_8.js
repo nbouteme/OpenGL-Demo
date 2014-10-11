@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['objdata',['OBJData',['../classOBJData.html#aabfb0c990fe319e864eb582173909e03',1,'OBJData']]],
-  ['operator_20glfwwindow_20_2a',['operator GLFWwindow *',['../classGLWindow.html#a77ed0cc5ddcfa47f55b59b123cab5190',1,'GLWindow']]]
+  ['objdata',['OBJData',['../class_o_b_j_data.html#aca7fa2cb5246604b3187e0ccfd66e838',1,'OBJData']]],
+  ['operator_20glfwwindow_20_2a',['operator GLFWwindow *',['../class_g_l_window.html#a77ed0cc5ddcfa47f55b59b123cab5190',1,'GLWindow']]]
 ];

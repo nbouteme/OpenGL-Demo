@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['effect',['Effect',['../classEffect.html',1,'']]],
-  ['emerald',['Emerald',['../classEmerald.html',1,'']]]
+  ['effect',['Effect',['../class_effect.html',1,'']]],
+  ['emerald',['Emerald',['../class_emerald.html',1,'']]]
 ];

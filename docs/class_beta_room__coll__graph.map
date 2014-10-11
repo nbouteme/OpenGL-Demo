@@ -1,0 +1,7 @@
+<map id="BetaRoom" name="BetaRoom">
+<area shape="rect" id="node2" href="$class_scene.html" title="Scene" alt="" coords="37,260,99,287"/>
+<area shape="rect" id="node3" href="$class_camera.html" title="Camera" alt="" coords="31,171,105,197"/>
+<area shape="rect" id="node4" href="$struct_actor.html" title="Actor" alt="" coords="5,81,61,108"/>
+<area shape="rect" id="node5" href="$class_g_l_window.html" title="GLWindow" alt="" coords="86,81,175,108"/>
+<area shape="rect" id="node6" href="$class_base_window.html" title="BaseWindow" alt="" coords="78,5,183,32"/>
+</map>

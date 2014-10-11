@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['glwindow',['GLWindow',['../classGLWindow.html',1,'']]]
+  ['glwindow',['GLWindow',['../class_g_l_window.html',1,'']]]
 ];

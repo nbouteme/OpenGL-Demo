@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>OpenGL-Demo:  Fichier source de /home/mirai/OpenGL-Demo/include/CubeMap.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">OpenGL-Demo
+   </div>
+   <div id="projectbrief">Demopour les maths</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.8 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_9e54e7335d4be2e13849ab5fac522ba4.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">CubeMap.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;Model.hpp&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">class </span><a class="code" href="class_shader.html">Shader</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_cube_map.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_cube_map.html">CubeMap</a> : <span class="keyword">public</span> <a class="code" href="class_model.html">Model</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">unsigned</span> m_tID;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    std::shared_ptr&lt;Shader&gt; m_shader;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">int</span> m_uniModel, m_uniView, m_uniProj, m_univPos;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="class_cube_map.html#ac33e45b385642ae69ab71e7d6842599f">CubeMap</a>();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_cube_map.html#a9e042ac0b15cf9a28af3320b769f140f">draw</a>(<span class="keyword">const</span> <a class="code" href="class_camera.html">Camera</a> &amp;);</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_cube_map.html#af4766b5a5fafe3ce6e2cd8905b192d1c">   38</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_cube_map.html#af4766b5a5fafe3ce6e2cd8905b192d1c">update</a>() {};</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_cube_map.html#ac59d8de964ee64abd3c112cf5b62e73c">   43</a></span>&#160;    <span class="keywordtype">unsigned</span> <a class="code" href="class_cube_map.html#ac59d8de964ee64abd3c112cf5b62e73c">getEnvTexture</a>() { <span class="keywordflow">return</span> m_tID; }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="ttc" id="class_model_html"><div class="ttname"><a href="class_model.html">Model</a></div><div class="ttdef"><b>Definition:</b> Model.hpp:21</div></div>
+<div class="ttc" id="class_cube_map_html_af4766b5a5fafe3ce6e2cd8905b192d1c"><div class="ttname"><a href="class_cube_map.html#af4766b5a5fafe3ce6e2cd8905b192d1c">CubeMap::update</a></div><div class="ttdeci">virtual void update()</div><div class="ttdoc">met a jour une skybox </div><div class="ttdef"><b>Definition:</b> CubeMap.hpp:38</div></div>
+<div class="ttc" id="class_cube_map_html_ac59d8de964ee64abd3c112cf5b62e73c"><div class="ttname"><a href="class_cube_map.html#ac59d8de964ee64abd3c112cf5b62e73c">CubeMap::getEnvTexture</a></div><div class="ttdeci">unsigned getEnvTexture()</div><div class="ttdoc">Récupère l&#39;identifiant de la texture utilisée. </div><div class="ttdef"><b>Definition:</b> CubeMap.hpp:43</div></div>
+<div class="ttc" id="class_cube_map_html_a9e042ac0b15cf9a28af3320b769f140f"><div class="ttname"><a href="class_cube_map.html#a9e042ac0b15cf9a28af3320b769f140f">CubeMap::draw</a></div><div class="ttdeci">virtual void draw(const Camera &amp;)</div><div class="ttdoc">dessine la skybox </div><div class="ttdef"><b>Definition:</b> CubeMap.cpp:57</div></div>
+<div class="ttc" id="class_cube_map_html"><div class="ttname"><a href="class_cube_map.html">CubeMap</a></div><div class="ttdef"><b>Definition:</b> CubeMap.hpp:13</div></div>
+<div class="ttc" id="class_camera_html"><div class="ttname"><a href="class_camera.html">Camera</a></div><div class="ttdef"><b>Definition:</b> Camera.hpp:21</div></div>
+<div class="ttc" id="class_cube_map_html_ac33e45b385642ae69ab71e7d6842599f"><div class="ttname"><a href="class_cube_map.html#ac33e45b385642ae69ab71e7d6842599f">CubeMap::CubeMap</a></div><div class="ttdeci">CubeMap()</div><div class="ttdoc">Instancie une skybox. </div><div class="ttdef"><b>Definition:</b> CubeMap.cpp:14</div></div>
+<div class="ttc" id="class_shader_html"><div class="ttname"><a href="class_shader.html">Shader</a></div><div class="ttdef"><b>Definition:</b> Shader.hpp:13</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.8-->
+<!-- start footer part -->
+</body>
+</html>
