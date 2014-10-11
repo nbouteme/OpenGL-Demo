@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Opengl-demo by nbouteme</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/nbouteme/OpenGL-Demo">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Opengl-demo</h1>
+            <h2>Demo pour les math.</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/nbouteme/OpenGL-Demo/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/nbouteme/OpenGL-Demo/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <p><a href="https://travis-ci.org/nbouteme/OpenGL-Demo"><img src="https://travis-ci.org/nbouteme/OpenGL-Demo.svg?branch=master" alt="Build Status"></a></p>
+
+<h1>
+<a name="opengl-demo" class="anchor" href="#opengl-demo"><span class="octicon octicon-link"></span></a>OpenGL-Demo</h1>
+
+<p>Démo pour les math.</p>
+
+<h2>
+<a name="d%C3%A9pendances" class="anchor" href="#d%C3%A9pendances"><span class="octicon octicon-link"></span></a>Dépendances</h2>
+
+<ul>
+<li>Bibliothèque implémentant le standard OpenGL</li>
+<li>GLM</li>
+<li>SOIL</li>
+<li>GLEW</li>
+<li>GLFW</li>
+</ul>
+
+<h3>
+<a name="mat%C3%A9riel" class="anchor" href="#mat%C3%A9riel"><span class="octicon octicon-link"></span></a>Matériel</h3>
+
+<p>Le GPU doit supporter le standard OpenGL 3.3 (Disponible sur les GPU intégrés Intel avec les derniers pilotes, depuis au moins Sandy Bridge, le pilote libre nouveau pour GPU nVidia aussi <sub><sup>même si les performances sont terribles</sup></sub>, et les GPU intégrés sur les AMD-A4 bas de gamme)</p>
+
+<p>Bref, vous n'avez aucune excuses.</p>
+
+<p>Pour compiler:</p>
+
+<p>Faire une fois:
+<code>git clone https://github.com/nbouteme/OpenGL-Demo</code></p>
+
+<p><code>cd OpenGL-Demo</code>
+<code>mkdir build</code>
+<code>cd build</code>
+<code>cmake ..</code></p>
+
+<p>Puis à chaque modification du code:
+<code>make -j`nproc`</code>
+dans le répertoire "build"</p>
+
+<h2>
+<a name="%C3%80-faire" class="anchor" href="#%C3%80-faire"><span class="octicon octicon-link"></span></a>À faire</h2>
+
+<ul>
+<li>[x] Implementer un parser de fichiers .obj (Sans support des textures et matériaux)</li>
+<li>[ ] Implementer les contrôles au clavier de manière plus souple.</li>
+<li>[x] Implementer les contrôles a la souris.</li>
+<li>[x] Implementer les contrôles a la manette.</li>
+<li>[x] Dessiner les cristaux (3/3)</li>
+<li>[x] Écrire les shaders pour un éclairage basique.</li>
+</ul>
+
+<h3>
+<a name="et-si-on-a-le-temps" class="anchor" href="#et-si-on-a-le-temps"><span class="octicon octicon-link"></span></a>Et si on a le temps.</h3>
+
+<ul>
+<li>[ ] Implémenter une shadow map</li>
+<li>[x] Shaders
+
+<ul>
+<li>[x] Translucidité</li>
+<li>[x] Reflets</li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<a name="bugs" class="anchor" href="#bugs"><span class="octicon octicon-link"></span></a>"Bugs"</h3>
+
+<p>Pas de bug à proprement parler.</p>
+
+<ul>
+<li>[x] Passer a l'illumination globale au lieu de locale, sa casse un peu les movements..</li>
+<li>[ ] Supprimer la classe Mesh</li>
+<li>[x] Corruption de texture causée par un probleme de calcul ?</li>
+</ul>
+
+<h2>
+<a name="support" class="anchor" href="#support"><span class="octicon octicon-link"></span></a>Support</h2>
+
+<p>En théorie, le projet est multi-plateforme, en pratique, il a été compilé seulement sous Ubuntu et Arch Linux.
+Vous devriez arriver à compiler sous Windows avec un environnement type-Unix (a.k.a. MSYS2 ou Cygwin)</p>
+
+<h3>
+<a name="installer-les-d%C3%A9pendances-sous-ubuntu-aka-pls-halp-imma-noob" class="anchor" href="#installer-les-d%C3%A9pendances-sous-ubuntu-aka-pls-halp-imma-noob"><span class="octicon octicon-link"></span></a>Installer les dépendances sous Ubuntu <del>(a.k.a. pls halp imma noob)</del>
+</h3>
+
+<p>Travis exécutant un script sur une machine virtuelle Ubuntu, vous pouvez vous référer au fichier .travis.yml pour une liste des commandes à taper dans un terminal.
+Cela devrait suffire pour les dépendances.</p>
+
+<p>Les utilisateurs de distributions plus avant-gardistes (lire: non basée sur Debian) peuvent se débrouiller :^)</p>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/nbouteme">nbouteme</a> can be found on <a href="https://github.com/nbouteme/OpenGL-Demo">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
