@@ -8,7 +8,6 @@
 
 #include <memory>
 
-#define GLEW_STATIC
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
@@ -23,37 +22,31 @@ class GLWindow : public BaseWindow
 {
 	/**
 	 * \var m_win
-	 * \brief Pointeur sur la fenetre interne
+	 * \brief Pointeur sur la fenêtre interne
 	 */
 	GLFWwindow* m_win;
 	/**
 	 * \var 
-	 * \brief Pointeur sur l'intance unique de la manette
+	 * \brief Pointeur sur l'instance unique de la manette
 	 */
 	std::shared_ptr<Controller> m_controller;
 public:
-	/**
-	 * \brief Constructeur par defaut
-	 */
 	GLWindow();
-	/**
-	 * \brief Destructeur
-	 */
 	virtual ~GLWindow() final;
 	/**
-	 * \brief Permet la conversion implicite vers le type fenetre de base
-	 * \return un pointeur sur la fenetre de base
+	 * \brief Permet la conversion implicite vers le type fenêtre de base
+	 * \return un pointeur sur la fenêtre de base
 	 */
 	operator GLFWwindow*() const { return m_win; }
 	/**
 	 * \param argc Le nombre d'arguments
 	 * \param argv argc arguments
-	 * \brief execute le huehuehue
-	 * \return l'etat de sortie
+	 * \brief exécute la boucle de rendue
+	 * \return l'état de sortie
 	 */
 	virtual int run(int = 0, char ** = 0) override;
 	/**
-	 * \return un pointeur sur l'instance existante de la fenetre
+	 * \return un pointeur sur l'instance existante de la fenêtre
 	 */
 	static GLWindow *getMainWindow();
 	/**
@@ -62,7 +55,7 @@ public:
 	std::shared_ptr<Controller> getController() { return m_controller; }
 	/**
 	 * \var m_cam
-	 * \param un pointeur sur l'instance existante de la camera
+	 * \param un pointeur sur l'instance existante de la caméra
 	 */
 	static std::shared_ptr<Camera> m_cam;
 };

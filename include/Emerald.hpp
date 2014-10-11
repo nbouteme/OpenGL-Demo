@@ -4,9 +4,10 @@
 
 #pragma once
 
-#include <Camera.hpp>
-#include <Shader.hpp>
 #include <Model.hpp>
+
+class Camera;
+class Shader;
 
 /**
  * \class Emerald
@@ -48,7 +49,6 @@ public:
 	 * \brief Constructeur par defaut
 	 */
 	Emerald();
-
 	/**
 	 * \brief Dessine une emeraude selon la camera
 	 * \param cam La camera utilisé pour le dessin

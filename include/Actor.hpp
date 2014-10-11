@@ -5,14 +5,13 @@
 #pragma once
 
 /**
- * \class Actor
- *  La classe Actor defini des classe qui peuvent etre mise a jour
+ * \struct Actor
+ *  La classe Actor définie des classes qui peuvent être mises à jour
  */
-class Actor
+struct Actor
 {
-public:
 	/**
-	 * \brief Met a jour un acteur
+	 * \brief Met à jour un acteur
 	 */
 	virtual void update() = 0;
 };

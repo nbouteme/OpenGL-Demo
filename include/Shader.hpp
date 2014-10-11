@@ -12,11 +12,26 @@
  */
 class Shader
 {
+	/**
+	 * \var m_shaderId
+	 * \brief Identifiant du programme shader
+	 */
+	/**
+	 * \var m_vertexId
+	 * \brief Identifiant du vertex shader
+	 */
+	/**
+	 * \var m_pixelId
+	 * \brief Identifiant du fragment shader
+	 */
+	/**
+	 * \var m_geometryId
+	 * \brief Identifiant du geometry shader
+	 */
 	int m_shaderId,
 		m_vertexId,
 		m_pixelId ,
 		m_geometryId = -1;
-
 	/**
 	 * \brief Affiche les erreur de compilation d'un shader et termine le programme
 	 */
@@ -36,7 +51,6 @@ public:
 	 * \return un identifiant du programme
 	 */
 	int getProgramid() { return m_shaderId; }
-
 	/**
 	 * \brief Renvois un shader basique
 	 * \return un shader basique

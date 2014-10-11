@@ -5,6 +5,8 @@
 #include <SOIL/SOIL.h>
 
 #include <Assets.hpp>
+#include <Camera.hpp>
+#include <Shader.hpp>
 
 using namespace std;
 using namespace glm;

@@ -1,8 +1,13 @@
+/**
+ * \author C.Assael
+ */
+
 #pragma once
 
-#include <Camera.hpp>
-#include <Shader.hpp>
 #include <Model.hpp>
+
+class Camera;
+class Shader;
 
 class Torus : public Model
 {

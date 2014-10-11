@@ -1,6 +1,8 @@
 #include <Emerald.hpp>
 
 #include <GLWindow.hpp>
+#include <Camera.hpp>
+#include <Shader.hpp>
 #include <Assets.hpp>
 
 using namespace std;

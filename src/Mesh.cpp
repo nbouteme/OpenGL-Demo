@@ -1,10 +1,12 @@
-#include <Camera.hpp>
 #include <Mesh.hpp>
+#include <Camera.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 // Seulement pour demonstration //
 // Pour les 3 cristaux, deriver de Model et s'inspirer de cette classe
 
 #include <Assets.hpp>
+#include <GL/glew.h>
 
 const float tri[] = 
 {

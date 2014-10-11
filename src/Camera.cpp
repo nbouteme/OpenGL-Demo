@@ -3,6 +3,7 @@
 #include <memory>
 
 #include <glm/gtx/rotate_vector.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 #include <Application.hpp>
 #include <GLWindow.hpp>

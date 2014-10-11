@@ -1,6 +1,8 @@
 #include <Torus.hpp>
 
 #include <GLWindow.hpp>
+#include <Camera.hpp>
+#include <Shader.hpp>
 #include <Assets.hpp>
 
 using namespace std;
@@ -10,7 +12,7 @@ Torus::Torus() :
 	Model(OBJRes->getString("torus.obj")),
 	m_shader(make_shared<Shader>(ShaderRes->getString("baseVS.glsl")   .c_str(), 
 								 ShaderRes->getString("torusFS.glsl").c_str()))
-	
+
 {
 	action = &Torus::waitInput;
 	m_uniModel = glGetUniformLocation(m_shader->getProgramid(),      "model");

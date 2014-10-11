@@ -1,8 +1,12 @@
 #include <Model.hpp>
-#include <OBJData.hpp>
 
+#include <string>
 #include <unistd.h>
-#include <sys/fcntl.h>
+#include <fcntl.h>
+
+#include <GL/glew.h>
+
+#include <OBJData.hpp>
 
 using namespace std;
 
@@ -23,10 +27,10 @@ Model::Model(const string &OBJSource)
 	glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(float), &data[0], GL_STATIC_DRAW);
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, false, 32, nullptr);
-    glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(0);
 
 	glVertexAttribPointer(1, 2, GL_FLOAT, false, 32, (void *)12);
-    glEnableVertexAttribArray(1);
+	glEnableVertexAttribArray(1);
 
 	glVertexAttribPointer(2, 3, GL_FLOAT, false, 32, (void *)20);
 	glEnableVertexAttribArray(2);

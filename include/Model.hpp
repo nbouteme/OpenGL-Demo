@@ -4,22 +4,19 @@
 
 #pragma once
 
-#include <memory>
-#include <vector>
-#include <string>
-
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <Camera.hpp>
-
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-
 #include <DrawableComponent.hpp>
 #include <Actor.hpp>
 
+#include <memory>
+#include <vector>
+
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
+
 /**
- * \class Model Cette classe n'est pas instanciable par elle meme, elle doit etre derivee pour pouvoir l'utiliser
+ * \class Model Cette classe n'est pas instanciable par elle mémé, elle doit être dérivée pour pouvoir l'utiliser
  */
 class Model : public DrawableComponent, public Actor 
 {
@@ -29,7 +26,7 @@ public:
 	virtual void draw  (const Camera &) = 0;
 	virtual void update() = 0;
 
-	// Utiliser seulement pour positionner sur la scene au debut
+	// Utiliser seulement pour positionner sur la scène au début
 
 	/**
 	 * \brief Elargi le modele sur l'axe X
@@ -102,16 +99,16 @@ protected:
 	 */
 	Model(const std::string &);
 	/**
-	 * \brief Instancie un model d'apres le tableau, d'apres un tableau de sommet
-	 *        et optionelement des elements
+	 * \brief Instancie un modèle d'après un tableau de sommet
+	 *        et un tableau d'éléments
 	 */
 	Model(const float *, unsigned, const unsigned * = nullptr, unsigned = 0);
 	/**
-	 * \brief Instancie un model d'apres le tableau
+	 * \brief Instancie un modèle d'après le tableau
 	 */
 	Model(const std::vector<float> &);
 	/**
-	 * \brief Instancie un model d'apres le tableau et les elements
+	 * \brief Instancie un modèle d'après le tableau et les éléments
 	 */
 	Model(const std::vector<float> &, const std::vector<unsigned> &);
 };

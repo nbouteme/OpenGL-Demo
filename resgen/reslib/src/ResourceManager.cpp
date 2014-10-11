@@ -1,7 +1,7 @@
 #include <ResourceManager.hpp>
 #include <unistd.h>
 #include <sys/stat.h>
-#include <sys/fcntl.h>
+#include <fcntl.h>
 
 using namespace std;
 
@@ -62,11 +62,11 @@ unsigned toLBE(unsigned in)
  * [cc cc cc cc][dd dd dd dd]
  *
  * 52 45 53 01 : RES\x01 (identifiant, \x01 = version 0.1)
- * xx xx xx xx : nombre de resources en Little Endian
- * aa aa aa aa : taille du nom de resource Little Endian
- * bb ... bb   : nom de resource
+ * xx xx xx xx : nombre de ressources en Little Endian
+ * aa aa aa aa : taille du nom de ressource Little Endian
+ * bb ... bb   : nom de ressource
  * cc cc cc cc : taille resource Little Endian
- * dd dd dd dd : decalage des donnees de la resource par rapport au debut de l'archive
+ * dd dd dd dd : décalage des données de la ressource par rapport au début de l'archive
  */
 
 void ResourceManager::addFile(const std::string &File)
@@ -113,14 +113,14 @@ void ResourceManager::saveResource(const string &File)
 void ResourceManager::saveResource(int fd)
 {
     /*
-	 * les decalages des decalages par rapport au debut :^), 
-	 * pour les modifier quand on a la taille complete du header
+	 * les décalages des décalages par rapport au début :^), 
+	 * pour les modifier quand on a la taille complète du header
 	 */
 	vector<int> offsetsoffset;
 	vector<unsigned char> header = { 'R', 'E', 'S', 1 };
 	int hoffset = 8, offset = 0;
 
-	header.insert(header.end(), {0, 0, 0, 0}); // on met le nombre de resources ici plus tard.
+	header.insert(header.end(), {0, 0, 0, 0}); // on met le nombre de ressources ici plus tard.
 
 	for(auto res : m_resources)
 	{
@@ -157,7 +157,7 @@ void ResourceManager::saveResource(int fd)
 
 	*(unsigned *)(header.data() + 4) = toLBE(m_resources.size());
 
-	for(auto i : offsetsoffset) // On a autant de resources que d'entree dans le header
+	for(auto i : offsetsoffset) // On a autant de ressources que d'entrée dans le header
 		*(unsigned *)(header.data() + i) = toLBE(toLBE(*(unsigned *)(header.data() + i)) + header.size());
 
 	for(auto res : m_resources)

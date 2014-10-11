@@ -6,23 +6,25 @@
 
 #include <ResourceManager.hpp>
 
+class ResourceManager;
+
 // Seulement les gestionnaires de ressources sont visible.
 
 /**
  * \var OBJRes
- * \p Gere les fichiers obj
+ * \p Gère les modèles OBJ
  */
 extern std::shared_ptr<ResourceManager> OBJRes;
 
 /**
  * \var ShaderRes
- * \p Gere les fichiers shaders
+ * \p Gère les fichiers shaders
  */
 extern std::shared_ptr<ResourceManager> ShaderRes;
 
 /**
  * \var TexRes
- * \p Gere les textures
+ * \p Gère les textures
  */
 extern std::shared_ptr<ResourceManager> TexRes;
 

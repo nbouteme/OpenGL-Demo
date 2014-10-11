@@ -1,5 +1,10 @@
 #include <BetaRoom.hpp>
 
+#include <CubeMap.hpp>
+#include <Torus.hpp>
+#include <Emerald.hpp>
+#include <Polyedre.hpp>
+
 using namespace std;
 
 BetaRoom::BetaRoom(Camera &cam) : Scene(cam)

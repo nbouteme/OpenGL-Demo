@@ -5,16 +5,20 @@
 #pragma once
 
 #include <Scene.hpp>
-#include <CubeMap.hpp>
-#include <Torus.hpp>
-#include <Emerald.hpp>
-#include <Polyedre.hpp>
 
+class CubeMap;
+class Torus;
+class Emerald;
+class Polyedre;
+
+/**
+ *\class BetaRoom Définie une scène constituée de 4 objets
+ */
 class BetaRoom : public Scene
 {
 	/**
 	 * \var m_torus
-	 * \p le noeud de torus de la scene
+	 * \p le noeud de torus de la scène
 	 */
 	std::shared_ptr<Torus>    m_torus;
 	/**
@@ -24,25 +28,22 @@ class BetaRoom : public Scene
     std::shared_ptr<CubeMap>  m_cubemap;
 	/**
 	 * \var m_emerald
-	 * \p l'emeraude de la scene
+	 * \p l'émeraude de la scène
 	 */
     std::shared_ptr<Emerald>  m_emerald;
 	/**
 	 * \var m_poly
-	 * \p le crystal de la scene
+	 * \p le cristal de la scène
 	 */
 	std::shared_ptr<Polyedre> m_poly;
 public:
 	/**
-	 * \param cam La camera a utiliser pour le rendu
+	 * \param cam La caméra à utiliser pour le rendu
 	 */
 	BetaRoom(Camera &);
 	/**
-	 * \brief Rends la scene sur la cible active
+	 * \brief Rends la scène sur la cible active
 	 */
 	virtual void render();
-	/**
-	 * \brief Libere les ressources
-	 */
 	virtual ~BetaRoom() {};
 };

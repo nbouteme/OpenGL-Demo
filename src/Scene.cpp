@@ -1,4 +1,6 @@
 #include <Scene.hpp>
+#include <Camera.hpp>
+#include <Model.hpp>
 
 Scene::Scene(Camera &cam) : m_cam(cam)
 {
