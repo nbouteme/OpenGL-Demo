@@ -67,3 +67,8 @@ Travis exécutant un script sur une machine virtuelle Ubuntu, vous pouvez vous r
 Cela devrait suffire pour les dépendances.
 
 Les utilisateurs de distributions plus avant-gardistes (lire: non basée sur Debian) peuvent se débrouiller :^)
+
+
+# Documentation
+
+La documentation en ligne est disponible à l'adresse https://nbouteme.github.io/OpenGL-Demo/docs/
