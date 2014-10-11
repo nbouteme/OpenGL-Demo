@@ -1,8 +1,9 @@
-\documentclass[11pt, a4paper, titlepage]{article}
+\documentclass[pdftex, 11pt, a4paper, titlepage]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
+\usepackage{fullpage}
 \usepackage{color}
 \usepackage{url}
 \usepackage{alltt}
@@ -13,9 +14,16 @@
 \frenchspacing
 \setlength{\parskip}{0.5em}
 \setcounter{secnumdepth}{0}
+
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+
 \begin{document}
-\title{Rendu de scène sous OpenGL} \author{Nabil Boutemeur, Cassian
-  Assael, Alessandro Bonnafous} \date{Octobre 2014}
+\title{Rendu de scène sous OpenGL}
+\author{Nabil Boutemeur,
+         Cassian Assael,
+             Alessandro
+              Bonnafous} 
+\date{Octobre 2014}
 \maketitle
 
 \setcounter{tocdepth}{4}
@@ -96,6 +104,10 @@ pour finir, la bibliothèque \textbf{GLFW}, elle aussi minimaliste, qui
 gère les entrées et les sorties du programme --- Fenêtre, souris,
 clavier, manette --- en plus de la création du contexte OpenGL.
 
+Nous utilisons aussi \href{https://nbouteme.github.io/OpenGL-Demo/docs}{{\color{blue}Doxygen}},
+ pour generer la documentation.
+
+\pagebreak
 \part{Conception du programme}
 
 \section{Squelette du programme}
@@ -242,6 +254,7 @@ f 1/1 2/2 3/3       # sommet et textures
 f 1//1 2//1 3//1    # sommet et normales
 \end{alltt}
 
+\pagebreak
 \subsection{Caméra --- Classe \texttt{Camera}}
 
 La caméra est une simple classe qui se contente de garder avec elle la
@@ -282,17 +295,13 @@ création à sa destruction.  Elle combine un vertex shader et un
 fragment shader, et accessoirement un geometry shader, et les combine
 en un seul shader prêt a l'emploi.
 
-\pagebreak
-
-\section{Exemple de vertex shader basique}
+\subsubsection{Exemple de vertex shader basique}
 Voici un exemple de vertex shader qui se content d'effectuer la
 transformation d'un sommet, de son espace-local en coordonnées écran.
 
 \begin{lstlisting}
 #version 330 core
-
 layout (location = 0) in vec3 pos;
-
 uniform mat4 proj;
 uniform mat4 view;
 uniform mat4 model;
@@ -303,13 +312,12 @@ void main()
 }
 \end{lstlisting}
 
-\section{Exemple de fragment shader basique}
+\subsubsection{Exemple de fragment shader basique}
 Ce shader se contente de colorer en blanc les pixels qui sont affiché
 durant un dessin.
 
 \begin{lstlisting}
 #version 330 core
-
 out vec4 outColor;
 
 void main()
@@ -317,8 +325,6 @@ void main()
   outColor = vec4(1.0f);
 }
 \end{lstlisting}
-
-\pagebreak
 
 \subsection{Gestion des ressources}
 
@@ -348,7 +354,9 @@ archives avec l'exécutable final, nécessitant alors seulement de
 modifier le code du programme non plus à chaque ajout de fichier, mais
 a chaque ajout de répertoire, ce qui n'arrive pas souvent.
 
-\section{Anatomie d'un fichier RES}
+\pagebreak
+
+\section{Format fichier RES}
 
 Le header d'un fichier RES défini de la manière suivante.
 
@@ -589,7 +597,7 @@ exemple, soit vous les recalculer, soit vous vous passez des EBO.
 
 \pagebreak
 
-\section{Shaders}
+\subsection{Shaders}
 
 Les shaders étant des programmes exécutés sur le GPU, ils utilisent un
 langage particulier conçu pour cet usage, le \textbf{GLSL}.
@@ -632,8 +640,6 @@ variable qui contient la sortie de la pipeline (la couleur) avec
 glBindFragDataLocation(shaderID, 0, ``outColor'')
 \end{lstlisting}
 
-Et on active le shader pour le dessin avec \texttt{glUseProgram}.
-
 Vous pouvez passer des paramètres à votre shader à travers des
 uniform, les uniform sont des valeurs constantes dans un shader durant
 tout le temps de l'exécution d'un shader (lisez, un appel à
@@ -655,7 +661,7 @@ uM = glGetUniformLocation(shaderID, "model");
 glUniformMatrix4fv(uM, 1, GL_FALSE, value_ptr(M));
 \end{lstlisting}
 
-\subsection{Transformations}
+\subsubsection{Transformations}
 
 De base, nous avons besoin d'appliquer des transformations à des
 sommets situé dans un espace local à l'objet.  Pour cela, nous
@@ -845,42 +851,43 @@ Avec cela, nous mettons à jour l'uniform du programme actif.
 uMat est une référence vers notre uniforme obtenue avec glGetUniformLocation,
 et matrice est un objet de GLM.
 
-\subsection{Éclairage}
+\subsubsection{Éclairage}
 
 La gestion de l'éclairage se fait dans le fragment shader.
 
 Le modèle d'éclairage utilisé est celui de Phong. Ce modèle se caractérise par
 la combinaison de 3 composantes pour déterminer l'éclairage sur un objet,
 la lumière ambiante, constante, la lumière diffuse qui suppose qu'une face
-est plus illuminée si elle est plus exposée a un rayon, et la lumière spéculaire
-qui suppose qu'une face est plus illuminée si le rayon réfléchit est plus proche
-de la caméra à un certain niveau.
+est plus illuminée si elle est plus exposée a un rayon, et la lumière 
+spéculaire qui suppose qu'une face est plus illuminée si le rayon réfléchit
+ est plus proche de la caméra à un certain niveau.
 
-Le shader d'éclairage de base fonctionne ainsi: il définit des couleurs de base
-qui sont des niveaux de gris, calcul les trois composante de la lumière et les combine,
-chaque calcul étant réalisé pixel par pixel, ainsi qu'une source de lumière fixe.
+Le shader d'éclairage de base fonctionne ainsi: il définit des couleurs de
+ base qui sont des niveaux de gris, calcul les trois composante de la lumière
+ et les combine, chaque calcul étant réalisé pixel par pixel, 
+ainsi qu'une source de lumière fixe.
 
 La composante ambiante est constante, pour un gris 20\%.
 
-La composante diffuse se calcule en mesurant l'angle entre le rayon incident et
-la normale, et multiplie ce résultat par la constante diffuse. Ainsi, une face
-faisant parfaitement face a la source de lumière aura une intensité maximale.
+La composante diffuse se calcule en mesurant l'angle entre le rayon incident
+ et la normale, et multiplie ce résultat par la constante diffuse. 
+Ainsi, une face faisant parfaitement face a la source de lumière aura
+ une intensité maximale.
 
-La mesure de l'angle incident se fait en calculant le produit scalaire entre la
-normale de la face et la direction du rayon de lumière incident
+La mesure de l'angle incident se fait en calculant le produit scalaire 
+entre la normale de la face et la direction du rayon de lumière incident
 (elle aussi une norme). L'angle de vue se calcule de la même manière.
-La normale est donnée par le vertex shader, et la direction du rayon incident se
-calcul en faisant la norme de la différence entre la position de la lumière et
-la position (obtenu par interpolation implicite des positions des sommets par GLSL)
-dans l'espace monde du pixel en train d'être traité.
+La normale est donnée par le vertex shader, et la direction du rayon incident
+ se calcul en faisant la norme de la différence entre la position de la
+ lumière et la position (obtenu par interpolation implicite des positions des
+ sommets par GLSL) dans l'espace monde du pixel en train d'être traité.
 
 \begin{math}
-DirRayonIncident = ||\overrightarrow{PositionLumiere} -  \overrightarrow{PositionPoint}||\\
-DirVue = ||\overrightarrow{PositionCamera} -  \overrightarrow{PositionPoint}||
-\end{math}
-
-\begin{math}
-Diffuse = \overrightarrow{DirRayonIncident} \times  \overrightarrow{Normale}
+  \begin{matrix}
+    DirRayonIncident = ||\vect{PositionLumiere} -  \vect{PositionPoint}||\\
+    DirVue = ||\vect{PositionCamera} -  \vect{PositionPoint}|| \\
+    Diffuse = \vect{DirRayonIncident} \times \vect{Normale}
+  \end{matrix}
 \end{math}
 
 Enfin, la composante spéculaire se calcule en trois temps, d'abord, calculer
@@ -891,56 +898,49 @@ est appelée indice de brillance dans le modelé de phone.
 Pour calculer le rayon réfléchit:
 
 \begin{math}
-\overrightarrow{Reflechit} = \overrightarrow{Incident} - 2.0 \cdot \overrightarrow{Normale} \times \overrightarrow{Incident} \cdot \overrightarrow{Normale}
-\end{math}
-
-GLSL fournit la fonction inclue reflect, qui effectue ce calcul.
-
-\begin{math}
-Speculaire = \overrightarrow{DirVue} \times  \overrightarrow{Reflechit}^{Brillance}
+\vect{Reflechit} = \vect{Incident} - 2.0 \cdot \vect{Normale} \times \vect{Incident} \cdot \vect{Normale} \\
+\vect{Speculaire} = (\vect{DirVue} \times  \vect{Reflechit})^{Brillance} \\
+\vect{Couleur} = \vect{Ambiante} + \vect{Diffuse} + \vect{Speculaire}
 \end{math}
 
 La couleur finale du pixel est la somme des trois composante.
 
-\begin{math}
-Couleur = Ambiante + Diffuse + Speculaire
-\end{math}
+\subsubsection{Skybox}
 
+La skybox est un cube avec une taille d'arrêter de 1, qui est dessiner tout
+ autour de la caméra. En fait, pour suivre la caméra, la partie 3x3 de 
+la matrice de vue est utilisée, ce qui a pour effet d'éliminer la
+ composante de translation tout en conservant la composante rotation 
+qui nous intéresse. Ensuite le cube est dessiné en désactivant l'écriture
+ dans le tampon de profondeur, donc n'importe quel objet dessiné après le 
+cube apparaîtra à l'écran, même si il se trouve plus loin que les faces
+ visibles du cube. Le résultat donne l'impression que la scène se situe
+ dans le ciel, avec des nuages que l'on ne peut atteindre.
 
-\subsection{Skybox}
+En réutilisant la texture de la skybox comme environment map des objets 
+de la scène, on peut simuler des phénomènes physique intéressants, 
+notamment la réfraction et la réflectionss.
 
-La skybox est un cube avec une taille d'arrêter de 1, qui est dessiner tout autour de la caméra.
-En fait, pour suivre la caméra, la partie 3x3 de la matrice de vue est utiliser, ce qui a pour effet d'éliminer la composante de translation
-tout en conservant la composante rotation qui nous intéresse.
-Ensuite le cube est dessiner en désactivant l'écriture dans le tampon de profondeur, donc n'importe quel objet
-dessiner après le cube apparaîtra à l'écran, même si il se trouve plus loin que les faces visibles du cube.
-Le résultat donne l'impression que la scène se situe dans le ciel, avec des nuages que l'on ne peut atteindre.
-
-En réutilisant la texture de la skybox comme environment map des objets de la scène, on peut simuler des
-phénomènes physique intéressants, la réfraction et la réflection.
-
-\subsubsection{Réflection}
-La réflection sur les cristaux est simulée par une texture d'environnement qui correspond à la skybox
-qui englobe la scène.
-La particularité est que le vecteur de la direction réfléchit correspond directement au texel(pixel d'une texture)
-du cube. On peut donc récupérer la couleur facilement et l'afficher sur le cristal, après
+\paragraph{Réflection}\mbox{}\\
+La réflection sur les cristaux est simulée par une texture d'environnement 
+qui correspond à la skybox qui englobe la scène.
+La particularité est que le vecteur de la direction réfléchit correspond 
+directement au texel(pixel d'une texture) du cube. On peut donc récupérer
+ la couleur facilement et l'afficher sur le cristal, après
 l'avoir légèrement mixée avec le reste du fragment (10\%)
 
 La texture est accessible avec 2 coordonnées x et y.
 
-\subsubsection{Réfraction}
-La réfraction elle, est un peu plus compliquée, le même principe s'adapte, sauf qu'au lieu de
-calculer la réflexion d'un rayon, on calcul la déviation avec l'indice de réfraction d'un crystal
-La fonction refract prend en paramètre le rayon de vue, la normale d'incidence et l'indice de réfraction.
-Et le rayon réfracté est obtenu selon la formule suivante.
+\paragraph{Réfraction}\mbox{}\\
+La réfraction elle, est un peu plus compliquée, le même principe s'adapte, 
+sauf qu'au lieu de calculer la réflexion d'un rayon, on calcul la 
+déviation avec l'indice de réfraction d'un crystal. La fonction refract
+ prend en paramètre le rayon de vue, la normale d'incidence et
+ l'indice de réfraction.Et le rayon réfracté est obtenu selon la
+ formule suivante.
 
 \begin{math}
-R =
-\begin{pmatrix}
-ir * Incident - (ir * Normale \times Incident) + \sqrt{k}) * Normale
-\end{pmatrix}
+R = ir * \vect{Incident} - (ir * \vect{Normale} \times \vect{Incident}) + \sqrt{k}) * \vect{Normale}
 \end{math}
-
-
 
 \end{document}
