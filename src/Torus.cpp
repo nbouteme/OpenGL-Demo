@@ -38,7 +38,7 @@ void Torus::draw(const Camera &cam)
 
 void Torus::waitInput()
 {
-	if(glfwGetKey(*GLWindow::getMainWindow(), GLFW_KEY_F))
+	if(glfwGetKey(*GLWindow::getMainWindow(), GLFW_KEY_H))
 		action = &Torus::rotate;
 }
 
@@ -52,7 +52,7 @@ void Torus::rotate()
 	}
 	else
 		rotation += 3.14f * 2 / 60;
-	rotateY(3.14f * 2 / 60);
+	setRotation(glm::vec3(0.0f, rotation, 0.0f));
 }
 
 void Torus::update()

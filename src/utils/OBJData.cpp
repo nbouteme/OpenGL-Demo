@@ -4,11 +4,33 @@
 
 using namespace std;
 
+/*
+ * https://gcc.gnu.org/bugzilla/show_bug.cgi?id=52015
+ * MinGW, 32 bit et aussi surement 64 bit on un bug depuis la version 4.7
+ * vieux de presque 3 ans qui l'empeche de trouver sto* et to_string
+ */
+
+#ifdef _WIN32
+int stoi(const string &str)
+{
+	int r;
+	sscanf(str.c_str(), "%d", &r);
+	return r;
+}
+
+float stof(const string &str)
+{
+	float r;
+	sscanf(str.c_str(), "%f", &r);
+	return r;
+}
+#endif
+
 Face              parseFace  (vector<string>::iterator &it);
 Vertex            parseVert  (vector<string>::iterator &it);
-TextureCoordinate parseTexUV (vector<string>::iterator &it);
 VGroup            parseVGroup(vector<string>::iterator &it);
 Normal            parseNormal(vector<string>::iterator &it);
+TextureCoordinate parseTexUV (vector<string>::iterator &it);
 
 TextureCoordinate parseTexUV(vector<string>::iterator &it)                      // Une coordonnees de texture est juste 2 nombres a la suite.
 {

@@ -20,6 +20,11 @@
  */
 class Model : public DrawableComponent, public Actor 
 {
+	/**
+	 * \brief Met à jour la matrice de transformation
+	 */
+	void rebuildModelMat();
+
 public:
 	virtual ~Model();
 
@@ -29,43 +34,20 @@ public:
 	// Utiliser seulement pour positionner sur la scène au début
 
 	/**
-	 * \brief Elargi le modele sur l'axe X
+	 * \brief Elargi le modèle
 	 */
-	void scaleX    (float = 0.2f);
+	void setScale(const glm::vec3&);
 	/**
-	 * \brief Elargi le modele sur l'axe Y
+	 * \brief Déplace le modèle
 	 */
-	void scaleY    (float = 0.2f);
+	void setPosition(const glm::vec3&);
 	/**
-	 * \brief Elargi le modele sur l'axe Z
+	 * \brief Tourne le modèle sur l'axe X
 	 */
-	void scaleZ    (float = 0.2f);
-	/**
-	 * \brief Tourne le modele sur l'axe X
-	 */
-	void rotateX   (float = 0.1f);
-	/**
-	 * \brief Tourne le modele sur l'axe Y
-	 */
-	void rotateY   (float = 0.1f);
-	/**
-	 * \brief Tourne le modele sur l'axe Z
-	 */
-	void rotateZ   (float = 0.1f);
-	/**
-	 * \brief Deplace le modele sur l'axe X
-	 */
-	void translateX(float = 0.1f);
-	/**
-	 * \brief Deplace le modele sur l'axe Y
-	 */
-	void translateY(float = 0.1f);
-	/**
-	 * \brief Deplace le modele sur l'axe Z
-	 */
-	void translateZ(float = 0.1f);
+	void setRotation   (const glm::vec3&);
 
 protected:
+	glm::vec3 m_scale = glm::vec3(1.0f), m_rotation, m_position;
 	/**
 	 * \var m_vao
 	 * \p Identifiant du Vertex Array Object
@@ -93,7 +75,6 @@ protected:
 	 * \p Nombre de faces
 	 */
 	int vertNum, faceNum;
-
 	/**
 	 * \brief Instancie un model d'apres le code source OBJ
 	 */

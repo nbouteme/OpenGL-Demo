@@ -17,20 +17,19 @@ Shader::Shader(const char *vs, const char *ps, const char *gs)
 {
 	int status;
 
+	// Crée des shader
 	m_vertexId = glCreateShader(GL_VERTEX_SHADER);
 	m_pixelId  = glCreateShader(GL_FRAGMENT_SHADER);
 
+	// Fournis leur code source
 	glShaderSource(m_vertexId, 1, &vs, nullptr);
 	glShaderSource(m_pixelId , 1, &ps, nullptr);
 
-	/*
-	 * Le pilote libre d'intel a l'air de leaker 5 octets a
-	 * chaque appel de glCompileShader...
-	 */
+	// Compile le vertex shader
 	glCompileShader(m_vertexId);
+	// Recupere le status de la compilation
 	glGetShaderiv(m_vertexId, GL_COMPILE_STATUS, &status);
-
-	if(!status)
+	if(!status) // En cas d'erreur on affiche la liste d'erreurs et on génère un coredump
 	{
 		printf("%s\n", vs);
 		dumpShaderErrorLog(m_vertexId);
@@ -47,7 +46,7 @@ Shader::Shader(const char *vs, const char *ps, const char *gs)
 
 	m_shaderId = glCreateProgram();
 
-	if(gs)
+	if(gs) // si un geometry shader a été fourni
 	{
 		m_geometryId = glCreateShader(GL_GEOMETRY_SHADER);
 		glShaderSource(m_geometryId, 1, &ps, nullptr);
@@ -61,12 +60,15 @@ Shader::Shader(const char *vs, const char *ps, const char *gs)
 	glAttachShader(m_shaderId, m_vertexId);
 	glAttachShader(m_shaderId, m_pixelId);
 
+	// Donne le nom de la variable de sortie de la pipeline
 	glBindFragDataLocation(m_shaderId, 0, "outColor");
+
+	// Lie le programme
 	glLinkProgram(m_shaderId);
 
+	// Lie le programme
 	glGetProgramiv(m_shaderId, GL_LINK_STATUS, &status);
-	if(!status)
-		assert(false);
+	assert(status); // Génère un coredump en cas de probleme.
 }
 
 void Shader::dumpShaderErrorLog(int shaderId)
@@ -79,7 +81,7 @@ void Shader::dumpShaderErrorLog(int shaderId)
 		printf("%s", buff); // Pas vraiment sur si le decoupage est correcte, 
 		                    //j'ai jamais eu d'erreur de plus de 512 caracteres.
 	} while(lastSize == 511);
-	puts("");
+	putchar(10);
 
 	abort();
 }
@@ -88,14 +90,11 @@ Shader::~Shader()
 {
 	glDeleteShader(m_vertexId);
 	glDeleteShader(m_pixelId);
-
-	if(m_geometryId != -1)
+	//Supprime les shader
+	if(m_geometryId != -1) // Eventuellement le geometry shader
 		glDeleteShader(m_geometryId);
 
-	glDeleteShader(m_vertexId);
-	glDeleteShader(m_pixelId);
-
-	glDeleteProgram(m_shaderId);
+	glDeleteProgram(m_shaderId);//Suprime le programme
 }
 
 shared_ptr<Shader> Shader::BasicShader()

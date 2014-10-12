@@ -1,6 +1,7 @@
 #include <Mesh.hpp>
 #include <Camera.hpp>
 #include <glm/gtc/type_ptr.hpp>
+// TODO: Supprimer
 
 // Seulement pour demonstration //
 // Pour les 3 cristaux, deriver de Model et s'inspirer de cette classe

@@ -12,15 +12,18 @@
 using namespace std;
 using namespace glm;
 
-// un peu con de la part de glfw d'utiliser des double pour des coordonnees en pixels
+
 void onHovering(GLFWwindow *win, double x, double y)
 {
-	static int oldx, oldy;
 	(void)win;
+	static int oldx, oldy;
+	// si le bouton de la souris est enfoncé
 	if(glfwGetMouseButton(*(GLWindow*)Application::getSingleton()->getWindow().get(), 0) == GLFW_PRESS)
 	{
+		// Recupere la caméra
 		Camera &self = *((GLWindow*)Application::getSingleton()->getWindow().get())->m_cam;
 
+		// calcule la difference d'angle par pixel pour un champs de vision de 45 deg
 		float xangle = 3.141529f / 4 / self.width;
 		float yangle = 3.141529f / 4 / self.height;
 
@@ -45,16 +48,19 @@ Camera::Camera(GLWindow *Parent) :
 				  m_direction * 0.1f,
 				  vec3(0.0f, 1.0f, 0.0f)))
 {
+	// onHovering est appelée lorsque la souris se deplace sur la fenêtre
 	glfwSetCursorPosCallback(*Parent, &onHovering);
 }
 
 void Camera::update()
 {
 	vec3 right = cross(vec3(0.0f, 1.0f, 0.0f), m_direction);
+	auto oldPos = m_position;
 
-	// TODO: changer ca
+	// Avance ou recule dans la direction de la vue
 	if(glfwGetKey(*m_glWin, GLFW_KEY_UP)     == GLFW_PRESS) m_position += m_direction * 0.1f;
 	if(glfwGetKey(*m_glWin, GLFW_KEY_DOWN)   == GLFW_PRESS) m_position -= m_direction * 0.1f;
+	// Avance ou recule sur la droite de l'ecran
 	if(glfwGetKey(*m_glWin, GLFW_KEY_RIGHT)  == GLFW_PRESS) m_position -= right * 0.1f;
 	if(glfwGetKey(*m_glWin, GLFW_KEY_LEFT)   == GLFW_PRESS) m_position += right * 0.1f;
 
@@ -69,9 +75,8 @@ void Camera::update()
 		vec3 up = cross(m_direction, right);
 		m_direction = rotate(m_direction, mstick.y * 0.1f, right);
 		m_direction = rotate(m_direction, -mstick.x * 0.1f, up);
-
 	}
-
+	if(length(m_position) >= 9.0f) m_position = oldPos;
 	m_view = glm::lookAt(m_position,
 						 m_direction + m_position,
 						 glm::vec3(0.0f, 1.0f, 0.0f));

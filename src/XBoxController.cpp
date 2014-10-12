@@ -1,14 +1,3 @@
-#include <XBoxController.hpp>
-
-using namespace std;
-
-/**
- * \brief instancie la manette selon le nomero de manette
- */
-XBoxController::XBoxController(int joyNum) : m_joyNum(joyNum)
-{
-}
-
 /*
  * La manette de Xbox a 8 axes.
  * 0: Axe horizontal, du stick gauche
@@ -19,50 +8,7 @@ XBoxController::XBoxController(int joyNum) : m_joyNum(joyNum)
  * 5: Trigger droit
  * 6: Pad directionel, horizontal
  * 7: Pad directionel, vertical
- */
-
-/**
- * \return les bouttons pressés
- */
-glm::vec2 XBoxController::getMainStickPosition()
-{
-	int n;
-	const float *data = glfwGetJoystickAxes(m_joyNum, &n);
-	glm::vec2 ret(data[0], data[1]);
-
-	if(glm::length(ret) > 1.0f)
-		ret = glm::normalize(ret);
-
-	return ret;
-}
-
-/**
- * \return la position des gachette, les 2 axes dans l'interval [-1; 1]
- */
-glm::vec2 XBoxController::getSecondaryStickPosition()
-{
-	int n;
-	const float *data = glfwGetJoystickAxes(m_joyNum, &n);
-	glm::vec2 ret(data[3], data[4]);
-
-	if(glm::length(ret) > 1.0f)
-		ret = glm::normalize(ret);
-
-	return ret;
-}
-
-/**
- * \return les bouttons pressés
- */
-glm::vec2 XBoxController::getTriggers()
-{
-	const float *data = glfwGetJoystickAxes(m_joyNum, nullptr);
-	glm::vec2 ret(data[2], data[4]);
-	// on normalize pas, les gachette ne sont pas censer representer une direction
-	return ret;
-}
-
-/*
+ *
  * Une manette de Xbox a 11 bouttons
  *  0: A
  *  1: B
@@ -75,11 +21,48 @@ glm::vec2 XBoxController::getTriggers()
  *  8: Home
  *  9: LSB
  * 10: RSB
-*/
-
-/**
- * \return les bouttons pressés
  */
+
+#include <XBoxController.hpp>
+
+using namespace std;
+
+XBoxController::XBoxController(int joyNum) : m_joyNum(joyNum)
+{
+}
+
+glm::vec2 XBoxController::getMainStickPosition()
+{
+	int n;
+	const float *data = glfwGetJoystickAxes(m_joyNum, &n);
+	glm::vec2 ret(data[0], data[1]);
+
+	if(glm::length(ret) > 1.0f)
+		ret = glm::normalize(ret);
+
+	return ret;
+}
+
+glm::vec2 XBoxController::getSecondaryStickPosition()
+{
+	int n;
+	const float *data = glfwGetJoystickAxes(m_joyNum, &n);
+	glm::vec2 ret(data[3], data[4]);
+
+	if(glm::length(ret) > 1.0f)
+		ret = glm::normalize(ret);
+
+	return ret;
+}
+
+glm::vec2 XBoxController::getTriggers()
+{
+	const float *data = glfwGetJoystickAxes(m_joyNum, nullptr);
+	glm::vec2 ret(data[2], data[4]);
+	// on normalize pas, les gachette ne sont pas censer representer une direction
+	return ret;
+}
+
 vector<bool> XBoxController::getButtons()
 {
 	int size;

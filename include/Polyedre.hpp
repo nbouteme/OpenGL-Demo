@@ -10,17 +10,20 @@
 
 /**
  * \class Polyedre
- *  La classe Polyedre defini un crystal qui est dessinable
+ *  La classe Polyedre defini un cristal qui est dessinable
  */
 class Polyedre : public Model
 {
-	const float kGoalRotation = 3.14f * 2;
-	float rotation = 0.0f;
+	bool reachedMin = false;
+	bool reachedMax = false;
+	const float kGoalMinScale = 0.5f;
+	const float kGoalMaxScale = -1.0f;
+	float cScale = 1.0f;
 	std::shared_ptr<Shader> m_shader;
 	int m_uniModel, m_uniView, m_uniProj, m_univPos;
 	void (Polyedre::*action)();
 	void waitInput();
-	void rotate();
+	void scale();
 public:
 	Polyedre();
 
