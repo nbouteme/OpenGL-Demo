@@ -1,7 +1,7 @@
 <map id="BetaRoom" name="BetaRoom">
-<area shape="rect" id="node2" href="$class_scene.html" title="Scene" alt="" coords="37,260,99,287"/>
-<area shape="rect" id="node3" href="$class_camera.html" title="Camera" alt="" coords="31,171,105,197"/>
-<area shape="rect" id="node4" href="$struct_actor.html" title="Actor" alt="" coords="5,81,61,108"/>
-<area shape="rect" id="node5" href="$class_g_l_window.html" title="GLWindow" alt="" coords="86,81,175,108"/>
-<area shape="rect" id="node6" href="$class_base_window.html" title="BaseWindow" alt="" coords="78,5,183,32"/>
+<area shape="rect" id="node2" href="$class_scene.html" title="{Scene\n||+ render()\l+ getModels()\l+ ~Scene()\l# addModel()\l# addModel()\l# Scene()\l}" alt="" coords="48,603,161,753"/>
+<area shape="rect" id="node3" href="$class_camera.html" title="{Camera\n|+ m_controller\l+ m_position\l+ m_direction\l+ m_view\l|+ Camera()\l+ update()\l+ getView()\l+ getProjection()\l+ getPosition()\l}" alt="" coords="39,360,170,540"/>
+<area shape="rect" id="node4" href="$struct_actor.html" title="{Actor\n||+ update()\l}" alt="" coords="5,183,97,261"/>
+<area shape="rect" id="node5" href="$class_g_l_window.html" title="{GLWindow\n|+ m_cam\l|+ GLWindow()\l+ ~GLWindow()\l+ operator GLFWwindow *()\l+ run()\l+ getController()\l+ getMainWindow()\l}" alt="" coords="122,147,325,297"/>
+<area shape="rect" id="node6" href="$class_base_window.html" title="{BaseWindow\n||+ run()\l+ ~BaseWindow()\l}" alt="" coords="153,5,294,97"/>
 </map>

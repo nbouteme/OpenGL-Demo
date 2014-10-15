@@ -1,3 +1,3 @@
 <map id="BaseWindow" name="BaseWindow">
-<area shape="rect" id="node2" href="$class_g_l_window.html" title="GLWindow" alt="" coords="13,80,103,107"/>
+<area shape="rect" id="node2" href="$class_g_l_window.html" title="{GLWindow\n|+ m_cam\l|+ GLWindow()\l+ ~GLWindow()\l+ operator GLFWwindow *()\l+ run()\l+ getController()\l+ getMainWindow()\l}" alt="" coords="5,145,208,296"/>
 </map>

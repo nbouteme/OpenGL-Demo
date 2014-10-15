@@ -1,4 +1,0 @@
-<map id="Camera::getView" name="Camera::getView">
-<area shape="rect" id="node2" href="$class_cube_map.html#a9e042ac0b15cf9a28af3320b769f140f" title="dessine la skybox " alt="" coords="187,5,309,32"/>
-<area shape="rect" id="node3" href="$class_mesh.html#aeb4e185f5d443690132b8e88bf5c669c" title="Dessine un objet sur la cible active. " alt="" coords="200,56,296,83"/>
-</map>

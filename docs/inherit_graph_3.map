@@ -1,11 +1,11 @@
 <map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
-<area shape="rect" id="node1" href="$struct_actor.html" title="Actor" alt="" coords="57,56,113,83"/>
-<area shape="rect" id="node2" href="$class_camera.html" title="Camera" alt="" coords="212,56,285,83"/>
-<area shape="rect" id="node3" href="$class_model.html" title="Model" alt="" coords="219,107,279,133"/>
-<area shape="rect" id="node4" href="$class_cube_map.html" title="CubeMap" alt="" coords="333,5,416,32"/>
-<area shape="rect" id="node5" href="$class_emerald.html" title="Emerald" alt="" coords="337,56,412,83"/>
-<area shape="rect" id="node6" href="$class_mesh.html" title="Mesh" alt="" coords="347,107,403,133"/>
-<area shape="rect" id="node7" href="$class_polyedre.html" title="Polyedre" alt="" coords="335,157,414,184"/>
-<area shape="rect" id="node8" href="$class_torus.html" title="Torus" alt="" coords="347,208,403,235"/>
-<area shape="rect" id="node9" href="$struct_drawable_component.html" title="DrawableComponent" alt="" coords="5,107,164,133"/>
+<area shape="rect" id="node1" href="$structActor.html" title="Actor" alt="" coords="57,56,113,83"/>
+<area shape="rect" id="node2" href="$classCamera.html" title="Camera" alt="" coords="212,56,285,83"/>
+<area shape="rect" id="node3" href="$classModel.html" title="Model" alt="" coords="219,107,279,133"/>
+<area shape="rect" id="node4" href="$classCubeMap.html" title="CubeMap" alt="" coords="333,5,416,32"/>
+<area shape="rect" id="node5" href="$classEmerald.html" title="Emerald" alt="" coords="337,56,412,83"/>
+<area shape="rect" id="node6" href="$classMesh.html" title="Mesh" alt="" coords="347,107,403,133"/>
+<area shape="rect" id="node7" href="$classPolyedre.html" title="Polyedre" alt="" coords="335,157,414,184"/>
+<area shape="rect" id="node8" href="$classTorus.html" title="Torus" alt="" coords="347,208,403,235"/>
+<area shape="rect" id="node9" href="$structDrawableComponent.html" title="DrawableComponent" alt="" coords="5,107,164,133"/>
 </map>

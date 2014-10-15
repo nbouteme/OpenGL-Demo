@@ -1,5 +1,5 @@
 <map id="Camera" name="Camera">
-<area shape="rect" id="node2" href="$struct_actor.html" title="Actor" alt="" coords="5,81,61,108"/>
-<area shape="rect" id="node3" href="$class_g_l_window.html" title="GLWindow" alt="" coords="86,81,175,108"/>
-<area shape="rect" id="node4" href="$class_base_window.html" title="BaseWindow" alt="" coords="78,5,183,32"/>
+<area shape="rect" id="node2" href="$struct_actor.html" title="{Actor\n||+ update()\l}" alt="" coords="5,183,97,261"/>
+<area shape="rect" id="node3" href="$class_g_l_window.html" title="{GLWindow\n|+ m_cam\l|+ GLWindow()\l+ ~GLWindow()\l+ operator GLFWwindow *()\l+ run()\l+ getController()\l+ getMainWindow()\l}" alt="" coords="122,147,325,297"/>
+<area shape="rect" id="node4" href="$class_base_window.html" title="{BaseWindow\n||+ run()\l+ ~BaseWindow()\l}" alt="" coords="153,5,294,97"/>
 </map>

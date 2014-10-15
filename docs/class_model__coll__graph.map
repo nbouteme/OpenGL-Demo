@@ -1,4 +1,4 @@
 <map id="Model" name="Model">
-<area shape="rect" id="node2" href="$struct_drawable_component.html" title="DrawableComponent" alt="" coords="5,5,164,32"/>
-<area shape="rect" id="node3" href="$struct_actor.html" title="Actor" alt="" coords="189,5,245,32"/>
+<area shape="rect" id="node2" href="$struct_drawable_component.html" title="{DrawableComponent\n||+ draw()\l+ ~DrawableComponent()\l}" alt="" coords="5,5,200,97"/>
+<area shape="rect" id="node3" href="$struct_actor.html" title="{Actor\n||+ update()\l}" alt="" coords="225,13,317,90"/>
 </map>

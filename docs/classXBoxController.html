@@ -40,7 +40,7 @@
     <ul class="tablist">
       <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
       <li><a href="classes.html"><span>Index&#160;des&#160;structures&#160;de&#160;données</span></a></li>
-      <li><a href="hierarchy.html"><span>Hiérarchie&#160;des&#160;classes</span></a></li>
+      <li><a href="inherits.html"><span>Hiérarchie&#160;des&#160;classes</span></a></li>
       <li><a href="functions.html"><span>Champs&#160;de&#160;donnée</span></a></li>
     </ul>
   </div>
@@ -57,10 +57,9 @@
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr class="memitem:a5aeb51add58248b66429be4da96cd547"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5aeb51add58248b66429be4da96cd547"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXBoxController.html#a5aeb51add58248b66429be4da96cd547">XBoxController</a> (int)</td></tr>
-<tr class="memdesc:a5aeb51add58248b66429be4da96cd547"><td class="mdescLeft">&#160;</td><td class="mdescRight">instancie la manette selon le nomero de manette <br /></td></tr>
-<tr class="separator:a5aeb51add58248b66429be4da96cd547"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebd5a50eac92047b21ce4f614c5da14d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aebd5a50eac92047b21ce4f614c5da14d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>XBoxController</b> (int, float)</td></tr>
+<tr class="separator:aebd5a50eac92047b21ce4f614c5da14d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a128eee39e8cb9e8ac0e82d6abbb0d082"><td class="memItemLeft" align="right" valign="top">virtual glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXBoxController.html#a128eee39e8cb9e8ac0e82d6abbb0d082">getMainStickPosition</a> () finaloverride</td></tr>
 <tr class="separator:a128eee39e8cb9e8ac0e82d6abbb0d082"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdbc47a0d327fb655787b82f98e44cae"><td class="memItemLeft" align="right" valign="top">virtual glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classXBoxController.html#acdbc47a0d327fb655787b82f98e44cae">getSecondaryStickPosition</a> () finaloverride</td></tr>
@@ -76,12 +75,17 @@ Fonctions membres publiques</h2></td></tr>
 </div><div class="dynheader">
 Graphe d'héritage de XBoxController:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classXBoxController.png" usemap="#XBoxController_map" alt=""/>
-  <map id="XBoxController_map" name="XBoxController_map">
-<area href="classController.html" alt="Controller" shape="rect" coords="0,0,98,24"/>
-</map>
- </div></div>
+<div class="center"><img src="classXBoxController__inherit__graph.png" border="0" usemap="#XBoxController_inherit__map" alt="Inheritance graph"/></div>
+<map name="XBoxController_inherit__map" id="XBoxController_inherit__map">
+<area shape="rect" id="node2" href="classController.html" title="Controller" alt="" coords="23,5,107,32"/></map>
+<center><span class="legend">[<a href="graph_legend.html">légende</a>]</span></center></div>
+<div class="dynheader">
+Graphe de collaboration de XBoxController:</div>
+<div class="dyncontent">
+<div class="center"><img src="classXBoxController__coll__graph.png" border="0" usemap="#XBoxController_coll__map" alt="Collaboration graph"/></div>
+<map name="XBoxController_coll__map" id="XBoxController_coll__map">
+<area shape="rect" id="node2" href="classController.html" title="Controller" alt="" coords="23,5,107,32"/></map>
+<center><span class="legend">[<a href="graph_legend.html">légende</a>]</span></center></div>
 <h2 class="groupheader">Documentation des fonctions membres</h2>
 <a class="anchor" id="a7f2177c57462c0f488986affcd7e8811"></a>
 <div class="memitem">
@@ -103,7 +107,7 @@ Graphe d'héritage de XBoxController:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Renvoie</dt><dd>les bouttons pressés </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Les boutons pressés </dd></dl>
 
 <p>Implémente <a class="el" href="classController.html#af7483fe863ff38bd2e9617771c450931">Controller</a>.</p>
 
@@ -129,7 +133,7 @@ Graphe d'héritage de XBoxController:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Renvoie</dt><dd>les bouttons pressés </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>La position du stick principal, les 2 axes dans l'interval [-1; 1] </dd></dl>
 
 <p>Implémente <a class="el" href="classController.html#a7436ccdad4f8dae40d61bf47b262191b">Controller</a>.</p>
 
@@ -155,7 +159,7 @@ Graphe d'héritage de XBoxController:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Renvoie</dt><dd>la position des gachette, les 2 axes dans l'interval [-1; 1] </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>La position du stick secondaire, les 2 axes dans l'interval [-1; 1] </dd></dl>
 
 <p>Implémente <a class="el" href="classController.html#ad48cb8e46282bdb3f7cd1178944eb45c">Controller</a>.</p>
 
@@ -181,7 +185,7 @@ Graphe d'héritage de XBoxController:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Renvoie</dt><dd>les bouttons pressés </dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>La position des gâchettes, les 2 axes dans l'interval [-1; 1] </dd></dl>
 
 <p>Implémente <a class="el" href="classController.html#ad98f33e8f7dfe9015eb8883d3881e373">Controller</a>.</p>
 

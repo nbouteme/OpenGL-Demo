@@ -1,5 +1,5 @@
 <map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
-<area shape="rect" id="node1" href="$class_controller.html" title="Controller" alt="" coords="5,31,89,57"/>
-<area shape="rect" id="node2" href="$struct_dummy_controller.html" title="DummyController" alt="" coords="137,5,273,32"/>
-<area shape="rect" id="node3" href="$class_x_box_controller.html" title="XBoxController" alt="" coords="146,56,265,83"/>
+<area shape="rect" id="node1" href="$classController.html" title="Controller" alt="" coords="5,31,89,57"/>
+<area shape="rect" id="node2" href="$structDummyController.html" title="DummyController" alt="" coords="137,5,273,32"/>
+<area shape="rect" id="node3" href="$classXBoxController.html" title="XBoxController" alt="" coords="146,56,265,83"/>
 </map>

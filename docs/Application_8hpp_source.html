@@ -55,36 +55,42 @@
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">class </span><a class="code" href="classController.html">Controller</a>;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">class </span><a class="code" href="classBaseWindow.html">BaseWindow</a>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;Log.hpp&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classApplication.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classApplication.html">Application</a> : <span class="keyword">public</span> std::enable_shared_from_this&lt;Application&gt;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">static</span> std::shared_ptr&lt;Application&gt; m_app;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    std::shared_ptr&lt;BaseWindow&gt; m_glWindow;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">static</span> std::shared_ptr&lt;Controller&gt; m_controller;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">class </span><a class="code" href="classController.html">Controller</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">class </span><a class="code" href="classBaseWindow.html">BaseWindow</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classApplication.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="classApplication.html">Application</a> : <span class="keyword">public</span> std::enable_shared_from_this&lt;Application&gt;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">static</span> std::shared_ptr&lt;Application&gt; m_app;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    std::shared_ptr&lt;BaseWindow&gt; m_glWindow;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    std::shared_ptr&lt;Controller&gt; m_controller;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">static</span> std::shared_ptr&lt;Application&gt; returnSingleton();</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">static</span> std::shared_ptr&lt;Application&gt; createSingleton();</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">static</span> std::shared_ptr&lt;Application&gt; (*_getSingleton)();</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// Pour empêcher une instanciation.</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="classApplication.html">Application</a>() {};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="classApplication.html">Application</a>();</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classApplication.html#afa5d5ce6c9369e1ea05ee6540fe07dc2">   51</a></span>&#160;    <span class="keyword">static</span> std::shared_ptr&lt;Application&gt; <a class="code" href="classApplication.html#afa5d5ce6c9369e1ea05ee6540fe07dc2">getSingleton</a>() { <span class="keywordflow">return</span> _getSingleton(); }</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classApplication.html#ad4798575ca24d11794fb69ec7f1f5f84">   55</a></span>&#160;    std::shared_ptr&lt;BaseWindow&gt;  <a class="code" href="classApplication.html#ad4798575ca24d11794fb69ec7f1f5f84">getWindow</a>()           { <span class="keywordflow">return</span> m_glWindow;      }</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classApplication.html#a43268edea6339ba39334f55a7a6331e2">   59</a></span>&#160;    std::shared_ptr&lt;Controller&gt;  <a class="code" href="classApplication.html#a43268edea6339ba39334f55a7a6331e2">getController</a>()       { <span class="keywordflow">return</span> m_controller;    }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classApplication.html#a9d50af9dd5d791e9e7f9236cee871dce">run</a>(<span class="keywordtype">int</span> = 0, <span class="keywordtype">char</span> ** = 0);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classApplication.html#ad4798575ca24d11794fb69ec7f1f5f84">   55</a></span>&#160;    std::shared_ptr&lt;BaseWindow&gt;  <a class="code" href="classApplication.html#ad4798575ca24d11794fb69ec7f1f5f84">getWindow</a>()</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="comment">//  assert(m_glWindow);</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> m_glWindow;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classApplication.html#a43268edea6339ba39334f55a7a6331e2">   63</a></span>&#160;    std::shared_ptr&lt;Controller&gt;  <a class="code" href="classApplication.html#a43268edea6339ba39334f55a7a6331e2">getController</a>()       { <span class="keywordflow">return</span> m_controller;    }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classApplication.html#a9d50af9dd5d791e9e7f9236cee871dce">run</a>(<span class="keywordtype">int</span> = 0, <span class="keywordtype">char</span> ** = 0);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">static</span> <a class="code" href="structLogger.html">Logger</a> Log;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
 <div class="ttc" id="classController_html"><div class="ttname"><a href="classController.html">Controller</a></div><div class="ttdef"><b>Definition:</b> Controller.hpp:18</div></div>
-<div class="ttc" id="classApplication_html_a43268edea6339ba39334f55a7a6331e2"><div class="ttname"><a href="classApplication.html#a43268edea6339ba39334f55a7a6331e2">Application::getController</a></div><div class="ttdeci">std::shared_ptr&lt; Controller &gt; getController()</div><div class="ttdef"><b>Definition:</b> Application.hpp:59</div></div>
+<div class="ttc" id="classApplication_html_a43268edea6339ba39334f55a7a6331e2"><div class="ttname"><a href="classApplication.html#a43268edea6339ba39334f55a7a6331e2">Application::getController</a></div><div class="ttdeci">std::shared_ptr&lt; Controller &gt; getController()</div><div class="ttdef"><b>Definition:</b> Application.hpp:63</div></div>
 <div class="ttc" id="classApplication_html_afa5d5ce6c9369e1ea05ee6540fe07dc2"><div class="ttname"><a href="classApplication.html#afa5d5ce6c9369e1ea05ee6540fe07dc2">Application::getSingleton</a></div><div class="ttdeci">static std::shared_ptr&lt; Application &gt; getSingleton()</div><div class="ttdef"><b>Definition:</b> Application.hpp:51</div></div>
 <div class="ttc" id="classBaseWindow_html"><div class="ttname"><a href="classBaseWindow.html">BaseWindow</a></div><div class="ttdef"><b>Definition:</b> BaseWindow.hpp:10</div></div>
-<div class="ttc" id="classApplication_html"><div class="ttname"><a href="classApplication.html">Application</a></div><div class="ttdef"><b>Definition:</b> Application.hpp:16</div></div>
+<div class="ttc" id="structLogger_html"><div class="ttname"><a href="structLogger.html">Logger</a></div><div class="ttdef"><b>Definition:</b> Log.hpp:9</div></div>
+<div class="ttc" id="classApplication_html"><div class="ttname"><a href="classApplication.html">Application</a></div><div class="ttdef"><b>Definition:</b> Application.hpp:19</div></div>
 <div class="ttc" id="classApplication_html_ad4798575ca24d11794fb69ec7f1f5f84"><div class="ttname"><a href="classApplication.html#ad4798575ca24d11794fb69ec7f1f5f84">Application::getWindow</a></div><div class="ttdeci">std::shared_ptr&lt; BaseWindow &gt; getWindow()</div><div class="ttdef"><b>Definition:</b> Application.hpp:55</div></div>
-<div class="ttc" id="classApplication_html_a9d50af9dd5d791e9e7f9236cee871dce"><div class="ttname"><a href="classApplication.html#a9d50af9dd5d791e9e7f9236cee871dce">Application::run</a></div><div class="ttdeci">int run(int=0, char **=0)</div><div class="ttdef"><b>Definition:</b> Application.cpp:23</div></div>
+<div class="ttc" id="classApplication_html_a9d50af9dd5d791e9e7f9236cee871dce"><div class="ttname"><a href="classApplication.html#a9d50af9dd5d791e9e7f9236cee871dce">Application::run</a></div><div class="ttdeci">int run(int=0, char **=0)</div><div class="ttdef"><b>Definition:</b> Application.cpp:29</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.8-->
 <!-- start footer part -->

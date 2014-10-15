@@ -1,0 +1,26 @@
+var annotated =
+[
+    [ "Actor", "struct_actor.html", "struct_actor" ],
+    [ "Application", "class_application.html", "class_application" ],
+    [ "BaseWindow", "class_base_window.html", "class_base_window" ],
+    [ "BetaRoom", "class_beta_room.html", "class_beta_room" ],
+    [ "Camera", "class_camera.html", "class_camera" ],
+    [ "Controller", "class_controller.html", "class_controller" ],
+    [ "CubeMap", "class_cube_map.html", "class_cube_map" ],
+    [ "DrawableComponent", "struct_drawable_component.html", "struct_drawable_component" ],
+    [ "DummyController", "struct_dummy_controller.html", "struct_dummy_controller" ],
+    [ "Effect", "class_effect.html", "class_effect" ],
+    [ "Emerald", "class_emerald.html", "class_emerald" ],
+    [ "GLWindow", "class_g_l_window.html", "class_g_l_window" ],
+    [ "Mesh", "class_mesh.html", "class_mesh" ],
+    [ "Model", "class_model.html", "class_model" ],
+    [ "OBJData", "class_o_b_j_data.html", "class_o_b_j_data" ],
+    [ "Polyedre", "class_polyedre.html", "class_polyedre" ],
+    [ "ResourceManager", "class_resource_manager.html", "class_resource_manager" ],
+    [ "Scene", "class_scene.html", "class_scene" ],
+    [ "Shader", "class_shader.html", "class_shader" ],
+    [ "TextureCoordinate", "struct_texture_coordinate.html", "struct_texture_coordinate" ],
+    [ "Torus", "class_torus.html", "class_torus" ],
+    [ "Vertex", "struct_vertex.html", "struct_vertex" ],
+    [ "XBoxController", "class_x_box_controller.html", "class_x_box_controller" ]
+];

@@ -1,5 +1,5 @@
 <map id="Emerald" name="Emerald">
-<area shape="rect" id="node2" href="$class_model.html" title="Model" alt="" coords="120,80,180,107"/>
-<area shape="rect" id="node3" href="$struct_drawable_component.html" title="DrawableComponent" alt="" coords="5,5,164,32"/>
-<area shape="rect" id="node4" href="$struct_actor.html" title="Actor" alt="" coords="189,5,245,32"/>
+<area shape="rect" id="node2" href="$class_model.html" title="{Model\n|# m_scale\l# m_rotation\l# m_position\l# m_vao\l# m_vbo\l# m_ebo\l# m_modelMatrix\l# vertNum\l# faceNum\l|+ ~Model()\l+ draw()\l+ update()\l+ setScale()\l+ setPosition()\l+ setRotation()\l# Model()\l# Model()\l# Model()\l# Model()\l}" alt="" coords="118,145,255,472"/>
+<area shape="rect" id="node3" href="$struct_drawable_component.html" title="{DrawableComponent\n||+ draw()\l+ ~DrawableComponent()\l}" alt="" coords="5,5,200,97"/>
+<area shape="rect" id="node4" href="$struct_actor.html" title="{Actor\n||+ update()\l}" alt="" coords="225,13,317,90"/>
 </map>

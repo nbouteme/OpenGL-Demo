@@ -40,7 +40,7 @@
     <ul class="tablist">
       <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
       <li><a href="classes.html"><span>Index&#160;des&#160;structures&#160;de&#160;données</span></a></li>
-      <li><a href="hierarchy.html"><span>Hiérarchie&#160;des&#160;classes</span></a></li>
+      <li><a href="inherits.html"><span>Hiérarchie&#160;des&#160;classes</span></a></li>
       <li><a href="functions.html"><span>Champs&#160;de&#160;donnée</span></a></li>
     </ul>
   </div>
@@ -48,8 +48,7 @@
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Fonctions membres publiques</a> &#124;
-<a href="#pub-static-methods">Fonctions membres publiques statiques</a> &#124;
-<a href="#pub-static-attribs">Attributs publics statiques</a>  </div>
+<a href="#pub-static-methods">Fonctions membres publiques statiques</a>  </div>
   <div class="headertitle">
 <div class="title">Référence de la classe GLWindow</div>  </div>
 </div><!--header-->
@@ -72,23 +71,23 @@ Fonctions membres publiques</h2></td></tr>
 Fonctions membres publiques statiques</h2></td></tr>
 <tr class="memitem:a00dbb194ab7a1395bc6f8e4af9d0b34a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classGLWindow.html">GLWindow</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLWindow.html#a00dbb194ab7a1395bc6f8e4af9d0b34a">getMainWindow</a> ()</td></tr>
 <tr class="separator:a00dbb194ab7a1395bc6f8e4af9d0b34a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Attributs publics statiques</h2></td></tr>
-<tr class="memitem:a09212b50941955d6b198e68a8cb427a8"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="classCamera.html">Camera</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGLWindow.html#a09212b50941955d6b198e68a8cb427a8">m_cam</a></td></tr>
-<tr class="separator:a09212b50941955d6b198e68a8cb427a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>La classe <a class="el" href="classGLWindow.html">GLWindow</a> s'occupe de l'interface graphique et de la boucle de rendu principale </p>
 </div><div class="dynheader">
 Graphe d'héritage de GLWindow:</div>
 <div class="dyncontent">
- <div class="center">
-  <img src="classGLWindow.png" usemap="#GLWindow_map" alt=""/>
-  <map id="GLWindow_map" name="GLWindow_map">
-<area href="classBaseWindow.html" alt="BaseWindow" shape="rect" coords="0,0,84,24"/>
-</map>
- </div></div>
+<div class="center"><img src="classGLWindow__inherit__graph.png" border="0" usemap="#GLWindow_inherit__map" alt="Inheritance graph"/></div>
+<map name="GLWindow_inherit__map" id="GLWindow_inherit__map">
+<area shape="rect" id="node2" href="classBaseWindow.html" title="BaseWindow" alt="" coords="5,5,111,32"/></map>
+<center><span class="legend">[<a href="graph_legend.html">légende</a>]</span></center></div>
+<div class="dynheader">
+Graphe de collaboration de GLWindow:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGLWindow__coll__graph.png" border="0" usemap="#GLWindow_coll__map" alt="Collaboration graph"/></div>
+<map name="GLWindow_coll__map" id="GLWindow_coll__map">
+<area shape="rect" id="node2" href="classBaseWindow.html" title="BaseWindow" alt="" coords="5,5,111,32"/></map>
+<center><span class="legend">[<a href="graph_legend.html">légende</a>]</span></center></div>
 <h2 class="groupheader">Documentation des fonctions membres</h2>
 <a class="anchor" id="a73bff0543adb7c2d3f2be1bd86306579"></a>
 <div class="memitem">
@@ -135,6 +134,15 @@ Graphe d'héritage de GLWindow:</div>
 </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Renvoie</dt><dd>un pointeur sur l'instance existante de la fenêtre </dd></dl>
+
+<p><div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="classGLWindow_a00dbb194ab7a1395bc6f8e4af9d0b34a_cgraph.png" border="0" usemap="#classGLWindow_a00dbb194ab7a1395bc6f8e4af9d0b34a_cgraph" alt=""/></div>
+<map name="classGLWindow_a00dbb194ab7a1395bc6f8e4af9d0b34a_cgraph" id="classGLWindow_a00dbb194ab7a1395bc6f8e4af9d0b34a_cgraph">
+<area shape="rect" id="node2" href="classApplication.html#afa5d5ce6c9369e1ea05ee6540fe07dc2" title="Application::getSingleton" alt="" coords="252,5,432,32"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -208,32 +216,14 @@ Graphe d'héritage de GLWindow:</div>
 
 <p>Implémente <a class="el" href="classBaseWindow.html#a2faf52e77b0c61225d81be8b25afd661">BaseWindow</a>.</p>
 
+<p><div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="classGLWindow_a297b34b4bbf69b29516e279839262623_cgraph.png" border="0" usemap="#classGLWindow_a297b34b4bbf69b29516e279839262623_cgraph" alt=""/></div>
+<map name="classGLWindow_a297b34b4bbf69b29516e279839262623_cgraph" id="classGLWindow_a297b34b4bbf69b29516e279839262623_cgraph">
+<area shape="rect" id="node2" href="classApplication.html#afa5d5ce6c9369e1ea05ee6540fe07dc2" title="Application::getSingleton" alt="" coords="171,5,351,32"/><area shape="rect" id="node3" href="classBetaRoom.html#a5ca4002697c35ee24a59d9d2ccab3e49" title="Rends la scène sur la cible active. " alt="" coords="191,56,330,83"/><area shape="rect" id="node4" href="classScene.html#a4ddf2d16f371ee9533b3faf1dd5ddfb1" title="Dessine la scène sur la cible active. " alt="" coords="399,56,509,83"/></map>
 </div>
-</div>
-<h2 class="groupheader">Documentation des champs</h2>
-<a class="anchor" id="a09212b50941955d6b198e68a8cb427a8"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">shared_ptr&lt; <a class="el" href="classCamera.html">Camera</a> &gt; GLWindow::m_cam</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">un</td><td>pointeur sur l'instance existante de la caméra </td></tr>
-  </table>
-  </dd>
-</dl>
+</p>
 
 </div>
 </div>

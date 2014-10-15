@@ -1,0 +1,5 @@
+<map id="Camera" name="Camera">
+<area shape="rect" id="node2" href="$structActor.html" title="Actor" alt="" coords="5,81,61,108"/>
+<area shape="rect" id="node3" href="$classGLWindow.html" title="GLWindow" alt="" coords="86,81,175,108"/>
+<area shape="rect" id="node4" href="$classBaseWindow.html" title="BaseWindow" alt="" coords="78,5,183,32"/>
+</map>

@@ -1,3 +1,3 @@
 <map id="Scene" name="Scene">
-<area shape="rect" id="node2" href="$class_beta_room.html" title="BetaRoom" alt="" coords="5,80,95,107"/>
+<area shape="rect" id="node2" href="$class_beta_room.html" title="{BetaRoom\n||+ BetaRoom()\l+ render()\l+ ~BetaRoom()\l}" alt="" coords="5,204,131,311"/>
 </map>
