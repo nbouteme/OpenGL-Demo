@@ -6,7 +6,8 @@
 
 /**
  * \struct Actor
- *  La classe Actor définie des classes qui peuvent être mises à jour
+ *  La classe Actor définie des classes qui peuvent être mises à jour et
+ * réagir à des entrées
  */
 struct Actor
 {

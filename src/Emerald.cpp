@@ -4,6 +4,7 @@
 #include <Camera.hpp>
 #include <Shader.hpp>
 #include <Assets.hpp>
+#include <Controller.hpp>
 
 using namespace std;
 using namespace glm;
@@ -14,7 +15,6 @@ Emerald::Emerald() :
 								 ShaderRes->getString("emeraldFS.glsl").c_str()))
 {
 	action = &Emerald::waitInput; // Comportement par défaut
-
 	m_uniModel = glGetUniformLocation(m_shader->getProgramid(),      "model");
 	m_uniView  = glGetUniformLocation(m_shader->getProgramid(),       "view");
 	m_uniProj  = glGetUniformLocation(m_shader->getProgramid(), "projection");
@@ -45,21 +45,28 @@ void Emerald::draw(const Camera &cam)
 
 void Emerald::waitInput()
 {
-	if(glfwGetKey(*GLWindow::getMainWindow(), GLFW_KEY_F))                       // Un appui sur une touche modifie son comportement 
-		action = &Emerald::rotate; // Le comportement devient "Rotation"
+	if(glfwGetKey(*GLWindow::getMainWindow(), GLFW_KEY_F) ||
+	   m_controller->getButtons()[0])                       // Un appui sur une touche modifie son comportement 
+		action = &Emerald::translate; // Le comportement devient "Rotation"
 }
 
-void Emerald::rotate()
+void Emerald::translate()
 {
-	if(rotation >= kGoalRotation)
+	if(!goalReached && m_position[1] >= kGoalTranslate)
+		goalReached = true;
+	else if(goalReached)
 	{
-		rotation = 0.0f;
-		action = &Emerald::waitInput;
-		return;
+		m_position[1] -= 2.0f / 60;
+		if(m_position[1] <= 0.0f)
+		{
+			m_position[1] = goalReached = false;
+			action = &Emerald::waitInput;
+			return;
+		}
 	}
 	else
-		rotation += 3.14f * 2 / 60;
-	setRotation(glm::vec3(0.0f, rotation, 0.0f));
+		m_position[1] += 2.0f / 60;
+	rebuildModelMat();
 }
 
 void Emerald::update()

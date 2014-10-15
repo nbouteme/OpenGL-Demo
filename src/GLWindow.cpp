@@ -1,56 +1,27 @@
 #include <GLWindow.hpp>
 
+#include <iostream>
+#include <cassert>
+#include <unistd.h>
+
 #include <Application.hpp>
 #include <BetaRoom.hpp>
 #include <Assets.hpp>
 #include <Camera.hpp>
 #include <Controller.hpp>
 
-#include <iostream>
-#include <cassert>
-
 using namespace std;
-
-shared_ptr<Camera> GLWindow::m_cam;
 
 void resizeCallback(GLFWwindow *, int, int);
 
 GLWindow::GLWindow()
 {
 	// Initialise la bibliotheque
+	Application::Log("Initializing GLFW", Logger::Debug);
 	glfwInit();
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, false);
-	glfwWindowHint(GLFW_RESIZABLE, true);
 
-	m_win = glfwCreateWindow(1280, 720, "Demo Math", nullptr, nullptr);
-
-	// La fonction resizeCallback est appelée à chaque redimensionnement 
-	glfwSetWindowSizeCallback(m_win, &resizeCallback);
-	// bind le contexte sur la fenêtre
-	glfwMakeContextCurrent(m_win);
-
-	// Initialise le chargeur d'extension
-	glewExperimental = GL_TRUE;
-	glewInit();
-	glGetError();// glewInit peut generer un GL_INVALID_ENUM
-
+	Application::Log("Getting Controller", Logger::Debug);
 	// Instancie fenetre et camera
-	m_controller = Controller::getController();
-	m_cam = make_shared<Camera>(this);
-
-}
-
-void resizeCallback(GLFWwindow *win, int width, int height)
-{
-	(void)win; // Inutilisé
-	glViewport(0, 0, width, height); // Redimensionne le contexte, pour s'adapter au nouvelles tailles
-
-	GLWindow::m_cam->width  = width;
-	GLWindow::m_cam->height = height;
-	GLWindow::m_cam->m_projection = glm::perspective(45.0f, float(width) / height, 0.1f, 10.0f); // change le ratio dans la matrice de projection
 }
 
 GLWindow *GLWindow::getMainWindow()
@@ -58,12 +29,55 @@ GLWindow *GLWindow::getMainWindow()
 	return dynamic_cast<GLWindow*>(Application::getSingleton()->getWindow().get());
 }
 
+void help(char *name, int option = -1);
+
 int GLWindow::run(int argc, char **argv)
 {
-	(void) argc;
-	(void) argv;
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, false);
+	glfwWindowHint(GLFW_RESIZABLE, true);
 
-	BetaRoom sc(*m_cam); // Instancie la scène
+	bool fs = false;
+	int nSamples = 0, opt;
+	optind = 1;
+	while((opt = getopt(argc, argv, "fa:")) != -1)
+	{
+		switch(opt)
+		{
+		case 'f':
+			fs = true;
+			Application::Log("Fullscreen mode enabled", Logger::Debug);
+			break;
+		case 's':
+			if(stoi(optarg) > 16) help(argv[0], 's');
+			nSamples = stoi(optarg);
+			Application::Log(string("Antialiasing set to ") + optarg, Logger::Debug);
+			break;
+		case '?': help(argv[0]);
+		}
+	}
+
+	glfwWindowHint(GLFW_SAMPLES, nSamples);
+
+	if(!fs)
+		m_win = glfwCreateWindow(1280, 720, "Demo Math", nullptr, nullptr);
+	else
+	{
+		auto vmode = glfwGetVideoMode(glfwGetPrimaryMonitor());
+
+		m_win = glfwCreateWindow(vmode->width, vmode->height, "Demo Math", glfwGetPrimaryMonitor(), nullptr);
+	}
+	// bind le contexte sur la fenêtre
+	glfwMakeContextCurrent(m_win);
+
+	glewExperimental = GL_TRUE;
+	glewInit();
+	glGetError();// glewInit peut generer un GL_INVALID_ENUM
+
+	BetaRoom sc; // Instancie la scène
+	m_controller = Application::getSingleton()->getController();
 
 	glEnable(GL_DEPTH_TEST); // Active le test de profondeur
 
@@ -88,5 +102,6 @@ int GLWindow::run(int argc, char **argv)
 
 GLWindow::~GLWindow()
 {
+	Application::Log("Ending Gracefully", Logger::Info);
 	glfwTerminate();
 }

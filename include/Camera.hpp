@@ -40,7 +40,7 @@ public:
 	/**
 	 * \brief Instancie une caméra, liée à une fenêtre
 	 */
-	Camera(GLWindow *Parent);
+	Camera();
 	/**
 	 * \brief Mets à jour la caméra
 	 */

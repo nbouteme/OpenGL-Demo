@@ -10,18 +10,19 @@
 #include <glm/glm.hpp>
 #include <GLFW/glfw3.h>
 
-class GLWindow;
+class Application;
 
 /**
  * \class Controller La classe Controller définie les caractéristiques d'une manette
  */
 class Controller
 {
-	friend GLWindow;
+	friend Application;
 	/**
+	 * \param sensentivity La sensibilitée des joysticks, 1 étant 100%
 	 * \return La première manette trouvée et supportée, sinon une fausse manette.
 	 */
-	static std::shared_ptr<Controller> getController();
+	static std::shared_ptr<Controller> getController(float = 1.0f);
 public:
 	/**
 	 * \return La position du stick principal, les 2 axes dans l'interval [-1; 1]

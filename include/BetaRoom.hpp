@@ -40,7 +40,7 @@ public:
 	/**
 	 * \param cam La caméra à utiliser pour le rendu
 	 */
-	BetaRoom(Camera &);
+	BetaRoom();
 	/**
 	 * \brief Rends la scène sur la cible active
 	 */

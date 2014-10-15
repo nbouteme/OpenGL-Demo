@@ -10,7 +10,7 @@ uniform  samplerCube cubeMap;
 
 void main()
 {
-	vec3 ambientComponent = vec3(0.8, 0.8, 0.2);
+	vec3 ambientComponent = vec3(0.8, 0.1, 0.1);
 	vec3 diffuseComponent = vec3(0.5);
 	vec3 specularComponent = vec3(0.5);
 
@@ -35,6 +35,6 @@ void main()
 	vec3 refraction = refract(viewDir, normalize(Normal), 1.0 / 1.33); // 1.33 =  indice de refraction de l'eau
 
     outColor = vec4(result, 1.0);
-	outColor *= texture(cubeMap, refraction) * 1;
-	outColor +=	texture(cubeMap, reflection) * 0;
+	outColor *= texture(cubeMap, refraction) * 0.8;
+	outColor +=	texture(cubeMap, reflection) * 0.2;
 }

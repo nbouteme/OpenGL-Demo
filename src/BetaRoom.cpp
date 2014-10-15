@@ -7,7 +7,7 @@
 
 using namespace std;
 
-BetaRoom::BetaRoom(Camera &cam) : Scene(cam)
+BetaRoom::BetaRoom()
 {
 	// Instancie les éléments de la scène
 	m_torus   = make_shared<Torus>();
@@ -28,6 +28,6 @@ BetaRoom::BetaRoom(Camera &cam) : Scene(cam)
 void BetaRoom::render()
 {
 	if(m_cubemap)
-		m_cubemap->draw(m_cam); // Si une skybox a été définie pour cette scène, on la déssine.
+		m_cubemap->draw(*m_cam); // Si une skybox a été définie pour cette scène, on la déssine.
 	Scene::render();
 }

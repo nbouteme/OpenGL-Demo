@@ -14,17 +14,13 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include <Application.hpp>
 
 /**
  * \class Model Cette classe n'est pas instanciable par elle mémé, elle doit être dérivée pour pouvoir l'utiliser
  */
 class Model : public DrawableComponent, public Actor 
 {
-	/**
-	 * \brief Met à jour la matrice de transformation
-	 */
-	void rebuildModelMat();
-
 public:
 	virtual ~Model();
 
@@ -47,6 +43,7 @@ public:
 	void setRotation   (const glm::vec3&);
 
 protected:
+	std::shared_ptr<Controller> m_controller = Application::getSingleton()->getController();
 	glm::vec3 m_scale = glm::vec3(1.0f), m_rotation, m_position;
 	/**
 	 * \var m_vao
@@ -92,4 +89,8 @@ protected:
 	 * \brief Instancie un modèle d'après le tableau et les éléments
 	 */
 	Model(const std::vector<float> &, const std::vector<unsigned> &);
+	/**
+	 * \brief Met à jour la matrice de transformation
+	 */
+	void rebuildModelMat();
 };

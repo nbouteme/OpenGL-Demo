@@ -6,6 +6,8 @@
 
 #include <memory>
 
+#include <Log.hpp>
+
 /**
  * \class Shader
  *  La classe Shader compile, link et gere les shaders

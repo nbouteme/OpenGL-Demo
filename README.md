@@ -3,6 +3,20 @@
 OpenGL-Demo
 ===========
 
+## Options
+
+-f pour le plein écran
+-s /n/ pour regler la sensibilité des manettes avec n entre 0 et 100
+-a /n/ pour activer l'anticrénelage avec n entre 0 et 16, et multiple de 4.
+-l /n/ pour régler le niveau de log, avec n entre 0 et 5. Un n élevé reduit la quantité de log produit. n > 5 pour ne rien écrire du tout
+
+0: Debug
+1: Normal
+2: Info
+3: Attention
+4: Erreur
+5: Critique
+
 Démo pour les math.
 
 ## Dépendances

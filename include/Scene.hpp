@@ -21,20 +21,17 @@ class Scene
 	 * \p Modèles contenus dans la scène
 	 */
 	std::set<std::shared_ptr<Model>> m_models;
-
 protected:
 	/**
 	 * \var m_cam
 	 * \p Caméra utilisée lors du rendu
 	 */
-	Camera &m_cam;
-
+	std::shared_ptr<Camera> m_cam;
 	/**
 	 * \brief Ajoute un modèle pour le dessin
 	 */
 	void addModel(const std::shared_ptr<Model> &model)
 		{ m_models.insert(model); }
-
 	/**
 	 * \brief Ajoute un modèle derivé pour le dessin
 	 */
@@ -44,11 +41,10 @@ protected:
 		//Type safe car derived doit bien dériver de Model, pour compiler
 		addModel(std::shared_ptr<Model>(derived));
 	}
-
 	/**
 	 * \brief Construit une scène à partir d'une caméra à utiliser pour le rendu
 	 */
-	Scene(Camera &);
+	Scene();
 public:
 	/**
 	 * \brief Dessine la scène sur la cible active

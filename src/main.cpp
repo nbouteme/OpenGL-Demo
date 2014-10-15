@@ -2,8 +2,5 @@
 
 int main(int argc, char *argv[])
 {
-    (void) argc;
-    (void) argv;
-    Application::getSingleton()->run();
-    return 0;
+    return Application::getSingleton()->run(argc, argv);
 }

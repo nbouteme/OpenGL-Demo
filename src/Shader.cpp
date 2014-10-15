@@ -10,6 +10,7 @@
 #include <iostream>
 
 #include <Assets.hpp>
+#include <Application.hpp>
 
 using namespace std;
 
@@ -25,13 +26,14 @@ Shader::Shader(const char *vs, const char *ps, const char *gs)
 	glShaderSource(m_vertexId, 1, &vs, nullptr);
 	glShaderSource(m_pixelId , 1, &ps, nullptr);
 
+	Application::Log("Compiling Shaders", Logger::Debug);
 	// Compile le vertex shader
 	glCompileShader(m_vertexId);
 	// Recupere le status de la compilation
 	glGetShaderiv(m_vertexId, GL_COMPILE_STATUS, &status);
 	if(!status) // En cas d'erreur on affiche la liste d'erreurs et on génère un coredump
 	{
-		printf("%s\n", vs);
+		Application::Log("Vertex Shader failed to compile", Logger::Critical);
 		dumpShaderErrorLog(m_vertexId);
 	}
 
@@ -40,7 +42,7 @@ Shader::Shader(const char *vs, const char *ps, const char *gs)
 
 	if(!status)
 	{
-		printf("%s\n", ps);
+		Application::Log("Fragment Shader failed to compile", Logger::Critical);
 		dumpShaderErrorLog(m_pixelId);
 	}
 
@@ -52,8 +54,11 @@ Shader::Shader(const char *vs, const char *ps, const char *gs)
 		glShaderSource(m_geometryId, 1, &ps, nullptr);
 		glCompileShader(m_geometryId);
 		glGetShaderiv(m_geometryId, GL_COMPILE_STATUS, &status);
-		if(!status)
+		if(!status)	
+		{
+			Application::Log("Geometry Shader failed to compile", Logger::Debug);
 			dumpShaderErrorLog(m_geometryId);
+		}
 		glAttachShader(m_shaderId, m_geometryId);
 	}
 
@@ -66,8 +71,9 @@ Shader::Shader(const char *vs, const char *ps, const char *gs)
 	// Lie le programme
 	glLinkProgram(m_shaderId);
 
-	// Lie le programme
 	glGetProgramiv(m_shaderId, GL_LINK_STATUS, &status);
+	if(!status)
+		Application::Log("Shader failed to link", Logger::Critical);
 	assert(status); // Génère un coredump en cas de probleme.
 }
 
@@ -95,6 +101,7 @@ Shader::~Shader()
 		glDeleteShader(m_geometryId);
 
 	glDeleteProgram(m_shaderId);//Suprime le programme
+	Application::Log("Deleted Shader", Logger::Debug);
 }
 
 shared_ptr<Shader> Shader::BasicShader()

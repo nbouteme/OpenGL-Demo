@@ -53,9 +53,4 @@ public:
 	 * \return un pointeur sur l'instance existante de la manette
 	 */
 	std::shared_ptr<Controller> getController() { return m_controller; }
-	/**
-	 * \var m_cam
-	 * \param un pointeur sur l'instance existante de la caméra
-	 */
-	static std::shared_ptr<Camera> m_cam;
 };

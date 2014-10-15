@@ -2,6 +2,7 @@
 
 #include <GLWindow.hpp>
 #include <Assets.hpp>
+#include <Controller.hpp>
 
 using namespace std;
 using namespace glm;
@@ -43,10 +44,11 @@ void Polyedre::draw(const Camera &cam)
 
 void Polyedre::waitInput()
 {
-	if(glfwGetKey(*GLWindow::getMainWindow(), GLFW_KEY_G))
+	if(glfwGetKey(*GLWindow::getMainWindow(), GLFW_KEY_G) ||
+	   m_controller->getButtons()[2])
 		action = &Polyedre::scale;
 }
-#include <iostream>
+
 void Polyedre::scale()
 {
 	if(cScale <= kGoalMaxScale)
@@ -58,7 +60,6 @@ void Polyedre::scale()
 	else
 		cScale -= 1.0f / 30;
 	setScale(glm::vec3(cScale < 0.0f ? -cScale : cScale));
-	std::cout << cScale << std::endl;
 }
 
 void Polyedre::update()

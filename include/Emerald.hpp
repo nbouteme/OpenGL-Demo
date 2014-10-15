@@ -19,7 +19,8 @@ class Emerald : public Model
 	 * \var kGoalRotation
 	 * \p limite de la rotation en radians 
 	 */
-	const float kGoalRotation = 3.14f * 2;
+	const float kGoalTranslate = 1.0f;
+	bool goalReached;
 	/**
 	 * \var rotation
 	 * \p angle de orotation actuel en radians 
@@ -43,7 +44,7 @@ class Emerald : public Model
 	/**
 	 * \brief Comportement actif de l'objet, en rotation
 	 */
-	void rotate();
+	void translate();
 public:
 	/**
 	 * \brief Constructeur par defaut

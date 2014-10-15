@@ -13,11 +13,12 @@
 class XBoxController : public Controller
 {
 	int m_joyNum;
+	float m_sensitivity;
 public:
 	/*
 	 * \brief instancie la manette selon le numéro de manette
 	 */
-	XBoxController(int);
+	XBoxController(int, float);
 	/*
 	 * \return La position du stick principal, les 2 axes dans l'interval [-1; 1]
 	 */

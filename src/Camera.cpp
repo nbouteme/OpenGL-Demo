@@ -12,6 +12,15 @@
 using namespace std;
 using namespace glm;
 
+void resizeCallback(GLFWwindow *win, int width, int height)
+{
+	glViewport(0, 0, width, height); // Redimensionne le contexte, pour s'adapter au nouvelles tailles
+
+	Camera *m_cam = (Camera *) glfwGetWindowUserPointer(win);
+	m_cam->width  = width;
+	m_cam->height = height;
+	m_cam->m_projection = glm::perspective(45.0f, float(width) / height, 0.1f, 10.0f); // change le ratio dans la matrice de projection
+}
 
 void onHovering(GLFWwindow *win, double x, double y)
 {
@@ -21,7 +30,7 @@ void onHovering(GLFWwindow *win, double x, double y)
 	if(glfwGetMouseButton(*(GLWindow*)Application::getSingleton()->getWindow().get(), 0) == GLFW_PRESS)
 	{
 		// Recupere la caméra
-		Camera &self = *((GLWindow*)Application::getSingleton()->getWindow().get())->m_cam;
+		Camera &self = *(Camera *)glfwGetWindowUserPointer(win);
 
 		// calcule la difference d'angle par pixel pour un champs de vision de 45 deg
 		float xangle = 3.141529f / 4 / self.width;
@@ -38,18 +47,20 @@ void onHovering(GLFWwindow *win, double x, double y)
 	oldx = x, oldy = y;
 }
 
-Camera::Camera(GLWindow *Parent) :
+Camera::Camera() :
 	m_projection(perspective(45.0f, 1600.0f / 900, 0.1f, 10.0f)),
-	m_controller(Parent->getController()),
+	m_controller(Application::getSingleton()->getController()),
 	m_position(vec3(-1.5f, 1.3f, -0.81f)),
 	m_direction  (vec3(0.7f, -0.5f, 0.5f)),
-	m_glWin(Parent),
+	m_glWin(GLWindow::getMainWindow()),
 	m_view(lookAt(m_position,
 				  m_direction * 0.1f,
 				  vec3(0.0f, 1.0f, 0.0f)))
 {
-	// onHovering est appelée lorsque la souris se deplace sur la fenêtre
-	glfwSetCursorPosCallback(*Parent, &onHovering);
+	glfwSetCursorPosCallback(*m_glWin, &onHovering);
+	// La fonction resizeCallback est appelée à chaque redimensionnement 
+	glfwSetWindowSizeCallback(*m_glWin, &resizeCallback);
+	glfwSetWindowUserPointer(*m_glWin, this);	
 }
 
 void Camera::update()

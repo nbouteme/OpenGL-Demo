@@ -5,6 +5,9 @@
 #pragma once
 
 #include <memory>
+#include <cassert>
+
+#include <Log.hpp>
 
 class Controller;
 class BaseWindow;
@@ -16,19 +19,16 @@ class BaseWindow;
 class Application : public std::enable_shared_from_this<Application>
 {
 	static std::shared_ptr<Application> m_app;
-
     /**
 	 * \var m_glWindow
 	 * \p Pointe sur l'instance existante de la fenêtre
 	 */
 	std::shared_ptr<BaseWindow> m_glWindow;
-
     /**
 	 * \var m_controller
 	 * \p Pointe sur l'instance existante de la manette
 	 */
-	static std::shared_ptr<Controller> m_controller;
-
+	std::shared_ptr<Controller> m_controller;
     /**
 	 * \return Instance existante du singleton
 	 */
@@ -43,7 +43,7 @@ class Application : public std::enable_shared_from_this<Application>
 	 */
 	static std::shared_ptr<Application> (*_getSingleton)();
 	// Pour empêcher une instanciation.
-	Application() {};
+	Application();
 public:
     /**
 	 * \return L'instance existante du singleton
@@ -52,7 +52,11 @@ public:
     /**
 	 * \return Un pointeur sur l'instance existante de la fenêtre
 	 */
-	std::shared_ptr<BaseWindow>  getWindow()           { return m_glWindow;      }
+	std::shared_ptr<BaseWindow>  getWindow()
+	{
+		//	assert(m_glWindow);
+		return m_glWindow;
+	}
     /**
 	 * \return Un pointeur sur l'instance existante de la manette
 	 */
@@ -61,4 +65,5 @@ public:
 	 * \return L'état de fin d'exécution de l'application.
 	 */
 	int run(int = 0, char ** = 0);
+	static Logger Log;
 };

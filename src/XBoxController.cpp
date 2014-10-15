@@ -27,7 +27,7 @@
 
 using namespace std;
 
-XBoxController::XBoxController(int joyNum) : m_joyNum(joyNum)
+XBoxController::XBoxController(int joyNum, float sensitivity) : m_joyNum(joyNum), m_sensitivity(sensitivity)
 {
 }
 
@@ -39,7 +39,7 @@ glm::vec2 XBoxController::getMainStickPosition()
 
 	if(glm::length(ret) > 1.0f)
 		ret = glm::normalize(ret);
-
+	ret *= m_sensitivity;
 	return ret;
 }
 
@@ -52,6 +52,7 @@ glm::vec2 XBoxController::getSecondaryStickPosition()
 	if(glm::length(ret) > 1.0f)
 		ret = glm::normalize(ret);
 
+	ret *= m_sensitivity;
 	return ret;
 }
 

@@ -4,6 +4,7 @@
 #include <Camera.hpp>
 #include <Shader.hpp>
 #include <Assets.hpp>
+#include <Controller.hpp>
 
 using namespace std;
 using namespace glm;
@@ -38,7 +39,8 @@ void Torus::draw(const Camera &cam)
 
 void Torus::waitInput()
 {
-	if(glfwGetKey(*GLWindow::getMainWindow(), GLFW_KEY_H))
+	if(glfwGetKey(*GLWindow::getMainWindow(), GLFW_KEY_H) ||
+	   m_controller->getButtons()[1])
 		action = &Torus::rotate;
 }
 

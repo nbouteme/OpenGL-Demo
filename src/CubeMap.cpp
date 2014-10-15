@@ -53,7 +53,7 @@ CubeMap::CubeMap() :
 	m_uniProj  = glGetUniformLocation(m_shader->getProgramid(), "projection");
 
 }
-#include<iostream>
+
 void CubeMap::draw(const Camera &cam)
 {
 	glDepthMask(false);
