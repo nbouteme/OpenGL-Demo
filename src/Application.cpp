@@ -45,7 +45,6 @@ int Application::run(int argc, char **argv)
 			sensitivity = float(stoi(optarg)) / 100;
 			Application::Log(string("Sensitivity level set to ") + optarg, Logger::Debug);
 			break;
-//		case '?': help(argv[0]);
 		}
 	}
 	m_glWindow   = make_shared<GLWindow>(); // Instancie la fenetre.

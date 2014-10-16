@@ -41,6 +41,7 @@ void Emerald::draw(const Camera &cam)
 
 	// Désactive le VAO
 	glBindVertexArray(0);
+	glUseProgram(0);
 }
 
 void Emerald::waitInput()

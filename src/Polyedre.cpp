@@ -40,6 +40,7 @@ void Polyedre::draw(const Camera &cam)
 	glDrawArrays(GL_TRIANGLES, 0, vertNum);
 
 	glBindVertexArray(0);
+	glUseProgram(0);
 }
 
 void Polyedre::waitInput()

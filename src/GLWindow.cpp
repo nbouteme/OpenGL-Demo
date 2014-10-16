@@ -50,12 +50,11 @@ int GLWindow::run(int argc, char **argv)
 			fs = true;
 			Application::Log("Fullscreen mode enabled", Logger::Debug);
 			break;
-		case 's':
-			if(stoi(optarg) > 16) help(argv[0], 's');
+		case 'a':
+			if(stoi(optarg) > 16) help(argv[0], 'a');
 			nSamples = stoi(optarg);
 			Application::Log(string("Antialiasing set to ") + optarg, Logger::Debug);
 			break;
-		case '?': help(argv[0]);
 		}
 	}
 
