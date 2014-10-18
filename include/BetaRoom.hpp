@@ -6,10 +6,10 @@
 
 #include <Scene.hpp>
 
-class CubeMap;
 class Torus;
 class Emerald;
 class Polyedre;
+class Effect;
 
 /**
  *\class BetaRoom Définie une scène constituée de 4 objets
@@ -22,11 +22,6 @@ class BetaRoom : public Scene
 	 */
 	std::shared_ptr<Torus>    m_torus;
 	/**
-	 * \var m_cubemap
-	 * \p la skybox de la scene
-	 */
-    std::shared_ptr<CubeMap>  m_cubemap;
-	/**
 	 * \var m_emerald
 	 * \p l'émeraude de la scène
 	 */
@@ -36,6 +31,7 @@ class BetaRoom : public Scene
 	 * \p le cristal de la scène
 	 */
 	std::shared_ptr<Polyedre> m_poly;
+	std::shared_ptr<Effect> m_effect;
 public:
 	/**
 	 * \param cam La caméra à utiliser pour le rendu

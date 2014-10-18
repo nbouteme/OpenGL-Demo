@@ -4,21 +4,33 @@
 
 #pragma once
 
+#include <Model.hpp>
+
+#include <memory>
+
+class Shader;
+
 /**
  * \class Effect
- * La classe Effect defini des effet de post-processing
+ * La classe Effect définie des effets de post-processing
  */
 class Effect
 {
+	unsigned fbId, texId, rbId, m_vao, m_vbo;
+	std::shared_ptr<Shader> m_shader;
 protected:
 	/**
-	 * Construit un effet a partir d'un shader
+	 * Construit un effet à partir d'un shader
 	 */
-	Effect(const Shader &);
+	Effect(const char *);
 public:
 	/**
 	 * Construit un effet de base qui ne fait rien
 	 */
-	static BasicEffect();
-	virtual ~Effect() {};
+	static std::shared_ptr<Effect> BasicEffect();
+	static std::shared_ptr<Effect> ReverseColor();
+	static std::shared_ptr<Effect> Blur();
+	void active();
+	void present();
+	virtual ~Effect();
 };

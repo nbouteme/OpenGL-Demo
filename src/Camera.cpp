@@ -12,29 +12,20 @@
 using namespace std;
 using namespace glm;
 
-void resizeCallback(GLFWwindow *win, int width, int height)
-{
-	glViewport(0, 0, width, height); // Redimensionne le contexte, pour s'adapter au nouvelles tailles
-
-	Camera *m_cam = (Camera *) glfwGetWindowUserPointer(win);
-	m_cam->width  = width;
-	m_cam->height = height;
-	m_cam->m_projection = glm::perspective(45.0f, float(width) / height, 0.1f, 10.0f); // change le ratio dans la matrice de projection
-}
-
 void onHovering(GLFWwindow *win, double x, double y)
 {
-	(void)win;
 	static int oldx, oldy;
 	// si le bouton de la souris est enfoncé
 	if(glfwGetMouseButton(*(GLWindow*)Application::getSingleton()->getWindow().get(), 0) == GLFW_PRESS)
 	{
 		// Recupere la caméra
+		int dim[4];
+		glGetIntegerv(GL_VIEWPORT, dim);
 		Camera &self = *(Camera *)glfwGetWindowUserPointer(win);
 
 		// calcule la difference d'angle par pixel pour un champs de vision de 45 deg
-		float xangle = 3.141529f / 4 / self.width;
-		float yangle = 3.141529f / 4 / self.height;
+		float xangle = 3.141529f / 4 / dim[2];
+		float yangle = 3.141529f / 4 / dim[3];
 
 		vec3 right = cross(vec3(0.0f, 1.0f, 0.0f), self.m_direction); // une normale perpendiculaire a une norme vers le haut et la direction de la vue (droite dans l'espace vue)
 		vec3 up = cross(self.m_direction, right); // une normale perpendiculaire a la direction de la vue et du vecteur droite (haut dans l'espace vue)
@@ -57,10 +48,8 @@ Camera::Camera() :
 				  m_direction * 0.1f,
 				  vec3(0.0f, 1.0f, 0.0f)))
 {
-	glfwSetCursorPosCallback(*m_glWin, &onHovering);
-	// La fonction resizeCallback est appelée à chaque redimensionnement 
-	glfwSetWindowSizeCallback(*m_glWin, &resizeCallback);
 	glfwSetWindowUserPointer(*m_glWin, this);	
+	glfwSetCursorPosCallback(*m_glWin, &onHovering);
 }
 
 void Camera::update()

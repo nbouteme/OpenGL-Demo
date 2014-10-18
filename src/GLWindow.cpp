@@ -19,9 +19,12 @@ GLWindow::GLWindow()
 	// Initialise la bibliotheque
 	Application::Log("Initializing GLFW", Logger::Debug);
 	glfwInit();
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, false);
+	glfwWindowHint(GLFW_RESIZABLE, false);
 
-	Application::Log("Getting Controller", Logger::Debug);
-	// Instancie fenetre et camera
 }
 
 GLWindow *GLWindow::getMainWindow()
@@ -33,11 +36,8 @@ void help(char *name, int option = -1);
 
 int GLWindow::run(int argc, char **argv)
 {
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, false);
-	glfwWindowHint(GLFW_RESIZABLE, true);
+	Application::Log("Getting Controller", Logger::Debug);
+	// Instancie fenetre et camera
 
 	bool fs = false;
 	int nSamples = 0, opt;

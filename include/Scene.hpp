@@ -6,9 +6,12 @@
 
 #include <set>
 #include <memory>
+#include <vector>
 
 class Model;
 class Camera;
+class CubeMap;
+class Effect;
 
 /**
  * \class Scene
@@ -21,6 +24,11 @@ class Scene
 	 * \p Modèles contenus dans la scène
 	 */
 	std::set<std::shared_ptr<Model>> m_models;
+	/**
+	 * \var m_effects
+	 * \p Effets contenus dans la scène
+	 */
+	std::vector<std::shared_ptr<Effect>> m_effects;
 protected:
 	/**
 	 * \var m_cam
@@ -32,6 +40,11 @@ protected:
 	 */
 	void addModel(const std::shared_ptr<Model> &model)
 		{ m_models.insert(model); }
+	/**
+	 * \brief Ajoute un modèle pour le dessin
+	 */
+	void addEffect(const std::shared_ptr<Effect> &effect)
+		{ m_effects.push_back(effect); }
 	/**
 	 * \brief Ajoute un modèle derivé pour le dessin
 	 */
@@ -45,6 +58,12 @@ protected:
 	 * \brief Construit une scène à partir d'une caméra à utiliser pour le rendu
 	 */
 	Scene();
+	/**
+	 * \var m_cubemap
+	 * \p la skybox de la scene
+	 */
+	std::shared_ptr<CubeMap> m_cubemap;
+	void setEnvironment(std::shared_ptr<CubeMap> env) { m_cubemap = env; }
 public:
 	/**
 	 * \brief Dessine la scène sur la cible active
