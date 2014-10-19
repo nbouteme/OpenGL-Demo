@@ -38,10 +38,10 @@ Pour compiler:
 Faire une fois:
 `git clone https://github.com/nbouteme/OpenGL-Demo`
 
-`cd OpenGL-Demo`
-`mkdir build`
-`cd build`
-`cmake ..`
+-`cd OpenGL-Demo`
+-`mkdir build`
+-`cd build`
+-`cmake ..`
 
 Puis à chaque modification du code:
 `` make -j`nproc` ``
@@ -50,7 +50,7 @@ dans le répertoire "build"
 ## À faire
 
 - [x] Implementer un parser de fichiers .obj (Sans support des textures et matériaux)
-- [ ] Implementer les contrôles au clavier de manière plus souple.
+- [x] Implementer les contrôles au clavier de manière plus souple.
 - [x] Implementer les contrôles a la souris.
 - [x] Implementer les contrôles a la manette.
 - [x] Dessiner les cristaux (3/3)
@@ -58,7 +58,6 @@ dans le répertoire "build"
 
 ### Et si on a le temps.
 
-- [ ] Implémenter une shadow map
 - [x] Shaders
   - [x] Translucidité
   - [x] Reflets
@@ -66,8 +65,8 @@ dans le répertoire "build"
 ### "Bugs"
 
 Pas de bug à proprement parler.
-- [x] Passer a l'illumination globale au lieu de locale, sa casse un peu les movements..
-- [ ] Supprimer la classe Mesh
+- [x] Passer a l'illumination globale au lieu de locale, ça casse un peu les movements..
+- [x] Supprimer la classe Mesh
 - [x] Corruption de texture causée par un probleme de calcul ?
 
 ## Support

@@ -9,12 +9,14 @@
 \usepackage{alltt}
 \usepackage{listings}
 \usepackage{fixltx2e}
-\usepackage[hidelinks]{hyperref}
 \usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage[hidelinks]{hyperref}
 \frenchspacing
-\setlength{\parskip}{0.5em}
+\setlength{\parskip}{0.0em}
+\setlength{\parindent}{0.0em}
 \setcounter{secnumdepth}{0}
-
+\tolerance=1000
 \newcommand{\vect}[1]{\overrightarrow{#1}}
 
 \begin{document}
@@ -27,33 +29,36 @@
 \maketitle
 
 \setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{-1}
 
 \tableofcontents
+\setlength{\parskip}{0.5em}
 \pagebreak
 
-\part{Idée de base}
-L'idée du projet était de fournir une démonstration de principes
-mathématiques appliqués à un programme, et en même temps, montrer
-l'application d'objets mathématiques tels que les matrices et les
-vecteurs en vrai, car bon nombre de concepts sont applicables dans la
-réalité.
+\begin{abstract}
+  Le but du projet est de fournir une démonstration de principes
+  mathématiques appliqués à un programme, et en même temps, montrer
+  l'application d'objets mathématiques tels que les matrices et les
+  vecteurs en vrai, car bon nombre de concepts sont applicables dans
+  la réalité.
 
-Nous voulons donc écrire un programme qui montre les trois
-transformations de base possibles dans l'univers 3D:
-\begin{itemize}
-\item Translation
-\item Rotation
-\item Homothétie
-\end{itemize}
-\section{Mise en oeuvre}
+  Nous voulons donc écrire un programme qui montre les trois
+  transformations de base possibles dans l'univers 3D:
+  \begin{itemize}
+  \item Translation
+  \item Rotation
+  \item Homothétie
+  \end{itemize}
+\end{abstract}
+\pagebreak
+\section*{Mise en oeuvre}
 
 Après concertation, nous nous sommes décidés à faire une scène
 montrant trois objets avec des formes (plus ou moins) primitives.
 Chacun de ces objets est ``activable'' à partir d'une touche de
 clavier, et provoquant pour chacun, l'animation d'une transformation.
-\pagebreak
 
-\section{Outils utilisés}
+\section*{Outils utilisés}
 
 Nous utilisons l'outil \textbf{git} comme logiciel de gestion de
 version, il permet de mieux repérer les régressions introduites au fil
@@ -61,12 +66,14 @@ de la modification du code, et facilite le travail collaboratif, car
 chaque modification du code est associé a son auteur.
 
 Le dépôt est disponible en libre accès sur
-\href{https://github.com/nbouteme/OpenGL-Demo}{{\color{blue}Github}},
+\href{https://github.com/nbouteme/OpenGL-Demo}{{\color{blue}Github}}
+\footnote{\url{https://github.com/nbouteme/OpenGL-Demo}},
 sous license LGPLv3.  \textbf{Github} étend l'aspect collaboratif de
 git en fournissant un ensemble de service lié à un dépôt.
 
 Cela comprend notamment le service d'intégration continue
-\href{https://travis-ci.org/nbouteme/OpenGL-Demo}{{\color{blue}Travis}},
+\href{https://travis-ci.org/nbouteme/OpenGL-Demo}{{\color{blue}Travis}}
+\footnote{\url{https://travis-ci.org/nbouteme/OpenGL-Demo}},
 qui, lorsqu'un changement se produit sur le dépôt va régénérer un
 environnement de développement et recompiler le projet, pour s'assurer
 que le code sur le dépôt principal sera toujours prêt à être déployé.
@@ -104,10 +111,12 @@ pour finir, la bibliothèque \textbf{GLFW}, elle aussi minimaliste, qui
 gère les entrées et les sorties du programme --- Fenêtre, souris,
 clavier, manette --- en plus de la création du contexte OpenGL.
 
-Nous utilisons aussi \href{https://nbouteme.github.io/OpenGL-Demo/docs}{{\color{blue}Doxygen}},
- pour generer la documentation.
+Nous utilisons aussi \href{https://nbouteme.github.io/OpenGL-Demo/docs}{{\color{blue}Doxygen}}
+\footnote{\url{https://nbouteme.github.io/OpenGL-Demo/docs}},
+ pour générer la documentation.
 
 \pagebreak
+
 \part{Conception du programme}
 
 \section{Squelette du programme}
@@ -150,10 +159,10 @@ gérer la boucle principale, en créant une scène, et en l'affichant.
 
 Une scène est un agrégat d'objets pouvant être dessinés, et pouvant
 être mis à jour (update) en plus d'une caméra.  Elle peut aussi
-contenir un ensemble d'effets de post-processing. --- Pas implémenté
-pour l'instant.  On ne peut pas instancier une scène tel quel, la
-classe doit être dérivé, puis les objets qu'elle doit afficher sont
-instancié dans son constructeur.
+contenir un ensemble d'effets de post-processing. On ne peut pas
+instancier une scène telle quelle, la classe doit être dérivée,
+puis les objets qu'elle doit afficher sont instanciés dans son
+constructeur.
 
 \subsection{Modèles --- Classe \texttt{Model}}
 
@@ -164,12 +173,12 @@ un modèle est donc une figure géométrique \textbf{simple}
 Il est intéressant de noter que j'emploie le terme \textbf{normale},
 ici, avec le terme \textbf{sommet}, alors qu'une normale est un
 vecteur dénotant une direction perpendiculaire à une
-\textbf{face}. C'est parce que chaque sommet faisant parti d'un modèle
-peut faire parti de plusieurs faces, et on doit donc utiliser une
-normale différente pour un même dans le traitement d'une face
+\textbf{face}. C'est parce que chaque sommet faisant partie d'un modèle
+peut faire partie de plusieurs faces, et on doit donc utiliser une
+normale différente pour un même sommet dans le traitement d'une face
 distincte.
 
-Lorsque des normales ne sont pas utilisée, la classe \texttt{Model}
+Lorsque des normales ne sont pas utilisées, la classe \texttt{Model}
 accepte un tableau d'éléments, en plus d'un tableau de sommets. Le
 tableau d'éléments permettra alors de réutiliser des points déjà
 définis en utilisant leur indices, économisant ainsi de la VRAM et de
@@ -184,7 +193,7 @@ tromper les calculs de lumière, et ainsi montrer plus de détail qu'il
 y en a vraiment.
 
 La classe \texttt{Model} n'est pas instanciable d'elle même, il faut
-la dérivé pour pourvoir l'utiliser.
+la dériver pour pourvoir l'utiliser.
 
 Pour en finir avec la classe \texttt{Model}, il faut aussi noter
 qu'elle peut prendre en paramètre le code source d'un fichier du
@@ -240,7 +249,7 @@ trois points par face.
 
 Par exemple, un triangle rectangle, avec une seule normale
 perpendiculaire serait défini par le fichier suivant, prenant en
-compte trois définition possible d'une face:
+compte trois définitions possibles d'une face:
 \begin{alltt}
 v 0.000000 1.000000 0.000000 
 v 1.000000 0.000000 0.000000
@@ -276,8 +285,8 @@ Un shader est le résultat de la compilation d'au moins 2 programmes de
 base, le vertex shader, qui effectue des calculs sommet par sommet,
 notamment pour effectuer des transformation, selon les paramètres
 qu'il lui auront été passé avant le dessin, et le pixel shader, qui va
-donner une couleur à un pixel en fonction des paramètres qu'il lui
-auront été donné avant le dessin, ou récupéré directement du vertex
+donner une couleur à un pixel en fonction des paramètres qui lui
+auront été donnés avant le dessin, ou récupérés directement du vertex
 shader, qui s'exécute avant le pixel shader dans la pipeline.
 
 Il existe aussi des geometry shaders, qui permettent notamment de
@@ -326,12 +335,23 @@ void main()
 }
 \end{lstlisting}
 
+\subsection{Effet --- Classe \texttt{Effect}}
+
+La classe effet représente un effet de post processing appliqué à
+une scène, qui peut elle contenir plusieurs effets.
+Lors du rendu, la scène est dessinée dans un tampon, qui lui ne sera pas
+affiché, mais seuelement dessiné dans une texture. Puis cette texture
+sera dessinée dans un rectangle qui couvre tout l'écran, avec un shader
+qui effectura un traitement pixel par pixel. C'est le post processing.
+La classe Effect propose 2 effets par défaut, une inversion de couleur,
+et un flou progressif (l'image se floute progressivement sur les bords)
+
 \subsection{Gestion des ressources}
 
 Un des problèmes qui s'est posé pendant le développement était :
 comment est-ce que tout ces modèles, shader, texture, etc, allais être
 chargé dans le programme ?  Est-ce que les garder dans un fichier
-était une solution idéale ? Le programme serait contraint de se
+était la solution idéale ? Le programme serait contraint de se
 trouver dans un répertoire à partir d'où il avait accès à toutes ses
 ressources, avec les bonnes permissions, et un déplacement ou une
 copie de l'exécutable s'accompagne de tout ses fichiers.  Une première
@@ -352,7 +372,7 @@ manipuler ce type de fichier, situé dans une bibliothèque séparée et
 un exécutable génère les archives, et ld n'a plus qu'a linker ces
 archives avec l'exécutable final, nécessitant alors seulement de
 modifier le code du programme non plus à chaque ajout de fichier, mais
-a chaque ajout de répertoire, ce qui n'arrive pas souvent.
+à chaque ajout de répertoire, ce qui n'arrive pas souvent.
 
 \pagebreak
 
@@ -410,18 +430,15 @@ archive <<The Unix Way>>, avec la redirection de votre shell:
 Ce qui a causé la création du Core Profile d'OpenGL fut en parti due à
 la popularité de la programmation orientée objets.  En effet,
 l'ancienne API d'OpenGL était très procédurale, les programmes n'était
-constitué que de grand listes d'appels à des fonctions, sans
+constitué que de grandes listes d'appels à des fonctions, sans
 structure.
 
 Le Core Profile introduit les \textbf{objets} OpenGL, ainsi que des
-fonctions permettant de les manipuler. Cela rendu l'encapsulation dans
+fonctions permettant de les manipuler. Cela a rendu l'encapsulation dans
 des classes de langages de plus haut niveau plus simple.
 
 Notre programme en utilise quelques uns, leur fonctionnement est
-détaillé au fur et à mesure.
-
-Cette section contient donc des détails d'implémentation utilisant le
-Core Profile de l'API OpenGL 3.3
+détaillé dans cette section.
 
 \subsection{Modèles}
 
@@ -432,12 +449,12 @@ si nécessaire.
 
 \subsubsection{Vertex Array Objects}
 
-Un Vertex Array Object (VAO) est un objet qui conserve en mémoire les
+Un Vertex Array Object (\emph{VAO}) est un objet qui conserve en mémoire les
 attributs et leur format d'un tampon.  Imaginez un ensemble de données
 qui contient les uns à la suite des autres, des données pour chaque
 sommets d'un objet:
 
-Pour créer un VAO, vous générez un tampon, puis vous l'activez de
+Pour créer un \emph{VAO}, vous générez un tampon, puis vous l'activez de
 cette manière:
 
 \begin{lstlisting}
@@ -449,7 +466,7 @@ glGenVertexArrays(1, &vao); glBindVertexArray(vao);
 \begin{alltt}
 [x y z u v a b c][x y z u v a b c]...[x y z u v a b c]
 \end{alltt}
-Où les [] dénotent un sommet x, y et z sont sa position, u et v des
+Où les [ ] dénotent un sommet x, y et z sont sa position, u et v des
 coordonnées de texture, et a b c, une normale.
 
 Le VAO lui, défini comment ces attributs sont dans la mémoire de la
@@ -467,9 +484,9 @@ manière suivante:
 
 \pagebreak
 
-Le VAO défini aussi où, dans le vertex shader, ces données seront
+Le \emph{VAO} défini aussi où, dans le vertex shader, ces données seront
 placés.  Le programmeur définit ces informations une seule fois avec
-les appels OpenGL, et le VAO se contentes de les enregistrer et de le
+les appels OpenGL, et le \emph{VAO} se contentes de les enregistrer et de le
 redonner quand nécessaire:
 
 \begin{lstlisting}
@@ -500,12 +517,12 @@ Maintenant, où sont stockés ces ensembles de données ?
 
 \subsubsection{Vertex Buffer Object}
 
-Un Vertex Buffer Object (VBO) se contente typiquement de garder de
+Un Vertex Buffer Object (\emph{VBO}) se contente typiquement de garder de
 l'information relative à un objet que vous voulez afficher, tel que
 les sommets, normales, mais vous pouvez y mettre ce que vous voulez
 tant que vous êtes organisé.
 
-Pour créer et activer un VBO, ça se passe quasiment comme pour les
+Pour créer et activer un \emph{VBO}, ça se passe quasiment comme pour les
 VAO:
 
 \begin{lstlisting}
@@ -525,13 +542,13 @@ glBufferData(GL_ARRAY_BUFFER,
              GL_STATIC_DRAW);
 \end{lstlisting}
 
-Où size est le nombre de données que vous multipliez par la taille
+Où \textit{size} est le nombre de données que vous multipliez par la taille
 d'une seule données, pour avoir le nombre d'octets à copier, à partir
 du pointeur ptr.  \texttt{GL\_STATIC\_DRAW} indique à OpenGL qu'on ne
 viendra pas plus tard modifier ces données, puisque on se contente de
 les afficher et d'effectuer des transformations dessus.
 
-Maintenant, quand on veut dessiner un objet, on bind le VAO, active le
+Maintenant, quand on veut dessiner un objet, on bind le \emph{VAO}, active le
 shader, et on dessine:
 
 \begin{lstlisting}
@@ -553,7 +570,7 @@ Maintenant, supposons que l'on veuille dessiner un carré. Eh bien on
 ne peut pas le faire avec 4 sommets, On doit dessiner deux triangles
 rectangle avec 2 points en communs. Ce qui fait 6 points.
 
-C'est là que les EBO interviennent. Au lieu de définir 6 points, et de
+C'est là que les \emph{EBO} interviennent. Au lieu de définir 6 points, et de
 dessiner 2 triangles, vous définissez 4 points, et vous dessinez 2
 triangles en réutilisant leur indices. Un peu comme le fait le format
 OBJ.
@@ -567,7 +584,7 @@ glBufferData(GL_ELEMENT_ARRAY_BUFFER,
              GL_STATIC_DRAW);
 \end{lstlisting}
 
-Maintenant, supposons un VBO contenant 4 points:
+Maintenant, supposons un \emph{VBO} contenant 4 points:
 \begin{verbatim}
 0.000000 0.000000 0.000000
 0.000000 1.000000 0.000000
@@ -593,7 +610,7 @@ Où \textbf{n} est le nombre de sommets à dessiner.
 
 Le gros désavantage de cette méthode est que vous êtes restreint à un
 seul attribut par point, quel que soit la face. Pour des normales par
-exemple, soit vous les recalculer, soit vous vous passez des EBO.
+exemple, soit vous les recalculer, soit vous vous passez des \emph{EBO}.
 
 \pagebreak
 
@@ -602,13 +619,13 @@ exemple, soit vous les recalculer, soit vous vous passez des EBO.
 Les shaders étant des programmes exécutés sur le GPU, ils utilisent un
 langage particulier conçu pour cet usage, le \textbf{GLSL}.
 
-Le GLSL est un langage dérive du C, mais même si il bénéficie de type
+Le GLSL est un langage dérivé du C, mais même si il bénéficie de type
 primitifs plus évolué qu'en C, il reste un peu moins flexible (pas de
 pointeur, pas d'allocation dynamique...)
 
 Le shader est le programme compilé qui est exécuté sur le GPU au
 moment du dessin, il est donc important de l'activer (bind) juste
-avant un appel à glDrawArrays.
+avant un appel à \emph{glDrawArrays}.
 
 Pour créer un shader, on compile les différent stades de la pipeline
 (vertex et fragment), pour cela, vous donnez à OpenGL le code source
@@ -641,12 +658,13 @@ glBindFragDataLocation(shaderID, 0, ``outColor'')
 \end{lstlisting}
 
 Vous pouvez passer des paramètres à votre shader à travers des
-uniform, les uniform sont des valeurs constantes dans un shader durant
-tout le temps de l'exécution d'un shader (lisez, un appel à
-\texttt{glDraw*}).
+\emph{uniform}, les \emph{uniform} sont des valeurs constantes 
+dans un shader durant tout le temps de l'exécution d'un shader,
+ (lisez, un appel à \texttt{glDraw*}),le mot clé \emph{uniform} 
+est appelé un \textit{qualifier}
 
-Vous déclarez un uniform dans votre programme avec le mots clé
-uniform, puis selon son type, (float, vec, mat...), OpenGL vous fourni
+Vous déclarez un \emph{uniform} dans votre programme avec le mots clé
+\emph{uniform}, puis selon son type, (float, vec, mat...), OpenGL vous fourni
 divers manière d'uploader ces valeurs à votre shader.
 
 Par exemple, pour des matrice 4x4, vous avez
@@ -676,27 +694,29 @@ une matrice identité
 Pour définir les transformations, on multiplie cette matrice identité
 par des matrices de Translation.
 
-\begin{math}
+\begin{equation*}
+M_{translation} =
   \begin{bmatrix}
     1 & 0 & 0 & \color{red}{T_x} \\
     0 & 1 & 0 & \color{green}{T_y} \\
     0 & 0 & 1 & \color{blue}{T_z} \\
     0 & 0 & 0 & 1
   \end{bmatrix}
-\end{math}
+\end{equation*}
 
 Où \emph{T} est un vecteur tridimensionnel définissant la translation
 
 Pour l'homothétie :
 
-\begin{math}
+\begin{equation*}
+  M_{homothetie} =
   \begin{bmatrix}
     \color{red}{S_x} & 0                  & 0                 & 0 \\
     0                & \color{green}{S_y} & 0                 & 0 \\
     0                & 0                  & \color{blue}{S_z} & 0 \\
     0 & 0 & 0 & 1
   \end{bmatrix}
-\end{math}
+\end{equation*}
 
 Où \emph{S} est un vecteur tridimensionnel définissant les
 coefficients d'échelle
@@ -704,7 +724,7 @@ coefficients d'échelle
 La rotation, est définie par le produit des matrices de rotation
 autour de chacun des axes de base.
 
-\begin{math}
+\begin{equation*}
   M_\textsubscript{rotation} =
   \begin{bmatrix}
     1 & 0     & 0        & 0 \\
@@ -726,94 +746,64 @@ autour de chacun des axes de base.
     0 & \color{blue}{sin(z)} & \color{blue}{cos(z)}  & 0 \\
     0 & 0 & 0 & 1
   \end{bmatrix}
-\end{math}
+\end{equation*}
 
 Notez que cela peut conduire à un blocage de cardan, mais en pratique,
 le programme ne fait pas usage de tel rotations.
 
 Donc, soit une matrice de rotation M\textsubscript{rotation} et un
-sommet a trois dimensions dans l'espace local d'un objet S, sa
-coordonne espace-monde C\textsubscript{oeil} est obtenue avec
+sommet à trois dimensions dans l'espace local d'un objet S, sa
+coordonnée espace-monde C\textsubscript{oeil} est obtenue avec
 
-\begin{math}
-  C_\text{oeil} = M_\text{rotation} \cdot
-  \begin{bmatrix}
-    S_x & 0   & 0   & T_x \\
-    0   & S_y & 0   & T_y \\
-    0   & 0   & S_z & T_z \\
-    0 & 0 & 0 & 1
-  \end{bmatrix}
-  \cdot
+\begin{equation*}
+  C_\text{oeil} = M_{rotation} \cdot M_{translation} \cdot M_{homothetie} \cdot
   \begin{pmatrix}
     X \\
     Y \\
     Z \\
     1
   \end{pmatrix}
-\end{math}
+\end{equation*}
 
-Ensuite, les coordonnees espace monde sont transformés en coordonnees
-de vue, a partir de la matrice de vue, qui represente la position de
-la camera dans la scene.
+Ensuite, les coordonnées espace monde sont transformés en coordonnées
+de vue, a partir de la matrice de vue, qui représenté la position de
+la caméra dans la scène.
 
-En OpenGL, la camera est fixe, elle est orientee sur l'axe z,
-regardant vers l'opposé. Donc pour simuler une camera qui se deplace
-dans un univers, avec tout ces degrees de libertes, nous avons besoin
-d'une matrice de vue, qui transforme les coordonnees pour simuler une
-camera.  Par example, si vous avancez la camera sur un objet, eh bien
-il s'agit en fait de la matrice de vue qui fait avancer cet objet.
-Quand vous faite pivoter la camera, c'est en fait le monde qui pivote
-dans la direction opposee.
+En OpenGL, la caméra est fixe, elle est orientée sur l'axe z,
+regardant vers l'opposé. Donc pour simuler une caméra qui se déplace
+dans un univers, avec tout ces degrés de libertés, nous avons besoin
+d'une matrice de vue, qui transforme les coordonnées pour simuler une
+caméra.  Par exemple, si vous avancez la camera sur un objet, il 
+s'agit en fait de la matrice de vue qui fait avancer cet objet.
+Quand vous faite pivoter la caméra, c'est en fait le monde qui pivote
+dans la direction opposée.
 
-Il y a besoin de 3 elements pour constituer une matrice de vue.  La
-position de la camera, sa cible, et une norme indiquant le haut.
+Il y a besoin de 3 élements pour constituer une matrice de vue.  La
+position de la caméra, sa cible, et une norme indiquant le haut.
 
 A partir de ces trois données, on peut calculer la direction de la
 caméra en faisant une soustraction entre sa position et sa cible, le
 vecteur Droite en faisant un produit vectoriel du vecteur haut et de
 la direction de la vue.
 
-\begin{math}
-  Direction = \left\|
-    \begin{pmatrix}
-      Camera_x \\
-      Camera_y \\
-      Camera_z
-    \end{pmatrix}
-    -
-    \begin{pmatrix}
-      Cible_x \\
-      Cible_y \\
-      Cible_z
-    \end{pmatrix}
-  \right\|
-\end{math}
-
-\begin{math}
-  Droite =
+\begin{align*}
+  \vect{Direction} &= \left\| \vect{Camera} - \vect{Cible} \right\|\\
+  \vect{Droite} &=
   \begin{pmatrix}
     0 \\
     1 \\
     0
   \end{pmatrix}
   \wedge % En France, un produit vectoriel est noté avec le wedge ^, mais partout ailleurs, le X est utilisé pour le produit en croix et ^ pour le produit exterieur
-  \begin{pmatrix}
-    Direction_x \\
-    Direction_y \\
-    Direction_z
-  \end{pmatrix}
-\end{math}
-
-Enfin, on construit la matrice 4x4 de vue de cette manière:
-
-\begin{math}
+  \vect{Direction}\\
+  M_{vue} &= 
   \begin{bmatrix}
     Droite    & 0 \\
     Haut      & 0 \\
     Direction & 0 \\
     Position  & 1
   \end{bmatrix}
-\end{math}
+\end{align*}
 
 Enfin, il reste une dernière matrice, la matrice de projection.  La
 matrice de projection définie la position des sommets sur la surface
@@ -827,14 +817,14 @@ vue.
 
 Ainsi, on défini la matrice de projection de la manière suivante
 
-\begin{math}
+\begin{equation*}
   \begin{bmatrix}
     \frac{arctan(\frac{f}{2})}{r} & 0                  & 0                                 & 0                                   \\
     0                             &arctan(\frac{f}{2}) & 0                                 & 0                                   \\
-    0                             & 0                  & - \frac{Pres + Loin}{Loin - Près} & \frac{2 * Pres * Loin}{Loin - Près} \\
+    0                             & 0                  & - \frac{\text{Près} + Loin}{Loin - \text{Près}} & \frac{2 * \text{Près} * Loin}{Loin - \text{Près}} \\
     0                             & 0                  & - 1                               & 0
   \end{bmatrix}
-\end{math}
+\end{equation*}
 
 Maintenant que nos matrices sont prêtes, nous voulons les utiliser
 dans nos vertex shader.
@@ -847,8 +837,8 @@ bibliothèque GLM qui peut générer un pointeur vers ces 16 valeurs.
 glUniformMatrix4fv(uMat, 1, GL_FALSE, value_ptr(matrice));
 \end{lstlisting}
 
-Avec cela, nous mettons à jour l'uniform du programme actif.
-uMat est une référence vers notre uniforme obtenue avec glGetUniformLocation,
+Avec cela, nous mettons à jour l'\emph{uniform} du programme actif.
+uMat est une référence vers notre \emph{uniform} obtenue avec glGetUniformLocation,
 et matrice est un objet de GLM.
 
 \subsubsection{Éclairage}
@@ -882,32 +872,30 @@ La normale est donnée par le vertex shader, et la direction du rayon incident
  lumière et la position (obtenu par interpolation implicite des positions des
  sommets par GLSL) dans l'espace monde du pixel en train d'être traité.
 
-\begin{math}
-  \begin{matrix}
-    DirRayonIncident = ||\vect{PositionLumiere} -  \vect{PositionPoint}||\\
-    DirVue = ||\vect{PositionCamera} -  \vect{PositionPoint}|| \\
-    Diffuse = \vect{DirRayonIncident} \times \vect{Normale}
-  \end{matrix}
-\end{math}
+\begin{align*}
+  \vect{DirRayonIncident} &= ||\vect{PositionLumiere} -  \vect{PositionPoint}||\\
+  \vect{DirVue} &= ||\vect{PositionCamera} -  \vect{PositionPoint}|| \\
+  \vect{Diffuse} &= \vect{DirRayonIncident} \times \vect{Normale}
+\end{align*}
 
 Enfin, la composante spéculaire se calcule en trois temps, d'abord, calculer
 la direction de la lumière réfléchie, ensuite calculer l'angle par rapport à 
 l'angle de vue, et enfin, élever cet angle a une puissance, cette puissance
-est appelée indice de brillance dans le modelé de phone.
+est appelée indice de brillance dans le modèle de Phong.
 
 Pour calculer le rayon réfléchit:
 
-\begin{math}
-\vect{Reflechit} = \vect{Incident} - 2.0 \cdot \vect{Normale} \times \vect{Incident} \cdot \vect{Normale} \\
-\vect{Speculaire} = (\vect{DirVue} \times  \vect{Reflechit})^{Brillance} \\
-\vect{Couleur} = \vect{Ambiante} + \vect{Diffuse} + \vect{Speculaire}
-\end{math}
+\begin{align*}
+\vect{Reflechit} &= \vect{Incident} - 2.0 \cdot \vect{Normale} \times \vect{Incident} \cdot \vect{Normale} \\
+\vect{Speculaire} &= (\vect{DirVue} \times  \vect{Reflechit})^{Brillance} \\
+\vect{Couleur} &= \vect{Ambiante} + \vect{Diffuse} + \vect{Speculaire}
+\end{align*}
 
 La couleur finale du pixel est la somme des trois composante.
 
 \subsubsection{Skybox}
 
-La skybox est un cube avec une taille d'arrêter de 1, qui est dessiner tout
+La skybox est un cube avec une taille d'arrête, qui est dessinée tout
  autour de la caméra. En fait, pour suivre la caméra, la partie 3x3 de 
 la matrice de vue est utilisée, ce qui a pour effet d'éliminer la
  composante de translation tout en conservant la composante rotation 
@@ -919,10 +907,10 @@ cube apparaîtra à l'écran, même si il se trouve plus loin que les faces
 
 En réutilisant la texture de la skybox comme environment map des objets 
 de la scène, on peut simuler des phénomènes physique intéressants, 
-notamment la réfraction et la réflectionss.
+notamment la réfraction et la réflexion.
 
-\paragraph{Réflection}\mbox{}\\
-La réflection sur les cristaux est simulée par une texture d'environnement 
+\paragraph{Réflexion}\mbox{}\\
+La réflexion sur les cristaux est simulée par une texture d'environnement 
 qui correspond à la skybox qui englobe la scène.
 La particularité est que le vecteur de la direction réfléchit correspond 
 directement au texel(pixel d'une texture) du cube. On peut donc récupérer
@@ -934,13 +922,52 @@ La texture est accessible avec 2 coordonnées x et y.
 \paragraph{Réfraction}\mbox{}\\
 La réfraction elle, est un peu plus compliquée, le même principe s'adapte, 
 sauf qu'au lieu de calculer la réflexion d'un rayon, on calcul la 
-déviation avec l'indice de réfraction d'un crystal. La fonction refract
+déviation avec l'indice de réfraction d'un cristal. La fonction \emph{refract}
  prend en paramètre le rayon de vue, la normale d'incidence et
- l'indice de réfraction.Et le rayon réfracté est obtenu selon la
+ l'indice de réfraction. Le rayon réfracté est obtenu selon la
  formule suivante.
 
-\begin{math}
+\begin{equation*}
 R = ir * \vect{Incident} - (ir * \vect{Normale} \times \vect{Incident}) + \sqrt{k}) * \vect{Normale}
-\end{math}
+\end{equation*}
+
+\subsubsection{Post-Processing}
+
+Le post processing consiste simplement à effectuer un traitement sur
+chaque pixel individuel d'une scène, et de ce fait, les implémentations sont
+aussi diverses et variées que les effets recherchés. Les shader sont particulièrement
+bien adaptés à cet usage, car les algorithmes de traitement d'images étant souvent
+inconditionnel, ils peuvent être facilement parallélisé, d'où l'usage important du GPU
+dans les logiciels de traitement d'images.
+
+Par exemple, l'inversion d'image consiste simplement à inverser les intensités
+des couleurs
+
+\begin{equation*}
+CouleurFinale = 1 - Couleur
+\end{equation*}
+
+Les effets requérant d'effectuer de l'échantillonnage utilise typiquement
+une matrice de convolution, qui détermine les coefficients avec lequel
+un pixel influence le résultat final.
+
+Cette matrice de convolution, par exemple, permet d'obtenir une approximation
+du flou gaussien.
+
+\begin{equation*}
+k =
+\begin{bmatrix}
+1 & 2 & 1\\
+2 & 4 & 2\\
+1 & 2 & 1\\
+\end{bmatrix}
+/ 16
+\end{equation*}
+
+Le traitement consiste alors à échantillonner des pixels autour du pixel traité,
+et de combiner leur valeurs selon cette matrice.
+Le shader du fichier basicBlur.glsl utilise cette méthode, si ce n'est qu'en plus
+il calcule la distance du pixel par rapport au centre de l'écran pour le brouiller plus
+ou moins.
 
 \end{document}

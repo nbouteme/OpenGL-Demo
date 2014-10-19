@@ -12,7 +12,9 @@ class Shader;
 
 /**
  * \class Effect
- * La classe Effect définie des effets de post-processing
+ * La classe Effect définie des effets de post-processing, vous devez
+ * la deriver si vous vouler utiliser d'autre information dans le 
+ * post processing comme le tampon de profondeur.
  */
 class Effect
 {
@@ -28,9 +30,22 @@ public:
 	 * Construit un effet de base qui ne fait rien
 	 */
 	static std::shared_ptr<Effect> BasicEffect();
+	/**
+	 * Construit un effet de base qui inverse les pixels affichés
+	 */
 	static std::shared_ptr<Effect> ReverseColor();
+	/**
+	 * Construit un effet de base qui floute les bords de l'ecran
+	 */
 	static std::shared_ptr<Effect> Blur();
+	/**
+	 * Active l'effet, à appeler avant de dessiner
+	 */
 	void active();
+	/**
+	 * Dessine le contenue dans le tampon actif
+	 * Cela permet de 'chaîner' les effets
+	 */
 	void present();
 	virtual ~Effect();
 };

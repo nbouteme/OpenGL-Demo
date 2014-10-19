@@ -33,9 +33,6 @@ shared_ptr<Effect> Effect::Blur()
 	return shared_ptr<Effect>(new Effect(ShaderRes->getString("basicBlur.glsl").c_str()));
 }
 
-#include <cassert>
-#include <Application.hpp>
-
 Effect::Effect(const char *fs) :
 	m_shader(make_shared<Shader>(ShaderRes->getString("quad.glsl").c_str(), fs))
 {
@@ -82,8 +79,6 @@ Effect::Effect(const char *fs) :
     glBindTexture(GL_TEXTURE_2D, 0);
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-	assert(glCheckFramebufferStatus(GL_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE);
-
 	glGenVertexArrays(1, &m_vao);
 	glGenBuffers     (1, &m_vbo);
 
@@ -102,9 +97,8 @@ Effect::Effect(const char *fs) :
 void Effect::active()
 {
 	glBindFramebuffer(GL_FRAMEBUFFER, fbId);
-    glBindTexture(GL_TEXTURE_2D, texId);
-	glClearColor(0.1f, 0.1f, 0.9f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);//	glBindRenderbuffer(GL_RENDERBUFFER, rbId);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
