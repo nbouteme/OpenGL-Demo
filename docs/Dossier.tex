@@ -6,9 +6,13 @@
 \usepackage{fullpage}
 \usepackage{color}
 \usepackage{url}
+\usepackage{wrapfig}
 \usepackage{alltt}
 \usepackage{listings}
 \usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage[hidelinks]{hyperref}
@@ -23,8 +27,7 @@
 \title{Rendu de scène sous OpenGL}
 \author{Nabil Boutemeur,
          Cassian Assael,
-             Alessandro
-              Bonnafous} 
+   Alessandro Bonnafous} 
 \date{Octobre 2014}
 \maketitle
 
@@ -130,21 +133,6 @@ au programme.  Il est identique au singleton de Meyers, si ce n'est
 qu'un pointeur de fonction est utilisé pour récupérer son instance, au
 lieu de vérifier à chaque appel si le singleton a déjà été instancié.
 
-\lstset{language=C++}
-
-\begin{lstlisting}
-shared_ptr<Application> Application::createSingleton()
-{
-  Appplication::_getSingleton = &Application::returnSingleton;
-  return shared_ptr<Application>(new Application());
-}
-
-shared_ptr<Application> Application::returnSingleton()
-{
-  return m_app->shared_from_this();
-}
-\end{lstlisting}
-
 La fenêtre à afficher hérite d'une classe d'interface, pour
 modulariser le singleton et pouvoir instancier des fenêtres utilisant
 une autre API qu'OpenGL.
@@ -176,15 +164,11 @@ vecteur dénotant une direction perpendiculaire à une
 \textbf{face}. C'est parce que chaque sommet faisant partie d'un modèle
 peut faire partie de plusieurs faces, et on doit donc utiliser une
 normale différente pour un même sommet dans le traitement d'une face
-distincte.
-
-Lorsque des normales ne sont pas utilisées, la classe \texttt{Model}
+distincte.Lorsque des normales ne sont pas utilisées, la classe \texttt{Model}
 accepte un tableau d'éléments, en plus d'un tableau de sommets. Le
 tableau d'éléments permettra alors de réutiliser des points déjà
 définis en utilisant leur indices, économisant ainsi de la VRAM et de
-la bande passante.
-
-Dans la pratique, le tableau d'élément n'est jamais utilisé, car nous
+la bande passante.Dans la pratique, le tableau d'élément n'est jamais utilisé, car nous
 avons besoin des normales pour des applications plus intéressantes,
 notamment dans l'éclairage, d'ailleurs, un des avantages des normales
 est que l'on peut avoir des normales qui ne correspondent pas vraiment
@@ -194,10 +178,6 @@ y en a vraiment.
 
 La classe \texttt{Model} n'est pas instanciable d'elle même, il faut
 la dériver pour pourvoir l'utiliser.
-
-Pour en finir avec la classe \texttt{Model}, il faut aussi noter
-qu'elle peut prendre en paramètre le code source d'un fichier du
-format \textbf{OBJ}, qui est lu grâce à la classe OBJData.
 
 \pagebreak
 \subsection{Fichiers OBJ --- Classe \texttt{OBJData}}
@@ -320,7 +300,7 @@ void main()
   gl_Position = proj * view * model * vec4(pos, 1.0);
 }
 \end{lstlisting}
-
+\pagebreak
 \subsubsection{Exemple de fragment shader basique}
 Ce shader se contente de colorer en blanc les pixels qui sont affiché
 durant un dessin.
@@ -337,13 +317,13 @@ void main()
 
 \subsection{Effet --- Classe \texttt{Effect}}
 
-La classe effet représente un effet de post processing appliqué à
+La classe \texttt{Effect} représente un effet de post-processing appliqué à
 une scène, qui peut elle contenir plusieurs effets.
 Lors du rendu, la scène est dessinée dans un tampon, qui lui ne sera pas
-affiché, mais seuelement dessiné dans une texture. Puis cette texture
+affiché, mais seulement dessiné dans une texture. Puis cette texture
 sera dessinée dans un rectangle qui couvre tout l'écran, avec un shader
 qui effectura un traitement pixel par pixel. C'est le post processing.
-La classe Effect propose 2 effets par défaut, une inversion de couleur,
+La classe \texttt{Effect} propose 2 effets par défaut, une inversion de couleur,
 et un flou progressif (l'image se floute progressivement sur les bords)
 
 \subsection{Gestion des ressources}
@@ -359,17 +339,18 @@ solution avait était d'utiliser le linker ld, qui est capable de
 transformer n'importe quel fichier en .o, pouvant être linker
 statiquement dans le programme, cela posait trois autre problèmes, le
 nom de symboles généré par ld n'était pas paramétrable, et donnait
-trois symboles sous la forme ``\_binary\_nom\_extension\_'' suivis de
-start, end, et size. Ensuite le problème était que pour chaque fichier
-ajouté, il fallait ajouter trois symboles au code du programme, et
-c'est vite devenu pénible à gérer, et dernièrement, le symbole censé
-représenter la taille, ne contenait pas vraiment la taille, mais son
-adresse elle même était la taille d'une ressource.
+trois symboles sous la forme ``\_binary\_\textit{nom}\_\textit{extension}\_''
+ suivis de \texttt{start}, \texttt{end}, et \texttt{size}. Ensuite 
+le problème était que pour chaque fichier ajouté, il fallait ajouter
+ trois symboles au code du programme, et c'est vite devenu pénible 
+à gérer, et dernièrement, le symbole censé représenter la taille, 
+ne contenait pas vraiment la taille, mais son adresse elle même 
+était la taille d'une ressource.
 
 Au final, un format de fichier RES d'archivage sans compression a été
 conçu pour répondre à ce besoin, ainsi qu'une classe capable de
 manipuler ce type de fichier, situé dans une bibliothèque séparée et
-un exécutable génère les archives, et ld n'a plus qu'a linker ces
+un exécutable génère les archives, et ld n'a plus qu'à linker ces
 archives avec l'exécutable final, nécessitant alors seulement de
 modifier le code du programme non plus à chaque ajout de fichier, mais
 à chaque ajout de répertoire, ce qui n'arrive pas souvent.
@@ -482,8 +463,6 @@ manière suivante:
  5 nombres, la distance entre les normales de 2 points est de 8
  nombres\\}
 
-\pagebreak
-
 Le \emph{VAO} défini aussi où, dans le vertex shader, ces données seront
 placés.  Le programmeur définit ces informations une seule fois avec
 les appels OpenGL, et le \emph{VAO} se contentes de les enregistrer et de le
@@ -513,8 +492,6 @@ vous devez le générer et l'activer avant de faire des appels à
 
 Maintenant, où sont stockés ces ensembles de données ?
 
-\pagebreak
-
 \subsubsection{Vertex Buffer Object}
 
 Un Vertex Buffer Object (\emph{VBO}) se contente typiquement de garder de
@@ -538,8 +515,7 @@ Ensuite, vous voulez remplir votre buffer,
 \begin{lstlisting}
 glBufferData(GL_ARRAY_BUFFER,
              size * sizeof(float),
-             ptr,
-             GL_STATIC_DRAW);
+             ptr, GL_STATIC_DRAW);
 \end{lstlisting}
 
 Où \textit{size} est le nombre de données que vous multipliez par la taille
@@ -547,7 +523,6 @@ d'une seule données, pour avoir le nombre d'octets à copier, à partir
 du pointeur ptr.  \texttt{GL\_STATIC\_DRAW} indique à OpenGL qu'on ne
 viendra pas plus tard modifier ces données, puisque on se contente de
 les afficher et d'effectuer des transformations dessus.
-
 Maintenant, quand on veut dessiner un objet, on bind le \emph{VAO}, active le
 shader, et on dessine:
 
@@ -555,10 +530,8 @@ shader, et on dessine:
 glBindVertexArray(vao);
 glUseProgram(shader);
 ...
-glDrawArrays(GL_TRIANGLES, 0, n);
+glDrawArrays(GL_TRIANGLES, 0, nbSommets);
 \end{lstlisting}
-
-Où n est le nombre de sommets
 
 \pagebreak
 \subsubsection{Element Buffer Object}
@@ -678,7 +651,7 @@ uM = glGetUniformLocation(shaderID, "model");
 ...
 glUniformMatrix4fv(uM, 1, GL_FALSE, value_ptr(M));
 \end{lstlisting}
-
+\pagebreak
 \subsubsection{Transformations}
 
 De base, nous avons besoin d'appliquer des transformations à des
@@ -701,7 +674,7 @@ M_{translation} =
     0 & 1 & 0 & \color{green}{T_y} \\
     0 & 0 & 1 & \color{blue}{T_z} \\
     0 & 0 & 0 & 1
-  \end{bmatrix}
+polyte  \end{bmatrix}
 \end{equation*}
 
 Où \emph{T} est un vecteur tridimensionnel définissant la translation
@@ -840,7 +813,7 @@ glUniformMatrix4fv(uMat, 1, GL_FALSE, value_ptr(matrice));
 Avec cela, nous mettons à jour l'\emph{uniform} du programme actif.
 uMat est une référence vers notre \emph{uniform} obtenue avec glGetUniformLocation,
 et matrice est un objet de GLM.
-
+\pagebreak
 \subsubsection{Éclairage}
 
 La gestion de l'éclairage se fait dans le fragment shader.
@@ -871,27 +844,39 @@ La normale est donnée par le vertex shader, et la direction du rayon incident
  se calcul en faisant la norme de la différence entre la position de la
  lumière et la position (obtenu par interpolation implicite des positions des
  sommets par GLSL) dans l'espace monde du pixel en train d'être traité.
-
 \begin{align*}
-  \vect{DirRayonIncident} &= ||\vect{PositionLumiere} -  \vect{PositionPoint}||\\
-  \vect{DirVue} &= ||\vect{PositionCamera} -  \vect{PositionPoint}|| \\
-  \vect{Diffuse} &= \vect{DirRayonIncident} \times \vect{Normale}
+\vect{DirRayonIncident} &= ||\vect{PositionLumiere} -  \vect{PositionPoint}||\\
+\vect{DirVue} &= ||\vect{PositionCamera} -  \vect{PositionPoint}|| \\
+\vect{Diffuse} &= \vect{DirRayonIncident} \times \vect{Normale}
 \end{align*}
-
 Enfin, la composante spéculaire se calcule en trois temps, d'abord, calculer
 la direction de la lumière réfléchie, ensuite calculer l'angle par rapport à 
 l'angle de vue, et enfin, élever cet angle a une puissance, cette puissance
 est appelée indice de brillance dans le modèle de Phong.
 
 Pour calculer le rayon réfléchit:
-
 \begin{align*}
 \vect{Reflechit} &= \vect{Incident} - 2.0 \cdot \vect{Normale} \times \vect{Incident} \cdot \vect{Normale} \\
 \vect{Speculaire} &= (\vect{DirVue} \times  \vect{Reflechit})^{Brillance} \\
 \vect{Couleur} &= \vect{Ambiante} + \vect{Diffuse} + \vect{Speculaire}
 \end{align*}
-
 La couleur finale du pixel est la somme des trois composante.
+
+\begin{figure}[hbp]
+\centering
+\begin{subfigure}[b]{0.3\textwidth}
+\includegraphics[width=\textwidth]{ssAmbiant}
+\caption{Lumière ambiante}
+\end{subfigure}\hfill
+\begin{subfigure}[b]{0.3\textwidth}
+\includegraphics[width=\textwidth]{ssDiffuse}    
+\caption{Lumière diffuse}
+\end{subfigure}\hfill
+\begin{subfigure}[b]{0.3\textwidth}
+\includegraphics[width=\textwidth]{ssSpecular}    
+\caption{Lumière spéculaire}
+\end{subfigure}
+\end{figure}
 
 \subsubsection{Skybox}
 
@@ -905,41 +890,58 @@ cube apparaîtra à l'écran, même si il se trouve plus loin que les faces
  visibles du cube. Le résultat donne l'impression que la scène se situe
  dans le ciel, avec des nuages que l'on ne peut atteindre.
 
-En réutilisant la texture de la skybox comme environment map des objets 
-de la scène, on peut simuler des phénomènes physique intéressants, 
-notamment la réfraction et la réflexion.
-
 \paragraph{Réflexion}\mbox{}\\
+
+\begin{wrapfigure}{R}{0.4\textwidth}
+\vspace{-35pt}
+\begin{centering}
+\includegraphics[width=0.4\textwidth]{ssReflect}
+\end{centering}
+\vspace{-35pt}
+\end{wrapfigure}
 La réflexion sur les cristaux est simulée par une texture d'environnement 
 qui correspond à la skybox qui englobe la scène.
 La particularité est que le vecteur de la direction réfléchit correspond 
 directement au texel(pixel d'une texture) du cube. On peut donc récupérer
  la couleur facilement et l'afficher sur le cristal, après
 l'avoir légèrement mixée avec le reste du fragment (10\%)
-
 La texture est accessible avec 2 coordonnées x et y.
 
 \paragraph{Réfraction}\mbox{}\\
+
+\begin{wrapfigure}{R}{0.4\textwidth}
+\vspace{-35pt}
+\begin{centering}
+\includegraphics[width=0.4\textwidth]{ssRefract}
+\end{centering}
+\vspace{-35pt}
+\end{wrapfigure}
+
 La réfraction elle, est un peu plus compliquée, le même principe s'adapte, 
 sauf qu'au lieu de calculer la réflexion d'un rayon, on calcul la 
 déviation avec l'indice de réfraction d'un cristal. La fonction \emph{refract}
  prend en paramètre le rayon de vue, la normale d'incidence et
  l'indice de réfraction. Le rayon réfracté est obtenu selon la
  formule suivante.
-
 \begin{equation*}
 R = ir * \vect{Incident} - (ir * \vect{Normale} \times \vect{Incident}) + \sqrt{k}) * \vect{Normale}
 \end{equation*}
-
+\pagebreak
 \subsubsection{Post-Processing}
 
+\begin{wrapfigure}{R}{0.4\textwidth}
+\vspace{-35pt}
+\begin{centering}
+\includegraphics[width=0.4\textwidth]{ssBlur}
+\end{centering}
+\vspace{-35pt}
+\end{wrapfigure}
 Le post processing consiste simplement à effectuer un traitement sur
 chaque pixel individuel d'une scène, et de ce fait, les implémentations sont
 aussi diverses et variées que les effets recherchés. Les shader sont particulièrement
 bien adaptés à cet usage, car les algorithmes de traitement d'images étant souvent
 inconditionnel, ils peuvent être facilement parallélisé, d'où l'usage important du GPU
 dans les logiciels de traitement d'images.
-
 Par exemple, l'inversion d'image consiste simplement à inverser les intensités
 des couleurs
 
@@ -964,10 +966,10 @@ k =
 / 16
 \end{equation*}
 
-Le traitement consiste alors à échantillonner des pixels autour du pixel traité,
-et de combiner leur valeurs selon cette matrice.
+Le traitement consiste alors à échantillonner des pixels autour du pixel traité, et de combiner leur valeurs selon cette matrice.
 Le shader du fichier basicBlur.glsl utilise cette méthode, si ce n'est qu'en plus
 il calcule la distance du pixel par rapport au centre de l'écran pour le brouiller plus
 ou moins.
+
 
 \end{document}
