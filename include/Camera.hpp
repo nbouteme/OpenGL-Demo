@@ -21,7 +21,6 @@ class Controller;
 class Camera : public Actor
 {
 	friend void onHovering(GLFWwindow *, double, double);
-	friend void resizeCallback(GLFWwindow *, int, int);
 	/**
 	 * \var m_projection
 	 * \p Matrice de projection utilisée lors du rendu

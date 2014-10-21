@@ -18,6 +18,10 @@ class BaseWindow;
  */
 class Application : public std::enable_shared_from_this<Application>
 {
+    /**
+	 * \var m_app
+	 * \p Pointe sur l'instance existante de l'application
+	 */
 	static std::shared_ptr<Application> m_app;
     /**
 	 * \var m_glWindow
@@ -65,5 +69,9 @@ public:
 	 * \return L'état de fin d'exécution de l'application.
 	 */
 	int run(int = 0, char ** = 0);
+    /**
+	 * \var Log
+	 * \p Objet utilisé pour logger
+	 */
 	static Logger Log;
 };

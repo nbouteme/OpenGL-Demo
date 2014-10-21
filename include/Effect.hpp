@@ -18,7 +18,31 @@ class Shader;
  */
 class Effect
 {
+	/**
+	 * \var fbId
+	 * Référence au framebuffer
+	 */
+	/**
+	 * \var texId
+	 * Référence à la texture
+	 */
+	/**
+	 * \var texId
+	 * Référence au renderbuffer
+	 */
+	/**
+	 * \var m_vao
+	 * Référence au Vertex array object interne
+	 */
+	/**
+	 * \var m_vbo
+	 * Référence au Vertex buffer object (carré)
+	 */
 	unsigned fbId, texId, rbId, m_vao, m_vbo;
+	/**
+	 * \var m_shader
+	 * Effet utilisé lors du dessin du tampon interne
+	 */
 	std::shared_ptr<Shader> m_shader;
 protected:
 	/**

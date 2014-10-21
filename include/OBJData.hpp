@@ -29,6 +29,10 @@ struct Vertex
 	float x, y, z;
 };
 
+/**
+ * \typedef Normal
+ * Une normale contient les mêmes information qu'un sommet.
+ */
 typedef Vertex Normal;
 
 /**
@@ -52,7 +56,15 @@ struct TextureCoordinate
  * Un groupe de sommet contient des références à un ensemble de
  * Sommet/TextureUV/Normales par leur indices de déclaration + 1
  */
+/**
+ * \typedef VGroup
+ * Un ensemble de sommet contient 3 entiers.
+ */
 typedef	std::array<int,    3> VGroup;
+/**
+ * \typedef Face
+ * Une face contient 3 ensemble de sommet
+ */
 typedef	std::array<VGroup, 3> Face;
 
 /**

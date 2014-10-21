@@ -31,7 +31,6 @@ class BetaRoom : public Scene
 	 * \p le cristal de la scène
 	 */
 	std::shared_ptr<Polyedre> m_poly;
-	std::shared_ptr<Effect> m_effect;
 public:
 	/**
 	 * \param cam La caméra à utiliser pour le rendu

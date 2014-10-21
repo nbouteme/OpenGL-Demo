@@ -13,7 +13,6 @@ ADD_EXECUTABLE(${PROJECT_NAME}
 	Scene.cpp
 	Camera.cpp
 	Shader.cpp
-	Mesh.cpp
 	BetaRoom.cpp
 	Emerald.cpp
 	Torus.cpp

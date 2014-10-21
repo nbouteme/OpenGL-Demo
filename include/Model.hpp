@@ -27,8 +27,6 @@ public:
 	virtual void draw  (const Camera &) = 0;
 	virtual void update() = 0;
 
-	// Utiliser seulement pour positionner sur la scène au début
-
 	/**
 	 * \brief Elargi le modèle
 	 */
@@ -41,8 +39,11 @@ public:
 	 * \brief Tourne le modèle sur l'axe X
 	 */
 	void setRotation   (const glm::vec3&);
-
 protected:
+	/**
+	 * \var m_controller
+	 * Référence à l'instance existante de la manette
+	 */
 	std::shared_ptr<Controller> m_controller = Application::getSingleton()->getController();
 	glm::vec3 m_scale = glm::vec3(1.0f), m_rotation, m_position;
 	/**

@@ -4,7 +4,6 @@
 #include <Torus.hpp>
 #include <Emerald.hpp>
 #include <Polyedre.hpp>
-#include <Mesh.hpp>
 #include <Effect.hpp>
 
 using namespace std;
@@ -15,8 +14,6 @@ BetaRoom::BetaRoom()
 	m_emerald = make_shared<Emerald>();
 	m_poly    = make_shared<Polyedre>();
 	m_torus   = make_shared<Torus>();
-	addEffect(Effect::Blur());
-	addEffect(Effect::ReverseColor());
 
 	setEnvironment(make_shared<CubeMap>());
 
