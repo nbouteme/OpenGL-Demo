@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>OpenGL-Demo: Référence du fichier /home/mirai/fixthis/resgen/reslib/src/ResourceManager.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">OpenGL-Demo
+   </div>
+   <div id="projectbrief">Demo pour les math</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.8 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_32b7c2a1165d10f5d9053a75a0cbcbe7.html">resgen</a></li><li class="navelem"><a class="el" href="dir_88b25c133c659985180e95b9c3cd7558.html">reslib</a></li><li class="navelem"><a class="el" href="dir_27bc1a190b2fa0aace244ee7c68be980.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier ResourceManager.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;<a class="el" href="ResourceManager_8hpp_source.html">ResourceManager.hpp</a>&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;sys/stat.h&gt;</code><br />
+<code>#include &lt;fcntl.h&gt;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de ResourceManager.cpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="ResourceManager_8cpp__incl.png" border="0" usemap="#_2home_2mirai_2fixthis_2resgen_2reslib_2src_2ResourceManager_8cpp" alt=""/></div>
+<map name="_2home_2mirai_2fixthis_2resgen_2reslib_2src_2ResourceManager_8cpp" id="_2home_2mirai_2fixthis_2resgen_2reslib_2src_2ResourceManager_8cpp">
+<area shape="rect" id="node2" href="ResourceManager_8hpp.html" title="ResourceManager.hpp" alt="" coords="89,109,253,136"/></map>
+</div>
+</div>
+<p><a href="ResourceManager_8cpp_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:af383b03bfa0e03abe85279a9bafba964"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ResourceManager_8cpp.html#af383b03bfa0e03abe85279a9bafba964">toLBE</a> (unsigned)</td></tr>
+<tr class="separator:af383b03bfa0e03abe85279a9bafba964"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac69563722cc391d6ccadcb6bb846a1ba"><td class="memItemLeft" align="right" valign="top">vector&lt; unsigned char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ResourceManager_8cpp.html#ac69563722cc391d6ccadcb6bb846a1ba">readToEnd</a> (const string &amp;File)</td></tr>
+<tr class="separator:ac69563722cc391d6ccadcb6bb846a1ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a class="anchor" id="ac69563722cc391d6ccadcb6bb846a1ba"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;unsigned char&gt; readToEnd </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>File</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="ResourceManager_8cpp_source.html#l00010">10</a> du fichier <a class="el" href="ResourceManager_8cpp_source.html">ResourceManager.cpp</a>.</p>
+
+<p><div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ResourceManager_8cpp_ac69563722cc391d6ccadcb6bb846a1ba_icgraph.png" border="0" usemap="#ResourceManager_8cpp_ac69563722cc391d6ccadcb6bb846a1ba_icgraph" alt=""/></div>
+<map name="ResourceManager_8cpp_ac69563722cc391d6ccadcb6bb846a1ba_icgraph" id="ResourceManager_8cpp_ac69563722cc391d6ccadcb6bb846a1ba_icgraph">
+<area shape="rect" id="node2" href="classResourceManager.html#aa812c98a716dfa62c2bc3f71b4e20e98" title="Ajoute un fichier à l&#39;archive. Si le fichier est une archive, alors son contenu est ajouté ..." alt="" coords="146,5,335,32"/><area shape="rect" id="node3" href="classResourceManager.html#a90b982650eab524ba9b45942732147d9" title="Instancie un gestionnaire à partir d&#39;un fichier. " alt="" coords="143,56,339,83"/><area shape="rect" id="node4" href="resgen_2src_2main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="387,56,441,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="af383b03bfa0e03abe85279a9bafba964"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned toLBE </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>in</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="ResourceManager_8cpp_source.html#l00050">50</a> du fichier <a class="el" href="ResourceManager_8cpp_source.html">ResourceManager.cpp</a>.</p>
+
+<p><div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ResourceManager_8cpp_af383b03bfa0e03abe85279a9bafba964_icgraph.png" border="0" usemap="#ResourceManager_8cpp_af383b03bfa0e03abe85279a9bafba964_icgraph" alt=""/></div>
+<map name="ResourceManager_8cpp_af383b03bfa0e03abe85279a9bafba964_icgraph" id="ResourceManager_8cpp_af383b03bfa0e03abe85279a9bafba964_icgraph">
+<area shape="rect" id="node2" href="classResourceManager.html#aa812c98a716dfa62c2bc3f71b4e20e98" title="Ajoute un fichier à l&#39;archive. Si le fichier est une archive, alors son contenu est ajouté ..." alt="" coords="135,5,324,32"/><area shape="rect" id="node3" href="classResourceManager.html#aa5879e275263e1dc3750cac2005e314e" title="Écrit l&#39;archive dans un descripteur de fichier. " alt="" coords="112,56,347,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.8-->
+<!-- start footer part -->
+</body>
+</html>

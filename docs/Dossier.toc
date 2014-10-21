@@ -1,0 +1,29 @@
+\select@language {french}
+\contentsline {part}{Conception du programme}{1}{section*.4}
+\contentsline {section}{Squelette du programme}{1}{section*.5}
+\contentsline {subsection}{Singleton --- Classe \texttt {Application}}{1}{section*.6}
+\contentsline {subsection}{Fen\IeC {\^e}tre --- Classe \texttt {GLWindow}}{1}{section*.7}
+\contentsline {subsection}{Sc\IeC {\`e}ne --- Classe \texttt {Scene}}{1}{section*.8}
+\contentsline {subsection}{Mod\IeC {\`e}les --- Classe \texttt {Model}}{1}{section*.9}
+\contentsline {subsection}{Fichiers OBJ --- Classe \texttt {OBJData}}{2}{section*.10}
+\contentsline {subsection}{Cam\IeC {\'e}ra --- Classe \texttt {Camera}}{3}{section*.11}
+\contentsline {subsection}{Shader --- Classe \texttt {Shader}}{3}{section*.12}
+\contentsline {subsubsection}{Exemple de vertex shader basique}{3}{section*.13}
+\contentsline {subsubsection}{Exemple de fragment shader basique}{4}{section*.14}
+\contentsline {subsection}{Effet --- Classe \texttt {Effect}}{4}{section*.15}
+\contentsline {subsection}{Gestion des ressources}{4}{section*.16}
+\contentsline {section}{Format fichier RES}{5}{section*.17}
+\contentsline {section}{Gestionnaire de Ressources --- Classe \texttt {ResourceManager}}{5}{section*.18}
+\contentsline {section}{G\IeC {\'e}n\IeC {\'e}rateur de Ressources --- Programme \texttt {resgen}}{5}{section*.19}
+\contentsline {section}{Utilisation de la ``nouvelle'' API d'OpenGL}{5}{section*.20}
+\contentsline {subsection}{Mod\IeC {\`e}les}{6}{section*.21}
+\contentsline {subsubsection}{Vertex Array Objects}{6}{section*.22}
+\contentsline {subsubsection}{Vertex Buffer Object}{7}{section*.23}
+\contentsline {subsubsection}{Element Buffer Object}{8}{section*.24}
+\contentsline {subsection}{Shaders}{9}{section*.25}
+\contentsline {subsubsection}{Transformations}{10}{section*.26}
+\contentsline {subsubsection}{\IeC {\'E}clairage}{12}{section*.27}
+\contentsline {subsubsection}{Skybox}{13}{section*.29}
+\contentsline {paragraph}{R\IeC {\'e}flexion}{13}{section*.30}
+\contentsline {paragraph}{R\IeC {\'e}fraction}{13}{section*.32}
+\contentsline {subsubsection}{Post-Processing}{14}{section*.34}

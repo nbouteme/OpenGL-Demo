@@ -1,0 +1,4 @@
+<map id="toLBE" name="toLBE">
+<area shape="rect" id="node2" href="$classResourceManager.html#aa812c98a716dfa62c2bc3f71b4e20e98" title="Ajoute un fichier à l&#39;archive. Si le fichier est une archive, alors son contenu est ajouté ..." alt="" coords="135,5,324,32"/>
+<area shape="rect" id="node3" href="$classResourceManager.html#aa5879e275263e1dc3750cac2005e314e" title="Écrit l&#39;archive dans un descripteur de fichier. " alt="" coords="112,56,347,83"/>
+</map>

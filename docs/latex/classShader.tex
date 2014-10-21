@@ -1,0 +1,110 @@
+\hypertarget{classShader}{\section{Référence de la classe Shader}
+\label{classShader}\index{Shader@{Shader}}
+}
+
+
+{\ttfamily \#include $<$Shader.\+hpp$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classShader_afafdbb306a177ca17d3ef81c30baacd3}{Shader} (const char $\ast$, const char $\ast$, const char $\ast$=nullptr)
+\begin{DoxyCompactList}\small\item\em Initialise un shader. \end{DoxyCompactList}\item 
+\hyperlink{classShader_aff01df87e8a102f270b5b135a295e59d}{$\sim$\+Shader} ()
+\item 
+int \hyperlink{classShader_a5aefd32ef08fd4da700b0bb2b75aeaf9}{get\+Programid} ()
+\begin{DoxyCompactList}\small\item\em Renvois un identifiant du shader. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \hyperlink{classShader}{Shader} $>$ \hyperlink{classShader_a4271c98d9ced209f007acde7a99496d1}{Basic\+Shader} ()
+\begin{DoxyCompactList}\small\item\em Renvois un shader basique. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+\begin{DoxyAuthor}{Auteur}
+N.\+Boutemeur
+\end{DoxyAuthor}
+La classe \hyperlink{classShader}{Shader} compile, link et gere les shaders 
+
+Définition à la ligne 15 du fichier Shader.\+hpp.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classShader_afafdbb306a177ca17d3ef81c30baacd3}{\index{Shader@{Shader}!Shader@{Shader}}
+\index{Shader@{Shader}!Shader@{Shader}}
+\subsubsection[{Shader}]{\setlength{\rightskip}{0pt plus 5cm}Shader\+::\+Shader (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{vs, }
+\item[{const char $\ast$}]{ps, }
+\item[{const char $\ast$}]{gs = {\ttfamily nullptr}}
+\end{DoxyParamCaption}
+)}}\label{classShader_afafdbb306a177ca17d3ef81c30baacd3}
+
+
+Initialise un shader. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em vs} & Code du vertex shader \\
+\hline
+{\em ps} & Code du fragment shader \\
+\hline
+{\em gs} & Code du geometry shader \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 17 du fichier Shader.\+cpp.
+
+\hypertarget{classShader_aff01df87e8a102f270b5b135a295e59d}{\index{Shader@{Shader}!````~Shader@{$\sim$\+Shader}}
+\index{````~Shader@{$\sim$\+Shader}!Shader@{Shader}}
+\subsubsection[{$\sim$\+Shader}]{\setlength{\rightskip}{0pt plus 5cm}Shader\+::$\sim$\+Shader (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShader_aff01df87e8a102f270b5b135a295e59d}
+
+
+Définition à la ligne 95 du fichier Shader.\+cpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classShader_a4271c98d9ced209f007acde7a99496d1}{\index{Shader@{Shader}!Basic\+Shader@{Basic\+Shader}}
+\index{Basic\+Shader@{Basic\+Shader}!Shader@{Shader}}
+\subsubsection[{Basic\+Shader}]{\setlength{\rightskip}{0pt plus 5cm}shared\+\_\+ptr$<$ {\bf Shader} $>$ Shader\+::\+Basic\+Shader (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classShader_a4271c98d9ced209f007acde7a99496d1}
+
+
+Renvois un shader basique. 
+
+\begin{DoxyReturn}{Renvoie}
+un shader basique 
+\end{DoxyReturn}
+
+
+Définition à la ligne 107 du fichier Shader.\+cpp.
+
+\hypertarget{classShader_a5aefd32ef08fd4da700b0bb2b75aeaf9}{\index{Shader@{Shader}!get\+Programid@{get\+Programid}}
+\index{get\+Programid@{get\+Programid}!Shader@{Shader}}
+\subsubsection[{get\+Programid}]{\setlength{\rightskip}{0pt plus 5cm}int Shader\+::get\+Programid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classShader_a5aefd32ef08fd4da700b0bb2b75aeaf9}
+
+
+Renvois un identifiant du shader. 
+
+\begin{DoxyReturn}{Renvoie}
+un identifiant du programme 
+\end{DoxyReturn}
+
+
+Définition à la ligne 55 du fichier Shader.\+hpp.
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>OpenGL-Demo:  Fichier source de /home/mirai/fixthis/src/Assets.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">OpenGL-Demo
+   </div>
+   <div id="projectbrief">Demo pour les math</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.8 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c61f3e4e023fa05902f496faf508e9a5.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Assets.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Assets_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Assets_8hpp.html">Assets.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="Assets_8cpp.html#a6f2897cd80122c8330081509cb102113">_binary_models_res_end</a>    [];<span class="comment">//</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="Assets_8cpp.html#af5dc5efd39c6517a260fca82c573e76a">_binary_shaders_res_end</a>   [];<span class="comment">//</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="Assets_8cpp.html#a1cb6c0a2fb89cb924a386fa68aa4966a">_binary_textures_res_end</a>  [];<span class="comment">// Références externes aux archives linkées</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="Assets_8cpp.html#ac422118488eafaaafa66d295cfe6040d">_binary_models_res_start</a>  [];<span class="comment">//</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="Assets_8cpp.html#aa2bef78d71943a8e9660c281671d0be3">_binary_shaders_res_start</a> [];<span class="comment">//</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="Assets_8cpp.html#a6679c9265b398547a6114da46f1cd559">_binary_textures_res_start</a>[];<span class="comment">//</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="Assets_8cpp.html#a05533f021fbd2e1bde138f744a86d725">   12</a></span>&#160;shared_ptr&lt;ResourceManager&gt; <a class="code" href="Assets_8cpp.html#a05533f021fbd2e1bde138f744a86d725">OBJRes</a> =</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="classResourceManager.html#a832206535b73564824f1102b5ed5844f">ResourceManager::fromData</a>(vector&lt;unsigned char&gt;(</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                                  <a class="code" href="Assets_8cpp.html#ac422118488eafaaafa66d295cfe6040d">_binary_models_res_start</a>,</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                                  <a class="code" href="Assets_8cpp.html#a6f2897cd80122c8330081509cb102113">_binary_models_res_end</a>));</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="Assets_8cpp.html#ab6dae4b416692a652403226d1488fc4f">   17</a></span>&#160;shared_ptr&lt;ResourceManager&gt; <a class="code" href="Assets_8cpp.html#ab6dae4b416692a652403226d1488fc4f">ShaderRes</a> =</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="classResourceManager.html#a832206535b73564824f1102b5ed5844f">ResourceManager::fromData</a>(vector&lt;unsigned char&gt;(</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                                  <a class="code" href="Assets_8cpp.html#aa2bef78d71943a8e9660c281671d0be3">_binary_shaders_res_start</a>,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                                  <a class="code" href="Assets_8cpp.html#af5dc5efd39c6517a260fca82c573e76a">_binary_shaders_res_end</a>));</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="Assets_8cpp.html#a3af3ab8a2e16e353a997ad1ac9360ec0">   23</a></span>&#160;shared_ptr&lt;ResourceManager&gt; <a class="code" href="Assets_8cpp.html#a3af3ab8a2e16e353a997ad1ac9360ec0">TexRes</a> =</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classResourceManager.html#a832206535b73564824f1102b5ed5844f">ResourceManager::fromData</a>(vector&lt;unsigned char&gt;(</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                                  <a class="code" href="Assets_8cpp.html#a6679c9265b398547a6114da46f1cd559">_binary_textures_res_start</a>,</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                                  <a class="code" href="Assets_8cpp.html#a1cb6c0a2fb89cb924a386fa68aa4966a">_binary_textures_res_end</a>));</div>
+<div class="ttc" id="Assets_8cpp_html_a6679c9265b398547a6114da46f1cd559"><div class="ttname"><a href="Assets_8cpp.html#a6679c9265b398547a6114da46f1cd559">_binary_textures_res_start</a></div><div class="ttdeci">unsigned char _binary_textures_res_start[]</div></div>
+<div class="ttc" id="Assets_8cpp_html_ab6dae4b416692a652403226d1488fc4f"><div class="ttname"><a href="Assets_8cpp.html#ab6dae4b416692a652403226d1488fc4f">ShaderRes</a></div><div class="ttdeci">shared_ptr&lt; ResourceManager &gt; ShaderRes</div><div class="ttdef"><b>Definition:</b> <a href="Assets_8cpp_source.html#l00017">Assets.cpp:17</a></div></div>
+<div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdoc">STL namespace. </div></div>
+<div class="ttc" id="Assets_8cpp_html_a3af3ab8a2e16e353a997ad1ac9360ec0"><div class="ttname"><a href="Assets_8cpp.html#a3af3ab8a2e16e353a997ad1ac9360ec0">TexRes</a></div><div class="ttdeci">shared_ptr&lt; ResourceManager &gt; TexRes</div><div class="ttdef"><b>Definition:</b> <a href="Assets_8cpp_source.html#l00023">Assets.cpp:23</a></div></div>
+<div class="ttc" id="Assets_8cpp_html_aa2bef78d71943a8e9660c281671d0be3"><div class="ttname"><a href="Assets_8cpp.html#aa2bef78d71943a8e9660c281671d0be3">_binary_shaders_res_start</a></div><div class="ttdeci">unsigned char _binary_shaders_res_start[]</div></div>
+<div class="ttc" id="Assets_8cpp_html_ac422118488eafaaafa66d295cfe6040d"><div class="ttname"><a href="Assets_8cpp.html#ac422118488eafaaafa66d295cfe6040d">_binary_models_res_start</a></div><div class="ttdeci">unsigned char _binary_models_res_start[]</div></div>
+<div class="ttc" id="Assets_8cpp_html_a05533f021fbd2e1bde138f744a86d725"><div class="ttname"><a href="Assets_8cpp.html#a05533f021fbd2e1bde138f744a86d725">OBJRes</a></div><div class="ttdeci">shared_ptr&lt; ResourceManager &gt; OBJRes</div><div class="ttdef"><b>Definition:</b> <a href="Assets_8cpp_source.html#l00012">Assets.cpp:12</a></div></div>
+<div class="ttc" id="Assets_8cpp_html_af5dc5efd39c6517a260fca82c573e76a"><div class="ttname"><a href="Assets_8cpp.html#af5dc5efd39c6517a260fca82c573e76a">_binary_shaders_res_end</a></div><div class="ttdeci">unsigned char _binary_shaders_res_end[]</div></div>
+<div class="ttc" id="Assets_8hpp_html"><div class="ttname"><a href="Assets_8hpp.html">Assets.hpp</a></div></div>
+<div class="ttc" id="classResourceManager_html_a832206535b73564824f1102b5ed5844f"><div class="ttname"><a href="classResourceManager.html#a832206535b73564824f1102b5ed5844f">ResourceManager::fromData</a></div><div class="ttdeci">static std::shared_ptr&lt; ResourceManager &gt; fromData(const std::vector&lt; unsigned char &gt; &amp;data)</div><div class="ttdoc">Instancie un gestionnaire à partir de données. </div><div class="ttdef"><b>Definition:</b> <a href="ResourceManager_8cpp_source.html#l00099">ResourceManager.cpp:99</a></div></div>
+<div class="ttc" id="Assets_8cpp_html_a6f2897cd80122c8330081509cb102113"><div class="ttname"><a href="Assets_8cpp.html#a6f2897cd80122c8330081509cb102113">_binary_models_res_end</a></div><div class="ttdeci">unsigned char _binary_models_res_end[]</div></div>
+<div class="ttc" id="Assets_8cpp_html_a1cb6c0a2fb89cb924a386fa68aa4966a"><div class="ttname"><a href="Assets_8cpp.html#a1cb6c0a2fb89cb924a386fa68aa4966a">_binary_textures_res_end</a></div><div class="ttdeci">unsigned char _binary_textures_res_end[]</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.8-->
+<!-- start footer part -->
+</body>
+</html>

@@ -1,0 +1,110 @@
+\hypertarget{classController}{\section{Référence de la classe Controller}
+\label{classController}\index{Controller@{Controller}}
+}
+
+
+{\ttfamily \#include $<$Controller.\+hpp$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+virtual glm\+::vec2 \hyperlink{classController_a7436ccdad4f8dae40d61bf47b262191b}{get\+Main\+Stick\+Position} ()=0
+\item 
+virtual glm\+::vec2 \hyperlink{classController_ad48cb8e46282bdb3f7cd1178944eb45c}{get\+Secondary\+Stick\+Position} ()=0
+\item 
+virtual glm\+::vec2 \hyperlink{classController_ad98f33e8f7dfe9015eb8883d3881e373}{get\+Triggers} ()=0
+\item 
+virtual std\+::vector$<$ bool $>$ \hyperlink{classController_af7483fe863ff38bd2e9617771c450931}{get\+Buttons} ()=0
+\item 
+virtual \hyperlink{classController_a867c1b386aa6e63d986a01ddaeccea5a}{$\sim$\+Controller} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+\hyperlink{classController}{Controller} définie les caractéristiques d'une manette 
+
+Définition à la ligne 18 du fichier Controller.\+hpp.
+
+
+
+Graphe d'héritage de Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{classController__inherit__graph}
+\end{center}
+\end{figure}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classController_a867c1b386aa6e63d986a01ddaeccea5a}{\index{Controller@{Controller}!````~Controller@{$\sim$\+Controller}}
+\index{````~Controller@{$\sim$\+Controller}!Controller@{Controller}}
+\subsubsection[{$\sim$\+Controller}]{\setlength{\rightskip}{0pt plus 5cm}virtual Controller\+::$\sim$\+Controller (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classController_a867c1b386aa6e63d986a01ddaeccea5a}
+
+
+Définition à la ligne 43 du fichier Controller.\+hpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classController_af7483fe863ff38bd2e9617771c450931}{\index{Controller@{Controller}!get\+Buttons@{get\+Buttons}}
+\index{get\+Buttons@{get\+Buttons}!Controller@{Controller}}
+\subsubsection[{get\+Buttons}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::vector$<$bool$>$ Controller\+::get\+Buttons (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classController_af7483fe863ff38bd2e9617771c450931}
+\begin{DoxyReturn}{Renvoie}
+Les boutons pressés 
+\end{DoxyReturn}
+
+
+Implémenté dans \hyperlink{classXBoxController_a7f2177c57462c0f488986affcd7e8811}{X\+Box\+Controller}, et \hyperlink{structDummyController_af19894dd92abd6a975f48759c524c232}{Dummy\+Controller}.
+
+\hypertarget{classController_a7436ccdad4f8dae40d61bf47b262191b}{\index{Controller@{Controller}!get\+Main\+Stick\+Position@{get\+Main\+Stick\+Position}}
+\index{get\+Main\+Stick\+Position@{get\+Main\+Stick\+Position}!Controller@{Controller}}
+\subsubsection[{get\+Main\+Stick\+Position}]{\setlength{\rightskip}{0pt plus 5cm}virtual glm\+::vec2 Controller\+::get\+Main\+Stick\+Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classController_a7436ccdad4f8dae40d61bf47b262191b}
+\begin{DoxyReturn}{Renvoie}
+La position du stick principal, les 2 axes dans l'interval \mbox{[}-\/1; 1\mbox{]} 
+\end{DoxyReturn}
+
+
+Implémenté dans \hyperlink{classXBoxController_adec21f77b6380856458c5e991c2d2805}{X\+Box\+Controller}, et \hyperlink{structDummyController_a0f91702b184d73e7c5e1e9a54cee1f48}{Dummy\+Controller}.
+
+\hypertarget{classController_ad48cb8e46282bdb3f7cd1178944eb45c}{\index{Controller@{Controller}!get\+Secondary\+Stick\+Position@{get\+Secondary\+Stick\+Position}}
+\index{get\+Secondary\+Stick\+Position@{get\+Secondary\+Stick\+Position}!Controller@{Controller}}
+\subsubsection[{get\+Secondary\+Stick\+Position}]{\setlength{\rightskip}{0pt plus 5cm}virtual glm\+::vec2 Controller\+::get\+Secondary\+Stick\+Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classController_ad48cb8e46282bdb3f7cd1178944eb45c}
+\begin{DoxyReturn}{Renvoie}
+La position du stick secondaire, les 2 axes dans l'interval \mbox{[}-\/1; 1\mbox{]} 
+\end{DoxyReturn}
+
+
+Implémenté dans \hyperlink{classXBoxController_a6fe09f7fe9cc8439a909cbf45cdcaafd}{X\+Box\+Controller}, et \hyperlink{structDummyController_a9475640a5f1678c556c718c1cc84b589}{Dummy\+Controller}.
+
+\hypertarget{classController_ad98f33e8f7dfe9015eb8883d3881e373}{\index{Controller@{Controller}!get\+Triggers@{get\+Triggers}}
+\index{get\+Triggers@{get\+Triggers}!Controller@{Controller}}
+\subsubsection[{get\+Triggers}]{\setlength{\rightskip}{0pt plus 5cm}virtual glm\+::vec2 Controller\+::get\+Triggers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classController_ad98f33e8f7dfe9015eb8883d3881e373}
+\begin{DoxyReturn}{Renvoie}
+La position des gâchettes, les 2 axes dans l'interval \mbox{[}-\/1; 1\mbox{]} 
+\end{DoxyReturn}
+
+
+Implémenté dans \hyperlink{classXBoxController_a3b3cf6e2302e80423f5ffe060cf502db}{X\+Box\+Controller}, et \hyperlink{structDummyController_af8f0e6203fbc4204195c72a5675c981e}{Dummy\+Controller}.
+

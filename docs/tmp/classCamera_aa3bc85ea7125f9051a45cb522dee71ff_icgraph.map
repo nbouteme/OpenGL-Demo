@@ -1,0 +1,7 @@
+<map id="Camera::getProjection" name="Camera::getProjection">
+<area shape="rect" id="node2" href="$classCubeMap.html#a9e042ac0b15cf9a28af3320b769f140f" title="dessine la skybox " alt="" coords="219,5,341,32"/>
+<area shape="rect" id="node3" href="$classEmerald.html#ae913346e203ed9a8115d890bd662ea41" title="Dessine une emeraude selon la camera. " alt="" coords="223,56,337,83"/>
+<area shape="rect" id="node4" href="$classMesh.html#aeb4e185f5d443690132b8e88bf5c669c" title="Dessine un objet sur la cible active. " alt="" coords="232,107,328,133"/>
+<area shape="rect" id="node5" href="$classPolyedre.html#a57ffd7e5fbba07e8b9c9737a4507a37b" title="Dessine un objet sur la cible active. " alt="" coords="221,157,339,184"/>
+<area shape="rect" id="node6" href="$classTorus.html#a4d7971c04def3d60c37b1018560dcfb2" title="Dessine un objet sur la cible active. " alt="" coords="232,208,328,235"/>
+</map>

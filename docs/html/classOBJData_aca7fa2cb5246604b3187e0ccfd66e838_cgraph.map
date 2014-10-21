@@ -1,0 +1,7 @@
+<map id="OBJData::OBJData" name="OBJData::OBJData">
+<area shape="rect" id="node2" href="$OBJData_8cpp.html#a3ab69307d6e8aa716723599b0db3eff8" title="parseFace" alt="" coords="201,5,288,32"/>
+<area shape="rect" id="node4" href="$OBJData_8cpp.html#a1b9c516f5f6314535bcdbfd9f11e33c0" title="parseNormal" alt="" coords="192,56,297,83"/>
+<area shape="rect" id="node5" href="$OBJData_8cpp.html#a93460ff894537ba6fab77813c7d40caa" title="parseVert" alt="" coords="357,81,441,108"/>
+<area shape="rect" id="node6" href="$OBJData_8cpp.html#ae74b41fa6bfa683329c2135348ba1186" title="parseTexUV" alt="" coords="195,157,294,184"/>
+<area shape="rect" id="node3" href="$OBJData_8cpp.html#a7c3896cb22fe5622228d92fc30e845eb" title="parseVGroup" alt="" coords="345,5,452,32"/>
+</map>

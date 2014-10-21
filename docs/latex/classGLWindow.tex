@@ -1,0 +1,180 @@
+\hypertarget{classGLWindow}{\section{Référence de la classe G\+L\+Window}
+\label{classGLWindow}\index{G\+L\+Window@{G\+L\+Window}}
+}
+
+
+{\ttfamily \#include $<$G\+L\+Window.\+hpp$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGLWindow_a728e0fb2a9890114d0371c889af9f95f}{G\+L\+Window} ()
+\item 
+virtual \hyperlink{classGLWindow_a99612c0043db5f944500bdbd723e902b}{$\sim$\+G\+L\+Window} () final
+\item 
+\hyperlink{classGLWindow_a77ed0cc5ddcfa47f55b59b123cab5190}{operator G\+L\+F\+Wwindow $\ast$} () const 
+\begin{DoxyCompactList}\small\item\em Permet la conversion implicite vers le type fenêtre de base. \end{DoxyCompactList}\item 
+virtual int \hyperlink{classGLWindow_a297b34b4bbf69b29516e279839262623}{run} (int=0, char $\ast$$\ast$=0) override
+\begin{DoxyCompactList}\small\item\em exécute la boucle de rendue \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \hyperlink{classController}{Controller} $>$ \hyperlink{classGLWindow_a73bff0543adb7c2d3f2be1bd86306579}{get\+Controller} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classGLWindow}{G\+L\+Window} $\ast$ \hyperlink{classGLWindow_a00dbb194ab7a1395bc6f8e4af9d0b34a}{get\+Main\+Window} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+La classe \hyperlink{classGLWindow}{G\+L\+Window} s'occupe de l'interface graphique et de la boucle de rendu principale 
+
+Définition à la ligne 21 du fichier G\+L\+Window.\+hpp.
+
+
+
+Graphe d'héritage de G\+L\+Window\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=159pt]{classGLWindow__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de G\+L\+Window\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=159pt]{classGLWindow__coll__graph}
+\end{center}
+\end{figure}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classGLWindow_a728e0fb2a9890114d0371c889af9f95f}{\index{G\+L\+Window@{G\+L\+Window}!G\+L\+Window@{G\+L\+Window}}
+\index{G\+L\+Window@{G\+L\+Window}!G\+L\+Window@{G\+L\+Window}}
+\subsubsection[{G\+L\+Window}]{\setlength{\rightskip}{0pt plus 5cm}G\+L\+Window\+::\+G\+L\+Window (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classGLWindow_a728e0fb2a9890114d0371c889af9f95f}
+
+
+Définition à la ligne 17 du fichier G\+L\+Window.\+cpp.
+
+\hypertarget{classGLWindow_a99612c0043db5f944500bdbd723e902b}{\index{G\+L\+Window@{G\+L\+Window}!````~G\+L\+Window@{$\sim$\+G\+L\+Window}}
+\index{````~G\+L\+Window@{$\sim$\+G\+L\+Window}!G\+L\+Window@{G\+L\+Window}}
+\subsubsection[{$\sim$\+G\+L\+Window}]{\setlength{\rightskip}{0pt plus 5cm}G\+L\+Window\+::$\sim$\+G\+L\+Window (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}}\label{classGLWindow_a99612c0043db5f944500bdbd723e902b}
+
+
+Définition à la ligne 102 du fichier G\+L\+Window.\+cpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classGLWindow_a73bff0543adb7c2d3f2be1bd86306579}{\index{G\+L\+Window@{G\+L\+Window}!get\+Controller@{get\+Controller}}
+\index{get\+Controller@{get\+Controller}!G\+L\+Window@{G\+L\+Window}}
+\subsubsection[{get\+Controller}]{\setlength{\rightskip}{0pt plus 5cm}std\+::shared\+\_\+ptr$<${\bf Controller}$>$ G\+L\+Window\+::get\+Controller (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classGLWindow_a73bff0543adb7c2d3f2be1bd86306579}
+\begin{DoxyReturn}{Renvoie}
+un pointeur sur l'instance existante de la manette 
+\end{DoxyReturn}
+
+
+Définition à la ligne 55 du fichier G\+L\+Window.\+hpp.
+
+\hypertarget{classGLWindow_a00dbb194ab7a1395bc6f8e4af9d0b34a}{\index{G\+L\+Window@{G\+L\+Window}!get\+Main\+Window@{get\+Main\+Window}}
+\index{get\+Main\+Window@{get\+Main\+Window}!G\+L\+Window@{G\+L\+Window}}
+\subsubsection[{get\+Main\+Window}]{\setlength{\rightskip}{0pt plus 5cm}{\bf G\+L\+Window} $\ast$ G\+L\+Window\+::get\+Main\+Window (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classGLWindow_a00dbb194ab7a1395bc6f8e4af9d0b34a}
+\begin{DoxyReturn}{Renvoie}
+un pointeur sur l'instance existante de la fenêtre 
+\end{DoxyReturn}
+
+
+Définition à la ligne 30 du fichier G\+L\+Window.\+cpp.
+
+
+
+Voici le graphe d'appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGLWindow_a00dbb194ab7a1395bc6f8e4af9d0b34a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classGLWindow_a77ed0cc5ddcfa47f55b59b123cab5190}{\index{G\+L\+Window@{G\+L\+Window}!operator G\+L\+F\+Wwindow $\ast$@{operator G\+L\+F\+Wwindow $\ast$}}
+\index{operator G\+L\+F\+Wwindow $\ast$@{operator G\+L\+F\+Wwindow $\ast$}!G\+L\+Window@{G\+L\+Window}}
+\subsubsection[{operator G\+L\+F\+Wwindow $\ast$}]{\setlength{\rightskip}{0pt plus 5cm}G\+L\+Window\+::operator G\+L\+F\+Wwindow $\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classGLWindow_a77ed0cc5ddcfa47f55b59b123cab5190}
+
+
+Permet la conversion implicite vers le type fenêtre de base. 
+
+\begin{DoxyReturn}{Renvoie}
+un pointeur sur la fenêtre de base 
+\end{DoxyReturn}
+
+
+Définition à la ligne 40 du fichier G\+L\+Window.\+hpp.
+
+\hypertarget{classGLWindow_a297b34b4bbf69b29516e279839262623}{\index{G\+L\+Window@{G\+L\+Window}!run@{run}}
+\index{run@{run}!G\+L\+Window@{G\+L\+Window}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}int G\+L\+Window\+::run (
+\begin{DoxyParamCaption}
+\item[{int}]{argc = {\ttfamily 0}, }
+\item[{char $\ast$$\ast$}]{argv = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}}\label{classGLWindow_a297b34b4bbf69b29516e279839262623}
+
+
+exécute la boucle de rendue 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em argc} & Le nombre d'arguments \\
+\hline
+{\em argv} & argc arguments \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+l'état de sortie 
+\end{DoxyReturn}
+
+
+Implémente \hyperlink{classBaseWindow_a2faf52e77b0c61225d81be8b25afd661}{Base\+Window}.
+
+
+
+Définition à la ligne 37 du fichier G\+L\+Window.\+cpp.
+
+
+
+Voici le graphe d'appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classGLWindow_a297b34b4bbf69b29516e279839262623_cgraph}
+\end{center}
+\end{figure}
+
+

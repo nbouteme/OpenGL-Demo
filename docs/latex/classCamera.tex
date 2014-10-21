@@ -1,0 +1,242 @@
+\hypertarget{classCamera}{\section{Référence de la classe Camera}
+\label{classCamera}\index{Camera@{Camera}}
+}
+
+
+{\ttfamily \#include $<$Camera.\+hpp$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classCamera_a01f94c3543f56ede7af49dc778f19331}{Camera} ()
+\begin{DoxyCompactList}\small\item\em Instancie une caméra, liée à une fenêtre. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classCamera_a42cda7239981a5618660d04bd5893556}{update} ()
+\begin{DoxyCompactList}\small\item\em Mets à jour la caméra. \end{DoxyCompactList}\item 
+glm\+::mat4 \hyperlink{classCamera_af16af4b8b0ff1e4381359ecd2075092d}{get\+View} () const 
+\begin{DoxyCompactList}\small\item\em Renvoie une copie de la matrice de vue. \end{DoxyCompactList}\item 
+glm\+::mat4 \hyperlink{classCamera_aa3bc85ea7125f9051a45cb522dee71ff}{get\+Projection} () const 
+\begin{DoxyCompactList}\small\item\em Renvoie une copie de la matrice de projection. \end{DoxyCompactList}\item 
+glm\+::vec3 \hyperlink{classCamera_ad741cb975e8ea88698ed1b0216a0bb82}{get\+Position} () const 
+\begin{DoxyCompactList}\small\item\em Renvoie la position de la caméra. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \hyperlink{classController}{Controller} $>$ \hyperlink{classCamera_a879e38247f44c717796f38a501d335e3}{m\+\_\+controller}
+\item 
+glm\+::vec3 \hyperlink{classCamera_a2674b50120e3bafbab54b53e4313d54d}{m\+\_\+position}
+\item 
+glm\+::vec3 \hyperlink{classCamera_a64d1bf3cfff83eeb294a6cf53a0d4255}{m\+\_\+direction}
+\item 
+\hyperlink{classGLWindow}{G\+L\+Window} $\ast$ \hyperlink{classCamera_a97abe5fea87690fbb00d920ecf5fcce8}{m\+\_\+gl\+Win}
+\item 
+glm\+::mat4 \hyperlink{classCamera_ad86d990f179df0cd5560bca660d5ffbf}{m\+\_\+view}
+\end{DoxyCompactItemize}
+\subsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classCamera_ae67f6cdba1f3601ad8cf82996105fe76}{on\+Hovering} (G\+L\+F\+Wwindow $\ast$, double, double)
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+caméra dans l'espace 
+
+Définition à la ligne 21 du fichier Camera.\+hpp.
+
+
+
+Graphe d'héritage de Camera\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=135pt]{classCamera__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Camera\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classCamera__coll__graph}
+\end{center}
+\end{figure}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classCamera_a01f94c3543f56ede7af49dc778f19331}{\index{Camera@{Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera@{Camera}}
+\subsubsection[{Camera}]{\setlength{\rightskip}{0pt plus 5cm}Camera\+::\+Camera (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classCamera_a01f94c3543f56ede7af49dc778f19331}
+
+
+Instancie une caméra, liée à une fenêtre. 
+
+
+
+Définition à la ligne 41 du fichier Camera.\+cpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classCamera_ad741cb975e8ea88698ed1b0216a0bb82}{\index{Camera@{Camera}!get\+Position@{get\+Position}}
+\index{get\+Position@{get\+Position}!Camera@{Camera}}
+\subsubsection[{get\+Position}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 Camera\+::get\+Position (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCamera_ad741cb975e8ea88698ed1b0216a0bb82}
+
+
+Renvoie la position de la caméra. 
+
+
+
+Définition à la ligne 64 du fichier Camera.\+hpp.
+
+
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{classCamera_ad741cb975e8ea88698ed1b0216a0bb82_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classCamera_aa3bc85ea7125f9051a45cb522dee71ff}{\index{Camera@{Camera}!get\+Projection@{get\+Projection}}
+\index{get\+Projection@{get\+Projection}!Camera@{Camera}}
+\subsubsection[{get\+Projection}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::mat4 Camera\+::get\+Projection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCamera_aa3bc85ea7125f9051a45cb522dee71ff}
+
+
+Renvoie une copie de la matrice de projection. 
+
+
+
+Définition à la ligne 60 du fichier Camera.\+hpp.
+
+
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{classCamera_aa3bc85ea7125f9051a45cb522dee71ff_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classCamera_af16af4b8b0ff1e4381359ecd2075092d}{\index{Camera@{Camera}!get\+View@{get\+View}}
+\index{get\+View@{get\+View}!Camera@{Camera}}
+\subsubsection[{get\+View}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::mat4 Camera\+::get\+View (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classCamera_af16af4b8b0ff1e4381359ecd2075092d}
+
+
+Renvoie une copie de la matrice de vue. 
+
+\begin{DoxyRefDesc}{Obsolète}
+\item[\hyperlink{deprecated__deprecated000001}{Obsolète}]Utilisez m\+\_\+view plutôt \end{DoxyRefDesc}
+
+
+Définition à la ligne 56 du fichier Camera.\+hpp.
+
+
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{classCamera_af16af4b8b0ff1e4381359ecd2075092d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classCamera_a42cda7239981a5618660d04bd5893556}{\index{Camera@{Camera}!update@{update}}
+\index{update@{update}!Camera@{Camera}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classCamera_a42cda7239981a5618660d04bd5893556}
+
+
+Mets à jour la caméra. 
+
+
+
+Implémente \hyperlink{structActor_a4363e3b26c7903de41423a2fb1fc5f6e}{Actor}.
+
+
+
+Définition à la ligne 55 du fichier Camera.\+cpp.
+
+
+
+\subsection{Documentation des fonctions amies et associées}
+\hypertarget{classCamera_ae67f6cdba1f3601ad8cf82996105fe76}{\index{Camera@{Camera}!on\+Hovering@{on\+Hovering}}
+\index{on\+Hovering@{on\+Hovering}!Camera@{Camera}}
+\subsubsection[{on\+Hovering}]{\setlength{\rightskip}{0pt plus 5cm}void on\+Hovering (
+\begin{DoxyParamCaption}
+\item[{G\+L\+F\+Wwindow $\ast$}]{win, }
+\item[{double}]{x, }
+\item[{double}]{y}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classCamera_ae67f6cdba1f3601ad8cf82996105fe76}
+
+
+Définition à la ligne 15 du fichier Camera.\+cpp.
+
+
+
+\subsection{Documentation des champs}
+\hypertarget{classCamera_a879e38247f44c717796f38a501d335e3}{\index{Camera@{Camera}!m\+\_\+controller@{m\+\_\+controller}}
+\index{m\+\_\+controller@{m\+\_\+controller}!Camera@{Camera}}
+\subsubsection[{m\+\_\+controller}]{\setlength{\rightskip}{0pt plus 5cm}Camera\+::m\+\_\+controller}}\label{classCamera_a879e38247f44c717796f38a501d335e3}
+{\ttfamily Pointe} sur l'instance existante de la manette 
+
+Définition à la ligne 51 du fichier Camera.\+hpp.
+
+\hypertarget{classCamera_a64d1bf3cfff83eeb294a6cf53a0d4255}{\index{Camera@{Camera}!m\+\_\+direction@{m\+\_\+direction}}
+\index{m\+\_\+direction@{m\+\_\+direction}!Camera@{Camera}}
+\subsubsection[{m\+\_\+direction}]{\setlength{\rightskip}{0pt plus 5cm}Camera\+::m\+\_\+direction}}\label{classCamera_a64d1bf3cfff83eeb294a6cf53a0d4255}
+{\ttfamily Direction} dans laquelle regarde la caméra 
+
+Définition à la ligne 73 du fichier Camera.\+hpp.
+
+\hypertarget{classCamera_a97abe5fea87690fbb00d920ecf5fcce8}{\index{Camera@{Camera}!m\+\_\+gl\+Win@{m\+\_\+gl\+Win}}
+\index{m\+\_\+gl\+Win@{m\+\_\+gl\+Win}!Camera@{Camera}}
+\subsubsection[{m\+\_\+gl\+Win}]{\setlength{\rightskip}{0pt plus 5cm}Camera\+::m\+\_\+gl\+Win}}\label{classCamera_a97abe5fea87690fbb00d920ecf5fcce8}
+{\ttfamily Pointeur} vers l'unique instance de la fenêtre 
+
+Définition à la ligne 78 du fichier Camera.\+hpp.
+
+\hypertarget{classCamera_a2674b50120e3bafbab54b53e4313d54d}{\index{Camera@{Camera}!m\+\_\+position@{m\+\_\+position}}
+\index{m\+\_\+position@{m\+\_\+position}!Camera@{Camera}}
+\subsubsection[{m\+\_\+position}]{\setlength{\rightskip}{0pt plus 5cm}Camera\+::m\+\_\+position}}\label{classCamera_a2674b50120e3bafbab54b53e4313d54d}
+{\ttfamily Position} de la caméra dans le monde 
+
+Définition à la ligne 73 du fichier Camera.\+hpp.
+
+\hypertarget{classCamera_ad86d990f179df0cd5560bca660d5ffbf}{\index{Camera@{Camera}!m\+\_\+view@{m\+\_\+view}}
+\index{m\+\_\+view@{m\+\_\+view}!Camera@{Camera}}
+\subsubsection[{m\+\_\+view}]{\setlength{\rightskip}{0pt plus 5cm}Camera\+::m\+\_\+view}}\label{classCamera_ad86d990f179df0cd5560bca660d5ffbf}
+{\ttfamily Matrice} de vue de la caméra 
+
+Définition à la ligne 83 du fichier Camera.\+hpp.
+

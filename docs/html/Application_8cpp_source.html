@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>OpenGL-Demo:  Fichier source de /home/mirai/fixthis/src/Application.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">OpenGL-Demo
+   </div>
+   <div id="projectbrief">Demo pour les math</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.8 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c61f3e4e023fa05902f496faf508e9a5.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Application.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Application_8cpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Application_8hpp.html">Application.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="GLWindow_8hpp.html">GLWindow.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Controller_8hpp.html">Controller.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;shared_ptr&lt;Application&gt; (*Application::_getSingleton)() = &amp;Application::createSingleton;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;shared_ptr&lt;Application&gt; Application::m_app = <a class="code" href="classApplication.html#afa5d5ce6c9369e1ea05ee6540fe07dc2">Application::getSingleton</a>();</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<a class="code" href="structLogger.html">Logger</a> <a class="code" href="classApplication.html#a1c7bdac46cde844f659892276949dca7">Application::Log</a> = <a class="code" href="structLogger.html">Logger</a>();</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="GLWindow_8cpp.html#afcdea1f72a36888dad1ada5f310b0c37">   14</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="Application_8cpp.html#afcdea1f72a36888dad1ada5f310b0c37">help</a>(<span class="keywordtype">char</span> *name, <span class="keywordtype">int</span> option = -1)</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">string</span> uOpt = <span class="stringliteral">&quot;Unexpected argument of parameter &#39;%c&#39;\n&quot;</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">string</span> helpStr = </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="stringliteral">&quot;Usage: %2$s [options [argument]]\n&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="stringliteral">&quot;\t-l {n}\tLog Level\n&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="stringliteral">&quot;\t-f\tFullscreen\n&quot;</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    dprintf(2, option == -1 ? helpStr.c_str() : uOpt.c_str(), option, name);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    exit(1);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;Application::Application()</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classApplication.html#a9d50af9dd5d791e9e7f9236cee871dce">   29</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classApplication.html#a9d50af9dd5d791e9e7f9236cee871dce">Application::run</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">int</span> opt;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">float</span> sensitivity = 1.0f;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    opterr = 0;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">while</span>((opt = getopt(argc, argv, <span class="stringliteral">&quot;l:s:&quot;</span>)) != -1)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">switch</span>(opt)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;l&#39;</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">if</span>(stoi(optarg) &gt; 5) <a class="code" href="Application_8cpp.html#afcdea1f72a36888dad1ada5f310b0c37">help</a>(argv[0], <span class="charliteral">&#39;l&#39;</span>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            Log = <a class="code" href="structLogger.html">Logger</a>(stoi(optarg));</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <a class="code" href="classApplication.html#a1c7bdac46cde844f659892276949dca7">Application::Log</a>(<span class="keywordtype">string</span>(<span class="stringliteral">&quot;Log level set to &quot;</span>) + optarg, <a class="code" href="structLogger.html#a737161d132f5296b6a6a387e702343aca56db48fa2adaf90cde424c8ecfb8e5e1">Logger::Debug</a>);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;s&#39;</span>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">if</span>(stoi(optarg) &gt; 100) <a class="code" href="Application_8cpp.html#afcdea1f72a36888dad1ada5f310b0c37">help</a>(argv[0], <span class="charliteral">&#39;s&#39;</span>);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            sensitivity = float(stoi(optarg)) / 100;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <a class="code" href="classApplication.html#a1c7bdac46cde844f659892276949dca7">Application::Log</a>(<span class="keywordtype">string</span>(<span class="stringliteral">&quot;Sensitivity level set to &quot;</span>) + optarg, <a class="code" href="structLogger.html#a737161d132f5296b6a6a387e702343aca56db48fa2adaf90cde424c8ecfb8e5e1">Logger::Debug</a>);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    m_glWindow   = make_shared&lt;GLWindow&gt;(); <span class="comment">// Instancie la fenetre.</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    m_controller = Controller::getController(sensitivity);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">return</span> m_glWindow-&gt;run(argc, argv); <span class="comment">// Renvois l&#39;état de retour</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;shared_ptr&lt;Application&gt; Application::createSingleton()</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    Application::_getSingleton = &amp;Application::returnSingleton;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    m_app = shared_ptr&lt;Application&gt;(<span class="keyword">new</span> <a class="code" href="classApplication.html">Application</a>());</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> m_app; <span class="comment">// renvoie une nouvelle instance du singleton</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;shared_ptr&lt;Application&gt; Application::returnSingleton()</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> m_app-&gt;shared_from_this(); <span class="comment">// Renvoit un pointeur sur l&#39;instance. // A revoir</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="ttc" id="Application_8cpp_html_afcdea1f72a36888dad1ada5f310b0c37"><div class="ttname"><a href="Application_8cpp.html#afcdea1f72a36888dad1ada5f310b0c37">help</a></div><div class="ttdeci">void help(char *name, int option=-1)</div><div class="ttdef"><b>Definition:</b> <a href="Application_8cpp_source.html#l00014">Application.cpp:14</a></div></div>
+<div class="ttc" id="Controller_8hpp_html"><div class="ttname"><a href="Controller_8hpp.html">Controller.hpp</a></div></div>
+<div class="ttc" id="structLogger_html_a737161d132f5296b6a6a387e702343aca56db48fa2adaf90cde424c8ecfb8e5e1"><div class="ttname"><a href="structLogger.html#a737161d132f5296b6a6a387e702343aca56db48fa2adaf90cde424c8ecfb8e5e1">Logger::Debug</a></div><div class="ttdef"><b>Definition:</b> <a href="Log_8hpp_source.html#l00030">Log.hpp:30</a></div></div>
+<div class="ttc" id="Application_8hpp_html"><div class="ttname"><a href="Application_8hpp.html">Application.hpp</a></div></div>
+<div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdoc">STL namespace. </div></div>
+<div class="ttc" id="GLWindow_8hpp_html"><div class="ttname"><a href="GLWindow_8hpp.html">GLWindow.hpp</a></div></div>
+<div class="ttc" id="classApplication_html_afa5d5ce6c9369e1ea05ee6540fe07dc2"><div class="ttname"><a href="classApplication.html#afa5d5ce6c9369e1ea05ee6540fe07dc2">Application::getSingleton</a></div><div class="ttdeci">static std::shared_ptr&lt; Application &gt; getSingleton()</div><div class="ttdef"><b>Definition:</b> <a href="Application_8hpp_source.html#l00055">Application.hpp:55</a></div></div>
+<div class="ttc" id="structLogger_html"><div class="ttname"><a href="structLogger.html">Logger</a></div><div class="ttdef"><b>Definition:</b> <a href="Log_8hpp_source.html#l00009">Log.hpp:9</a></div></div>
+<div class="ttc" id="classApplication_html_a1c7bdac46cde844f659892276949dca7"><div class="ttname"><a href="classApplication.html#a1c7bdac46cde844f659892276949dca7">Application::Log</a></div><div class="ttdeci">static Logger Log</div><div class="ttdef"><b>Definition:</b> <a href="Application_8hpp_source.html#l00076">Application.hpp:76</a></div></div>
+<div class="ttc" id="classApplication_html"><div class="ttname"><a href="classApplication.html">Application</a></div><div class="ttdef"><b>Definition:</b> <a href="Application_8hpp_source.html#l00019">Application.hpp:19</a></div></div>
+<div class="ttc" id="classApplication_html_a9d50af9dd5d791e9e7f9236cee871dce"><div class="ttname"><a href="classApplication.html#a9d50af9dd5d791e9e7f9236cee871dce">Application::run</a></div><div class="ttdeci">int run(int=0, char **=0)</div><div class="ttdef"><b>Definition:</b> <a href="Application_8cpp_source.html#l00029">Application.cpp:29</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.8-->
+<!-- start footer part -->
+</body>
+</html>

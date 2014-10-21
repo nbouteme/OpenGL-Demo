@@ -1,0 +1,131 @@
+\hypertarget{structLogger}{\section{Référence de la classe Logger}
+\label{structLogger}\index{Logger@{Logger}}
+}
+
+
+{\ttfamily \#include $<$Log.\+hpp$>$}
+
+\subsection*{Types publics}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \\*
+\hyperlink{structLogger_a737161d132f5296b6a6a387e702343aca56db48fa2adaf90cde424c8ecfb8e5e1}{Debug}, 
+\hyperlink{structLogger_a737161d132f5296b6a6a387e702343acaaf07afd601e9c0e4c30c394462f99159}{Normal}, 
+\hyperlink{structLogger_a737161d132f5296b6a6a387e702343aca9f3354efabc848dcb9ddf68279b7417b}{Info}, 
+\hyperlink{structLogger_a737161d132f5296b6a6a387e702343aca77a6bb9c2e4acdedd73247b641a61778}{Warning}, 
+\\*
+\hyperlink{structLogger_a737161d132f5296b6a6a387e702343acaf38b93fc7958d816f1e769f264632e68}{Error}, 
+\hyperlink{structLogger_a737161d132f5296b6a6a387e702343aca16f37b00dd31e0c3699a8079fc733930}{Critical}
+ \}
+\begin{DoxyCompactList}\small\item\em Cette énumeration contient les différents niveau d'urgence existant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structLogger_a3d7fbd0388f4fe493e0ba30a0ef87e7d}{Logger} (int Filter=0, int Fd=2)
+\item 
+void \hyperlink{structLogger_ac9e1e59987a134104efa32d419fb3a05}{operator()} (const std\+::string \&rhs=std\+::string(), int lvl=1) const 
+\end{DoxyCompactItemize}
+\subsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structLogger_ad2ee79af4600bdc5f362c999f86ae718}{filter}
+\item 
+int \hyperlink{structLogger_aed0c1f4ae52e15c00906b158131a5775}{fd}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Gère les informations à afficher, selon le niveau parametré 
+
+Définition à la ligne 9 du fichier Log.\+hpp.
+
+
+
+\subsection{Documentation des énumérations membres}
+\hypertarget{structLogger_a737161d132f5296b6a6a387e702343ac}{\subsubsection[{anonymous enum}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}}\label{structLogger_a737161d132f5296b6a6a387e702343ac}
+
+
+Cette énumeration contient les différents niveau d'urgence existant. 
+
+\begin{Desc}
+\item[Valeurs énumérées]\par
+\begin{description}
+\index{Debug@{Debug}!Logger@{Logger}}\index{Logger@{Logger}!Debug@{Debug}}\item[{\em 
+\hypertarget{structLogger_a737161d132f5296b6a6a387e702343aca56db48fa2adaf90cde424c8ecfb8e5e1}{Debug}\label{structLogger_a737161d132f5296b6a6a387e702343aca56db48fa2adaf90cde424c8ecfb8e5e1}
+}]\index{Normal@{Normal}!Logger@{Logger}}\index{Logger@{Logger}!Normal@{Normal}}\item[{\em 
+\hypertarget{structLogger_a737161d132f5296b6a6a387e702343acaaf07afd601e9c0e4c30c394462f99159}{Normal}\label{structLogger_a737161d132f5296b6a6a387e702343acaaf07afd601e9c0e4c30c394462f99159}
+}]\index{Info@{Info}!Logger@{Logger}}\index{Logger@{Logger}!Info@{Info}}\item[{\em 
+\hypertarget{structLogger_a737161d132f5296b6a6a387e702343aca9f3354efabc848dcb9ddf68279b7417b}{Info}\label{structLogger_a737161d132f5296b6a6a387e702343aca9f3354efabc848dcb9ddf68279b7417b}
+}]\index{Warning@{Warning}!Logger@{Logger}}\index{Logger@{Logger}!Warning@{Warning}}\item[{\em 
+\hypertarget{structLogger_a737161d132f5296b6a6a387e702343aca77a6bb9c2e4acdedd73247b641a61778}{Warning}\label{structLogger_a737161d132f5296b6a6a387e702343aca77a6bb9c2e4acdedd73247b641a61778}
+}]\index{Error@{Error}!Logger@{Logger}}\index{Logger@{Logger}!Error@{Error}}\item[{\em 
+\hypertarget{structLogger_a737161d132f5296b6a6a387e702343acaf38b93fc7958d816f1e769f264632e68}{Error}\label{structLogger_a737161d132f5296b6a6a387e702343acaf38b93fc7958d816f1e769f264632e68}
+}]\index{Critical@{Critical}!Logger@{Logger}}\index{Logger@{Logger}!Critical@{Critical}}\item[{\em 
+\hypertarget{structLogger_a737161d132f5296b6a6a387e702343aca16f37b00dd31e0c3699a8079fc733930}{Critical}\label{structLogger_a737161d132f5296b6a6a387e702343aca16f37b00dd31e0c3699a8079fc733930}
+}]\end{description}
+\end{Desc}
+
+
+Définition à la ligne 28 du fichier Log.\+hpp.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{structLogger_a3d7fbd0388f4fe493e0ba30a0ef87e7d}{\index{Logger@{Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!Logger@{Logger}}
+\subsubsection[{Logger}]{\setlength{\rightskip}{0pt plus 5cm}Logger\+::\+Logger (
+\begin{DoxyParamCaption}
+\item[{int}]{Filter = {\ttfamily 0}, }
+\item[{int}]{Fd = {\ttfamily 2}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{structLogger_a3d7fbd0388f4fe493e0ba30a0ef87e7d}
+
+\begin{DoxyParams}{Paramètres}
+{\em Filter} & Niveau de filtre \\
+\hline
+{\em Fd} & Descripteur du fichier dans lequel écrire les logs. \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 25 du fichier Log.\+hpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{structLogger_ac9e1e59987a134104efa32d419fb3a05}{\index{Logger@{Logger}!operator()@{operator()}}
+\index{operator()@{operator()}!Logger@{Logger}}
+\subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}void Logger\+::operator() (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{rhs = {\ttfamily std\+:\+:string()}, }
+\item[{int}]{lvl = {\ttfamily 1}}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{structLogger_ac9e1e59987a134104efa32d419fb3a05}
+
+\begin{DoxyParams}{Paramètres}
+{\em rhs} & Chaine à écrire \\
+\hline
+{\em lvl} & Niveau d'urgence \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 42 du fichier Log.\+hpp.
+
+
+
+\subsection{Documentation des champs}
+\hypertarget{structLogger_aed0c1f4ae52e15c00906b158131a5775}{\index{Logger@{Logger}!fd@{fd}}
+\index{fd@{fd}!Logger@{Logger}}
+\subsubsection[{fd}]{\setlength{\rightskip}{0pt plus 5cm}Logger\+::fd}}\label{structLogger_aed0c1f4ae52e15c00906b158131a5775}
+Descripteur du fichier dans lequel écrire les logs. 
+
+Définition à la ligne 20 du fichier Log.\+hpp.
+
+\hypertarget{structLogger_ad2ee79af4600bdc5f362c999f86ae718}{\index{Logger@{Logger}!filter@{filter}}
+\index{filter@{filter}!Logger@{Logger}}
+\subsubsection[{filter}]{\setlength{\rightskip}{0pt plus 5cm}Logger\+::filter}}\label{structLogger_ad2ee79af4600bdc5f362c999f86ae718}
+Niveau de sortie autorisé, les demandes de log avec un niveau inférieur à cette variable ne seront pas reportés 
+
+Définition à la ligne 20 du fichier Log.\+hpp.
+

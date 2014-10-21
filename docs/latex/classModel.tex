@@ -1,0 +1,388 @@
+\hypertarget{classModel}{\section{Référence de la classe Model}
+\label{classModel}\index{Model@{Model}}
+}
+
+
+{\ttfamily \#include $<$Model.\+hpp$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classModel_ad6ebd2062a0b823db841a0b88baac4c0}{$\sim$\+Model} ()
+\item 
+virtual void \hyperlink{classModel_a7df7bb611f0503bc01946fff87b68fba}{draw} (const \hyperlink{classCamera}{Camera} \&)=0
+\begin{DoxyCompactList}\small\item\em Dessine un objet sur la cible active. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classModel_a4355afeacef658e098706cba1dd37118}{update} ()=0
+\begin{DoxyCompactList}\small\item\em Met à jour un acteur. \end{DoxyCompactList}\item 
+void \hyperlink{classModel_a5714a558b8e85b9e86c91782d7ef5ba5}{set\+Scale} (const glm\+::vec3 \&)
+\begin{DoxyCompactList}\small\item\em Elargi le modèle. \end{DoxyCompactList}\item 
+void \hyperlink{classModel_a5ad6354ec2a10f6866485b04172a2be5}{set\+Position} (const glm\+::vec3 \&)
+\begin{DoxyCompactList}\small\item\em Déplace le modèle. \end{DoxyCompactList}\item 
+void \hyperlink{classModel_a41649d6e7b259cfdb362a57d14191b91}{set\+Rotation} (const glm\+::vec3 \&)
+\begin{DoxyCompactList}\small\item\em Tourne le modèle sur l'axe X. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classModel_a83f93ebbe04926f639fbedbf78a7c760}{Model} (const std\+::string \&)
+\begin{DoxyCompactList}\small\item\em Instancie un model d'apres le code source O\+B\+J. \end{DoxyCompactList}\item 
+\hyperlink{classModel_a15d7d92731e90feee6e2d68dca9cf8a1}{Model} (const float $\ast$, unsigned, const unsigned $\ast$=nullptr, unsigned=0)
+\begin{DoxyCompactList}\small\item\em Instancie un modèle d'après un tableau de sommet et un tableau d'éléments. \end{DoxyCompactList}\item 
+\hyperlink{classModel_a6401b781378ee497f3862139948b91d4}{Model} (const std\+::vector$<$ float $>$ \&)
+\begin{DoxyCompactList}\small\item\em Instancie un modèle d'après le tableau. \end{DoxyCompactList}\item 
+\hyperlink{classModel_a820453a93d6e36c9d79ef370650e0988}{Model} (const std\+::vector$<$ float $>$ \&, const std\+::vector$<$ unsigned $>$ \&)
+\begin{DoxyCompactList}\small\item\em Instancie un modèle d'après le tableau et les éléments. \end{DoxyCompactList}\item 
+void \hyperlink{classModel_a8b977a20040024b1f04c9badcc177391}{rebuild\+Model\+Mat} ()
+\begin{DoxyCompactList}\small\item\em Met à jour la matrice de transformation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \hyperlink{classController}{Controller} $>$ \hyperlink{classModel_aa952b1556f55b93129bef6e5de91b2b0}{m\+\_\+controller} = \hyperlink{classApplication_afa5d5ce6c9369e1ea05ee6540fe07dc2}{Application\+::get\+Singleton}()-\/$>$get\+Controller()
+\item 
+glm\+::vec3 \hyperlink{classModel_abc23ecdbd0ec986ed2ccd00fe20b817a}{m\+\_\+scale} = glm\+::vec3(1.\+0f)
+\item 
+glm\+::vec3 \hyperlink{classModel_a5cacbaf83f7abedb413670a877ca0342}{m\+\_\+rotation}
+\item 
+glm\+::vec3 \hyperlink{classModel_af1de9a151d77a2a7c9448fc796c2aee1}{m\+\_\+position}
+\item 
+unsigned \hyperlink{classModel_acba5e05b4023cae6c5650ae839fb009f}{m\+\_\+vao} = 0
+\item 
+unsigned \hyperlink{classModel_a76ec368b072bc97855bd860d9eaf879b}{m\+\_\+vbo} = 0
+\item 
+unsigned \hyperlink{classModel_a56668d2e99c519c8dbe00c3aab4f7d09}{m\+\_\+ebo} = -\/1
+\item 
+glm\+::mat4 \hyperlink{classModel_a415a19bd8f5afaf29a40ddc02496b15f}{m\+\_\+model\+Matrix}
+\item 
+int \hyperlink{classModel_a2e6cb8d2533906b5b67ff6e46979b6ba}{vert\+Num}
+\item 
+int \hyperlink{classModel_a6552e6870c67e02fba57b86a09859b91}{face\+Num}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+\begin{DoxyAuthor}{Auteur}
+N.\+Boutemeur n'est pas instanciable par elle mémé, elle doit être dérivée pour pouvoir l'utiliser 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 22 du fichier Model.\+hpp.
+
+
+
+Graphe d'héritage de Model\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classModel__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Model\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{classModel__coll__graph}
+\end{center}
+\end{figure}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classModel_ad6ebd2062a0b823db841a0b88baac4c0}{\index{Model@{Model}!````~Model@{$\sim$\+Model}}
+\index{````~Model@{$\sim$\+Model}!Model@{Model}}
+\subsubsection[{$\sim$\+Model}]{\setlength{\rightskip}{0pt plus 5cm}Model\+::$\sim$\+Model (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classModel_ad6ebd2062a0b823db841a0b88baac4c0}
+
+
+Définition à la ligne 83 du fichier Model.\+cpp.
+
+\hypertarget{classModel_a83f93ebbe04926f639fbedbf78a7c760}{\index{Model@{Model}!Model@{Model}}
+\index{Model@{Model}!Model@{Model}}
+\subsubsection[{Model}]{\setlength{\rightskip}{0pt plus 5cm}Model\+::\+Model (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{O\+B\+J\+Source}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classModel_a83f93ebbe04926f639fbedbf78a7c760}
+
+
+Instancie un model d'apres le code source O\+B\+J. 
+
+
+
+Définition à la ligne 13 du fichier Model.\+cpp.
+
+\hypertarget{classModel_a15d7d92731e90feee6e2d68dca9cf8a1}{\index{Model@{Model}!Model@{Model}}
+\index{Model@{Model}!Model@{Model}}
+\subsubsection[{Model}]{\setlength{\rightskip}{0pt plus 5cm}Model\+::\+Model (
+\begin{DoxyParamCaption}
+\item[{const float $\ast$}]{v\+Data, }
+\item[{unsigned}]{vsize, }
+\item[{const unsigned $\ast$}]{elements = {\ttfamily nullptr}, }
+\item[{unsigned}]{esize = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classModel_a15d7d92731e90feee6e2d68dca9cf8a1}
+
+
+Instancie un modèle d'après un tableau de sommet et un tableau d'éléments. 
+
+
+
+Définition à la ligne 50 du fichier Model.\+cpp.
+
+\hypertarget{classModel_a6401b781378ee497f3862139948b91d4}{\index{Model@{Model}!Model@{Model}}
+\index{Model@{Model}!Model@{Model}}
+\subsubsection[{Model}]{\setlength{\rightskip}{0pt plus 5cm}Model\+::\+Model (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ float $>$ \&}]{v\+Data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classModel_a6401b781378ee497f3862139948b91d4}
+
+
+Instancie un modèle d'après le tableau. 
+
+
+
+Définition à la ligne 76 du fichier Model.\+cpp.
+
+\hypertarget{classModel_a820453a93d6e36c9d79ef370650e0988}{\index{Model@{Model}!Model@{Model}}
+\index{Model@{Model}!Model@{Model}}
+\subsubsection[{Model}]{\setlength{\rightskip}{0pt plus 5cm}Model\+::\+Model (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ float $>$ \&}]{v\+Data, }
+\item[{const std\+::vector$<$ unsigned $>$ \&}]{elements}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classModel_a820453a93d6e36c9d79ef370650e0988}
+
+
+Instancie un modèle d'après le tableau et les éléments. 
+
+
+
+Définition à la ligne 79 du fichier Model.\+cpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classModel_a7df7bb611f0503bc01946fff87b68fba}{\index{Model@{Model}!draw@{draw}}
+\index{draw@{draw}!Model@{Model}}
+\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Model\+::draw (
+\begin{DoxyParamCaption}
+\item[{const {\bf Camera} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classModel_a7df7bb611f0503bc01946fff87b68fba}
+
+
+Dessine un objet sur la cible active. 
+
+
+
+Implémente \hyperlink{structDrawableComponent_ad1b6696a0f1ab135c9b2109450c75928}{Drawable\+Component}.
+
+
+
+Implémenté dans \hyperlink{classEmerald_ae913346e203ed9a8115d890bd662ea41}{Emerald}, \hyperlink{classCubeMap_a9e042ac0b15cf9a28af3320b769f140f}{Cube\+Map}, \hyperlink{classPolyedre_a57ffd7e5fbba07e8b9c9737a4507a37b}{Polyedre}, \hyperlink{classTorus_a4d7971c04def3d60c37b1018560dcfb2}{Torus}, et \hyperlink{classMesh_aeb4e185f5d443690132b8e88bf5c669c}{Mesh}.
+
+\hypertarget{classModel_a8b977a20040024b1f04c9badcc177391}{\index{Model@{Model}!rebuild\+Model\+Mat@{rebuild\+Model\+Mat}}
+\index{rebuild\+Model\+Mat@{rebuild\+Model\+Mat}!Model@{Model}}
+\subsubsection[{rebuild\+Model\+Mat}]{\setlength{\rightskip}{0pt plus 5cm}void Model\+::rebuild\+Model\+Mat (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classModel_a8b977a20040024b1f04c9badcc177391}
+
+
+Met à jour la matrice de transformation. 
+
+
+
+Définition à la ligne 92 du fichier Model.\+cpp.
+
+
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classModel_a8b977a20040024b1f04c9badcc177391_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classModel_a5ad6354ec2a10f6866485b04172a2be5}{\index{Model@{Model}!set\+Position@{set\+Position}}
+\index{set\+Position@{set\+Position}!Model@{Model}}
+\subsubsection[{set\+Position}]{\setlength{\rightskip}{0pt plus 5cm}void Model\+::set\+Position (
+\begin{DoxyParamCaption}
+\item[{const glm\+::vec3 \&}]{pos}
+\end{DoxyParamCaption}
+)}}\label{classModel_a5ad6354ec2a10f6866485b04172a2be5}
+
+
+Déplace le modèle. 
+
+
+
+Définition à la ligne 109 du fichier Model.\+cpp.
+
+
+
+Voici le graphe d'appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classModel_a5ad6354ec2a10f6866485b04172a2be5_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classModel_a41649d6e7b259cfdb362a57d14191b91}{\index{Model@{Model}!set\+Rotation@{set\+Rotation}}
+\index{set\+Rotation@{set\+Rotation}!Model@{Model}}
+\subsubsection[{set\+Rotation}]{\setlength{\rightskip}{0pt plus 5cm}void Model\+::set\+Rotation (
+\begin{DoxyParamCaption}
+\item[{const glm\+::vec3 \&}]{rot}
+\end{DoxyParamCaption}
+)}}\label{classModel_a41649d6e7b259cfdb362a57d14191b91}
+
+
+Tourne le modèle sur l'axe X. 
+
+
+
+Définition à la ligne 115 du fichier Model.\+cpp.
+
+
+
+Voici le graphe d'appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classModel_a41649d6e7b259cfdb362a57d14191b91_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classModel_a5714a558b8e85b9e86c91782d7ef5ba5}{\index{Model@{Model}!set\+Scale@{set\+Scale}}
+\index{set\+Scale@{set\+Scale}!Model@{Model}}
+\subsubsection[{set\+Scale}]{\setlength{\rightskip}{0pt plus 5cm}void Model\+::set\+Scale (
+\begin{DoxyParamCaption}
+\item[{const glm\+::vec3 \&}]{scale}
+\end{DoxyParamCaption}
+)}}\label{classModel_a5714a558b8e85b9e86c91782d7ef5ba5}
+
+
+Elargi le modèle. 
+
+
+
+Définition à la ligne 103 du fichier Model.\+cpp.
+
+
+
+Voici le graphe d'appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{classModel_a5714a558b8e85b9e86c91782d7ef5ba5_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classModel_a4355afeacef658e098706cba1dd37118}{\index{Model@{Model}!update@{update}}
+\index{update@{update}!Model@{Model}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Model\+::update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classModel_a4355afeacef658e098706cba1dd37118}
+
+
+Met à jour un acteur. 
+
+
+
+Implémente \hyperlink{structActor_a4363e3b26c7903de41423a2fb1fc5f6e}{Actor}.
+
+
+
+Implémenté dans \hyperlink{classEmerald_ad997fe3bf39eb0556aefab1a91836895}{Emerald}, \hyperlink{classCubeMap_af4766b5a5fafe3ce6e2cd8905b192d1c}{Cube\+Map}, \hyperlink{classPolyedre_a9ea5863ed9ee46c090e5dbafeda0ef73}{Polyedre}, \hyperlink{classTorus_ac63e15f0274b1beb5e8f7f968c2ac69f}{Torus}, et \hyperlink{classMesh_abb6110295efe8ae479659e46553c952a}{Mesh}.
+
+
+
+\subsection{Documentation des champs}
+\hypertarget{classModel_a6552e6870c67e02fba57b86a09859b91}{\index{Model@{Model}!face\+Num@{face\+Num}}
+\index{face\+Num@{face\+Num}!Model@{Model}}
+\subsubsection[{face\+Num}]{\setlength{\rightskip}{0pt plus 5cm}Model\+::face\+Num\hspace{0.3cm}{\ttfamily [protected]}}}\label{classModel_a6552e6870c67e02fba57b86a09859b91}
+{\ttfamily Nombre} de faces 
+
+Définition à la ligne 75 du fichier Model.\+hpp.
+
+\hypertarget{classModel_aa952b1556f55b93129bef6e5de91b2b0}{\index{Model@{Model}!m\+\_\+controller@{m\+\_\+controller}}
+\index{m\+\_\+controller@{m\+\_\+controller}!Model@{Model}}
+\subsubsection[{m\+\_\+controller}]{\setlength{\rightskip}{0pt plus 5cm}Model\+::m\+\_\+controller = {\bf Application\+::get\+Singleton}()-\/$>$get\+Controller()\hspace{0.3cm}{\ttfamily [protected]}}}\label{classModel_aa952b1556f55b93129bef6e5de91b2b0}
+Référence à l'instance existante de la manette 
+
+Définition à la ligne 47 du fichier Model.\+hpp.
+
+\hypertarget{classModel_a56668d2e99c519c8dbe00c3aab4f7d09}{\index{Model@{Model}!m\+\_\+ebo@{m\+\_\+ebo}}
+\index{m\+\_\+ebo@{m\+\_\+ebo}!Model@{Model}}
+\subsubsection[{m\+\_\+ebo}]{\setlength{\rightskip}{0pt plus 5cm}Model\+::m\+\_\+ebo = -\/1\hspace{0.3cm}{\ttfamily [protected]}}}\label{classModel_a56668d2e99c519c8dbe00c3aab4f7d09}
+{\ttfamily Identifiant} du Element Buffer Object 
+
+Définition à la ligne 61 du fichier Model.\+hpp.
+
+\hypertarget{classModel_a415a19bd8f5afaf29a40ddc02496b15f}{\index{Model@{Model}!m\+\_\+model\+Matrix@{m\+\_\+model\+Matrix}}
+\index{m\+\_\+model\+Matrix@{m\+\_\+model\+Matrix}!Model@{Model}}
+\subsubsection[{m\+\_\+model\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}Model\+::m\+\_\+model\+Matrix\hspace{0.3cm}{\ttfamily [protected]}}}\label{classModel_a415a19bd8f5afaf29a40ddc02496b15f}
+{\ttfamily Matrice} de model 
+
+Définition à la ligne 66 du fichier Model.\+hpp.
+
+\hypertarget{classModel_af1de9a151d77a2a7c9448fc796c2aee1}{\index{Model@{Model}!m\+\_\+position@{m\+\_\+position}}
+\index{m\+\_\+position@{m\+\_\+position}!Model@{Model}}
+\subsubsection[{m\+\_\+position}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 Model\+::m\+\_\+position\hspace{0.3cm}{\ttfamily [protected]}}}\label{classModel_af1de9a151d77a2a7c9448fc796c2aee1}
+
+
+Définition à la ligne 48 du fichier Model.\+hpp.
+
+\hypertarget{classModel_a5cacbaf83f7abedb413670a877ca0342}{\index{Model@{Model}!m\+\_\+rotation@{m\+\_\+rotation}}
+\index{m\+\_\+rotation@{m\+\_\+rotation}!Model@{Model}}
+\subsubsection[{m\+\_\+rotation}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 Model\+::m\+\_\+rotation\hspace{0.3cm}{\ttfamily [protected]}}}\label{classModel_a5cacbaf83f7abedb413670a877ca0342}
+
+
+Définition à la ligne 48 du fichier Model.\+hpp.
+
+\hypertarget{classModel_abc23ecdbd0ec986ed2ccd00fe20b817a}{\index{Model@{Model}!m\+\_\+scale@{m\+\_\+scale}}
+\index{m\+\_\+scale@{m\+\_\+scale}!Model@{Model}}
+\subsubsection[{m\+\_\+scale}]{\setlength{\rightskip}{0pt plus 5cm}glm\+::vec3 Model\+::m\+\_\+scale = glm\+::vec3(1.\+0f)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classModel_abc23ecdbd0ec986ed2ccd00fe20b817a}
+
+
+Définition à la ligne 48 du fichier Model.\+hpp.
+
+\hypertarget{classModel_acba5e05b4023cae6c5650ae839fb009f}{\index{Model@{Model}!m\+\_\+vao@{m\+\_\+vao}}
+\index{m\+\_\+vao@{m\+\_\+vao}!Model@{Model}}
+\subsubsection[{m\+\_\+vao}]{\setlength{\rightskip}{0pt plus 5cm}Model\+::m\+\_\+vao = 0\hspace{0.3cm}{\ttfamily [protected]}}}\label{classModel_acba5e05b4023cae6c5650ae839fb009f}
+{\ttfamily Identifiant} du \hyperlink{structVertex}{Vertex} Array Object 
+
+Définition à la ligne 61 du fichier Model.\+hpp.
+
+\hypertarget{classModel_a76ec368b072bc97855bd860d9eaf879b}{\index{Model@{Model}!m\+\_\+vbo@{m\+\_\+vbo}}
+\index{m\+\_\+vbo@{m\+\_\+vbo}!Model@{Model}}
+\subsubsection[{m\+\_\+vbo}]{\setlength{\rightskip}{0pt plus 5cm}Model\+::m\+\_\+vbo = 0\hspace{0.3cm}{\ttfamily [protected]}}}\label{classModel_a76ec368b072bc97855bd860d9eaf879b}
+{\ttfamily Identifiant} du \hyperlink{structVertex}{Vertex} Buffer Object 
+
+Définition à la ligne 61 du fichier Model.\+hpp.
+
+\hypertarget{classModel_a2e6cb8d2533906b5b67ff6e46979b6ba}{\index{Model@{Model}!vert\+Num@{vert\+Num}}
+\index{vert\+Num@{vert\+Num}!Model@{Model}}
+\subsubsection[{vert\+Num}]{\setlength{\rightskip}{0pt plus 5cm}Model\+::vert\+Num\hspace{0.3cm}{\ttfamily [protected]}}}\label{classModel_a2e6cb8d2533906b5b67ff6e46979b6ba}
+{\ttfamily Nombre} de sommets 
+
+Définition à la ligne 75 du fichier Model.\+hpp.
+

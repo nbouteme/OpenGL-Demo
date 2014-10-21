@@ -1,0 +1,9 @@
+<map id="Actor" name="Actor">
+<area shape="rect" id="node2" href="$classCamera.html" title="Camera" alt="" coords="111,80,185,107"/>
+<area shape="rect" id="node3" href="$classModel.html" title="Model" alt="" coords="209,80,269,107"/>
+<area shape="rect" id="node4" href="$classCubeMap.html" title="CubeMap" alt="" coords="5,155,88,181"/>
+<area shape="rect" id="node5" href="$classEmerald.html" title="Emerald" alt="" coords="112,155,187,181"/>
+<area shape="rect" id="node6" href="$classMesh.html" title="Mesh" alt="" coords="211,155,267,181"/>
+<area shape="rect" id="node7" href="$classPolyedre.html" title="Polyedre" alt="" coords="291,155,370,181"/>
+<area shape="rect" id="node8" href="$classTorus.html" title="Torus" alt="" coords="395,155,451,181"/>
+</map>

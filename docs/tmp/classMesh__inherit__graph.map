@@ -1,0 +1,5 @@
+<map id="Mesh" name="Mesh">
+<area shape="rect" id="node2" href="$classModel.html" title="Model" alt="" coords="120,80,180,107"/>
+<area shape="rect" id="node3" href="$structDrawableComponent.html" title="DrawableComponent" alt="" coords="5,5,164,32"/>
+<area shape="rect" id="node4" href="$structActor.html" title="Actor" alt="" coords="189,5,245,32"/>
+</map>

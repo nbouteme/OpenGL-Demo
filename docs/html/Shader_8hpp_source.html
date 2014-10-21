@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>OpenGL-Demo:  Fichier source de /home/mirai/fixthis/include/Shader.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">OpenGL-Demo
+   </div>
+   <div id="projectbrief">Demo pour les math</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.8 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_0988a47c395068d91b32a803d22f520d.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Shader.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Shader_8hpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Log_8hpp.html">Log.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classShader.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classShader.html">Shader</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">int</span> m_shaderId,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        m_vertexId,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        m_pixelId ,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        m_geometryId = -1;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> dumpShaderErrorLog(<span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classShader.html#afafdbb306a177ca17d3ef81c30baacd3">Shader</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *, <span class="keyword">const</span> <span class="keywordtype">char</span> *, <span class="keyword">const</span> <span class="keywordtype">char</span> * = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classShader.html#aff01df87e8a102f270b5b135a295e59d">~Shader</a>();</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classShader.html#a5aefd32ef08fd4da700b0bb2b75aeaf9">   55</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classShader.html#a5aefd32ef08fd4da700b0bb2b75aeaf9">getProgramid</a>() { <span class="keywordflow">return</span> m_shaderId; }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">static</span> std::shared_ptr&lt;Shader&gt; <a class="code" href="classShader.html#a4271c98d9ced209f007acde7a99496d1">BasicShader</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
+<div class="ttc" id="classShader_html_a4271c98d9ced209f007acde7a99496d1"><div class="ttname"><a href="classShader.html#a4271c98d9ced209f007acde7a99496d1">Shader::BasicShader</a></div><div class="ttdeci">static std::shared_ptr&lt; Shader &gt; BasicShader()</div><div class="ttdoc">Renvois un shader basique. </div><div class="ttdef"><b>Definition:</b> <a href="Shader_8cpp_source.html#l00107">Shader.cpp:107</a></div></div>
+<div class="ttc" id="classShader_html"><div class="ttname"><a href="classShader.html">Shader</a></div><div class="ttdef"><b>Definition:</b> <a href="Shader_8hpp_source.html#l00015">Shader.hpp:15</a></div></div>
+<div class="ttc" id="classShader_html_a5aefd32ef08fd4da700b0bb2b75aeaf9"><div class="ttname"><a href="classShader.html#a5aefd32ef08fd4da700b0bb2b75aeaf9">Shader::getProgramid</a></div><div class="ttdeci">int getProgramid()</div><div class="ttdoc">Renvois un identifiant du shader. </div><div class="ttdef"><b>Definition:</b> <a href="Shader_8hpp_source.html#l00055">Shader.hpp:55</a></div></div>
+<div class="ttc" id="classShader_html_aff01df87e8a102f270b5b135a295e59d"><div class="ttname"><a href="classShader.html#aff01df87e8a102f270b5b135a295e59d">Shader::~Shader</a></div><div class="ttdeci">~Shader()</div><div class="ttdef"><b>Definition:</b> <a href="Shader_8cpp_source.html#l00095">Shader.cpp:95</a></div></div>
+<div class="ttc" id="Log_8hpp_html"><div class="ttname"><a href="Log_8hpp.html">Log.hpp</a></div></div>
+<div class="ttc" id="classShader_html_afafdbb306a177ca17d3ef81c30baacd3"><div class="ttname"><a href="classShader.html#afafdbb306a177ca17d3ef81c30baacd3">Shader::Shader</a></div><div class="ttdeci">Shader(const char *, const char *, const char *=nullptr)</div><div class="ttdoc">Initialise un shader. </div><div class="ttdef"><b>Definition:</b> <a href="Shader_8cpp_source.html#l00017">Shader.cpp:17</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.8-->
+<!-- start footer part -->
+</body>
+</html>

@@ -1,0 +1,6 @@
+<map id="GLWindow::run" name="GLWindow::run">
+<area shape="rect" id="node2" href="$GLWindow_8cpp.html#afcdea1f72a36888dad1ada5f310b0c37" title="help" alt="" coords="236,5,285,32"/>
+<area shape="rect" id="node3" href="$classApplication.html#afa5d5ce6c9369e1ea05ee6540fe07dc2" title="Application::getSingleton" alt="" coords="171,56,351,83"/>
+<area shape="rect" id="node4" href="$classBetaRoom.html#a5ca4002697c35ee24a59d9d2ccab3e49" title="Rends la scène sur la cible active. " alt="" coords="191,107,330,133"/>
+<area shape="rect" id="node5" href="$classScene.html#a4ddf2d16f371ee9533b3faf1dd5ddfb1" title="Dessine la scène sur la cible active. " alt="" coords="399,107,509,133"/>
+</map>

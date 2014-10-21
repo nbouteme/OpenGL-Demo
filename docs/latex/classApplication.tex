@@ -1,0 +1,148 @@
+\hypertarget{classApplication}{\section{Référence de la classe Application}
+\label{classApplication}\index{Application@{Application}}
+}
+
+
+{\ttfamily \#include $<$Application.\+hpp$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \hyperlink{classBaseWindow}{Base\+Window} $>$ \hyperlink{classApplication_ad4798575ca24d11794fb69ec7f1f5f84}{get\+Window} ()
+\item 
+std\+::shared\+\_\+ptr$<$ \hyperlink{classController}{Controller} $>$ \hyperlink{classApplication_a43268edea6339ba39334f55a7a6331e2}{get\+Controller} ()
+\item 
+int \hyperlink{classApplication_a9d50af9dd5d791e9e7f9236cee871dce}{run} (int=0, char $\ast$$\ast$=0)
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr\\*
+$<$ \hyperlink{classApplication}{Application} $>$ \hyperlink{classApplication_afa5d5ce6c9369e1ea05ee6540fe07dc2}{get\+Singleton} ()
+\end{DoxyCompactItemize}
+\subsection*{Attributs publics statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{structLogger}{Logger} \hyperlink{classApplication_a1c7bdac46cde844f659892276949dca7}{Log} = \hyperlink{structLogger}{Logger}()
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Cette classe gère les accès aux ressources partagées 
+
+Définition à la ligne 19 du fichier Application.\+hpp.
+
+
+
+Graphe d'héritage de Application\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{classApplication__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Application\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{classApplication__coll__graph}
+\end{center}
+\end{figure}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classApplication_a43268edea6339ba39334f55a7a6331e2}{\index{Application@{Application}!get\+Controller@{get\+Controller}}
+\index{get\+Controller@{get\+Controller}!Application@{Application}}
+\subsubsection[{get\+Controller}]{\setlength{\rightskip}{0pt plus 5cm}std\+::shared\+\_\+ptr$<${\bf Controller}$>$ Application\+::get\+Controller (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classApplication_a43268edea6339ba39334f55a7a6331e2}
+\begin{DoxyReturn}{Renvoie}
+Un pointeur sur l'instance existante de la manette 
+\end{DoxyReturn}
+
+
+Définition à la ligne 67 du fichier Application.\+hpp.
+
+\hypertarget{classApplication_afa5d5ce6c9369e1ea05ee6540fe07dc2}{\index{Application@{Application}!get\+Singleton@{get\+Singleton}}
+\index{get\+Singleton@{get\+Singleton}!Application@{Application}}
+\subsubsection[{get\+Singleton}]{\setlength{\rightskip}{0pt plus 5cm}static std\+::shared\+\_\+ptr$<${\bf Application}$>$ Application\+::get\+Singleton (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{classApplication_afa5d5ce6c9369e1ea05ee6540fe07dc2}
+\begin{DoxyReturn}{Renvoie}
+L'instance existante du singleton 
+\end{DoxyReturn}
+
+
+Définition à la ligne 55 du fichier Application.\+hpp.
+
+
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classApplication_afa5d5ce6c9369e1ea05ee6540fe07dc2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classApplication_ad4798575ca24d11794fb69ec7f1f5f84}{\index{Application@{Application}!get\+Window@{get\+Window}}
+\index{get\+Window@{get\+Window}!Application@{Application}}
+\subsubsection[{get\+Window}]{\setlength{\rightskip}{0pt plus 5cm}std\+::shared\+\_\+ptr$<${\bf Base\+Window}$>$ Application\+::get\+Window (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classApplication_ad4798575ca24d11794fb69ec7f1f5f84}
+\begin{DoxyReturn}{Renvoie}
+Un pointeur sur l'instance existante de la fenêtre 
+\end{DoxyReturn}
+
+
+Définition à la ligne 59 du fichier Application.\+hpp.
+
+\hypertarget{classApplication_a9d50af9dd5d791e9e7f9236cee871dce}{\index{Application@{Application}!run@{run}}
+\index{run@{run}!Application@{Application}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}int Application\+::run (
+\begin{DoxyParamCaption}
+\item[{int}]{argc = {\ttfamily 0}, }
+\item[{char $\ast$$\ast$}]{argv = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{classApplication_a9d50af9dd5d791e9e7f9236cee871dce}
+\begin{DoxyReturn}{Renvoie}
+L'état de fin d'exécution de l'application. 
+\end{DoxyReturn}
+
+
+Définition à la ligne 29 du fichier Application.\+cpp.
+
+
+
+Voici le graphe d'appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{classApplication_a9d50af9dd5d791e9e7f9236cee871dce_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Documentation des champs}
+\hypertarget{classApplication_a1c7bdac46cde844f659892276949dca7}{\index{Application@{Application}!Log@{Log}}
+\index{Log@{Log}!Application@{Application}}
+\subsubsection[{Log}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Logger} Application\+::\+Log = {\bf Logger}()\hspace{0.3cm}{\ttfamily [static]}}}\label{classApplication_a1c7bdac46cde844f659892276949dca7}
+{\ttfamily Objet} utilisé pour logger 
+
+Définition à la ligne 76 du fichier Application.\+hpp.
+

@@ -1,0 +1,4 @@
+<map id="Scene::render" name="Scene::render">
+<area shape="rect" id="node2" href="$classBetaRoom.html#a5ca4002697c35ee24a59d9d2ccab3e49" title="Rends la scène sur la cible active. " alt="" coords="164,5,303,32"/>
+<area shape="rect" id="node3" href="$classGLWindow.html#a297b34b4bbf69b29516e279839262623" title="exécute la boucle de rendue " alt="" coords="351,5,468,32"/>
+</map>

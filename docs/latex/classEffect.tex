@@ -1,0 +1,120 @@
+\hypertarget{classEffect}{\section{Référence de la classe Effect}
+\label{classEffect}\index{Effect@{Effect}}
+}
+
+
+{\ttfamily \#include $<$Effect.\+hpp$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classEffect_a8e68a9e3425e66eb6bbbd3add290ca6c}{active} ()
+\item 
+void \hyperlink{classEffect_a22176fa1e839457301c980d6a5f26ce6}{present} ()
+\item 
+virtual \hyperlink{classEffect_ac26c0a394247e14c9081f875522b5b66}{$\sim$\+Effect} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \hyperlink{classEffect}{Effect} $>$ \hyperlink{classEffect_a391bd9d2caa4bfbf30958217168da879}{Basic\+Effect} ()
+\item 
+static std\+::shared\+\_\+ptr$<$ \hyperlink{classEffect}{Effect} $>$ \hyperlink{classEffect_a940b42600d3b066e307fbdd6536a6e1b}{Reverse\+Color} ()
+\item 
+static std\+::shared\+\_\+ptr$<$ \hyperlink{classEffect}{Effect} $>$ \hyperlink{classEffect_a053c70ee3344e4685bdc9742088b0e44}{Blur} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classEffect_a14a84b6d0c7174387b56cba0fab82730}{Effect} (const char $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+La classe \hyperlink{classEffect}{Effect} définie des effets de post-\/processing, vous devez la deriver si vous vouler utiliser d'autre information dans le post processing comme le tampon de profondeur. 
+
+Définition à la ligne 19 du fichier Effect.\+hpp.
+
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classEffect_a14a84b6d0c7174387b56cba0fab82730}{\index{Effect@{Effect}!Effect@{Effect}}
+\index{Effect@{Effect}!Effect@{Effect}}
+\subsubsection[{Effect}]{\setlength{\rightskip}{0pt plus 5cm}Effect\+::\+Effect (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{fs}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classEffect_a14a84b6d0c7174387b56cba0fab82730}
+Construit un effet à partir d'un shader 
+
+Définition à la ligne 36 du fichier Effect.\+cpp.
+
+\hypertarget{classEffect_ac26c0a394247e14c9081f875522b5b66}{\index{Effect@{Effect}!````~Effect@{$\sim$\+Effect}}
+\index{````~Effect@{$\sim$\+Effect}!Effect@{Effect}}
+\subsubsection[{$\sim$\+Effect}]{\setlength{\rightskip}{0pt plus 5cm}Effect\+::$\sim$\+Effect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classEffect_ac26c0a394247e14c9081f875522b5b66}
+
+
+Définition à la ligne 117 du fichier Effect.\+cpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classEffect_a8e68a9e3425e66eb6bbbd3add290ca6c}{\index{Effect@{Effect}!active@{active}}
+\index{active@{active}!Effect@{Effect}}
+\subsubsection[{active}]{\setlength{\rightskip}{0pt plus 5cm}void Effect\+::active (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classEffect_a8e68a9e3425e66eb6bbbd3add290ca6c}
+Active l'effet, à appeler avant de dessiner 
+
+Définition à la ligne 97 du fichier Effect.\+cpp.
+
+\hypertarget{classEffect_a391bd9d2caa4bfbf30958217168da879}{\index{Effect@{Effect}!Basic\+Effect@{Basic\+Effect}}
+\index{Basic\+Effect@{Basic\+Effect}!Effect@{Effect}}
+\subsubsection[{Basic\+Effect}]{\setlength{\rightskip}{0pt plus 5cm}shared\+\_\+ptr$<$ {\bf Effect} $>$ Effect\+::\+Basic\+Effect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classEffect_a391bd9d2caa4bfbf30958217168da879}
+Construit un effet de base qui ne fait rien 
+
+Définition à la ligne 21 du fichier Effect.\+cpp.
+
+\hypertarget{classEffect_a053c70ee3344e4685bdc9742088b0e44}{\index{Effect@{Effect}!Blur@{Blur}}
+\index{Blur@{Blur}!Effect@{Effect}}
+\subsubsection[{Blur}]{\setlength{\rightskip}{0pt plus 5cm}shared\+\_\+ptr$<$ {\bf Effect} $>$ Effect\+::\+Blur (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classEffect_a053c70ee3344e4685bdc9742088b0e44}
+Construit un effet de base qui floute les bords de l'ecran 
+
+Définition à la ligne 31 du fichier Effect.\+cpp.
+
+\hypertarget{classEffect_a22176fa1e839457301c980d6a5f26ce6}{\index{Effect@{Effect}!present@{present}}
+\index{present@{present}!Effect@{Effect}}
+\subsubsection[{present}]{\setlength{\rightskip}{0pt plus 5cm}void Effect\+::present (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classEffect_a22176fa1e839457301c980d6a5f26ce6}
+Dessine le contenue dans le tampon actif Cela permet de 'chaîner' les effets 
+
+Définition à la ligne 105 du fichier Effect.\+cpp.
+
+\hypertarget{classEffect_a940b42600d3b066e307fbdd6536a6e1b}{\index{Effect@{Effect}!Reverse\+Color@{Reverse\+Color}}
+\index{Reverse\+Color@{Reverse\+Color}!Effect@{Effect}}
+\subsubsection[{Reverse\+Color}]{\setlength{\rightskip}{0pt plus 5cm}shared\+\_\+ptr$<$ {\bf Effect} $>$ Effect\+::\+Reverse\+Color (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classEffect_a940b42600d3b066e307fbdd6536a6e1b}
+Construit un effet de base qui inverse les pixels affichés 
+
+Définition à la ligne 26 du fichier Effect.\+cpp.
+

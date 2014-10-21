@@ -1,0 +1,228 @@
+\hypertarget{classScene}{\section{Référence de la classe Scene}
+\label{classScene}\index{Scene@{Scene}}
+}
+
+
+{\ttfamily \#include $<$Scene.\+hpp$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classScene_a4ddf2d16f371ee9533b3faf1dd5ddfb1}{render} ()
+\begin{DoxyCompactList}\small\item\em Dessine la scène sur la cible active. \end{DoxyCompactList}\item 
+std\+::set$<$ std\+::shared\+\_\+ptr\\*
+$<$ \hyperlink{classModel}{Model} $>$ $>$ \hyperlink{classScene_ad45e9836644de1d4c89a7a250654a409}{get\+Models} ()
+\item 
+virtual \hyperlink{classScene_aa0a5be58e2ee2d1fdafc5fb46b5e661e}{$\sim$\+Scene} ()
+\end{DoxyCompactItemize}
+\subsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classScene_ac4808547bb8fffe4c5a141b6f5fb663d}{add\+Model} (const std\+::shared\+\_\+ptr$<$ \hyperlink{classModel}{Model} $>$ \&model)
+\begin{DoxyCompactList}\small\item\em Ajoute un modèle pour le dessin. \end{DoxyCompactList}\item 
+void \hyperlink{classScene_a3b4074c80a9e1b88dbad8649c7254c2e}{add\+Effect} (const std\+::shared\+\_\+ptr$<$ \hyperlink{classEffect}{Effect} $>$ \&effect)
+\begin{DoxyCompactList}\small\item\em Ajoute un modèle pour le dessin. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{classScene_a3172e9ea37b589bb8641d3d42cfdd639}{add\+Model} (const T \&derived)
+\begin{DoxyCompactList}\small\item\em Ajoute un modèle derivé pour le dessin. \end{DoxyCompactList}\item 
+\hyperlink{classScene_ad10176d75a9cc0da56626f682d083507}{Scene} ()
+\begin{DoxyCompactList}\small\item\em Construit une scène à partir d'une caméra à utiliser pour le rendu. \end{DoxyCompactList}\item 
+void \hyperlink{classScene_ae0041c969f0aef8e0dd4dadfc4d3a82f}{set\+Environment} (std\+::shared\+\_\+ptr$<$ \hyperlink{classCubeMap}{Cube\+Map} $>$ env)
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \hyperlink{classCamera}{Camera} $>$ \hyperlink{classScene_ac8ac592b03402f99a2890df2603ae459}{m\+\_\+cam}
+\item 
+std\+::shared\+\_\+ptr$<$ \hyperlink{classCubeMap}{Cube\+Map} $>$ \hyperlink{classScene_a8424193126f3a58c21a5fe4281ed9231}{m\+\_\+cubemap}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Une scène est un ensemble d'objets destinés à être rendu, cette classe n'est pas instanciable par elle même, et doit être dérivée 
+
+Définition à la ligne 20 du fichier Scene.\+hpp.
+
+
+
+Graphe d'héritage de Scene\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{classScene__inherit__graph}
+\end{center}
+\end{figure}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{classScene_ad10176d75a9cc0da56626f682d083507}{\index{Scene@{Scene}!Scene@{Scene}}
+\index{Scene@{Scene}!Scene@{Scene}}
+\subsubsection[{Scene}]{\setlength{\rightskip}{0pt plus 5cm}Scene\+::\+Scene (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classScene_ad10176d75a9cc0da56626f682d083507}
+
+
+Construit une scène à partir d'une caméra à utiliser pour le rendu. 
+
+
+
+Définition à la ligne 10 du fichier Scene.\+cpp.
+
+\hypertarget{classScene_aa0a5be58e2ee2d1fdafc5fb46b5e661e}{\index{Scene@{Scene}!````~Scene@{$\sim$\+Scene}}
+\index{````~Scene@{$\sim$\+Scene}!Scene@{Scene}}
+\subsubsection[{$\sim$\+Scene}]{\setlength{\rightskip}{0pt plus 5cm}virtual Scene\+::$\sim$\+Scene (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classScene_aa0a5be58e2ee2d1fdafc5fb46b5e661e}
+
+
+Définition à la ligne 76 du fichier Scene.\+hpp.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classScene_a3b4074c80a9e1b88dbad8649c7254c2e}{\index{Scene@{Scene}!add\+Effect@{add\+Effect}}
+\index{add\+Effect@{add\+Effect}!Scene@{Scene}}
+\subsubsection[{add\+Effect}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\+::add\+Effect (
+\begin{DoxyParamCaption}
+\item[{const std\+::shared\+\_\+ptr$<$ {\bf Effect} $>$ \&}]{effect}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}}\label{classScene_a3b4074c80a9e1b88dbad8649c7254c2e}
+
+
+Ajoute un modèle pour le dessin. 
+
+
+
+Définition à la ligne 46 du fichier Scene.\+hpp.
+
+\hypertarget{classScene_ac4808547bb8fffe4c5a141b6f5fb663d}{\index{Scene@{Scene}!add\+Model@{add\+Model}}
+\index{add\+Model@{add\+Model}!Scene@{Scene}}
+\subsubsection[{add\+Model}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\+::add\+Model (
+\begin{DoxyParamCaption}
+\item[{const std\+::shared\+\_\+ptr$<$ {\bf Model} $>$ \&}]{model}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}}\label{classScene_ac4808547bb8fffe4c5a141b6f5fb663d}
+
+
+Ajoute un modèle pour le dessin. 
+
+
+
+Définition à la ligne 41 du fichier Scene.\+hpp.
+
+
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{classScene_ac4808547bb8fffe4c5a141b6f5fb663d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classScene_a3172e9ea37b589bb8641d3d42cfdd639}{\index{Scene@{Scene}!add\+Model@{add\+Model}}
+\index{add\+Model@{add\+Model}!Scene@{Scene}}
+\subsubsection[{add\+Model}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void Scene\+::add\+Model (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{derived}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}}\label{classScene_a3172e9ea37b589bb8641d3d42cfdd639}
+
+
+Ajoute un modèle derivé pour le dessin. 
+
+
+
+Définition à la ligne 52 du fichier Scene.\+hpp.
+
+
+
+Voici le graphe d'appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{classScene_a3172e9ea37b589bb8641d3d42cfdd639_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classScene_ad45e9836644de1d4c89a7a250654a409}{\index{Scene@{Scene}!get\+Models@{get\+Models}}
+\index{get\+Models@{get\+Models}!Scene@{Scene}}
+\subsubsection[{get\+Models}]{\setlength{\rightskip}{0pt plus 5cm}std\+::set$<$std\+::shared\+\_\+ptr$<${\bf Model}$>$ $>$ Scene\+::get\+Models (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classScene_ad45e9836644de1d4c89a7a250654a409}
+\begin{DoxyReturn}{Renvoie}
+Les modèles de la scène 
+\end{DoxyReturn}
+
+
+Définition à la ligne 75 du fichier Scene.\+hpp.
+
+\hypertarget{classScene_a4ddf2d16f371ee9533b3faf1dd5ddfb1}{\index{Scene@{Scene}!render@{render}}
+\index{render@{render}!Scene@{Scene}}
+\subsubsection[{render}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\+::render (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classScene_a4ddf2d16f371ee9533b3faf1dd5ddfb1}
+
+
+Dessine la scène sur la cible active. 
+
+
+
+Réimplémentée dans \hyperlink{classBetaRoom_a5ca4002697c35ee24a59d9d2ccab3e49}{Beta\+Room}.
+
+
+
+Définition à la ligne 14 du fichier Scene.\+cpp.
+
+
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classScene_a4ddf2d16f371ee9533b3faf1dd5ddfb1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classScene_ae0041c969f0aef8e0dd4dadfc4d3a82f}{\index{Scene@{Scene}!set\+Environment@{set\+Environment}}
+\index{set\+Environment@{set\+Environment}!Scene@{Scene}}
+\subsubsection[{set\+Environment}]{\setlength{\rightskip}{0pt plus 5cm}void Scene\+::set\+Environment (
+\begin{DoxyParamCaption}
+\item[{std\+::shared\+\_\+ptr$<$ {\bf Cube\+Map} $>$}]{env}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}}\label{classScene_ae0041c969f0aef8e0dd4dadfc4d3a82f}
+
+
+Définition à la ligne 66 du fichier Scene.\+hpp.
+
+
+
+\subsection{Documentation des champs}
+\hypertarget{classScene_ac8ac592b03402f99a2890df2603ae459}{\index{Scene@{Scene}!m\+\_\+cam@{m\+\_\+cam}}
+\index{m\+\_\+cam@{m\+\_\+cam}!Scene@{Scene}}
+\subsubsection[{m\+\_\+cam}]{\setlength{\rightskip}{0pt plus 5cm}Scene\+::m\+\_\+cam\hspace{0.3cm}{\ttfamily [protected]}}}\label{classScene_ac8ac592b03402f99a2890df2603ae459}
+{\ttfamily Caméra} utilisée lors du rendu 
+
+Définition à la ligne 37 du fichier Scene.\+hpp.
+
+\hypertarget{classScene_a8424193126f3a58c21a5fe4281ed9231}{\index{Scene@{Scene}!m\+\_\+cubemap@{m\+\_\+cubemap}}
+\index{m\+\_\+cubemap@{m\+\_\+cubemap}!Scene@{Scene}}
+\subsubsection[{m\+\_\+cubemap}]{\setlength{\rightskip}{0pt plus 5cm}Scene\+::m\+\_\+cubemap\hspace{0.3cm}{\ttfamily [protected]}}}\label{classScene_a8424193126f3a58c21a5fe4281ed9231}
+{\ttfamily la} skybox de la scene 
+
+Définition à la ligne 65 du fichier Scene.\+hpp.
+

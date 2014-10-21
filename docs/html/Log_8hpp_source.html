@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>OpenGL-Demo:  Fichier source de /home/mirai/fixthis/include/Log.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">OpenGL-Demo
+   </div>
+   <div id="projectbrief">Demo pour les math</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.8 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_0988a47c395068d91b32a803d22f520d.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Log.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Log_8hpp.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="structLogger.html">    9</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structLogger.html">Logger</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structLogger.html#ad2ee79af4600bdc5f362c999f86ae718">   20</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structLogger.html#ad2ee79af4600bdc5f362c999f86ae718">filter</a>, <a class="code" href="structLogger.html#aed0c1f4ae52e15c00906b158131a5775">fd</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structLogger.html#a3d7fbd0388f4fe493e0ba30a0ef87e7d">   25</a></span>&#160;    <a class="code" href="structLogger.html#a3d7fbd0388f4fe493e0ba30a0ef87e7d">Logger</a>(<span class="keywordtype">int</span> Filter = 0, <span class="keywordtype">int</span> Fd = 2) : filter(Filter), fd(Fd) {}</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">enum</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structLogger.html#a737161d132f5296b6a6a387e702343aca56db48fa2adaf90cde424c8ecfb8e5e1">   30</a></span>&#160;        <a class="code" href="structLogger.html#a737161d132f5296b6a6a387e702343aca56db48fa2adaf90cde424c8ecfb8e5e1">Debug</a>,</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structLogger.html#a737161d132f5296b6a6a387e702343acaaf07afd601e9c0e4c30c394462f99159">   31</a></span>&#160;        <a class="code" href="structLogger.html#a737161d132f5296b6a6a387e702343acaaf07afd601e9c0e4c30c394462f99159">Normal</a>,</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structLogger.html#a737161d132f5296b6a6a387e702343aca9f3354efabc848dcb9ddf68279b7417b">   32</a></span>&#160;        <a class="code" href="structLogger.html#a737161d132f5296b6a6a387e702343aca9f3354efabc848dcb9ddf68279b7417b">Info</a>,</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structLogger.html#a737161d132f5296b6a6a387e702343aca77a6bb9c2e4acdedd73247b641a61778">   33</a></span>&#160;        <a class="code" href="structLogger.html#a737161d132f5296b6a6a387e702343aca77a6bb9c2e4acdedd73247b641a61778">Warning</a>,</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structLogger.html#a737161d132f5296b6a6a387e702343acaf38b93fc7958d816f1e769f264632e68">   34</a></span>&#160;        <a class="code" href="structLogger.html#a737161d132f5296b6a6a387e702343acaf38b93fc7958d816f1e769f264632e68">Error</a>,</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structLogger.html#a737161d132f5296b6a6a387e702343aca16f37b00dd31e0c3699a8079fc733930">   35</a></span>&#160;        <a class="code" href="structLogger.html#a737161d132f5296b6a6a387e702343aca16f37b00dd31e0c3699a8079fc733930">Critical</a>,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    };</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structLogger.html#ac9e1e59987a134104efa32d419fb3a05">   42</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="structLogger.html#ac9e1e59987a134104efa32d419fb3a05">operator()</a>(<span class="keyword">const</span> std::string&amp; rhs = std::string(), <span class="keywordtype">int</span> lvl = 1)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">if</span>(lvl &lt; filter) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">char</span>      buf[80];</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        time_t    now = time(0);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">struct </span>tm tstruct;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        tstruct = *localtime(&amp;now);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        strftime(buf, <span class="keyword">sizeof</span>(buf), <span class="stringliteral">&quot;%X&quot;</span>, &amp;tstruct);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        std::string cols[] = { <span class="stringliteral">&quot;4&quot;</span>, <span class="stringliteral">&quot;0&quot;</span>, <span class="stringliteral">&quot;34&quot;</span>, <span class="stringliteral">&quot;33&quot;</span>, <span class="stringliteral">&quot;35&quot;</span>, <span class="stringliteral">&quot;7&quot;</span>};</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        dprintf(1, <span class="stringliteral">&quot;\033[1;%sm[%s]: %s\033[1;0m\n&quot;</span>, </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                cols[lvl].c_str(), </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                buf, </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                rhs.c_str());</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
+<div class="ttc" id="structLogger_html_a737161d132f5296b6a6a387e702343aca56db48fa2adaf90cde424c8ecfb8e5e1"><div class="ttname"><a href="structLogger.html#a737161d132f5296b6a6a387e702343aca56db48fa2adaf90cde424c8ecfb8e5e1">Logger::Debug</a></div><div class="ttdef"><b>Definition:</b> <a href="Log_8hpp_source.html#l00030">Log.hpp:30</a></div></div>
+<div class="ttc" id="structLogger_html_aed0c1f4ae52e15c00906b158131a5775"><div class="ttname"><a href="structLogger.html#aed0c1f4ae52e15c00906b158131a5775">Logger::fd</a></div><div class="ttdeci">int fd</div><div class="ttdef"><b>Definition:</b> <a href="Log_8hpp_source.html#l00020">Log.hpp:20</a></div></div>
+<div class="ttc" id="structLogger_html_a737161d132f5296b6a6a387e702343acaaf07afd601e9c0e4c30c394462f99159"><div class="ttname"><a href="structLogger.html#a737161d132f5296b6a6a387e702343acaaf07afd601e9c0e4c30c394462f99159">Logger::Normal</a></div><div class="ttdef"><b>Definition:</b> <a href="Log_8hpp_source.html#l00031">Log.hpp:31</a></div></div>
+<div class="ttc" id="structLogger_html"><div class="ttname"><a href="structLogger.html">Logger</a></div><div class="ttdef"><b>Definition:</b> <a href="Log_8hpp_source.html#l00009">Log.hpp:9</a></div></div>
+<div class="ttc" id="structLogger_html_a737161d132f5296b6a6a387e702343acaf38b93fc7958d816f1e769f264632e68"><div class="ttname"><a href="structLogger.html#a737161d132f5296b6a6a387e702343acaf38b93fc7958d816f1e769f264632e68">Logger::Error</a></div><div class="ttdef"><b>Definition:</b> <a href="Log_8hpp_source.html#l00034">Log.hpp:34</a></div></div>
+<div class="ttc" id="structLogger_html_a3d7fbd0388f4fe493e0ba30a0ef87e7d"><div class="ttname"><a href="structLogger.html#a3d7fbd0388f4fe493e0ba30a0ef87e7d">Logger::Logger</a></div><div class="ttdeci">Logger(int Filter=0, int Fd=2)</div><div class="ttdef"><b>Definition:</b> <a href="Log_8hpp_source.html#l00025">Log.hpp:25</a></div></div>
+<div class="ttc" id="structLogger_html_ad2ee79af4600bdc5f362c999f86ae718"><div class="ttname"><a href="structLogger.html#ad2ee79af4600bdc5f362c999f86ae718">Logger::filter</a></div><div class="ttdeci">int filter</div><div class="ttdef"><b>Definition:</b> <a href="Log_8hpp_source.html#l00020">Log.hpp:20</a></div></div>
+<div class="ttc" id="structLogger_html_a737161d132f5296b6a6a387e702343aca16f37b00dd31e0c3699a8079fc733930"><div class="ttname"><a href="structLogger.html#a737161d132f5296b6a6a387e702343aca16f37b00dd31e0c3699a8079fc733930">Logger::Critical</a></div><div class="ttdef"><b>Definition:</b> <a href="Log_8hpp_source.html#l00035">Log.hpp:35</a></div></div>
+<div class="ttc" id="structLogger_html_ac9e1e59987a134104efa32d419fb3a05"><div class="ttname"><a href="structLogger.html#ac9e1e59987a134104efa32d419fb3a05">Logger::operator()</a></div><div class="ttdeci">void operator()(const std::string &amp;rhs=std::string(), int lvl=1) const </div><div class="ttdef"><b>Definition:</b> <a href="Log_8hpp_source.html#l00042">Log.hpp:42</a></div></div>
+<div class="ttc" id="structLogger_html_a737161d132f5296b6a6a387e702343aca9f3354efabc848dcb9ddf68279b7417b"><div class="ttname"><a href="structLogger.html#a737161d132f5296b6a6a387e702343aca9f3354efabc848dcb9ddf68279b7417b">Logger::Info</a></div><div class="ttdef"><b>Definition:</b> <a href="Log_8hpp_source.html#l00032">Log.hpp:32</a></div></div>
+<div class="ttc" id="structLogger_html_a737161d132f5296b6a6a387e702343aca77a6bb9c2e4acdedd73247b641a61778"><div class="ttname"><a href="structLogger.html#a737161d132f5296b6a6a387e702343aca77a6bb9c2e4acdedd73247b641a61778">Logger::Warning</a></div><div class="ttdef"><b>Definition:</b> <a href="Log_8hpp_source.html#l00033">Log.hpp:33</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- HTML footer for doxygen 1.8.8-->
+<!-- start footer part -->
+</body>
+</html>

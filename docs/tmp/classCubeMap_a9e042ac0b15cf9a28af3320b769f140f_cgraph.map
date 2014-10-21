@@ -1,0 +1,4 @@
+<map id="CubeMap::draw" name="CubeMap::draw">
+<area shape="rect" id="node2" href="$classCamera.html#af16af4b8b0ff1e4381359ecd2075092d" title="Renvoie une copie de la matrice de vue. " alt="" coords="192,5,325,32"/>
+<area shape="rect" id="node3" href="$classCamera.html#aa3bc85ea7125f9051a45cb522dee71ff" title="Renvoie une copie de la matrice de projection. " alt="" coords="176,56,341,83"/>
+</map>

@@ -1,0 +1,28 @@
+\BOOKMARK [0][-]{section*.4}{Conception du programme}{}% 1
+\BOOKMARK [1][-]{section*.5}{Squelette du programme}{section*.4}% 2
+\BOOKMARK [2][-]{section*.6}{Singleton \204 Classe Application}{section*.5}% 3
+\BOOKMARK [2][-]{section*.7}{Fen\352tre \204 Classe GLWindow}{section*.5}% 4
+\BOOKMARK [2][-]{section*.8}{Sc\350ne \204 Classe Scene}{section*.5}% 5
+\BOOKMARK [2][-]{section*.9}{Mod\350les \204 Classe Model}{section*.5}% 6
+\BOOKMARK [2][-]{section*.10}{Fichiers OBJ \204 Classe OBJData}{section*.5}% 7
+\BOOKMARK [2][-]{section*.11}{Cam\351ra \204 Classe Camera}{section*.5}% 8
+\BOOKMARK [2][-]{section*.12}{Shader \204 Classe Shader}{section*.5}% 9
+\BOOKMARK [3][-]{section*.13}{Exemple de vertex shader basique}{section*.12}% 10
+\BOOKMARK [3][-]{section*.14}{Exemple de fragment shader basique}{section*.12}% 11
+\BOOKMARK [2][-]{section*.15}{Effet \204 Classe Effect}{section*.5}% 12
+\BOOKMARK [2][-]{section*.16}{Gestion des ressources}{section*.5}% 13
+\BOOKMARK [1][-]{section*.17}{Format fichier RES}{section*.4}% 14
+\BOOKMARK [1][-]{section*.18}{Gestionnaire de Ressources \204 Classe ResourceManager}{section*.4}% 15
+\BOOKMARK [1][-]{section*.19}{G\351n\351rateur de Ressources \204 Programme resgen}{section*.4}% 16
+\BOOKMARK [1][-]{section*.20}{Utilisation de la ``nouvelle'' API d'OpenGL}{section*.4}% 17
+\BOOKMARK [2][-]{section*.21}{Mod\350les}{section*.20}% 18
+\BOOKMARK [3][-]{section*.22}{Vertex Array Objects}{section*.21}% 19
+\BOOKMARK [3][-]{section*.23}{Vertex Buffer Object}{section*.21}% 20
+\BOOKMARK [3][-]{section*.24}{Element Buffer Object}{section*.21}% 21
+\BOOKMARK [2][-]{section*.25}{Shaders}{section*.20}% 22
+\BOOKMARK [3][-]{section*.26}{Transformations}{section*.25}% 23
+\BOOKMARK [3][-]{section*.27}{\311clairage}{section*.25}% 24
+\BOOKMARK [3][-]{section*.29}{Skybox}{section*.25}% 25
+\BOOKMARK [4][-]{section*.30}{R\351flexion}{section*.29}% 26
+\BOOKMARK [4][-]{section*.32}{R\351fraction}{section*.29}% 27
+\BOOKMARK [3][-]{section*.34}{Post-Processing}{section*.25}% 28

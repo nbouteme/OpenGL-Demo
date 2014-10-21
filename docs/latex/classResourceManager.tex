@@ -1,0 +1,324 @@
+\hypertarget{classResourceManager}{\section{Référence de la classe Resource\+Manager}
+\label{classResourceManager}\index{Resource\+Manager@{Resource\+Manager}}
+}
+
+
+{\ttfamily \#include $<$Resource\+Manager.\+hpp$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classResourceManager_aa812c98a716dfa62c2bc3f71b4e20e98}{add\+File} (const std\+::string \&)
+\begin{DoxyCompactList}\small\item\em Ajoute un fichier à l'archive. Si le fichier est une archive, alors son contenu est ajouté \end{DoxyCompactList}\item 
+void \hyperlink{classResourceManager_a10f59a5ddf5a7dbdd203240386630797}{add\+Data} (const std\+::string \&, const std\+::vector$<$ unsigned char $>$ \&)
+\begin{DoxyCompactList}\small\item\em Ajoute des données à l'archive. \end{DoxyCompactList}\item 
+void \hyperlink{classResourceManager_ac534a350e6fbba1ef293e86aaed47bc2}{save\+Resource} (const std\+::string \&File)
+\begin{DoxyCompactList}\small\item\em Sauvegarde l'archive dans un fichier. \end{DoxyCompactList}\item 
+void \hyperlink{classResourceManager_aa5879e275263e1dc3750cac2005e314e}{save\+Resource} (int)
+\begin{DoxyCompactList}\small\item\em Écrit l'archive dans un descripteur de fichier. \end{DoxyCompactList}\item 
+std\+::vector$<$ unsigned char $>$ \hyperlink{classResourceManager_aba892a2f43fd3cfe0a757b8477ea7ca3}{get\+Data} (const std\+::string \&Handle)
+\begin{DoxyCompactList}\small\item\em Récupère les données d'une ressource de l'archive. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classResourceManager_ae642fd96b5cf5e2a6ee19db107b9ae03}{get\+String} (const std\+::string \&Handle)
+\begin{DoxyCompactList}\small\item\em Récupère les données d'une ressource sous la forme d'une chaîne. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, \hyperlink{ResourceManager_8hpp_ac29d54814dbcb83b635aface304200ae}{Resource} $>$ \hyperlink{classResourceManager_aff0d8b5b68006034bd31d67e6aaea3fb}{get\+Ressources} ()
+\begin{DoxyCompactList}\small\item\em Renvois toute les ressources de l'archive. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr\\*
+$<$ \hyperlink{classResourceManager}{Resource\+Manager} $>$ \hyperlink{classResourceManager_a832206535b73564824f1102b5ed5844f}{from\+Data} (const std\+::vector$<$ unsigned char $>$ \&data)
+\begin{DoxyCompactList}\small\item\em Instancie un gestionnaire à partir de données. \end{DoxyCompactList}\item 
+static std\+::shared\+\_\+ptr\\*
+$<$ \hyperlink{classResourceManager}{Resource\+Manager} $>$ \hyperlink{classResourceManager_a90b982650eab524ba9b45942732147d9}{from\+File} (const std\+::string \&File)
+\begin{DoxyCompactList}\small\item\em Instancie un gestionnaire à partir d'un fichier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+
+
+Définition à la ligne 13 du fichier Resource\+Manager.\+hpp.
+
+
+
+Graphe d'héritage de Resource\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{classResourceManager__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Resource\+Manager\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{classResourceManager__coll__graph}
+\end{center}
+\end{figure}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classResourceManager_a10f59a5ddf5a7dbdd203240386630797}{\index{Resource\+Manager@{Resource\+Manager}!add\+Data@{add\+Data}}
+\index{add\+Data@{add\+Data}!Resource\+Manager@{Resource\+Manager}}
+\subsubsection[{add\+Data}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\+Manager\+::add\+Data (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{Handle, }
+\item[{const std\+::vector$<$ unsigned char $>$ \&}]{data}
+\end{DoxyParamCaption}
+)}}\label{classResourceManager_a10f59a5ddf5a7dbdd203240386630797}
+
+
+Ajoute des données à l'archive. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em Handle} & Le nom à donner à la ressource \\
+\hline
+{\em data} & Les données à ajouter \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 88 du fichier Resource\+Manager.\+cpp.
+
+
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classResourceManager_a10f59a5ddf5a7dbdd203240386630797_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classResourceManager_aa812c98a716dfa62c2bc3f71b4e20e98}{\index{Resource\+Manager@{Resource\+Manager}!add\+File@{add\+File}}
+\index{add\+File@{add\+File}!Resource\+Manager@{Resource\+Manager}}
+\subsubsection[{add\+File}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\+Manager\+::add\+File (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{File}
+\end{DoxyParamCaption}
+)}}\label{classResourceManager_aa812c98a716dfa62c2bc3f71b4e20e98}
+
+
+Ajoute un fichier à l'archive. Si le fichier est une archive, alors son contenu est ajouté 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em File} & fichier à ajouter \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 72 du fichier Resource\+Manager.\+cpp.
+
+
+
+Voici le graphe d'appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classResourceManager_aa812c98a716dfa62c2bc3f71b4e20e98_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classResourceManager_a832206535b73564824f1102b5ed5844f}{\index{Resource\+Manager@{Resource\+Manager}!from\+Data@{from\+Data}}
+\index{from\+Data@{from\+Data}!Resource\+Manager@{Resource\+Manager}}
+\subsubsection[{from\+Data}]{\setlength{\rightskip}{0pt plus 5cm}shared\+\_\+ptr$<$ {\bf Resource\+Manager} $>$ Resource\+Manager\+::from\+Data (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ unsigned char $>$ \&}]{data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classResourceManager_a832206535b73564824f1102b5ed5844f}
+
+
+Instancie un gestionnaire à partir de données. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em data} & Les données à lire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Un pointeur vers le gestionnaire de resources 
+\end{DoxyReturn}
+
+
+Définition à la ligne 99 du fichier Resource\+Manager.\+cpp.
+
+
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classResourceManager_a832206535b73564824f1102b5ed5844f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classResourceManager_a90b982650eab524ba9b45942732147d9}{\index{Resource\+Manager@{Resource\+Manager}!from\+File@{from\+File}}
+\index{from\+File@{from\+File}!Resource\+Manager@{Resource\+Manager}}
+\subsubsection[{from\+File}]{\setlength{\rightskip}{0pt plus 5cm}shared\+\_\+ptr$<$ {\bf Resource\+Manager} $>$ Resource\+Manager\+::from\+File (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{File}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classResourceManager_a90b982650eab524ba9b45942732147d9}
+
+
+Instancie un gestionnaire à partir d'un fichier. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em File} & Le fichier à lire \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Un pointeur vers le gestionnaire de resources 
+\end{DoxyReturn}
+
+
+Définition à la ligne 93 du fichier Resource\+Manager.\+cpp.
+
+
+
+Voici le graphe d'appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classResourceManager_a90b982650eab524ba9b45942732147d9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{classResourceManager_a90b982650eab524ba9b45942732147d9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classResourceManager_aba892a2f43fd3cfe0a757b8477ea7ca3}{\index{Resource\+Manager@{Resource\+Manager}!get\+Data@{get\+Data}}
+\index{get\+Data@{get\+Data}!Resource\+Manager@{Resource\+Manager}}
+\subsubsection[{get\+Data}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ unsigned char $>$ Resource\+Manager\+::get\+Data (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{Handle}
+\end{DoxyParamCaption}
+)}}\label{classResourceManager_aba892a2f43fd3cfe0a757b8477ea7ca3}
+
+
+Récupère les données d'une ressource de l'archive. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em Handle} & Le nom de la ressource à récupérer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Les données de la ressource 
+\end{DoxyReturn}
+
+
+Définition à la ligne 174 du fichier Resource\+Manager.\+cpp.
+
+\hypertarget{classResourceManager_aff0d8b5b68006034bd31d67e6aaea3fb}{\index{Resource\+Manager@{Resource\+Manager}!get\+Ressources@{get\+Ressources}}
+\index{get\+Ressources@{get\+Ressources}!Resource\+Manager@{Resource\+Manager}}
+\subsubsection[{get\+Ressources}]{\setlength{\rightskip}{0pt plus 5cm}std\+::map$<$std\+::string, {\bf Resource}$>$ Resource\+Manager\+::get\+Ressources (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classResourceManager_aff0d8b5b68006034bd31d67e6aaea3fb}
+
+
+Renvois toute les ressources de l'archive. 
+
+\begin{DoxyReturn}{Renvoie}
+Renvois toute les ressources de l'archive 
+\end{DoxyReturn}
+\hypertarget{classResourceManager_ae642fd96b5cf5e2a6ee19db107b9ae03}{\index{Resource\+Manager@{Resource\+Manager}!get\+String@{get\+String}}
+\index{get\+String@{get\+String}!Resource\+Manager@{Resource\+Manager}}
+\subsubsection[{get\+String}]{\setlength{\rightskip}{0pt plus 5cm}string Resource\+Manager\+::get\+String (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{Handle}
+\end{DoxyParamCaption}
+)}}\label{classResourceManager_ae642fd96b5cf5e2a6ee19db107b9ae03}
+
+
+Récupère les données d'une ressource sous la forme d'une chaîne. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em Handle} & Nom de la ressource \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Les données sous forme de chaîne 
+\end{DoxyReturn}
+
+
+Définition à la ligne 169 du fichier Resource\+Manager.\+cpp.
+
+\hypertarget{classResourceManager_ac534a350e6fbba1ef293e86aaed47bc2}{\index{Resource\+Manager@{Resource\+Manager}!save\+Resource@{save\+Resource}}
+\index{save\+Resource@{save\+Resource}!Resource\+Manager@{Resource\+Manager}}
+\subsubsection[{save\+Resource}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\+Manager\+::save\+Resource (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{File}
+\end{DoxyParamCaption}
+)}}\label{classResourceManager_ac534a350e6fbba1ef293e86aaed47bc2}
+
+
+Sauvegarde l'archive dans un fichier. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em File} & Nom du fichier dans lequel sauvegarder \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 104 du fichier Resource\+Manager.\+cpp.
+
+\hypertarget{classResourceManager_aa5879e275263e1dc3750cac2005e314e}{\index{Resource\+Manager@{Resource\+Manager}!save\+Resource@{save\+Resource}}
+\index{save\+Resource@{save\+Resource}!Resource\+Manager@{Resource\+Manager}}
+\subsubsection[{save\+Resource}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\+Manager\+::save\+Resource (
+\begin{DoxyParamCaption}
+\item[{int}]{fd}
+\end{DoxyParamCaption}
+)}}\label{classResourceManager_aa5879e275263e1dc3750cac2005e314e}
+
+
+Écrit l'archive dans un descripteur de fichier. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em fd} & Descripteur de fichier dans lequel écrire l'archive \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 113 du fichier Resource\+Manager.\+cpp.
+
+
+
+Voici le graphe d'appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{classResourceManager_aa5879e275263e1dc3750cac2005e314e_cgraph}
+\end{center}
+\end{figure}
+
+
